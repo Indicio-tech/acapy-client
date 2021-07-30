@@ -1,0 +1,105 @@
+from typing import Any, Dict, List, Type, TypeVar, Union
+
+import attr
+
+from ..models.attach_decorator import AttachDecorator
+from ..models.v20_pres_format import V20PresFormat
+from ..types import UNSET, Unset
+
+T = TypeVar("T", bound="V20Pres")
+
+
+@attr.s(auto_attribs=True)
+class V20Pres:
+    """ """
+
+    formats: List[V20PresFormat]
+    presentationsattach: List[AttachDecorator]
+    id: Union[Unset, str] = UNSET
+    type: Union[Unset, str] = UNSET
+    comment: Union[Unset, None, str] = UNSET
+    additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
+
+    def to_dict(self) -> Dict[str, Any]:
+        formats = []
+        for formats_item_data in self.formats:
+            formats_item = formats_item_data.to_dict()
+
+            formats.append(formats_item)
+
+        presentationsattach = []
+        for presentationsattach_item_data in self.presentationsattach:
+            presentationsattach_item = presentationsattach_item_data.to_dict()
+
+            presentationsattach.append(presentationsattach_item)
+
+        id = self.id
+        type = self.type
+        comment = self.comment
+
+        field_dict: Dict[str, Any] = {}
+        field_dict.update(self.additional_properties)
+        field_dict.update(
+            {
+                "formats": formats,
+                "presentations~attach": presentationsattach,
+            }
+        )
+        if id is not UNSET:
+            field_dict["@id"] = id
+        if type is not UNSET:
+            field_dict["@type"] = type
+        if comment is not UNSET:
+            field_dict["comment"] = comment
+
+        return field_dict
+
+    @classmethod
+    def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
+        d = src_dict.copy()
+        formats = []
+        _formats = d.pop("formats")
+        for formats_item_data in _formats:
+            formats_item = V20PresFormat.from_dict(formats_item_data)
+
+            formats.append(formats_item)
+
+        presentationsattach = []
+        _presentationsattach = d.pop("presentations~attach")
+        for presentationsattach_item_data in _presentationsattach:
+            presentationsattach_item = AttachDecorator.from_dict(presentationsattach_item_data)
+
+            presentationsattach.append(presentationsattach_item)
+
+        id = d.pop("@id", UNSET)
+
+        type = d.pop("@type", UNSET)
+
+        comment = d.pop("comment", UNSET)
+
+        v20_pres = cls(
+            formats=formats,
+            presentationsattach=presentationsattach,
+            id=id,
+            type=type,
+            comment=comment,
+        )
+
+        v20_pres.additional_properties = d
+        return v20_pres
+
+    @property
+    def additional_keys(self) -> List[str]:
+        return list(self.additional_properties.keys())
+
+    def __getitem__(self, key: str) -> Any:
+        return self.additional_properties[key]
+
+    def __setitem__(self, key: str, value: Any) -> None:
+        self.additional_properties[key] = value
+
+    def __delitem__(self, key: str) -> None:
+        del self.additional_properties[key]
+
+    def __contains__(self, key: str) -> bool:
+        return key in self.additional_properties
