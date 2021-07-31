@@ -4541,7 +4541,9 @@ components:
           - https://www.w3.org/2018/credentials/v1
           - https://www.w3.org/2018/credentials/examples/v1
           items:
-            type: object
+            anyOf:
+              - type: object
+              - type: string
         credentialSubject:
           type: object
           example: ''

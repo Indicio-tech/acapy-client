@@ -2,11 +2,11 @@ from typing import Any, Dict, List, Type, TypeVar
 
 import attr
 
-T = TypeVar("T", bound="CredentialContextItem")
+T = TypeVar("T", bound="CredentialContextItemType0")
 
 
 @attr.s(auto_attribs=True)
-class CredentialContextItem:
+class CredentialContextItemType0:
     """ """
 
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
@@ -22,10 +22,10 @@ class CredentialContextItem:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        credential_context_item = cls()
+        credential_context_item_type_0 = cls()
 
-        credential_context_item.additional_properties = d
-        return credential_context_item
+        credential_context_item_type_0.additional_properties = d
+        return credential_context_item_type_0
 
     @property
     def additional_keys(self) -> List[str]:

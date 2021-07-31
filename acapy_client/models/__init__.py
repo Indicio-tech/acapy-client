@@ -66,7 +66,7 @@ from .cred_info_list import CredInfoList
 from .cred_rev_record_result import CredRevRecordResult
 from .cred_revoked_result import CredRevokedResult
 from .credential import Credential
-from .credential_context_item import CredentialContextItem
+from .credential_context_item_type_0 import CredentialContextItemType0
 from .credential_credential_subject import CredentialCredentialSubject
 from .credential_definition import CredentialDefinition
 from .credential_definition_get_result import CredentialDefinitionGetResult
