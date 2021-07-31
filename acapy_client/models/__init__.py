@@ -74,7 +74,7 @@ from .credential_definition_send_request import CredentialDefinitionSendRequest
 from .credential_definition_send_result import CredentialDefinitionSendResult
 from .credential_definition_type import CredentialDefinitionType
 from .credential_definitions_created_result import CredentialDefinitionsCreatedResult
-from .credential_issuer import CredentialIssuer
+from .credential_issuer_type_0 import CredentialIssuerType0
 from .credential_offer import CredentialOffer
 from .credential_preview import CredentialPreview
 from .credential_proposal import CredentialProposal

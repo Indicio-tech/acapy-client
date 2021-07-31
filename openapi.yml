@@ -4562,7 +4562,9 @@ components:
           description: The issuance date
           example: 2010-01-01 19:23:24+00:00
         issuer:
-          type: object
+          oneOf:
+            - type: object
+            - type: string
           description: The JSON-LD Verifiable Credential Issuer. Either string of
             object with id field.
           example: did:key:z6MkpTHR8VNsBxYAAWHut2Geadd9jSwuBV8xRoAnwWsdvktH
