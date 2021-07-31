@@ -117,8 +117,6 @@ from .get_connections_state import GetConnectionsState
 from .get_connections_their_role import GetConnectionsTheirRole
 from .get_did_endpoint_response import GetDIDEndpointResponse
 from .get_did_verkey_response import GetDIDVerkeyResponse
-from .get_issue_credential_20_records_role import GetIssueCredential20RecordsRole
-from .get_issue_credential_20_records_state import GetIssueCredential20RecordsState
 from .get_issue_credential_records_role import GetIssueCredentialRecordsRole
 from .get_issue_credential_records_state import GetIssueCredentialRecordsState
 from .get_ledger_did_endpoint_endpoint_type import GetLedgerDidEndpointEndpointType
@@ -130,6 +128,8 @@ from .get_present_proof_20_records_role import GetPresentProof20RecordsRole
 from .get_present_proof_20_records_state import GetPresentProof20RecordsState
 from .get_present_proof_records_role import GetPresentProofRecordsRole
 from .get_present_proof_records_state import GetPresentProofRecordsState
+from .get_records_role import GetRecordsRole
+from .get_records_state import GetRecordsState
 from .get_revocation_registries_created_state import GetRevocationRegistriesCreatedState
 from .get_wallet_did_key_type import GetWalletDidKeyType
 from .get_wallet_did_method import GetWalletDidMethod

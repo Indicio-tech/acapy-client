@@ -54,3 +54,41 @@ paths:
   /wallet/did/public:
     post:
       operationId: set_public_did
+  /issue-credential-2.0/create:
+    post:
+      operationId: create_credential
+  /issue-credential-2.0/records:
+    get:
+      operationId: get_records
+  /issue-credential-2.0/records/{cred_ex_id}:
+    get:
+      operationId: get_record
+    delete:
+      operationId: delete_record
+  /issue-credential-2.0/records/{cred_ex_id}/issue:
+    post:
+      operationId: issue_credential
+  /issue-credential-2.0/records/{cred_ex_id}/problem-report:
+    post:
+      operationId: report_problem
+  /issue-credential-2.0/records/{cred_ex_id}/send-offer:
+    post:
+      operationId: send_offer
+  /issue-credential-2.0/records/{cred_ex_id}/send-request:
+    post:
+      operationId: send_request
+  /issue-credential-2.0/records/{cred_ex_id}/store:
+    post:
+      operationId: store_credential
+  /issue-credential-2.0/send:
+    post:
+      operationId: issue_credential_automated
+  /issue-credential-2.0/send-offer:
+    post:
+      operationId: send_offer_free
+  /issue-credential-2.0/send-request:
+    post:
+      operationId: send_request_free
+  /issue-credential-2.0/send-proposal:
+    post:
+      operationId: send_proposal

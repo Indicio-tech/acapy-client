@@ -1136,6 +1136,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/V20CredExRecord'
       x-codegen-request-body-name: body
+      operationId: create_credential
   /issue-credential-2.0/records:
     get:
       tags:
@@ -1184,6 +1185,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/V20CredExRecordListResult'
+      operationId: get_records
   /issue-credential-2.0/records/{cred_ex_id}:
     get:
       tags:
@@ -1204,6 +1206,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/V20CredExRecordDetail'
+      operationId: get_record
     delete:
       tags:
       - issue-credential v2.0
@@ -1223,6 +1226,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/V20IssueCredentialModuleResponse'
+      operationId: delete_record
   /issue-credential-2.0/records/{cred_ex_id}/issue:
     post:
       tags:
@@ -1250,6 +1254,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/V20CredExRecordDetail'
       x-codegen-request-body-name: body
+      operationId: issue_credential
   /issue-credential-2.0/records/{cred_ex_id}/problem-report:
     post:
       tags:
@@ -1277,6 +1282,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/V20IssueCredentialModuleResponse'
       x-codegen-request-body-name: body
+      operationId: report_problem
   /issue-credential-2.0/records/{cred_ex_id}/send-offer:
     post:
       tags:
@@ -1304,6 +1310,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/V20CredExRecord'
       x-codegen-request-body-name: body
+      operationId: send_offer
   /issue-credential-2.0/records/{cred_ex_id}/send-request:
     post:
       tags:
@@ -1331,6 +1338,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/V20CredExRecord'
       x-codegen-request-body-name: body
+      operationId: send_request
   /issue-credential-2.0/records/{cred_ex_id}/store:
     post:
       tags:
@@ -1358,6 +1366,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/V20CredExRecordDetail'
       x-codegen-request-body-name: body
+      operationId: store_credential
   /issue-credential-2.0/send:
     post:
       tags:
@@ -1377,6 +1386,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/V20CredExRecord'
       x-codegen-request-body-name: body
+      operationId: issue_credential_automated
   /issue-credential-2.0/send-offer:
     post:
       tags:
@@ -1396,6 +1406,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/V20CredExRecord'
       x-codegen-request-body-name: body
+      operationId: send_offer_free
   /issue-credential-2.0/send-proposal:
     post:
       tags:
@@ -1415,6 +1426,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/V20CredExRecord'
       x-codegen-request-body-name: body
+      operationId: send_proposal
   /issue-credential-2.0/send-request:
     post:
       tags:
@@ -1435,6 +1447,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/V20CredExRecord'
       x-codegen-request-body-name: body
+      operationId: send_request_free
   /issue-credential/create:
     post:
       tags:

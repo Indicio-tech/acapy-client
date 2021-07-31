@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class GetIssueCredential20RecordsRole(str, Enum):
+class GetRecordsRole(str, Enum):
     ISSUER = "issuer"
     HOLDER = "holder"
 

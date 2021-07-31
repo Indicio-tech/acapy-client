@@ -3,8 +3,8 @@ from typing import Any, Dict, Optional, Union
 import httpx
 
 from ...client import Client
-from ...models.get_issue_credential_20_records_role import GetIssueCredential20RecordsRole
-from ...models.get_issue_credential_20_records_state import GetIssueCredential20RecordsState
+from ...models.get_records_role import GetRecordsRole
+from ...models.get_records_state import GetRecordsState
 from ...models.v20_cred_ex_record_list_result import V20CredExRecordListResult
 from ...types import UNSET, Response, Unset
 
@@ -13,8 +13,8 @@ def _get_kwargs(
     *,
     client: Client,
     connection_id: Union[Unset, str] = UNSET,
-    role: Union[Unset, GetIssueCredential20RecordsRole] = UNSET,
-    state: Union[Unset, GetIssueCredential20RecordsState] = UNSET,
+    role: Union[Unset, GetRecordsRole] = UNSET,
+    state: Union[Unset, GetRecordsState] = UNSET,
     thread_id: Union[Unset, str] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/issue-credential-2.0/records".format(client.base_url)
@@ -68,8 +68,8 @@ def sync_detailed(
     *,
     client: Client,
     connection_id: Union[Unset, str] = UNSET,
-    role: Union[Unset, GetIssueCredential20RecordsRole] = UNSET,
-    state: Union[Unset, GetIssueCredential20RecordsState] = UNSET,
+    role: Union[Unset, GetRecordsRole] = UNSET,
+    state: Union[Unset, GetRecordsState] = UNSET,
     thread_id: Union[Unset, str] = UNSET,
 ) -> Response[V20CredExRecordListResult]:
     kwargs = _get_kwargs(
@@ -91,8 +91,8 @@ def sync(
     *,
     client: Client,
     connection_id: Union[Unset, str] = UNSET,
-    role: Union[Unset, GetIssueCredential20RecordsRole] = UNSET,
-    state: Union[Unset, GetIssueCredential20RecordsState] = UNSET,
+    role: Union[Unset, GetRecordsRole] = UNSET,
+    state: Union[Unset, GetRecordsState] = UNSET,
     thread_id: Union[Unset, str] = UNSET,
 ) -> Optional[V20CredExRecordListResult]:
     """ """
@@ -110,8 +110,8 @@ async def asyncio_detailed(
     *,
     client: Client,
     connection_id: Union[Unset, str] = UNSET,
-    role: Union[Unset, GetIssueCredential20RecordsRole] = UNSET,
-    state: Union[Unset, GetIssueCredential20RecordsState] = UNSET,
+    role: Union[Unset, GetRecordsRole] = UNSET,
+    state: Union[Unset, GetRecordsState] = UNSET,
     thread_id: Union[Unset, str] = UNSET,
 ) -> Response[V20CredExRecordListResult]:
     kwargs = _get_kwargs(
@@ -132,8 +132,8 @@ async def asyncio(
     *,
     client: Client,
     connection_id: Union[Unset, str] = UNSET,
-    role: Union[Unset, GetIssueCredential20RecordsRole] = UNSET,
-    state: Union[Unset, GetIssueCredential20RecordsState] = UNSET,
+    role: Union[Unset, GetRecordsRole] = UNSET,
+    state: Union[Unset, GetRecordsState] = UNSET,
     thread_id: Union[Unset, str] = UNSET,
 ) -> Optional[V20CredExRecordListResult]:
     """ """

@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class GetIssueCredential20RecordsState(str, Enum):
+class GetRecordsState(str, Enum):
     PROPOSAL_SENT = "proposal-sent"
     PROPOSAL_RECEIVED = "proposal-received"
     OFFER_SENT = "offer-sent"
