@@ -1,9 +1,9 @@
 [tool.poetry]
 name = "acapy-client"
-version = "v0.7.0"
-description = "A client library for accessing Aries Cloud Agent"
+version = "0.7.0"
+description = "A client library for accessing Aries Cloud Agent - Python"
 
-authors = []
+authors = ["Daniel Bluhm <dbluhm@pm.me>"]
 
 readme = "README.md"
 packages = [
