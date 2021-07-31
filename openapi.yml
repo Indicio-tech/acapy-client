@@ -4114,22 +4114,8 @@ components:
           description: Connection protocol used
           example: connections/1.0
           enum:
-          - c
-          - o
-          - n
-          - e
-          - t
-          - i
-          - s
-          - /
-          - '1'
-          - .
-          - '0'
-          - d
-          - x
-          - h
-          - a
-          - g
+          - connections/1.0
+          - didexchange/1.0
         created_at:
           pattern: ^\d{4}-\d\d-\d\d[T ]\d\d:\d\d(?:\:(?:\d\d(?:\.\d{1,6})?))?(?:[+-]\d\d:?\d\d|Z|)$
           type: string
