@@ -2339,6 +2339,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/V20PresExRecord'
       x-codegen-request-body-name: body
+      operationId: create_proof_request
   /present-proof-2.0/records:
     get:
       tags:
@@ -2386,6 +2387,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/V20PresExRecordList'
+      operationId: get_records
   /present-proof-2.0/records/{pres_ex_id}:
     get:
       tags:
@@ -2406,6 +2408,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/V20PresExRecord'
+      operationId: get_record
     delete:
       tags:
       - present-proof v2.0
@@ -2425,6 +2428,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/V20PresentProofModuleResponse'
+      operationId: delete_record
   /present-proof-2.0/records/{pres_ex_id}/credentials:
     get:
       tags:
@@ -2470,6 +2474,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/IndyCredPrecis'
+      operationId: get_matching_credentials
   /present-proof-2.0/records/{pres_ex_id}/problem-report:
     post:
       tags:
@@ -2497,6 +2502,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/V20PresentProofModuleResponse'
       x-codegen-request-body-name: body
+      operationId: report_problem
   /present-proof-2.0/records/{pres_ex_id}/send-presentation:
     post:
       tags:
@@ -2524,6 +2530,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/V20PresExRecord'
       x-codegen-request-body-name: body
+      operationId: send_presentation
   /present-proof-2.0/records/{pres_ex_id}/send-request:
     post:
       tags:
@@ -2551,6 +2558,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/V20PresExRecord'
       x-codegen-request-body-name: body
+      operationId: send_request
   /present-proof-2.0/records/{pres_ex_id}/verify-presentation:
     post:
       tags:
@@ -2571,6 +2579,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/V20PresExRecord'
+      operationId: verify_presentation
   /present-proof-2.0/send-proposal:
     post:
       tags:
@@ -2590,6 +2599,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/V20PresExRecord'
       x-codegen-request-body-name: body
+      operationId: send_proposal
   /present-proof-2.0/send-request:
     post:
       tags:
@@ -2609,6 +2619,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/V20PresExRecord'
       x-codegen-request-body-name: body
+      operationId: send_request_free
   /present-proof/create-request:
     post:
       tags:
@@ -4542,8 +4553,8 @@ components:
           - https://www.w3.org/2018/credentials/examples/v1
           items:
             anyOf:
-              - type: object
-              - type: string
+            - type: object
+            - type: string
         credentialSubject:
           type: object
           example: ''
@@ -4563,8 +4574,8 @@ components:
           example: 2010-01-01 19:23:24+00:00
         issuer:
           oneOf:
-            - type: object
-            - type: string
+          - type: object
+          - type: string
           description: The JSON-LD Verifiable Credential Issuer. Either string of
             object with id field.
           example: did:key:z6MkpTHR8VNsBxYAAWHut2Geadd9jSwuBV8xRoAnwWsdvktH

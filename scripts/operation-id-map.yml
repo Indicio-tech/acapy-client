@@ -92,3 +92,35 @@ paths:
   /issue-credential-2.0/send-proposal:
     post:
       operationId: send_proposal
+  /present-proof-2.0/create-request:
+    post:
+      operationId: create_proof_request
+  /present-proof-2.0/records:
+    get:
+      operationId: get_records
+  /present-proof-2.0/records/{pres_ex_id}:
+    get:
+      operationId: get_record
+    delete:
+      operationId: delete_record
+  /present-proof-2.0/records/{pres_ex_id}/credentials:
+    get:
+      operationId: get_matching_credentials
+  /present-proof-2.0/records/{pres_ex_id}/problem-report:
+    post:
+      operationId: report_problem
+  /present-proof-2.0/records/{pres_ex_id}/send-presentation:
+    post:
+      operationId: send_presentation
+  /present-proof-2.0/records/{pres_ex_id}/send-request:
+    post:
+      operationId: send_request
+  /present-proof-2.0/records/{pres_ex_id}/verify-presentation:
+    post:
+      operationId: verify_presentation
+  /present-proof-2.0/send-proposal:
+    post:
+      operationId: send_proposal
+  /present-proof-2.0/send-request:
+    post:
+      operationId: send_request_free
