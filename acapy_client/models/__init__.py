@@ -108,7 +108,7 @@ from .doc_credential import DocCredential
 from .endorser_info import EndorserInfo
 from .endpoints_result import EndpointsResult
 from .filter import Filter
-from .filter_const import FilterConst
+from .filter_const_type_5 import FilterConstType5
 from .filter_enum_item import FilterEnumItem
 from .filter_exclusive_maximum import FilterExclusiveMaximum
 from .filter_exclusive_minimum import FilterExclusiveMinimum

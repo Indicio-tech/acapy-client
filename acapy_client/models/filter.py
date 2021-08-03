@@ -1,8 +1,8 @@
-from typing import Any, Dict, List, Type, TypeVar, Union
+from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
 import attr
 
-from ..models.filter_const import FilterConst
+from ..models.filter_const_type_5 import FilterConstType5
 from ..models.filter_enum_item import FilterEnumItem
 from ..models.filter_exclusive_maximum import FilterExclusiveMaximum
 from ..models.filter_exclusive_minimum import FilterExclusiveMinimum
@@ -17,7 +17,7 @@ T = TypeVar("T", bound="Filter")
 class Filter:
     """ """
 
-    const: Union[Unset, FilterConst] = UNSET
+    const: Union[FilterConstType5, List[Any], Unset, bool, float, int, str] = UNSET
     enum: Union[Unset, List[FilterEnumItem]] = UNSET
     exclusive_maximum: Union[Unset, FilterExclusiveMaximum] = UNSET
     exclusive_minimum: Union[Unset, FilterExclusiveMinimum] = UNSET
@@ -32,9 +32,25 @@ class Filter:
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        const: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.const, Unset):
-            const = self.const.to_dict()
+        const: Union[Dict[str, Any], List[Any], Unset, bool, float, int, str]
+        if isinstance(self.const, Unset):
+            const = UNSET
+        elif isinstance(self.const, list):
+            const = UNSET
+            if not isinstance(self.const, Unset):
+                const = []
+                for const_type_4_item_data in self.const:
+                    const_type_4_item = const_type_4_item_data
+
+                    const.append(const_type_4_item)
+
+        elif isinstance(self.const, FilterConstType5):
+            const = UNSET
+            if not isinstance(self.const, Unset):
+                const = self.const.to_dict()
+
+        else:
+            const = self.const
 
         enum: Union[Unset, List[Dict[str, Any]]] = UNSET
         if not isinstance(self.enum, Unset):
@@ -100,12 +116,39 @@ class Filter:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        _const = d.pop("const", UNSET)
-        const: Union[Unset, FilterConst]
-        if isinstance(_const, Unset):
-            const = UNSET
-        else:
-            const = FilterConst.from_dict(_const)
+
+        def _parse_const(data: object) -> Union[FilterConstType5, List[Any], Unset, bool, float, int, str]:
+            if isinstance(data, Unset):
+                return data
+            try:
+                if not isinstance(data, list):
+                    raise TypeError()
+                const_type_4 = UNSET
+                _const_type_4 = data
+                for const_type_4_item_data in _const_type_4 or []:
+                    const_type_4_item = const_type_4_item_data
+
+                    const_type_4.append(const_type_4_item)
+
+                return const_type_4
+            except:  # noqa: E722
+                pass
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                _const_type_5 = data
+                const_type_5: Union[Unset, FilterConstType5]
+                if isinstance(_const_type_5, Unset):
+                    const_type_5 = UNSET
+                else:
+                    const_type_5 = FilterConstType5.from_dict(_const_type_5)
+
+                return const_type_5
+            except:  # noqa: E722
+                pass
+            return cast(Union[FilterConstType5, List[Any], Unset, bool, float, int, str], data)
+
+        const = _parse_const(d.pop("const", UNSET))
 
         enum = []
         _enum = d.pop("enum", UNSET)

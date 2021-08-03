@@ -2,12 +2,12 @@ from typing import Any, Dict, List, Type, TypeVar
 
 import attr
 
-T = TypeVar("T", bound="FilterConst")
+T = TypeVar("T", bound="FilterConstType5")
 
 
 @attr.s(auto_attribs=True)
-class FilterConst:
-    """Const"""
+class FilterConstType5:
+    """ """
 
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -22,10 +22,10 @@ class FilterConst:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        filter_const = cls()
+        filter_const_type_5 = cls()
 
-        filter_const.additional_properties = d
-        return filter_const
+        filter_const_type_5.additional_properties = d
+        return filter_const_type_5
 
     @property
     def additional_keys(self) -> List[str]:
