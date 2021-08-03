@@ -2359,6 +2359,7 @@ paths:
         in: query
         description: Role assigned in presentation exchange
         schema:
+          title: present_proof_role_schema
           type: string
           enum:
           - prover
@@ -2367,6 +2368,7 @@ paths:
         in: query
         description: Presentation exchange state
         schema:
+          title: present_proof_state_schema
           type: string
           enum:
           - proposal-sent
@@ -7208,7 +7210,8 @@ components:
         from_nested:
           type: array
           items:
-            $ref: '#/components/schemas/SubmissionRequirements'
+            type: object
+            #$ref: '#/components/schemas/SubmissionRequirements'
         max:
           type: integer
           description: Max Value
