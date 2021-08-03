@@ -1,5 +1,16 @@
-# acapy-client
+# ACA-Py Client
+
 A client library for accessing Aries Cloud Agent
+
+## Note
+This client is automatically generated from an openapi definition
+derived from ACA-Py's `swagger.json`. As such, there may be errors caused by the
+conversion process or even just inherent in the route definitions in ACA-Py.
+
+This client has been tuned for our use and may not be suitable for all use
+cases.
+
+Support for specific versions of ACA-Py is performed on a best effort basis.
 
 ## Usage
 First, create a client:
@@ -47,21 +58,7 @@ Things to know:
     1. `sync_detailed`: Blocking request that always returns a `Request`, optionally with `parsed` set if the request was successful.
     1. `asyncio`: Like `sync` but the async instead of blocking
     1. `asyncio_detailed`: Like `sync_detailed` by async instead of blocking
-     
+
 1. All path/query params, and bodies become method arguments.
 1. If your endpoint had any tags on it, the first tag will be used as a module name for the function (my_tag above)
-1. Any endpoint which did not have a tag will be in `acapy_client.api.default`    
-
-## Building / publishing this Client
-This project uses [Poetry](https://python-poetry.org/) to manage dependencies  and packaging.  Here are the basics:
-1. Update the metadata in pyproject.toml (e.g. authors, version)
-1. If you're using a private repository, configure it with Poetry
-    1. `poetry config repositories.<your-repository-name> <url-to-your-repository>`
-    1. `poetry config http-basic.<your-repository-name> <username> <password>`
-1. Publish the client with `poetry publish --build -r <your-repository-name>` or, if for public PyPI, just `poetry publish --build`
-
-If you want to install this client into another project without publishing it (e.g. for development) then:
-1. If that project **is using Poetry**, you can simply do `poetry add <path-to-this-client>` from that project
-1. If that project is not using Poetry:
-    1. Build a wheel with `poetry build -f wheel`
-    1. Install that wheel from the other project `pip install <path-to-wheel>`
+1. Any endpoint which did not have a tag will be in `acapy_client.api.default`
