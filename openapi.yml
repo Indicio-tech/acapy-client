@@ -830,6 +830,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/VCRecord'
+      operationId: get_w3c_credential
     delete:
       tags:
       - credentials
@@ -848,6 +849,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HolderModuleResponse'
+      operationId: delete_w3c_credential
   /credential/{credential_id}:
     get:
       tags:
@@ -954,6 +956,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/VCRecordList'
       x-codegen-request-body-name: body
+      operationId: get_w3c_credentials
   /didexchange/create-request:
     post:
       tags:

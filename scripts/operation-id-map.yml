@@ -124,3 +124,11 @@ paths:
   /present-proof-2.0/send-request:
     post:
       operationId: send_request_free
+  /credential/w3c/{credential_id}:
+    get:
+      operationId: get_w3c_credential
+    delete:
+      operationId: delete_w3c_credential
+  /credentials/w3c:
+    post:
+      operationId: get_w3c_credentials
