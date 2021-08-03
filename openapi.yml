@@ -5046,7 +5046,14 @@ components:
       type: object
       properties:
         const:
-          type: object
+          anyOf:
+            - type: string
+            - type: number
+            - type: integer
+            - type: boolean
+            - type: array
+              items: {}
+            - type: object
           description: Const
         enum:
           type: array
