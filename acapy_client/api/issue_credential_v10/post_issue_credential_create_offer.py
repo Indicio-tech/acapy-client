@@ -3,17 +3,17 @@ from typing import Any, Dict, Optional
 import httpx
 
 from ...client import Client
-from ...models.v20_cred_ex_free import V20CredExFree
-from ...models.v20_cred_ex_record import V20CredExRecord
+from ...models.v10_credential_conn_free_offer_request import V10CredentialConnFreeOfferRequest
+from ...models.v10_credential_exchange import V10CredentialExchange
 from ...types import Response
 
 
 def _get_kwargs(
     *,
     client: Client,
-    json_body: V20CredExFree,
+    json_body: V10CredentialConnFreeOfferRequest,
 ) -> Dict[str, Any]:
-    url = "{}/issue-credential-2.0/send-proposal".format(client.base_url)
+    url = "{}/issue-credential/create-offer".format(client.base_url)
 
     headers: Dict[str, Any] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
@@ -29,15 +29,15 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, response: httpx.Response) -> Optional[V20CredExRecord]:
+def _parse_response(*, response: httpx.Response) -> Optional[V10CredentialExchange]:
     if response.status_code == 200:
-        response_200 = V20CredExRecord.from_dict(response.json())
+        response_200 = V10CredentialExchange.from_dict(response.json())
 
         return response_200
     return None
 
 
-def _build_response(*, response: httpx.Response) -> Response[V20CredExRecord]:
+def _build_response(*, response: httpx.Response) -> Response[V10CredentialExchange]:
     return Response(
         status_code=response.status_code,
         content=response.content,
@@ -49,8 +49,8 @@ def _build_response(*, response: httpx.Response) -> Response[V20CredExRecord]:
 def sync_detailed(
     *,
     client: Client,
-    json_body: V20CredExFree,
-) -> Response[V20CredExRecord]:
+    json_body: V10CredentialConnFreeOfferRequest,
+) -> Response[V10CredentialExchange]:
     kwargs = _get_kwargs(
         client=client,
         json_body=json_body,
@@ -66,8 +66,8 @@ def sync_detailed(
 def sync(
     *,
     client: Client,
-    json_body: V20CredExFree,
-) -> Optional[V20CredExRecord]:
+    json_body: V10CredentialConnFreeOfferRequest,
+) -> Optional[V10CredentialExchange]:
     """ """
 
     return sync_detailed(
@@ -79,8 +79,8 @@ def sync(
 async def asyncio_detailed(
     *,
     client: Client,
-    json_body: V20CredExFree,
-) -> Response[V20CredExRecord]:
+    json_body: V10CredentialConnFreeOfferRequest,
+) -> Response[V10CredentialExchange]:
     kwargs = _get_kwargs(
         client=client,
         json_body=json_body,
@@ -95,8 +95,8 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Client,
-    json_body: V20CredExFree,
-) -> Optional[V20CredExRecord]:
+    json_body: V10CredentialConnFreeOfferRequest,
+) -> Optional[V10CredentialExchange]:
     """ """
 
     return (

@@ -3,17 +3,18 @@ from typing import Any, Dict, Optional
 import httpx
 
 from ...client import Client
-from ...models.v20_cred_ex_free import V20CredExFree
-from ...models.v20_cred_ex_record import V20CredExRecord
+from ...models.update_wallet_request import UpdateWalletRequest
+from ...models.wallet_record import WalletRecord
 from ...types import Response
 
 
 def _get_kwargs(
     *,
     client: Client,
-    json_body: V20CredExFree,
+    wallet_id: str,
+    json_body: UpdateWalletRequest,
 ) -> Dict[str, Any]:
-    url = "{}/issue-credential-2.0/send-proposal".format(client.base_url)
+    url = "{}/multitenancy/wallet/{wallet_id}".format(client.base_url, wallet_id=wallet_id)
 
     headers: Dict[str, Any] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
@@ -29,15 +30,15 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, response: httpx.Response) -> Optional[V20CredExRecord]:
+def _parse_response(*, response: httpx.Response) -> Optional[WalletRecord]:
     if response.status_code == 200:
-        response_200 = V20CredExRecord.from_dict(response.json())
+        response_200 = WalletRecord.from_dict(response.json())
 
         return response_200
     return None
 
 
-def _build_response(*, response: httpx.Response) -> Response[V20CredExRecord]:
+def _build_response(*, response: httpx.Response) -> Response[WalletRecord]:
     return Response(
         status_code=response.status_code,
         content=response.content,
@@ -49,14 +50,16 @@ def _build_response(*, response: httpx.Response) -> Response[V20CredExRecord]:
 def sync_detailed(
     *,
     client: Client,
-    json_body: V20CredExFree,
-) -> Response[V20CredExRecord]:
+    wallet_id: str,
+    json_body: UpdateWalletRequest,
+) -> Response[WalletRecord]:
     kwargs = _get_kwargs(
         client=client,
+        wallet_id=wallet_id,
         json_body=json_body,
     )
 
-    response = httpx.post(
+    response = httpx.put(
         **kwargs,
     )
 
@@ -66,12 +69,14 @@ def sync_detailed(
 def sync(
     *,
     client: Client,
-    json_body: V20CredExFree,
-) -> Optional[V20CredExRecord]:
+    wallet_id: str,
+    json_body: UpdateWalletRequest,
+) -> Optional[WalletRecord]:
     """ """
 
     return sync_detailed(
         client=client,
+        wallet_id=wallet_id,
         json_body=json_body,
     ).parsed
 
@@ -79,15 +84,17 @@ def sync(
 async def asyncio_detailed(
     *,
     client: Client,
-    json_body: V20CredExFree,
-) -> Response[V20CredExRecord]:
+    wallet_id: str,
+    json_body: UpdateWalletRequest,
+) -> Response[WalletRecord]:
     kwargs = _get_kwargs(
         client=client,
+        wallet_id=wallet_id,
         json_body=json_body,
     )
 
     async with httpx.AsyncClient() as _client:
-        response = await _client.post(**kwargs)
+        response = await _client.put(**kwargs)
 
     return _build_response(response=response)
 
@@ -95,13 +102,15 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Client,
-    json_body: V20CredExFree,
-) -> Optional[V20CredExRecord]:
+    wallet_id: str,
+    json_body: UpdateWalletRequest,
+) -> Optional[WalletRecord]:
     """ """
 
     return (
         await asyncio_detailed(
             client=client,
+            wallet_id=wallet_id,
             json_body=json_body,
         )
     ).parsed

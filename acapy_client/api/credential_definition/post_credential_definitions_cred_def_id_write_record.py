@@ -3,41 +3,37 @@ from typing import Any, Dict, Optional
 import httpx
 
 from ...client import Client
-from ...models.v20_cred_ex_free import V20CredExFree
-from ...models.v20_cred_ex_record import V20CredExRecord
+from ...models.credential_definition_get_result import CredentialDefinitionGetResult
 from ...types import Response
 
 
 def _get_kwargs(
     *,
     client: Client,
-    json_body: V20CredExFree,
+    cred_def_id: str,
 ) -> Dict[str, Any]:
-    url = "{}/issue-credential-2.0/send-proposal".format(client.base_url)
+    url = "{}/credential-definitions/{cred_def_id}/write_record".format(client.base_url, cred_def_id=cred_def_id)
 
     headers: Dict[str, Any] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
-
-    json_json_body = json_body.to_dict()
 
     return {
         "url": url,
         "headers": headers,
         "cookies": cookies,
         "timeout": client.get_timeout(),
-        "json": json_json_body,
     }
 
 
-def _parse_response(*, response: httpx.Response) -> Optional[V20CredExRecord]:
+def _parse_response(*, response: httpx.Response) -> Optional[CredentialDefinitionGetResult]:
     if response.status_code == 200:
-        response_200 = V20CredExRecord.from_dict(response.json())
+        response_200 = CredentialDefinitionGetResult.from_dict(response.json())
 
         return response_200
     return None
 
 
-def _build_response(*, response: httpx.Response) -> Response[V20CredExRecord]:
+def _build_response(*, response: httpx.Response) -> Response[CredentialDefinitionGetResult]:
     return Response(
         status_code=response.status_code,
         content=response.content,
@@ -49,11 +45,11 @@ def _build_response(*, response: httpx.Response) -> Response[V20CredExRecord]:
 def sync_detailed(
     *,
     client: Client,
-    json_body: V20CredExFree,
-) -> Response[V20CredExRecord]:
+    cred_def_id: str,
+) -> Response[CredentialDefinitionGetResult]:
     kwargs = _get_kwargs(
         client=client,
-        json_body=json_body,
+        cred_def_id=cred_def_id,
     )
 
     response = httpx.post(
@@ -66,24 +62,24 @@ def sync_detailed(
 def sync(
     *,
     client: Client,
-    json_body: V20CredExFree,
-) -> Optional[V20CredExRecord]:
+    cred_def_id: str,
+) -> Optional[CredentialDefinitionGetResult]:
     """ """
 
     return sync_detailed(
         client=client,
-        json_body=json_body,
+        cred_def_id=cred_def_id,
     ).parsed
 
 
 async def asyncio_detailed(
     *,
     client: Client,
-    json_body: V20CredExFree,
-) -> Response[V20CredExRecord]:
+    cred_def_id: str,
+) -> Response[CredentialDefinitionGetResult]:
     kwargs = _get_kwargs(
         client=client,
-        json_body=json_body,
+        cred_def_id=cred_def_id,
     )
 
     async with httpx.AsyncClient() as _client:
@@ -95,13 +91,13 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Client,
-    json_body: V20CredExFree,
-) -> Optional[V20CredExRecord]:
+    cred_def_id: str,
+) -> Optional[CredentialDefinitionGetResult]:
     """ """
 
     return (
         await asyncio_detailed(
             client=client,
-            json_body=json_body,
+            cred_def_id=cred_def_id,
         )
     ).parsed

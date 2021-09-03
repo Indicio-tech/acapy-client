@@ -58,6 +58,15 @@ from .constraints_status_suspended import ConstraintsStatusSuspended
 from .constraints_subject_is_issuer import ConstraintsSubjectIsIssuer
 from .create_invitation_request import CreateInvitationRequest
 from .create_invitation_request_metadata import CreateInvitationRequestMetadata
+from .create_wallet_request import CreateWalletRequest
+from .create_wallet_request_key_management_mode import CreateWalletRequestKeyManagementMode
+from .create_wallet_request_wallet_dispatch_type import CreateWalletRequestWalletDispatchType
+from .create_wallet_request_wallet_type import CreateWalletRequestWalletType
+from .create_wallet_response import CreateWalletResponse
+from .create_wallet_response_key_management_mode import CreateWalletResponseKeyManagementMode
+from .create_wallet_response_settings import CreateWalletResponseSettings
+from .create_wallet_token_request import CreateWalletTokenRequest
+from .create_wallet_token_response import CreateWalletTokenResponse
 from .cred_attr_spec import CredAttrSpec
 from .cred_def_value import CredDefValue
 from .cred_def_value_primary import CredDefValuePrimary
@@ -248,6 +257,7 @@ from .menu_form import MenuForm
 from .menu_form_param import MenuFormParam
 from .menu_json import MenuJson
 from .menu_option import MenuOption
+from .multitenant_module_response import MultitenantModuleResponse
 from .patch_revocation_registry_rev_reg_id_set_state_state import PatchRevocationRegistryRevRegIdSetStateState
 from .perform_request import PerformRequest
 from .perform_request_params import PerformRequestParams
@@ -268,6 +278,7 @@ from .query_result_results_additional_property import QueryResultResultsAddition
 from .raw_encoded import RawEncoded
 from .receive_invitation_request import ReceiveInvitationRequest
 from .register_ledger_nym_response import RegisterLedgerNymResponse
+from .remove_wallet_request import RemoveWalletRequest
 from .resolution_result import ResolutionResult
 from .resolution_result_did_doc import ResolutionResultDidDoc
 from .resolution_result_metadata import ResolutionResultMetadata
@@ -314,7 +325,10 @@ from .txn_or_credential_definition_send_result import TxnOrCredentialDefinitionS
 from .txn_or_publish_revocations_result import TxnOrPublishRevocationsResult
 from .txn_or_rev_reg_result import TxnOrRevRegResult
 from .txn_or_schema_send_result import TxnOrSchemaSendResult
+from .update_wallet_request import UpdateWalletRequest
+from .update_wallet_request_wallet_dispatch_type import UpdateWalletRequestWalletDispatchType
 from .v10_credential_bound_offer_request import V10CredentialBoundOfferRequest
+from .v10_credential_conn_free_offer_request import V10CredentialConnFreeOfferRequest
 from .v10_credential_create import V10CredentialCreate
 from .v10_credential_exchange import V10CredentialExchange
 from .v10_credential_exchange_credential_request_metadata import V10CredentialExchangeCredentialRequestMetadata
@@ -339,6 +353,7 @@ from .v10_presentation_proposal_request import V10PresentationProposalRequest
 from .v10_presentation_send_request_request import V10PresentationSendRequestRequest
 from .v20_cred_attr_spec import V20CredAttrSpec
 from .v20_cred_bound_offer_request import V20CredBoundOfferRequest
+from .v20_cred_ex_free import V20CredExFree
 from .v20_cred_ex_record import V20CredExRecord
 from .v20_cred_ex_record_by_format import V20CredExRecordByFormat
 from .v20_cred_ex_record_by_format_cred_issue import V20CredExRecordByFormatCredIssue
@@ -361,13 +376,13 @@ from .v20_cred_issue import V20CredIssue
 from .v20_cred_issue_problem_report_request import V20CredIssueProblemReportRequest
 from .v20_cred_issue_request import V20CredIssueRequest
 from .v20_cred_offer import V20CredOffer
+from .v20_cred_offer_conn_free_request import V20CredOfferConnFreeRequest
 from .v20_cred_offer_request import V20CredOfferRequest
 from .v20_cred_preview import V20CredPreview
 from .v20_cred_proposal import V20CredProposal
 from .v20_cred_request import V20CredRequest
 from .v20_cred_request_free import V20CredRequestFree
 from .v20_cred_request_request import V20CredRequestRequest
-from .v20_cred_send_request import V20CredSendRequest
 from .v20_cred_store_request import V20CredStoreRequest
 from .v20_issue_cred_schema_core import V20IssueCredSchemaCore
 from .v20_issue_credential_module_response import V20IssueCredentialModuleResponse
@@ -401,4 +416,8 @@ from .verify_request import VerifyRequest
 from .verify_response import VerifyResponse
 from .w3c_credentials_list_request import W3CCredentialsListRequest
 from .w3c_credentials_list_request_tag_query import W3CCredentialsListRequestTagQuery
+from .wallet_list import WalletList
 from .wallet_module_response import WalletModuleResponse
+from .wallet_record import WalletRecord
+from .wallet_record_key_management_mode import WalletRecordKeyManagementMode
+from .wallet_record_settings import WalletRecordSettings

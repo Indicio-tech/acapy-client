@@ -15,7 +15,7 @@ class IndyCredPrecis:
 
     cred_info: Union[Unset, IndyCredInfo] = UNSET
     interval: Union[Unset, IndyNonRevocationInterval] = UNSET
-    pres_referents: Union[Unset, List[str]] = UNSET
+    presentation_referents: Union[Unset, List[str]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -27,9 +27,9 @@ class IndyCredPrecis:
         if not isinstance(self.interval, Unset):
             interval = self.interval.to_dict()
 
-        pres_referents: Union[Unset, List[str]] = UNSET
-        if not isinstance(self.pres_referents, Unset):
-            pres_referents = self.pres_referents
+        presentation_referents: Union[Unset, List[str]] = UNSET
+        if not isinstance(self.presentation_referents, Unset):
+            presentation_referents = self.presentation_referents
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -38,8 +38,8 @@ class IndyCredPrecis:
             field_dict["cred_info"] = cred_info
         if interval is not UNSET:
             field_dict["interval"] = interval
-        if pres_referents is not UNSET:
-            field_dict["pres_referents"] = pres_referents
+        if presentation_referents is not UNSET:
+            field_dict["presentation_referents"] = presentation_referents
 
         return field_dict
 
@@ -60,12 +60,12 @@ class IndyCredPrecis:
         else:
             interval = IndyNonRevocationInterval.from_dict(_interval)
 
-        pres_referents = cast(List[str], d.pop("pres_referents", UNSET))
+        presentation_referents = cast(List[str], d.pop("presentation_referents", UNSET))
 
         indy_cred_precis = cls(
             cred_info=cred_info,
             interval=interval,
-            pres_referents=pres_referents,
+            presentation_referents=presentation_referents,
         )
 
         indy_cred_precis.additional_properties = d
