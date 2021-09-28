@@ -2,8 +2,8 @@ from enum import Enum
 
 
 class V20PresExRecordVerified(str, Enum):
-    TRUE = "true"
-    FALSE = "false"
+    TRUE = "True"
+    FALSE = "False"
 
     def __str__(self) -> str:
         return str(self.value)
