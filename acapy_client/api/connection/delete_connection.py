@@ -8,9 +8,9 @@ from ...types import Response
 
 
 def _get_kwargs(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
 ) -> Dict[str, Any]:
     url = "{}/connections/{conn_id}".format(client.base_url, conn_id=conn_id)
 
@@ -22,6 +22,7 @@ def _get_kwargs(
         "headers": headers,
         "cookies": cookies,
         "timeout": client.get_timeout(),
+        "verify": client.verify_ssl,
     }
 
 
@@ -43,13 +44,13 @@ def _build_response(*, response: httpx.Response) -> Response[ConnectionModuleRes
 
 
 def sync_detailed(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
 ) -> Response[ConnectionModuleResponse]:
     kwargs = _get_kwargs(
-        client=client,
         conn_id=conn_id,
+        client=client,
     )
 
     response = httpx.delete(
@@ -60,26 +61,26 @@ def sync_detailed(
 
 
 def sync(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
 ) -> Optional[ConnectionModuleResponse]:
     """ """
 
     return sync_detailed(
-        client=client,
         conn_id=conn_id,
+        client=client,
     ).parsed
 
 
 async def asyncio_detailed(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
 ) -> Response[ConnectionModuleResponse]:
     kwargs = _get_kwargs(
-        client=client,
         conn_id=conn_id,
+        client=client,
     )
 
     async with httpx.AsyncClient() as _client:
@@ -89,15 +90,15 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
 ) -> Optional[ConnectionModuleResponse]:
     """ """
 
     return (
         await asyncio_detailed(
-            client=client,
             conn_id=conn_id,
+            client=client,
         )
     ).parsed

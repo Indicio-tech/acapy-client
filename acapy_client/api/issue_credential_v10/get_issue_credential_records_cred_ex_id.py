@@ -8,9 +8,9 @@ from ...types import Response
 
 
 def _get_kwargs(
+    cred_ex_id: str,
     *,
     client: Client,
-    cred_ex_id: str,
 ) -> Dict[str, Any]:
     url = "{}/issue-credential/records/{cred_ex_id}".format(client.base_url, cred_ex_id=cred_ex_id)
 
@@ -22,6 +22,7 @@ def _get_kwargs(
         "headers": headers,
         "cookies": cookies,
         "timeout": client.get_timeout(),
+        "verify": client.verify_ssl,
     }
 
 
@@ -43,13 +44,13 @@ def _build_response(*, response: httpx.Response) -> Response[V10CredentialExchan
 
 
 def sync_detailed(
+    cred_ex_id: str,
     *,
     client: Client,
-    cred_ex_id: str,
 ) -> Response[V10CredentialExchange]:
     kwargs = _get_kwargs(
-        client=client,
         cred_ex_id=cred_ex_id,
+        client=client,
     )
 
     response = httpx.get(
@@ -60,26 +61,26 @@ def sync_detailed(
 
 
 def sync(
+    cred_ex_id: str,
     *,
     client: Client,
-    cred_ex_id: str,
 ) -> Optional[V10CredentialExchange]:
     """ """
 
     return sync_detailed(
-        client=client,
         cred_ex_id=cred_ex_id,
+        client=client,
     ).parsed
 
 
 async def asyncio_detailed(
+    cred_ex_id: str,
     *,
     client: Client,
-    cred_ex_id: str,
 ) -> Response[V10CredentialExchange]:
     kwargs = _get_kwargs(
-        client=client,
         cred_ex_id=cred_ex_id,
+        client=client,
     )
 
     async with httpx.AsyncClient() as _client:
@@ -89,15 +90,15 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    cred_ex_id: str,
     *,
     client: Client,
-    cred_ex_id: str,
 ) -> Optional[V10CredentialExchange]:
     """ """
 
     return (
         await asyncio_detailed(
-            client=client,
             cred_ex_id=cred_ex_id,
+            client=client,
         )
     ).parsed

@@ -9,9 +9,9 @@ from ...types import Response
 
 
 def _get_kwargs(
+    rev_reg_id: str,
     *,
     client: Client,
-    rev_reg_id: str,
     json_body: RevRegUpdateTailsFileUri,
 ) -> Dict[str, Any]:
     url = "{}/revocation/registry/{rev_reg_id}".format(client.base_url, rev_reg_id=rev_reg_id)
@@ -27,6 +27,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "json": json_json_body,
+        "verify": client.verify_ssl,
     }
 
 
@@ -48,14 +49,14 @@ def _build_response(*, response: httpx.Response) -> Response[RevRegResult]:
 
 
 def sync_detailed(
+    rev_reg_id: str,
     *,
     client: Client,
-    rev_reg_id: str,
     json_body: RevRegUpdateTailsFileUri,
 ) -> Response[RevRegResult]:
     kwargs = _get_kwargs(
-        client=client,
         rev_reg_id=rev_reg_id,
+        client=client,
         json_body=json_body,
     )
 
@@ -67,29 +68,29 @@ def sync_detailed(
 
 
 def sync(
+    rev_reg_id: str,
     *,
     client: Client,
-    rev_reg_id: str,
     json_body: RevRegUpdateTailsFileUri,
 ) -> Optional[RevRegResult]:
     """ """
 
     return sync_detailed(
-        client=client,
         rev_reg_id=rev_reg_id,
+        client=client,
         json_body=json_body,
     ).parsed
 
 
 async def asyncio_detailed(
+    rev_reg_id: str,
     *,
     client: Client,
-    rev_reg_id: str,
     json_body: RevRegUpdateTailsFileUri,
 ) -> Response[RevRegResult]:
     kwargs = _get_kwargs(
-        client=client,
         rev_reg_id=rev_reg_id,
+        client=client,
         json_body=json_body,
     )
 
@@ -100,17 +101,17 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    rev_reg_id: str,
     *,
     client: Client,
-    rev_reg_id: str,
     json_body: RevRegUpdateTailsFileUri,
 ) -> Optional[RevRegResult]:
     """ """
 
     return (
         await asyncio_detailed(
-            client=client,
             rev_reg_id=rev_reg_id,
+            client=client,
             json_body=json_body,
         )
     ).parsed

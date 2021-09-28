@@ -12,23 +12,23 @@ from ...types import UNSET, Response, Unset
 def _get_kwargs(
     *,
     client: Client,
-    connection_id: Union[Unset, str] = UNSET,
-    role: Union[Unset, GetRecordsPresentProofRoleSchema] = UNSET,
-    state: Union[Unset, GetRecordsPresentProofStateSchema] = UNSET,
-    thread_id: Union[Unset, str] = UNSET,
+    connection_id: Union[Unset, None, str] = UNSET,
+    role: Union[Unset, None, GetRecordsPresentProofRoleSchema] = UNSET,
+    state: Union[Unset, None, GetRecordsPresentProofStateSchema] = UNSET,
+    thread_id: Union[Unset, None, str] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/present-proof-2.0/records".format(client.base_url)
 
     headers: Dict[str, Any] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
-    json_role: Union[Unset, str] = UNSET
+    json_role: Union[Unset, None, str] = UNSET
     if not isinstance(role, Unset):
-        json_role = role.value
+        json_role = role.value if role else None
 
-    json_state: Union[Unset, str] = UNSET
+    json_state: Union[Unset, None, str] = UNSET
     if not isinstance(state, Unset):
-        json_state = state.value
+        json_state = state.value if state else None
 
     params: Dict[str, Any] = {
         "connection_id": connection_id,
@@ -44,6 +44,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "params": params,
+        "verify": client.verify_ssl,
     }
 
 
@@ -67,10 +68,10 @@ def _build_response(*, response: httpx.Response) -> Response[V20PresExRecordList
 def sync_detailed(
     *,
     client: Client,
-    connection_id: Union[Unset, str] = UNSET,
-    role: Union[Unset, GetRecordsPresentProofRoleSchema] = UNSET,
-    state: Union[Unset, GetRecordsPresentProofStateSchema] = UNSET,
-    thread_id: Union[Unset, str] = UNSET,
+    connection_id: Union[Unset, None, str] = UNSET,
+    role: Union[Unset, None, GetRecordsPresentProofRoleSchema] = UNSET,
+    state: Union[Unset, None, GetRecordsPresentProofStateSchema] = UNSET,
+    thread_id: Union[Unset, None, str] = UNSET,
 ) -> Response[V20PresExRecordList]:
     kwargs = _get_kwargs(
         client=client,
@@ -90,10 +91,10 @@ def sync_detailed(
 def sync(
     *,
     client: Client,
-    connection_id: Union[Unset, str] = UNSET,
-    role: Union[Unset, GetRecordsPresentProofRoleSchema] = UNSET,
-    state: Union[Unset, GetRecordsPresentProofStateSchema] = UNSET,
-    thread_id: Union[Unset, str] = UNSET,
+    connection_id: Union[Unset, None, str] = UNSET,
+    role: Union[Unset, None, GetRecordsPresentProofRoleSchema] = UNSET,
+    state: Union[Unset, None, GetRecordsPresentProofStateSchema] = UNSET,
+    thread_id: Union[Unset, None, str] = UNSET,
 ) -> Optional[V20PresExRecordList]:
     """ """
 
@@ -109,10 +110,10 @@ def sync(
 async def asyncio_detailed(
     *,
     client: Client,
-    connection_id: Union[Unset, str] = UNSET,
-    role: Union[Unset, GetRecordsPresentProofRoleSchema] = UNSET,
-    state: Union[Unset, GetRecordsPresentProofStateSchema] = UNSET,
-    thread_id: Union[Unset, str] = UNSET,
+    connection_id: Union[Unset, None, str] = UNSET,
+    role: Union[Unset, None, GetRecordsPresentProofRoleSchema] = UNSET,
+    state: Union[Unset, None, GetRecordsPresentProofStateSchema] = UNSET,
+    thread_id: Union[Unset, None, str] = UNSET,
 ) -> Response[V20PresExRecordList]:
     kwargs = _get_kwargs(
         client=client,
@@ -131,10 +132,10 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Client,
-    connection_id: Union[Unset, str] = UNSET,
-    role: Union[Unset, GetRecordsPresentProofRoleSchema] = UNSET,
-    state: Union[Unset, GetRecordsPresentProofStateSchema] = UNSET,
-    thread_id: Union[Unset, str] = UNSET,
+    connection_id: Union[Unset, None, str] = UNSET,
+    role: Union[Unset, None, GetRecordsPresentProofRoleSchema] = UNSET,
+    state: Union[Unset, None, GetRecordsPresentProofStateSchema] = UNSET,
+    thread_id: Union[Unset, None, str] = UNSET,
 ) -> Optional[V20PresExRecordList]:
     """ """
 

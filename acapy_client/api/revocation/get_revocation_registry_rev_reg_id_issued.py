@@ -8,9 +8,9 @@ from ...types import Response
 
 
 def _get_kwargs(
+    rev_reg_id: str,
     *,
     client: Client,
-    rev_reg_id: str,
 ) -> Dict[str, Any]:
     url = "{}/revocation/registry/{rev_reg_id}/issued".format(client.base_url, rev_reg_id=rev_reg_id)
 
@@ -22,6 +22,7 @@ def _get_kwargs(
         "headers": headers,
         "cookies": cookies,
         "timeout": client.get_timeout(),
+        "verify": client.verify_ssl,
     }
 
 
@@ -43,13 +44,13 @@ def _build_response(*, response: httpx.Response) -> Response[RevRegIssuedResult]
 
 
 def sync_detailed(
+    rev_reg_id: str,
     *,
     client: Client,
-    rev_reg_id: str,
 ) -> Response[RevRegIssuedResult]:
     kwargs = _get_kwargs(
-        client=client,
         rev_reg_id=rev_reg_id,
+        client=client,
     )
 
     response = httpx.get(
@@ -60,26 +61,26 @@ def sync_detailed(
 
 
 def sync(
+    rev_reg_id: str,
     *,
     client: Client,
-    rev_reg_id: str,
 ) -> Optional[RevRegIssuedResult]:
     """ """
 
     return sync_detailed(
-        client=client,
         rev_reg_id=rev_reg_id,
+        client=client,
     ).parsed
 
 
 async def asyncio_detailed(
+    rev_reg_id: str,
     *,
     client: Client,
-    rev_reg_id: str,
 ) -> Response[RevRegIssuedResult]:
     kwargs = _get_kwargs(
-        client=client,
         rev_reg_id=rev_reg_id,
+        client=client,
     )
 
     async with httpx.AsyncClient() as _client:
@@ -89,15 +90,15 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    rev_reg_id: str,
     *,
     client: Client,
-    rev_reg_id: str,
 ) -> Optional[RevRegIssuedResult]:
     """ """
 
     return (
         await asyncio_detailed(
-            client=client,
             rev_reg_id=rev_reg_id,
+            client=client,
         )
     ).parsed

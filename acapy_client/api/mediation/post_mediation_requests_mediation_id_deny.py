@@ -9,9 +9,9 @@ from ...types import Response
 
 
 def _get_kwargs(
+    mediation_id: str,
     *,
     client: Client,
-    mediation_id: str,
     json_body: AdminMediationDeny,
 ) -> Dict[str, Any]:
     url = "{}/mediation/requests/{mediation_id}/deny".format(client.base_url, mediation_id=mediation_id)
@@ -27,6 +27,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "json": json_json_body,
+        "verify": client.verify_ssl,
     }
 
 
@@ -48,14 +49,14 @@ def _build_response(*, response: httpx.Response) -> Response[MediationDeny]:
 
 
 def sync_detailed(
+    mediation_id: str,
     *,
     client: Client,
-    mediation_id: str,
     json_body: AdminMediationDeny,
 ) -> Response[MediationDeny]:
     kwargs = _get_kwargs(
-        client=client,
         mediation_id=mediation_id,
+        client=client,
         json_body=json_body,
     )
 
@@ -67,29 +68,29 @@ def sync_detailed(
 
 
 def sync(
+    mediation_id: str,
     *,
     client: Client,
-    mediation_id: str,
     json_body: AdminMediationDeny,
 ) -> Optional[MediationDeny]:
     """ """
 
     return sync_detailed(
-        client=client,
         mediation_id=mediation_id,
+        client=client,
         json_body=json_body,
     ).parsed
 
 
 async def asyncio_detailed(
+    mediation_id: str,
     *,
     client: Client,
-    mediation_id: str,
     json_body: AdminMediationDeny,
 ) -> Response[MediationDeny]:
     kwargs = _get_kwargs(
-        client=client,
         mediation_id=mediation_id,
+        client=client,
         json_body=json_body,
     )
 
@@ -100,17 +101,17 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    mediation_id: str,
     *,
     client: Client,
-    mediation_id: str,
     json_body: AdminMediationDeny,
 ) -> Optional[MediationDeny]:
     """ """
 
     return (
         await asyncio_detailed(
-            client=client,
             mediation_id=mediation_id,
+            client=client,
             json_body=json_body,
         )
     ).parsed

@@ -9,9 +9,9 @@ from ...types import Response
 
 
 def _get_kwargs(
+    pres_ex_id: str,
     *,
     client: Client,
-    pres_ex_id: str,
     json_body: AdminAPIMessageTracing,
 ) -> Dict[str, Any]:
     url = "{}/present-proof-2.0/records/{pres_ex_id}/send-request".format(client.base_url, pres_ex_id=pres_ex_id)
@@ -27,6 +27,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "json": json_json_body,
+        "verify": client.verify_ssl,
     }
 
 
@@ -48,14 +49,14 @@ def _build_response(*, response: httpx.Response) -> Response[V20PresExRecord]:
 
 
 def sync_detailed(
+    pres_ex_id: str,
     *,
     client: Client,
-    pres_ex_id: str,
     json_body: AdminAPIMessageTracing,
 ) -> Response[V20PresExRecord]:
     kwargs = _get_kwargs(
-        client=client,
         pres_ex_id=pres_ex_id,
+        client=client,
         json_body=json_body,
     )
 
@@ -67,29 +68,29 @@ def sync_detailed(
 
 
 def sync(
+    pres_ex_id: str,
     *,
     client: Client,
-    pres_ex_id: str,
     json_body: AdminAPIMessageTracing,
 ) -> Optional[V20PresExRecord]:
     """ """
 
     return sync_detailed(
-        client=client,
         pres_ex_id=pres_ex_id,
+        client=client,
         json_body=json_body,
     ).parsed
 
 
 async def asyncio_detailed(
+    pres_ex_id: str,
     *,
     client: Client,
-    pres_ex_id: str,
     json_body: AdminAPIMessageTracing,
 ) -> Response[V20PresExRecord]:
     kwargs = _get_kwargs(
-        client=client,
         pres_ex_id=pres_ex_id,
+        client=client,
         json_body=json_body,
     )
 
@@ -100,17 +101,17 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    pres_ex_id: str,
     *,
     client: Client,
-    pres_ex_id: str,
     json_body: AdminAPIMessageTracing,
 ) -> Optional[V20PresExRecord]:
     """ """
 
     return (
         await asyncio_detailed(
-            client=client,
             pres_ex_id=pres_ex_id,
+            client=client,
             json_body=json_body,
         )
     ).parsed

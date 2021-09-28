@@ -12,9 +12,9 @@ def _get_kwargs(
     *,
     client: Client,
     json_body: W3CCredentialsListRequest,
-    count: Union[Unset, str] = UNSET,
-    start: Union[Unset, str] = UNSET,
-    wql: Union[Unset, str] = UNSET,
+    count: Union[Unset, None, str] = UNSET,
+    start: Union[Unset, None, str] = UNSET,
+    wql: Union[Unset, None, str] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/credentials/w3c".format(client.base_url)
 
@@ -37,6 +37,7 @@ def _get_kwargs(
         "timeout": client.get_timeout(),
         "json": json_json_body,
         "params": params,
+        "verify": client.verify_ssl,
     }
 
 
@@ -61,9 +62,9 @@ def sync_detailed(
     *,
     client: Client,
     json_body: W3CCredentialsListRequest,
-    count: Union[Unset, str] = UNSET,
-    start: Union[Unset, str] = UNSET,
-    wql: Union[Unset, str] = UNSET,
+    count: Union[Unset, None, str] = UNSET,
+    start: Union[Unset, None, str] = UNSET,
+    wql: Union[Unset, None, str] = UNSET,
 ) -> Response[VCRecordList]:
     kwargs = _get_kwargs(
         client=client,
@@ -84,9 +85,9 @@ def sync(
     *,
     client: Client,
     json_body: W3CCredentialsListRequest,
-    count: Union[Unset, str] = UNSET,
-    start: Union[Unset, str] = UNSET,
-    wql: Union[Unset, str] = UNSET,
+    count: Union[Unset, None, str] = UNSET,
+    start: Union[Unset, None, str] = UNSET,
+    wql: Union[Unset, None, str] = UNSET,
 ) -> Optional[VCRecordList]:
     """ """
 
@@ -103,9 +104,9 @@ async def asyncio_detailed(
     *,
     client: Client,
     json_body: W3CCredentialsListRequest,
-    count: Union[Unset, str] = UNSET,
-    start: Union[Unset, str] = UNSET,
-    wql: Union[Unset, str] = UNSET,
+    count: Union[Unset, None, str] = UNSET,
+    start: Union[Unset, None, str] = UNSET,
+    wql: Union[Unset, None, str] = UNSET,
 ) -> Response[VCRecordList]:
     kwargs = _get_kwargs(
         client=client,
@@ -125,9 +126,9 @@ async def asyncio(
     *,
     client: Client,
     json_body: W3CCredentialsListRequest,
-    count: Union[Unset, str] = UNSET,
-    start: Union[Unset, str] = UNSET,
-    wql: Union[Unset, str] = UNSET,
+    count: Union[Unset, None, str] = UNSET,
+    start: Union[Unset, None, str] = UNSET,
+    wql: Union[Unset, None, str] = UNSET,
 ) -> Optional[VCRecordList]:
     """ """
 

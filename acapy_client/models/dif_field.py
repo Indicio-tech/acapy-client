@@ -3,7 +3,7 @@ from typing import Any, Dict, List, Type, TypeVar, Union, cast
 import attr
 
 from ..models.dif_field_predicate import DIFFieldPredicate
-from ..models.filter import Filter
+from ..models.filter_ import Filter
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="DIFField")

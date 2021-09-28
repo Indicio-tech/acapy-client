@@ -10,9 +10,9 @@ from ...types import UNSET, Response, Unset
 def _get_kwargs(
     *,
     client: Client,
-    cred_ex_id: Union[Unset, str] = UNSET,
-    cred_rev_id: Union[Unset, str] = UNSET,
-    rev_reg_id: Union[Unset, str] = UNSET,
+    cred_ex_id: Union[Unset, None, str] = UNSET,
+    cred_rev_id: Union[Unset, None, str] = UNSET,
+    rev_reg_id: Union[Unset, None, str] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/revocation/credential-record".format(client.base_url)
 
@@ -32,6 +32,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "params": params,
+        "verify": client.verify_ssl,
     }
 
 
@@ -55,9 +56,9 @@ def _build_response(*, response: httpx.Response) -> Response[CredRevRecordResult
 def sync_detailed(
     *,
     client: Client,
-    cred_ex_id: Union[Unset, str] = UNSET,
-    cred_rev_id: Union[Unset, str] = UNSET,
-    rev_reg_id: Union[Unset, str] = UNSET,
+    cred_ex_id: Union[Unset, None, str] = UNSET,
+    cred_rev_id: Union[Unset, None, str] = UNSET,
+    rev_reg_id: Union[Unset, None, str] = UNSET,
 ) -> Response[CredRevRecordResult]:
     kwargs = _get_kwargs(
         client=client,
@@ -76,9 +77,9 @@ def sync_detailed(
 def sync(
     *,
     client: Client,
-    cred_ex_id: Union[Unset, str] = UNSET,
-    cred_rev_id: Union[Unset, str] = UNSET,
-    rev_reg_id: Union[Unset, str] = UNSET,
+    cred_ex_id: Union[Unset, None, str] = UNSET,
+    cred_rev_id: Union[Unset, None, str] = UNSET,
+    rev_reg_id: Union[Unset, None, str] = UNSET,
 ) -> Optional[CredRevRecordResult]:
     """ """
 
@@ -93,9 +94,9 @@ def sync(
 async def asyncio_detailed(
     *,
     client: Client,
-    cred_ex_id: Union[Unset, str] = UNSET,
-    cred_rev_id: Union[Unset, str] = UNSET,
-    rev_reg_id: Union[Unset, str] = UNSET,
+    cred_ex_id: Union[Unset, None, str] = UNSET,
+    cred_rev_id: Union[Unset, None, str] = UNSET,
+    rev_reg_id: Union[Unset, None, str] = UNSET,
 ) -> Response[CredRevRecordResult]:
     kwargs = _get_kwargs(
         client=client,
@@ -113,9 +114,9 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Client,
-    cred_ex_id: Union[Unset, str] = UNSET,
-    cred_rev_id: Union[Unset, str] = UNSET,
-    rev_reg_id: Union[Unset, str] = UNSET,
+    cred_ex_id: Union[Unset, None, str] = UNSET,
+    cred_rev_id: Union[Unset, None, str] = UNSET,
+    rev_reg_id: Union[Unset, None, str] = UNSET,
 ) -> Optional[CredRevRecordResult]:
     """ """
 

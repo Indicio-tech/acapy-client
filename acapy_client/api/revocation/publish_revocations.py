@@ -12,8 +12,8 @@ def _get_kwargs(
     *,
     client: Client,
     json_body: PublishRevocations,
-    conn_id: Union[Unset, str] = UNSET,
-    create_transaction_for_endorser: Union[Unset, bool] = UNSET,
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/revocation/publish-revocations".format(client.base_url)
 
@@ -35,18 +35,35 @@ def _get_kwargs(
         "timeout": client.get_timeout(),
         "json": json_json_body,
         "params": params,
+        "verify": client.verify_ssl,
     }
 
 
-def _parse_response(*, response: httpx.Response) -> Optional[TxnOrPublishRevocationsResult]:
+def _parse_response(*, response: httpx.Response) -> Optional[Union[PublishRevocations, TxnOrPublishRevocationsResult]]:
     if response.status_code == 200:
-        response_200 = TxnOrPublishRevocationsResult.from_dict(response.json())
+
+        def _parse_response_200(data: object) -> Union[PublishRevocations, TxnOrPublishRevocationsResult]:
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                response_200_type_0 = PublishRevocations.from_dict(data)
+
+                return response_200_type_0
+            except:  # noqa: E722
+                pass
+            if not isinstance(data, dict):
+                raise TypeError()
+            response_200_type_1 = TxnOrPublishRevocationsResult.from_dict(data)
+
+            return response_200_type_1
+
+        response_200 = _parse_response_200(response.json())
 
         return response_200
     return None
 
 
-def _build_response(*, response: httpx.Response) -> Response[TxnOrPublishRevocationsResult]:
+def _build_response(*, response: httpx.Response) -> Response[Union[PublishRevocations, TxnOrPublishRevocationsResult]]:
     return Response(
         status_code=response.status_code,
         content=response.content,
@@ -59,9 +76,9 @@ def sync_detailed(
     *,
     client: Client,
     json_body: PublishRevocations,
-    conn_id: Union[Unset, str] = UNSET,
-    create_transaction_for_endorser: Union[Unset, bool] = UNSET,
-) -> Response[TxnOrPublishRevocationsResult]:
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
+) -> Response[Union[PublishRevocations, TxnOrPublishRevocationsResult]]:
     kwargs = _get_kwargs(
         client=client,
         json_body=json_body,
@@ -80,9 +97,9 @@ def sync(
     *,
     client: Client,
     json_body: PublishRevocations,
-    conn_id: Union[Unset, str] = UNSET,
-    create_transaction_for_endorser: Union[Unset, bool] = UNSET,
-) -> Optional[TxnOrPublishRevocationsResult]:
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
+) -> Optional[Union[PublishRevocations, TxnOrPublishRevocationsResult]]:
     """ """
 
     return sync_detailed(
@@ -97,9 +114,9 @@ async def asyncio_detailed(
     *,
     client: Client,
     json_body: PublishRevocations,
-    conn_id: Union[Unset, str] = UNSET,
-    create_transaction_for_endorser: Union[Unset, bool] = UNSET,
-) -> Response[TxnOrPublishRevocationsResult]:
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
+) -> Response[Union[PublishRevocations, TxnOrPublishRevocationsResult]]:
     kwargs = _get_kwargs(
         client=client,
         json_body=json_body,
@@ -117,9 +134,9 @@ async def asyncio(
     *,
     client: Client,
     json_body: PublishRevocations,
-    conn_id: Union[Unset, str] = UNSET,
-    create_transaction_for_endorser: Union[Unset, bool] = UNSET,
-) -> Optional[TxnOrPublishRevocationsResult]:
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
+) -> Optional[Union[PublishRevocations, TxnOrPublishRevocationsResult]]:
     """ """
 
     return (

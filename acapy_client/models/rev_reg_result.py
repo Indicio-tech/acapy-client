@@ -1,9 +1,8 @@
-from typing import Any, Dict, List, Type, TypeVar, Union
+from typing import Any, Dict, List, Type, TypeVar
 
 import attr
 
 from ..models.issuer_rev_reg_record import IssuerRevRegRecord
-from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RevRegResult")
 
@@ -12,31 +11,26 @@ T = TypeVar("T", bound="RevRegResult")
 class RevRegResult:
     """ """
 
-    result: Union[Unset, IssuerRevRegRecord] = UNSET
+    result: IssuerRevRegRecord
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        result: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.result, Unset):
-            result = self.result.to_dict()
+        result = self.result.to_dict()
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update({})
-        if result is not UNSET:
-            field_dict["result"] = result
+        field_dict.update(
+            {
+                "result": result,
+            }
+        )
 
         return field_dict
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        _result = d.pop("result", UNSET)
-        result: Union[Unset, IssuerRevRegRecord]
-        if isinstance(_result, Unset):
-            result = UNSET
-        else:
-            result = IssuerRevRegRecord.from_dict(_result)
+        result = IssuerRevRegRecord.from_dict(d.pop("result"))
 
         rev_reg_result = cls(
             result=result,

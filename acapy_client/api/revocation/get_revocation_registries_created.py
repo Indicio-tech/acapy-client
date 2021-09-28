@@ -11,17 +11,17 @@ from ...types import UNSET, Response, Unset
 def _get_kwargs(
     *,
     client: Client,
-    cred_def_id: Union[Unset, str] = UNSET,
-    state: Union[Unset, GetRevocationRegistriesCreatedState] = UNSET,
+    cred_def_id: Union[Unset, None, str] = UNSET,
+    state: Union[Unset, None, GetRevocationRegistriesCreatedState] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/revocation/registries/created".format(client.base_url)
 
     headers: Dict[str, Any] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
-    json_state: Union[Unset, str] = UNSET
+    json_state: Union[Unset, None, str] = UNSET
     if not isinstance(state, Unset):
-        json_state = state.value
+        json_state = state.value if state else None
 
     params: Dict[str, Any] = {
         "cred_def_id": cred_def_id,
@@ -35,6 +35,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "params": params,
+        "verify": client.verify_ssl,
     }
 
 
@@ -58,8 +59,8 @@ def _build_response(*, response: httpx.Response) -> Response[RevRegsCreated]:
 def sync_detailed(
     *,
     client: Client,
-    cred_def_id: Union[Unset, str] = UNSET,
-    state: Union[Unset, GetRevocationRegistriesCreatedState] = UNSET,
+    cred_def_id: Union[Unset, None, str] = UNSET,
+    state: Union[Unset, None, GetRevocationRegistriesCreatedState] = UNSET,
 ) -> Response[RevRegsCreated]:
     kwargs = _get_kwargs(
         client=client,
@@ -77,8 +78,8 @@ def sync_detailed(
 def sync(
     *,
     client: Client,
-    cred_def_id: Union[Unset, str] = UNSET,
-    state: Union[Unset, GetRevocationRegistriesCreatedState] = UNSET,
+    cred_def_id: Union[Unset, None, str] = UNSET,
+    state: Union[Unset, None, GetRevocationRegistriesCreatedState] = UNSET,
 ) -> Optional[RevRegsCreated]:
     """ """
 
@@ -92,8 +93,8 @@ def sync(
 async def asyncio_detailed(
     *,
     client: Client,
-    cred_def_id: Union[Unset, str] = UNSET,
-    state: Union[Unset, GetRevocationRegistriesCreatedState] = UNSET,
+    cred_def_id: Union[Unset, None, str] = UNSET,
+    state: Union[Unset, None, GetRevocationRegistriesCreatedState] = UNSET,
 ) -> Response[RevRegsCreated]:
     kwargs = _get_kwargs(
         client=client,
@@ -110,8 +111,8 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Client,
-    cred_def_id: Union[Unset, str] = UNSET,
-    state: Union[Unset, GetRevocationRegistriesCreatedState] = UNSET,
+    cred_def_id: Union[Unset, None, str] = UNSET,
+    state: Union[Unset, None, GetRevocationRegistriesCreatedState] = UNSET,
 ) -> Optional[RevRegsCreated]:
     """ """
 

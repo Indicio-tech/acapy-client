@@ -10,12 +10,12 @@ from ...types import UNSET, Response, Unset
 def _get_kwargs(
     *,
     client: Client,
-    cred_def_id: Union[Unset, str] = UNSET,
-    issuer_did: Union[Unset, str] = UNSET,
-    schema_id: Union[Unset, str] = UNSET,
-    schema_issuer_did: Union[Unset, str] = UNSET,
-    schema_name: Union[Unset, str] = UNSET,
-    schema_version: Union[Unset, str] = UNSET,
+    cred_def_id: Union[Unset, None, str] = UNSET,
+    issuer_did: Union[Unset, None, str] = UNSET,
+    schema_id: Union[Unset, None, str] = UNSET,
+    schema_issuer_did: Union[Unset, None, str] = UNSET,
+    schema_name: Union[Unset, None, str] = UNSET,
+    schema_version: Union[Unset, None, str] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/credential-definitions/created".format(client.base_url)
 
@@ -38,6 +38,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "params": params,
+        "verify": client.verify_ssl,
     }
 
 
@@ -61,12 +62,12 @@ def _build_response(*, response: httpx.Response) -> Response[CredentialDefinitio
 def sync_detailed(
     *,
     client: Client,
-    cred_def_id: Union[Unset, str] = UNSET,
-    issuer_did: Union[Unset, str] = UNSET,
-    schema_id: Union[Unset, str] = UNSET,
-    schema_issuer_did: Union[Unset, str] = UNSET,
-    schema_name: Union[Unset, str] = UNSET,
-    schema_version: Union[Unset, str] = UNSET,
+    cred_def_id: Union[Unset, None, str] = UNSET,
+    issuer_did: Union[Unset, None, str] = UNSET,
+    schema_id: Union[Unset, None, str] = UNSET,
+    schema_issuer_did: Union[Unset, None, str] = UNSET,
+    schema_name: Union[Unset, None, str] = UNSET,
+    schema_version: Union[Unset, None, str] = UNSET,
 ) -> Response[CredentialDefinitionsCreatedResult]:
     kwargs = _get_kwargs(
         client=client,
@@ -88,12 +89,12 @@ def sync_detailed(
 def sync(
     *,
     client: Client,
-    cred_def_id: Union[Unset, str] = UNSET,
-    issuer_did: Union[Unset, str] = UNSET,
-    schema_id: Union[Unset, str] = UNSET,
-    schema_issuer_did: Union[Unset, str] = UNSET,
-    schema_name: Union[Unset, str] = UNSET,
-    schema_version: Union[Unset, str] = UNSET,
+    cred_def_id: Union[Unset, None, str] = UNSET,
+    issuer_did: Union[Unset, None, str] = UNSET,
+    schema_id: Union[Unset, None, str] = UNSET,
+    schema_issuer_did: Union[Unset, None, str] = UNSET,
+    schema_name: Union[Unset, None, str] = UNSET,
+    schema_version: Union[Unset, None, str] = UNSET,
 ) -> Optional[CredentialDefinitionsCreatedResult]:
     """ """
 
@@ -111,12 +112,12 @@ def sync(
 async def asyncio_detailed(
     *,
     client: Client,
-    cred_def_id: Union[Unset, str] = UNSET,
-    issuer_did: Union[Unset, str] = UNSET,
-    schema_id: Union[Unset, str] = UNSET,
-    schema_issuer_did: Union[Unset, str] = UNSET,
-    schema_name: Union[Unset, str] = UNSET,
-    schema_version: Union[Unset, str] = UNSET,
+    cred_def_id: Union[Unset, None, str] = UNSET,
+    issuer_did: Union[Unset, None, str] = UNSET,
+    schema_id: Union[Unset, None, str] = UNSET,
+    schema_issuer_did: Union[Unset, None, str] = UNSET,
+    schema_name: Union[Unset, None, str] = UNSET,
+    schema_version: Union[Unset, None, str] = UNSET,
 ) -> Response[CredentialDefinitionsCreatedResult]:
     kwargs = _get_kwargs(
         client=client,
@@ -137,12 +138,12 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Client,
-    cred_def_id: Union[Unset, str] = UNSET,
-    issuer_did: Union[Unset, str] = UNSET,
-    schema_id: Union[Unset, str] = UNSET,
-    schema_issuer_did: Union[Unset, str] = UNSET,
-    schema_name: Union[Unset, str] = UNSET,
-    schema_version: Union[Unset, str] = UNSET,
+    cred_def_id: Union[Unset, None, str] = UNSET,
+    issuer_did: Union[Unset, None, str] = UNSET,
+    schema_id: Union[Unset, None, str] = UNSET,
+    schema_issuer_did: Union[Unset, None, str] = UNSET,
+    schema_name: Union[Unset, None, str] = UNSET,
+    schema_version: Union[Unset, None, str] = UNSET,
 ) -> Optional[CredentialDefinitionsCreatedResult]:
     """ """
 

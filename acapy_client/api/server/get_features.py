@@ -10,7 +10,7 @@ from ...types import UNSET, Response, Unset
 def _get_kwargs(
     *,
     client: Client,
-    query: Union[Unset, str] = UNSET,
+    query: Union[Unset, None, str] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/features".format(client.base_url)
 
@@ -28,6 +28,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "params": params,
+        "verify": client.verify_ssl,
     }
 
 
@@ -51,7 +52,7 @@ def _build_response(*, response: httpx.Response) -> Response[QueryResult]:
 def sync_detailed(
     *,
     client: Client,
-    query: Union[Unset, str] = UNSET,
+    query: Union[Unset, None, str] = UNSET,
 ) -> Response[QueryResult]:
     kwargs = _get_kwargs(
         client=client,
@@ -68,7 +69,7 @@ def sync_detailed(
 def sync(
     *,
     client: Client,
-    query: Union[Unset, str] = UNSET,
+    query: Union[Unset, None, str] = UNSET,
 ) -> Optional[QueryResult]:
     """ """
 
@@ -81,7 +82,7 @@ def sync(
 async def asyncio_detailed(
     *,
     client: Client,
-    query: Union[Unset, str] = UNSET,
+    query: Union[Unset, None, str] = UNSET,
 ) -> Response[QueryResult]:
     kwargs = _get_kwargs(
         client=client,
@@ -97,7 +98,7 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Client,
-    query: Union[Unset, str] = UNSET,
+    query: Union[Unset, None, str] = UNSET,
 ) -> Optional[QueryResult]:
     """ """
 

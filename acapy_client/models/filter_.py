@@ -197,7 +197,7 @@ class Filter:
 
         type = d.pop("type", UNSET)
 
-        filter = cls(
+        filter_ = cls(
             const=const,
             enum=enum,
             exclusive_maximum=exclusive_maximum,
@@ -212,8 +212,8 @@ class Filter:
             type=type,
         )
 
-        filter.additional_properties = d
-        return filter
+        filter_.additional_properties = d
+        return filter_
 
     @property
     def additional_keys(self) -> List[str]:

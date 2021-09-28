@@ -12,16 +12,16 @@ def _get_kwargs(
     *,
     client: Client,
     did: str,
-    endpoint_type: Union[Unset, GetLedgerDidEndpointEndpointType] = UNSET,
+    endpoint_type: Union[Unset, None, GetLedgerDidEndpointEndpointType] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/ledger/did-endpoint".format(client.base_url)
 
     headers: Dict[str, Any] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
-    json_endpoint_type: Union[Unset, str] = UNSET
+    json_endpoint_type: Union[Unset, None, str] = UNSET
     if not isinstance(endpoint_type, Unset):
-        json_endpoint_type = endpoint_type.value
+        json_endpoint_type = endpoint_type.value if endpoint_type else None
 
     params: Dict[str, Any] = {
         "did": did,
@@ -35,6 +35,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "params": params,
+        "verify": client.verify_ssl,
     }
 
 
@@ -59,7 +60,7 @@ def sync_detailed(
     *,
     client: Client,
     did: str,
-    endpoint_type: Union[Unset, GetLedgerDidEndpointEndpointType] = UNSET,
+    endpoint_type: Union[Unset, None, GetLedgerDidEndpointEndpointType] = UNSET,
 ) -> Response[GetDIDEndpointResponse]:
     kwargs = _get_kwargs(
         client=client,
@@ -78,7 +79,7 @@ def sync(
     *,
     client: Client,
     did: str,
-    endpoint_type: Union[Unset, GetLedgerDidEndpointEndpointType] = UNSET,
+    endpoint_type: Union[Unset, None, GetLedgerDidEndpointEndpointType] = UNSET,
 ) -> Optional[GetDIDEndpointResponse]:
     """ """
 
@@ -93,7 +94,7 @@ async def asyncio_detailed(
     *,
     client: Client,
     did: str,
-    endpoint_type: Union[Unset, GetLedgerDidEndpointEndpointType] = UNSET,
+    endpoint_type: Union[Unset, None, GetLedgerDidEndpointEndpointType] = UNSET,
 ) -> Response[GetDIDEndpointResponse]:
     kwargs = _get_kwargs(
         client=client,
@@ -111,7 +112,7 @@ async def asyncio(
     *,
     client: Client,
     did: str,
-    endpoint_type: Union[Unset, GetLedgerDidEndpointEndpointType] = UNSET,
+    endpoint_type: Union[Unset, None, GetLedgerDidEndpointEndpointType] = UNSET,
 ) -> Optional[GetDIDEndpointResponse]:
     """ """
 

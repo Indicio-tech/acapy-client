@@ -8,12 +8,12 @@ from ...types import UNSET, Response, Unset
 
 
 def _get_kwargs(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
-    mediation_id: Union[Unset, str] = UNSET,
-    my_endpoint: Union[Unset, str] = UNSET,
-    my_label: Union[Unset, str] = UNSET,
+    mediation_id: Union[Unset, None, str] = UNSET,
+    my_endpoint: Union[Unset, None, str] = UNSET,
+    my_label: Union[Unset, None, str] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/connections/{conn_id}/accept-invitation".format(client.base_url, conn_id=conn_id)
 
@@ -33,6 +33,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "params": params,
+        "verify": client.verify_ssl,
     }
 
 
@@ -54,16 +55,16 @@ def _build_response(*, response: httpx.Response) -> Response[ConnRecord]:
 
 
 def sync_detailed(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
-    mediation_id: Union[Unset, str] = UNSET,
-    my_endpoint: Union[Unset, str] = UNSET,
-    my_label: Union[Unset, str] = UNSET,
+    mediation_id: Union[Unset, None, str] = UNSET,
+    my_endpoint: Union[Unset, None, str] = UNSET,
+    my_label: Union[Unset, None, str] = UNSET,
 ) -> Response[ConnRecord]:
     kwargs = _get_kwargs(
-        client=client,
         conn_id=conn_id,
+        client=client,
         mediation_id=mediation_id,
         my_endpoint=my_endpoint,
         my_label=my_label,
@@ -77,18 +78,18 @@ def sync_detailed(
 
 
 def sync(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
-    mediation_id: Union[Unset, str] = UNSET,
-    my_endpoint: Union[Unset, str] = UNSET,
-    my_label: Union[Unset, str] = UNSET,
+    mediation_id: Union[Unset, None, str] = UNSET,
+    my_endpoint: Union[Unset, None, str] = UNSET,
+    my_label: Union[Unset, None, str] = UNSET,
 ) -> Optional[ConnRecord]:
     """ """
 
     return sync_detailed(
-        client=client,
         conn_id=conn_id,
+        client=client,
         mediation_id=mediation_id,
         my_endpoint=my_endpoint,
         my_label=my_label,
@@ -96,16 +97,16 @@ def sync(
 
 
 async def asyncio_detailed(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
-    mediation_id: Union[Unset, str] = UNSET,
-    my_endpoint: Union[Unset, str] = UNSET,
-    my_label: Union[Unset, str] = UNSET,
+    mediation_id: Union[Unset, None, str] = UNSET,
+    my_endpoint: Union[Unset, None, str] = UNSET,
+    my_label: Union[Unset, None, str] = UNSET,
 ) -> Response[ConnRecord]:
     kwargs = _get_kwargs(
-        client=client,
         conn_id=conn_id,
+        client=client,
         mediation_id=mediation_id,
         my_endpoint=my_endpoint,
         my_label=my_label,
@@ -118,19 +119,19 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
-    mediation_id: Union[Unset, str] = UNSET,
-    my_endpoint: Union[Unset, str] = UNSET,
-    my_label: Union[Unset, str] = UNSET,
+    mediation_id: Union[Unset, None, str] = UNSET,
+    my_endpoint: Union[Unset, None, str] = UNSET,
+    my_label: Union[Unset, None, str] = UNSET,
 ) -> Optional[ConnRecord]:
     """ """
 
     return (
         await asyncio_detailed(
-            client=client,
             conn_id=conn_id,
+            client=client,
             mediation_id=mediation_id,
             my_endpoint=my_endpoint,
             my_label=my_label,

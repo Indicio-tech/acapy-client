@@ -15,7 +15,7 @@ class TAAInfo:
     """ """
 
     aml_record: Union[Unset, AMLRecord] = UNSET
-    taa_accepted: Union[Unset, TAAAcceptance] = UNSET
+    taa_accepted: Union[Unset, None, TAAAcceptance] = UNSET
     taa_record: Union[Unset, TAARecord] = UNSET
     taa_required: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
@@ -25,9 +25,9 @@ class TAAInfo:
         if not isinstance(self.aml_record, Unset):
             aml_record = self.aml_record.to_dict()
 
-        taa_accepted: Union[Unset, Dict[str, Any]] = UNSET
+        taa_accepted: Union[Unset, None, Dict[str, Any]] = UNSET
         if not isinstance(self.taa_accepted, Unset):
-            taa_accepted = self.taa_accepted.to_dict()
+            taa_accepted = self.taa_accepted.to_dict() if self.taa_accepted else None
 
         taa_record: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.taa_record, Unset):
@@ -60,8 +60,10 @@ class TAAInfo:
             aml_record = AMLRecord.from_dict(_aml_record)
 
         _taa_accepted = d.pop("taa_accepted", UNSET)
-        taa_accepted: Union[Unset, TAAAcceptance]
-        if isinstance(_taa_accepted, Unset):
+        taa_accepted: Union[Unset, None, TAAAcceptance]
+        if _taa_accepted is None:
+            taa_accepted = None
+        elif isinstance(_taa_accepted, Unset):
             taa_accepted = UNSET
         else:
             taa_accepted = TAAAcceptance.from_dict(_taa_accepted)

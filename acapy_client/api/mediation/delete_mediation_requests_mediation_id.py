@@ -8,9 +8,9 @@ from ...types import Response
 
 
 def _get_kwargs(
+    mediation_id: str,
     *,
     client: Client,
-    mediation_id: str,
 ) -> Dict[str, Any]:
     url = "{}/mediation/requests/{mediation_id}".format(client.base_url, mediation_id=mediation_id)
 
@@ -22,6 +22,7 @@ def _get_kwargs(
         "headers": headers,
         "cookies": cookies,
         "timeout": client.get_timeout(),
+        "verify": client.verify_ssl,
     }
 
 
@@ -43,13 +44,13 @@ def _build_response(*, response: httpx.Response) -> Response[MediationRecord]:
 
 
 def sync_detailed(
+    mediation_id: str,
     *,
     client: Client,
-    mediation_id: str,
 ) -> Response[MediationRecord]:
     kwargs = _get_kwargs(
-        client=client,
         mediation_id=mediation_id,
+        client=client,
     )
 
     response = httpx.delete(
@@ -60,26 +61,26 @@ def sync_detailed(
 
 
 def sync(
+    mediation_id: str,
     *,
     client: Client,
-    mediation_id: str,
 ) -> Optional[MediationRecord]:
     """ """
 
     return sync_detailed(
-        client=client,
         mediation_id=mediation_id,
+        client=client,
     ).parsed
 
 
 async def asyncio_detailed(
+    mediation_id: str,
     *,
     client: Client,
-    mediation_id: str,
 ) -> Response[MediationRecord]:
     kwargs = _get_kwargs(
-        client=client,
         mediation_id=mediation_id,
+        client=client,
     )
 
     async with httpx.AsyncClient() as _client:
@@ -89,15 +90,15 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    mediation_id: str,
     *,
     client: Client,
-    mediation_id: str,
 ) -> Optional[MediationRecord]:
     """ """
 
     return (
         await asyncio_detailed(
-            client=client,
             mediation_id=mediation_id,
+            client=client,
         )
     ).parsed

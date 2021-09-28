@@ -9,9 +9,9 @@ from ...types import Response
 
 
 def _get_kwargs(
+    cred_ex_id: str,
     *,
     client: Client,
-    cred_ex_id: str,
     json_body: V20CredIssueProblemReportRequest,
 ) -> Dict[str, Any]:
     url = "{}/issue-credential-2.0/records/{cred_ex_id}/problem-report".format(client.base_url, cred_ex_id=cred_ex_id)
@@ -27,6 +27,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "json": json_json_body,
+        "verify": client.verify_ssl,
     }
 
 
@@ -48,14 +49,14 @@ def _build_response(*, response: httpx.Response) -> Response[V20IssueCredentialM
 
 
 def sync_detailed(
+    cred_ex_id: str,
     *,
     client: Client,
-    cred_ex_id: str,
     json_body: V20CredIssueProblemReportRequest,
 ) -> Response[V20IssueCredentialModuleResponse]:
     kwargs = _get_kwargs(
-        client=client,
         cred_ex_id=cred_ex_id,
+        client=client,
         json_body=json_body,
     )
 
@@ -67,29 +68,29 @@ def sync_detailed(
 
 
 def sync(
+    cred_ex_id: str,
     *,
     client: Client,
-    cred_ex_id: str,
     json_body: V20CredIssueProblemReportRequest,
 ) -> Optional[V20IssueCredentialModuleResponse]:
     """ """
 
     return sync_detailed(
-        client=client,
         cred_ex_id=cred_ex_id,
+        client=client,
         json_body=json_body,
     ).parsed
 
 
 async def asyncio_detailed(
+    cred_ex_id: str,
     *,
     client: Client,
-    cred_ex_id: str,
     json_body: V20CredIssueProblemReportRequest,
 ) -> Response[V20IssueCredentialModuleResponse]:
     kwargs = _get_kwargs(
-        client=client,
         cred_ex_id=cred_ex_id,
+        client=client,
         json_body=json_body,
     )
 
@@ -100,17 +101,17 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    cred_ex_id: str,
     *,
     client: Client,
-    cred_ex_id: str,
     json_body: V20CredIssueProblemReportRequest,
 ) -> Optional[V20IssueCredentialModuleResponse]:
     """ """
 
     return (
         await asyncio_detailed(
-            client=client,
             cred_ex_id=cred_ex_id,
+            client=client,
             json_body=json_body,
         )
     ).parsed

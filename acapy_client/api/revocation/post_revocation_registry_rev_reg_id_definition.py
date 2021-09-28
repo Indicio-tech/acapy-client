@@ -3,16 +3,17 @@ from typing import Any, Dict, Optional, Union
 import httpx
 
 from ...client import Client
+from ...models.rev_reg_result import RevRegResult
 from ...models.txn_or_rev_reg_result import TxnOrRevRegResult
 from ...types import UNSET, Response, Unset
 
 
 def _get_kwargs(
+    rev_reg_id: str,
     *,
     client: Client,
-    rev_reg_id: str,
-    conn_id: Union[Unset, str] = UNSET,
-    create_transaction_for_endorser: Union[Unset, bool] = UNSET,
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/revocation/registry/{rev_reg_id}/definition".format(client.base_url, rev_reg_id=rev_reg_id)
 
@@ -31,18 +32,35 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "params": params,
+        "verify": client.verify_ssl,
     }
 
 
-def _parse_response(*, response: httpx.Response) -> Optional[TxnOrRevRegResult]:
+def _parse_response(*, response: httpx.Response) -> Optional[Union[RevRegResult, TxnOrRevRegResult]]:
     if response.status_code == 200:
-        response_200 = TxnOrRevRegResult.from_dict(response.json())
+
+        def _parse_response_200(data: object) -> Union[RevRegResult, TxnOrRevRegResult]:
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                response_200_type_0 = RevRegResult.from_dict(data)
+
+                return response_200_type_0
+            except:  # noqa: E722
+                pass
+            if not isinstance(data, dict):
+                raise TypeError()
+            response_200_type_1 = TxnOrRevRegResult.from_dict(data)
+
+            return response_200_type_1
+
+        response_200 = _parse_response_200(response.json())
 
         return response_200
     return None
 
 
-def _build_response(*, response: httpx.Response) -> Response[TxnOrRevRegResult]:
+def _build_response(*, response: httpx.Response) -> Response[Union[RevRegResult, TxnOrRevRegResult]]:
     return Response(
         status_code=response.status_code,
         content=response.content,
@@ -52,15 +70,15 @@ def _build_response(*, response: httpx.Response) -> Response[TxnOrRevRegResult]:
 
 
 def sync_detailed(
+    rev_reg_id: str,
     *,
     client: Client,
-    rev_reg_id: str,
-    conn_id: Union[Unset, str] = UNSET,
-    create_transaction_for_endorser: Union[Unset, bool] = UNSET,
-) -> Response[TxnOrRevRegResult]:
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
+) -> Response[Union[RevRegResult, TxnOrRevRegResult]]:
     kwargs = _get_kwargs(
-        client=client,
         rev_reg_id=rev_reg_id,
+        client=client,
         conn_id=conn_id,
         create_transaction_for_endorser=create_transaction_for_endorser,
     )
@@ -73,32 +91,32 @@ def sync_detailed(
 
 
 def sync(
+    rev_reg_id: str,
     *,
     client: Client,
-    rev_reg_id: str,
-    conn_id: Union[Unset, str] = UNSET,
-    create_transaction_for_endorser: Union[Unset, bool] = UNSET,
-) -> Optional[TxnOrRevRegResult]:
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
+) -> Optional[Union[RevRegResult, TxnOrRevRegResult]]:
     """ """
 
     return sync_detailed(
-        client=client,
         rev_reg_id=rev_reg_id,
+        client=client,
         conn_id=conn_id,
         create_transaction_for_endorser=create_transaction_for_endorser,
     ).parsed
 
 
 async def asyncio_detailed(
+    rev_reg_id: str,
     *,
     client: Client,
-    rev_reg_id: str,
-    conn_id: Union[Unset, str] = UNSET,
-    create_transaction_for_endorser: Union[Unset, bool] = UNSET,
-) -> Response[TxnOrRevRegResult]:
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
+) -> Response[Union[RevRegResult, TxnOrRevRegResult]]:
     kwargs = _get_kwargs(
-        client=client,
         rev_reg_id=rev_reg_id,
+        client=client,
         conn_id=conn_id,
         create_transaction_for_endorser=create_transaction_for_endorser,
     )
@@ -110,18 +128,18 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    rev_reg_id: str,
     *,
     client: Client,
-    rev_reg_id: str,
-    conn_id: Union[Unset, str] = UNSET,
-    create_transaction_for_endorser: Union[Unset, bool] = UNSET,
-) -> Optional[TxnOrRevRegResult]:
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
+) -> Optional[Union[RevRegResult, TxnOrRevRegResult]]:
     """ """
 
     return (
         await asyncio_detailed(
-            client=client,
             rev_reg_id=rev_reg_id,
+            client=client,
             conn_id=conn_id,
             create_transaction_for_endorser=create_transaction_for_endorser,
         )

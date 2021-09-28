@@ -13,7 +13,7 @@ ${CONTAINER_RUNTIME} run --rm \
 
 for to_move in ../acapy-client/* ../acapy-client/.[!.]*; do
     filename="$(basename "${to_move}")"
-    if [[ "$filename" == .git* ]] || [[ "$filename" == "README.md"]]; then
+    if [[ "$filename" == .git* || "$filename" == "README.md" ]]; then
         continue
     fi
     rm -rf --preserve-root "../$filename"

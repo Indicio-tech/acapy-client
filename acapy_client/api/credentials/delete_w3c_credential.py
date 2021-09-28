@@ -8,9 +8,9 @@ from ...types import Response
 
 
 def _get_kwargs(
+    credential_id: str,
     *,
     client: Client,
-    credential_id: str,
 ) -> Dict[str, Any]:
     url = "{}/credential/w3c/{credential_id}".format(client.base_url, credential_id=credential_id)
 
@@ -22,6 +22,7 @@ def _get_kwargs(
         "headers": headers,
         "cookies": cookies,
         "timeout": client.get_timeout(),
+        "verify": client.verify_ssl,
     }
 
 
@@ -43,13 +44,13 @@ def _build_response(*, response: httpx.Response) -> Response[HolderModuleRespons
 
 
 def sync_detailed(
+    credential_id: str,
     *,
     client: Client,
-    credential_id: str,
 ) -> Response[HolderModuleResponse]:
     kwargs = _get_kwargs(
-        client=client,
         credential_id=credential_id,
+        client=client,
     )
 
     response = httpx.delete(
@@ -60,26 +61,26 @@ def sync_detailed(
 
 
 def sync(
+    credential_id: str,
     *,
     client: Client,
-    credential_id: str,
 ) -> Optional[HolderModuleResponse]:
     """ """
 
     return sync_detailed(
-        client=client,
         credential_id=credential_id,
+        client=client,
     ).parsed
 
 
 async def asyncio_detailed(
+    credential_id: str,
     *,
     client: Client,
-    credential_id: str,
 ) -> Response[HolderModuleResponse]:
     kwargs = _get_kwargs(
-        client=client,
         credential_id=credential_id,
+        client=client,
     )
 
     async with httpx.AsyncClient() as _client:
@@ -89,15 +90,15 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    credential_id: str,
     *,
     client: Client,
-    credential_id: str,
 ) -> Optional[HolderModuleResponse]:
     """ """
 
     return (
         await asyncio_detailed(
-            client=client,
             credential_id=credential_id,
+            client=client,
         )
     ).parsed

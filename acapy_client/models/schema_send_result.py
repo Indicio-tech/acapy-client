@@ -1,9 +1,8 @@
-from typing import Any, Dict, List, Type, TypeVar, Union
+from typing import Any, Dict, List, Type, TypeVar
 
 import attr
 
 from ..models.schema import Schema
-from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="SchemaSendResult")
 
@@ -12,43 +11,36 @@ T = TypeVar("T", bound="SchemaSendResult")
 class SchemaSendResult:
     """ """
 
+    schema: Schema
     schema_id: str
-    schema: Union[Unset, Schema] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        schema = self.schema.to_dict()
+
         schema_id = self.schema_id
-        schema: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.schema, Unset):
-            schema = self.schema.to_dict()
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update(
             {
+                "schema": schema,
                 "schema_id": schema_id,
             }
         )
-        if schema is not UNSET:
-            field_dict["schema"] = schema
 
         return field_dict
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
+        schema = Schema.from_dict(d.pop("schema"))
+
         schema_id = d.pop("schema_id")
 
-        _schema = d.pop("schema", UNSET)
-        schema: Union[Unset, Schema]
-        if isinstance(_schema, Unset):
-            schema = UNSET
-        else:
-            schema = Schema.from_dict(_schema)
-
         schema_send_result = cls(
-            schema_id=schema_id,
             schema=schema,
+            schema_id=schema_id,
         )
 
         schema_send_result.additional_properties = d
