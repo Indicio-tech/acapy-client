@@ -1,3 +1,6 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
+set -e
 
-# TODO implement retrieving the openapi json from ACA-Py of a given version
+cd "$(dirname "$0")" || exit
+
+wget -i - < OPENAPI_URL -O ../openapi.yml
