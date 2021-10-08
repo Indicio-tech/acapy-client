@@ -27,7 +27,6 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "json": json_json_body,
-        "verify": client.verify_ssl,
     }
 
 

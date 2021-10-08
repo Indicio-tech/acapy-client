@@ -22,7 +22,6 @@ def _get_kwargs(
         "headers": headers,
         "cookies": cookies,
         "timeout": client.get_timeout(),
-        "verify": client.verify_ssl,
     }
 
 

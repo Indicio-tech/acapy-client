@@ -36,7 +36,6 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "params": params,
-        "verify": client.verify_ssl,
     }
 
 
