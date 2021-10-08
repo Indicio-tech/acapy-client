@@ -3,17 +3,17 @@ from typing import Any, Dict, Optional
 import httpx
 
 from ...client import Client
-from ...models.v20_cred_ex_free import V20CredExFree
 from ...models.v20_cred_ex_record import V20CredExRecord
+from ...models.v20_cred_offer_conn_free_request import V20CredOfferConnFreeRequest
 from ...types import Response
 
 
 def _get_kwargs(
     *,
     client: Client,
-    json_body: V20CredExFree,
+    json_body: V20CredOfferConnFreeRequest,
 ) -> Dict[str, Any]:
-    url = "{}/issue-credential-2.0/send".format(client.base_url)
+    url = "{}/issue-credential-2.0/create-offer".format(client.base_url)
 
     headers: Dict[str, Any] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
@@ -50,7 +50,7 @@ def _build_response(*, response: httpx.Response) -> Response[V20CredExRecord]:
 def sync_detailed(
     *,
     client: Client,
-    json_body: V20CredExFree,
+    json_body: V20CredOfferConnFreeRequest,
 ) -> Response[V20CredExRecord]:
     kwargs = _get_kwargs(
         client=client,
@@ -67,7 +67,7 @@ def sync_detailed(
 def sync(
     *,
     client: Client,
-    json_body: V20CredExFree,
+    json_body: V20CredOfferConnFreeRequest,
 ) -> Optional[V20CredExRecord]:
     """ """
 
@@ -80,7 +80,7 @@ def sync(
 async def asyncio_detailed(
     *,
     client: Client,
-    json_body: V20CredExFree,
+    json_body: V20CredOfferConnFreeRequest,
 ) -> Response[V20CredExRecord]:
     kwargs = _get_kwargs(
         client=client,
@@ -96,7 +96,7 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Client,
-    json_body: V20CredExFree,
+    json_body: V20CredOfferConnFreeRequest,
 ) -> Optional[V20CredExRecord]:
     """ """
 

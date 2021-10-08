@@ -4,6 +4,10 @@ import attr
 
 from ..models.filter_const_type_5 import FilterConstType5
 from ..models.filter_enum_item import FilterEnumItem
+from ..models.filter_exclusive_maximum import FilterExclusiveMaximum
+from ..models.filter_exclusive_minimum import FilterExclusiveMinimum
+from ..models.filter_maximum import FilterMaximum
+from ..models.filter_minimum import FilterMinimum
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="Filter")
@@ -15,13 +19,13 @@ class Filter:
 
     const: Union[FilterConstType5, List[Any], Unset, bool, float, int, str] = UNSET
     enum: Union[Unset, List[FilterEnumItem]] = UNSET
-    exclusive_maximum: Union[Unset, float, str] = UNSET
-    exclusive_minimum: Union[Unset, float, str] = UNSET
+    exclusive_maximum: Union[Unset, FilterExclusiveMaximum] = UNSET
+    exclusive_minimum: Union[Unset, FilterExclusiveMinimum] = UNSET
     format_: Union[Unset, str] = UNSET
     max_length: Union[Unset, int] = UNSET
-    maximum: Union[Unset, float, str] = UNSET
+    maximum: Union[Unset, FilterMaximum] = UNSET
     min_length: Union[Unset, int] = UNSET
-    minimum: Union[Unset, float, str] = UNSET
+    minimum: Union[Unset, FilterMinimum] = UNSET
     not_: Union[Unset, bool] = UNSET
     pattern: Union[Unset, str] = UNSET
     type: Union[Unset, str] = UNSET
@@ -56,32 +60,24 @@ class Filter:
 
                 enum.append(enum_item)
 
-        exclusive_maximum: Union[Unset, float, str]
-        if isinstance(self.exclusive_maximum, Unset):
-            exclusive_maximum = UNSET
-        else:
-            exclusive_maximum = self.exclusive_maximum
+        exclusive_maximum: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.exclusive_maximum, Unset):
+            exclusive_maximum = self.exclusive_maximum.to_dict()
 
-        exclusive_minimum: Union[Unset, float, str]
-        if isinstance(self.exclusive_minimum, Unset):
-            exclusive_minimum = UNSET
-        else:
-            exclusive_minimum = self.exclusive_minimum
+        exclusive_minimum: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.exclusive_minimum, Unset):
+            exclusive_minimum = self.exclusive_minimum.to_dict()
 
         format_ = self.format_
         max_length = self.max_length
-        maximum: Union[Unset, float, str]
-        if isinstance(self.maximum, Unset):
-            maximum = UNSET
-        else:
-            maximum = self.maximum
+        maximum: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.maximum, Unset):
+            maximum = self.maximum.to_dict()
 
         min_length = self.min_length
-        minimum: Union[Unset, float, str]
-        if isinstance(self.minimum, Unset):
-            minimum = UNSET
-        else:
-            minimum = self.minimum
+        minimum: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.minimum, Unset):
+            minimum = self.minimum.to_dict()
 
         not_ = self.not_
         pattern = self.pattern
@@ -161,39 +157,39 @@ class Filter:
 
             enum.append(enum_item)
 
-        def _parse_exclusive_maximum(data: object) -> Union[Unset, float, str]:
-            if isinstance(data, Unset):
-                return data
-            return cast(Union[Unset, float, str], data)
+        _exclusive_maximum = d.pop("exclusiveMaximum", UNSET)
+        exclusive_maximum: Union[Unset, FilterExclusiveMaximum]
+        if isinstance(_exclusive_maximum, Unset):
+            exclusive_maximum = UNSET
+        else:
+            exclusive_maximum = FilterExclusiveMaximum.from_dict(_exclusive_maximum)
 
-        exclusive_maximum = _parse_exclusive_maximum(d.pop("exclusiveMaximum", UNSET))
-
-        def _parse_exclusive_minimum(data: object) -> Union[Unset, float, str]:
-            if isinstance(data, Unset):
-                return data
-            return cast(Union[Unset, float, str], data)
-
-        exclusive_minimum = _parse_exclusive_minimum(d.pop("exclusiveMinimum", UNSET))
+        _exclusive_minimum = d.pop("exclusiveMinimum", UNSET)
+        exclusive_minimum: Union[Unset, FilterExclusiveMinimum]
+        if isinstance(_exclusive_minimum, Unset):
+            exclusive_minimum = UNSET
+        else:
+            exclusive_minimum = FilterExclusiveMinimum.from_dict(_exclusive_minimum)
 
         format_ = d.pop("format", UNSET)
 
         max_length = d.pop("maxLength", UNSET)
 
-        def _parse_maximum(data: object) -> Union[Unset, float, str]:
-            if isinstance(data, Unset):
-                return data
-            return cast(Union[Unset, float, str], data)
-
-        maximum = _parse_maximum(d.pop("maximum", UNSET))
+        _maximum = d.pop("maximum", UNSET)
+        maximum: Union[Unset, FilterMaximum]
+        if isinstance(_maximum, Unset):
+            maximum = UNSET
+        else:
+            maximum = FilterMaximum.from_dict(_maximum)
 
         min_length = d.pop("minLength", UNSET)
 
-        def _parse_minimum(data: object) -> Union[Unset, float, str]:
-            if isinstance(data, Unset):
-                return data
-            return cast(Union[Unset, float, str], data)
-
-        minimum = _parse_minimum(d.pop("minimum", UNSET))
+        _minimum = d.pop("minimum", UNSET)
+        minimum: Union[Unset, FilterMinimum]
+        if isinstance(_minimum, Unset):
+            minimum = UNSET
+        else:
+            minimum = FilterMinimum.from_dict(_minimum)
 
         not_ = d.pop("not", UNSET)
 

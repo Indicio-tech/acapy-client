@@ -119,6 +119,10 @@ from .endpoints_result import EndpointsResult
 from .filter_ import Filter
 from .filter_const_type_5 import FilterConstType5
 from .filter_enum_item import FilterEnumItem
+from .filter_exclusive_maximum import FilterExclusiveMaximum
+from .filter_exclusive_minimum import FilterExclusiveMinimum
+from .filter_maximum import FilterMaximum
+from .filter_minimum import FilterMinimum
 from .generated import Generated
 from .get_connections_connection_protocol import GetConnectionsConnectionProtocol
 from .get_connections_state import GetConnectionsState
@@ -324,6 +328,7 @@ from .txn_or_schema_send_result import TxnOrSchemaSendResult
 from .update_wallet_request import UpdateWalletRequest
 from .update_wallet_request_wallet_dispatch_type import UpdateWalletRequestWalletDispatchType
 from .v10_credential_bound_offer_request import V10CredentialBoundOfferRequest
+from .v10_credential_conn_free_offer_request import V10CredentialConnFreeOfferRequest
 from .v10_credential_create import V10CredentialCreate
 from .v10_credential_exchange import V10CredentialExchange
 from .v10_credential_exchange_credential_request_metadata import V10CredentialExchangeCredentialRequestMetadata
@@ -348,6 +353,7 @@ from .v10_presentation_proposal_request import V10PresentationProposalRequest
 from .v10_presentation_send_request_request import V10PresentationSendRequestRequest
 from .v20_cred_attr_spec import V20CredAttrSpec
 from .v20_cred_bound_offer_request import V20CredBoundOfferRequest
+from .v20_cred_ex_free import V20CredExFree
 from .v20_cred_ex_record import V20CredExRecord
 from .v20_cred_ex_record_by_format import V20CredExRecordByFormat
 from .v20_cred_ex_record_by_format_cred_issue import V20CredExRecordByFormatCredIssue
@@ -370,13 +376,13 @@ from .v20_cred_issue import V20CredIssue
 from .v20_cred_issue_problem_report_request import V20CredIssueProblemReportRequest
 from .v20_cred_issue_request import V20CredIssueRequest
 from .v20_cred_offer import V20CredOffer
+from .v20_cred_offer_conn_free_request import V20CredOfferConnFreeRequest
 from .v20_cred_offer_request import V20CredOfferRequest
 from .v20_cred_preview import V20CredPreview
 from .v20_cred_proposal import V20CredProposal
 from .v20_cred_request import V20CredRequest
 from .v20_cred_request_free import V20CredRequestFree
 from .v20_cred_request_request import V20CredRequestRequest
-from .v20_cred_send_request import V20CredSendRequest
 from .v20_cred_store_request import V20CredStoreRequest
 from .v20_issue_cred_schema_core import V20IssueCredSchemaCore
 from .v20_issue_credential_module_response import V20IssueCredentialModuleResponse
