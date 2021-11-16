@@ -13,28 +13,28 @@ from ...types import UNSET, Response, Unset
 def _get_kwargs(
     *,
     client: Client,
-    did: Union[Unset, str] = UNSET,
-    key_type: Union[Unset, GetWalletDidKeyType] = UNSET,
-    method: Union[Unset, GetWalletDidMethod] = UNSET,
-    posture: Union[Unset, GetWalletDidPosture] = UNSET,
-    verkey: Union[Unset, str] = UNSET,
+    did: Union[Unset, None, str] = UNSET,
+    key_type: Union[Unset, None, GetWalletDidKeyType] = UNSET,
+    method: Union[Unset, None, GetWalletDidMethod] = UNSET,
+    posture: Union[Unset, None, GetWalletDidPosture] = UNSET,
+    verkey: Union[Unset, None, str] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/wallet/did".format(client.base_url)
 
     headers: Dict[str, Any] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
-    json_key_type: Union[Unset, str] = UNSET
+    json_key_type: Union[Unset, None, str] = UNSET
     if not isinstance(key_type, Unset):
-        json_key_type = key_type.value
+        json_key_type = key_type.value if key_type else None
 
-    json_method: Union[Unset, str] = UNSET
+    json_method: Union[Unset, None, str] = UNSET
     if not isinstance(method, Unset):
-        json_method = method.value
+        json_method = method.value if method else None
 
-    json_posture: Union[Unset, str] = UNSET
+    json_posture: Union[Unset, None, str] = UNSET
     if not isinstance(posture, Unset):
-        json_posture = posture.value
+        json_posture = posture.value if posture else None
 
     params: Dict[str, Any] = {
         "did": did,
@@ -51,6 +51,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "params": params,
+        "verify": client.verify_ssl,
     }
 
 
@@ -74,11 +75,11 @@ def _build_response(*, response: httpx.Response) -> Response[DIDList]:
 def sync_detailed(
     *,
     client: Client,
-    did: Union[Unset, str] = UNSET,
-    key_type: Union[Unset, GetWalletDidKeyType] = UNSET,
-    method: Union[Unset, GetWalletDidMethod] = UNSET,
-    posture: Union[Unset, GetWalletDidPosture] = UNSET,
-    verkey: Union[Unset, str] = UNSET,
+    did: Union[Unset, None, str] = UNSET,
+    key_type: Union[Unset, None, GetWalletDidKeyType] = UNSET,
+    method: Union[Unset, None, GetWalletDidMethod] = UNSET,
+    posture: Union[Unset, None, GetWalletDidPosture] = UNSET,
+    verkey: Union[Unset, None, str] = UNSET,
 ) -> Response[DIDList]:
     kwargs = _get_kwargs(
         client=client,
@@ -99,11 +100,11 @@ def sync_detailed(
 def sync(
     *,
     client: Client,
-    did: Union[Unset, str] = UNSET,
-    key_type: Union[Unset, GetWalletDidKeyType] = UNSET,
-    method: Union[Unset, GetWalletDidMethod] = UNSET,
-    posture: Union[Unset, GetWalletDidPosture] = UNSET,
-    verkey: Union[Unset, str] = UNSET,
+    did: Union[Unset, None, str] = UNSET,
+    key_type: Union[Unset, None, GetWalletDidKeyType] = UNSET,
+    method: Union[Unset, None, GetWalletDidMethod] = UNSET,
+    posture: Union[Unset, None, GetWalletDidPosture] = UNSET,
+    verkey: Union[Unset, None, str] = UNSET,
 ) -> Optional[DIDList]:
     """ """
 
@@ -120,11 +121,11 @@ def sync(
 async def asyncio_detailed(
     *,
     client: Client,
-    did: Union[Unset, str] = UNSET,
-    key_type: Union[Unset, GetWalletDidKeyType] = UNSET,
-    method: Union[Unset, GetWalletDidMethod] = UNSET,
-    posture: Union[Unset, GetWalletDidPosture] = UNSET,
-    verkey: Union[Unset, str] = UNSET,
+    did: Union[Unset, None, str] = UNSET,
+    key_type: Union[Unset, None, GetWalletDidKeyType] = UNSET,
+    method: Union[Unset, None, GetWalletDidMethod] = UNSET,
+    posture: Union[Unset, None, GetWalletDidPosture] = UNSET,
+    verkey: Union[Unset, None, str] = UNSET,
 ) -> Response[DIDList]:
     kwargs = _get_kwargs(
         client=client,
@@ -144,11 +145,11 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Client,
-    did: Union[Unset, str] = UNSET,
-    key_type: Union[Unset, GetWalletDidKeyType] = UNSET,
-    method: Union[Unset, GetWalletDidMethod] = UNSET,
-    posture: Union[Unset, GetWalletDidPosture] = UNSET,
-    verkey: Union[Unset, str] = UNSET,
+    did: Union[Unset, None, str] = UNSET,
+    key_type: Union[Unset, None, GetWalletDidKeyType] = UNSET,
+    method: Union[Unset, None, GetWalletDidMethod] = UNSET,
+    posture: Union[Unset, None, GetWalletDidPosture] = UNSET,
+    verkey: Union[Unset, None, str] = UNSET,
 ) -> Optional[DIDList]:
     """ """
 

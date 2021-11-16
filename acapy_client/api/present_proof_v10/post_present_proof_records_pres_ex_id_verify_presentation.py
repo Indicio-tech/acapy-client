@@ -8,9 +8,9 @@ from ...types import Response
 
 
 def _get_kwargs(
+    pres_ex_id: str,
     *,
     client: Client,
-    pres_ex_id: str,
 ) -> Dict[str, Any]:
     url = "{}/present-proof/records/{pres_ex_id}/verify-presentation".format(client.base_url, pres_ex_id=pres_ex_id)
 
@@ -22,6 +22,7 @@ def _get_kwargs(
         "headers": headers,
         "cookies": cookies,
         "timeout": client.get_timeout(),
+        "verify": client.verify_ssl,
     }
 
 
@@ -43,13 +44,13 @@ def _build_response(*, response: httpx.Response) -> Response[V10PresentationExch
 
 
 def sync_detailed(
+    pres_ex_id: str,
     *,
     client: Client,
-    pres_ex_id: str,
 ) -> Response[V10PresentationExchange]:
     kwargs = _get_kwargs(
-        client=client,
         pres_ex_id=pres_ex_id,
+        client=client,
     )
 
     response = httpx.post(
@@ -60,26 +61,26 @@ def sync_detailed(
 
 
 def sync(
+    pres_ex_id: str,
     *,
     client: Client,
-    pres_ex_id: str,
 ) -> Optional[V10PresentationExchange]:
     """ """
 
     return sync_detailed(
-        client=client,
         pres_ex_id=pres_ex_id,
+        client=client,
     ).parsed
 
 
 async def asyncio_detailed(
+    pres_ex_id: str,
     *,
     client: Client,
-    pres_ex_id: str,
 ) -> Response[V10PresentationExchange]:
     kwargs = _get_kwargs(
-        client=client,
         pres_ex_id=pres_ex_id,
+        client=client,
     )
 
     async with httpx.AsyncClient() as _client:
@@ -89,15 +90,15 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    pres_ex_id: str,
     *,
     client: Client,
-    pres_ex_id: str,
 ) -> Optional[V10PresentationExchange]:
     """ """
 
     return (
         await asyncio_detailed(
-            client=client,
             pres_ex_id=pres_ex_id,
+            client=client,
         )
     ).parsed

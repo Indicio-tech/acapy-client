@@ -11,10 +11,10 @@ def _get_kwargs(
     *,
     client: Client,
     their_public_did: str,
-    mediation_id: Union[Unset, str] = UNSET,
-    my_endpoint: Union[Unset, str] = UNSET,
-    my_label: Union[Unset, str] = UNSET,
-    use_public_did: Union[Unset, bool] = UNSET,
+    mediation_id: Union[Unset, None, str] = UNSET,
+    my_endpoint: Union[Unset, None, str] = UNSET,
+    my_label: Union[Unset, None, str] = UNSET,
+    use_public_did: Union[Unset, None, bool] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/didexchange/create-request".format(client.base_url)
 
@@ -36,6 +36,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "params": params,
+        "verify": client.verify_ssl,
     }
 
 
@@ -60,10 +61,10 @@ def sync_detailed(
     *,
     client: Client,
     their_public_did: str,
-    mediation_id: Union[Unset, str] = UNSET,
-    my_endpoint: Union[Unset, str] = UNSET,
-    my_label: Union[Unset, str] = UNSET,
-    use_public_did: Union[Unset, bool] = UNSET,
+    mediation_id: Union[Unset, None, str] = UNSET,
+    my_endpoint: Union[Unset, None, str] = UNSET,
+    my_label: Union[Unset, None, str] = UNSET,
+    use_public_did: Union[Unset, None, bool] = UNSET,
 ) -> Response[ConnRecord]:
     kwargs = _get_kwargs(
         client=client,
@@ -85,10 +86,10 @@ def sync(
     *,
     client: Client,
     their_public_did: str,
-    mediation_id: Union[Unset, str] = UNSET,
-    my_endpoint: Union[Unset, str] = UNSET,
-    my_label: Union[Unset, str] = UNSET,
-    use_public_did: Union[Unset, bool] = UNSET,
+    mediation_id: Union[Unset, None, str] = UNSET,
+    my_endpoint: Union[Unset, None, str] = UNSET,
+    my_label: Union[Unset, None, str] = UNSET,
+    use_public_did: Union[Unset, None, bool] = UNSET,
 ) -> Optional[ConnRecord]:
     """ """
 
@@ -106,10 +107,10 @@ async def asyncio_detailed(
     *,
     client: Client,
     their_public_did: str,
-    mediation_id: Union[Unset, str] = UNSET,
-    my_endpoint: Union[Unset, str] = UNSET,
-    my_label: Union[Unset, str] = UNSET,
-    use_public_did: Union[Unset, bool] = UNSET,
+    mediation_id: Union[Unset, None, str] = UNSET,
+    my_endpoint: Union[Unset, None, str] = UNSET,
+    my_label: Union[Unset, None, str] = UNSET,
+    use_public_did: Union[Unset, None, bool] = UNSET,
 ) -> Response[ConnRecord]:
     kwargs = _get_kwargs(
         client=client,
@@ -130,10 +131,10 @@ async def asyncio(
     *,
     client: Client,
     their_public_did: str,
-    mediation_id: Union[Unset, str] = UNSET,
-    my_endpoint: Union[Unset, str] = UNSET,
-    my_label: Union[Unset, str] = UNSET,
-    use_public_did: Union[Unset, bool] = UNSET,
+    mediation_id: Union[Unset, None, str] = UNSET,
+    my_endpoint: Union[Unset, None, str] = UNSET,
+    my_label: Union[Unset, None, str] = UNSET,
+    use_public_did: Union[Unset, None, bool] = UNSET,
 ) -> Optional[ConnRecord]:
     """ """
 

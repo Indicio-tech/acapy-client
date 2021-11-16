@@ -8,9 +8,9 @@ from ...types import Response
 
 
 def _get_kwargs(
+    tran_id: str,
     *,
     client: Client,
-    tran_id: str,
 ) -> Dict[str, Any]:
     url = "{}/transactions/{tran_id}/refuse".format(client.base_url, tran_id=tran_id)
 
@@ -22,6 +22,7 @@ def _get_kwargs(
         "headers": headers,
         "cookies": cookies,
         "timeout": client.get_timeout(),
+        "verify": client.verify_ssl,
     }
 
 
@@ -43,13 +44,13 @@ def _build_response(*, response: httpx.Response) -> Response[TransactionRecord]:
 
 
 def sync_detailed(
+    tran_id: str,
     *,
     client: Client,
-    tran_id: str,
 ) -> Response[TransactionRecord]:
     kwargs = _get_kwargs(
-        client=client,
         tran_id=tran_id,
+        client=client,
     )
 
     response = httpx.post(
@@ -60,26 +61,26 @@ def sync_detailed(
 
 
 def sync(
+    tran_id: str,
     *,
     client: Client,
-    tran_id: str,
 ) -> Optional[TransactionRecord]:
     """ """
 
     return sync_detailed(
-        client=client,
         tran_id=tran_id,
+        client=client,
     ).parsed
 
 
 async def asyncio_detailed(
+    tran_id: str,
     *,
     client: Client,
-    tran_id: str,
 ) -> Response[TransactionRecord]:
     kwargs = _get_kwargs(
-        client=client,
         tran_id=tran_id,
+        client=client,
     )
 
     async with httpx.AsyncClient() as _client:
@@ -89,15 +90,15 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    tran_id: str,
     *,
     client: Client,
-    tran_id: str,
 ) -> Optional[TransactionRecord]:
     """ """
 
     return (
         await asyncio_detailed(
-            client=client,
             tran_id=tran_id,
+            client=client,
         )
     ).parsed

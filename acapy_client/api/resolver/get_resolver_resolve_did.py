@@ -8,9 +8,9 @@ from ...types import Response
 
 
 def _get_kwargs(
+    did: str,
     *,
     client: Client,
-    did: str,
 ) -> Dict[str, Any]:
     url = "{}/resolver/resolve/{did}".format(client.base_url, did=did)
 
@@ -22,6 +22,7 @@ def _get_kwargs(
         "headers": headers,
         "cookies": cookies,
         "timeout": client.get_timeout(),
+        "verify": client.verify_ssl,
     }
 
 
@@ -43,13 +44,13 @@ def _build_response(*, response: httpx.Response) -> Response[ResolutionResult]:
 
 
 def sync_detailed(
+    did: str,
     *,
     client: Client,
-    did: str,
 ) -> Response[ResolutionResult]:
     kwargs = _get_kwargs(
-        client=client,
         did=did,
+        client=client,
     )
 
     response = httpx.get(
@@ -60,26 +61,26 @@ def sync_detailed(
 
 
 def sync(
+    did: str,
     *,
     client: Client,
-    did: str,
 ) -> Optional[ResolutionResult]:
     """ """
 
     return sync_detailed(
-        client=client,
         did=did,
+        client=client,
     ).parsed
 
 
 async def asyncio_detailed(
+    did: str,
     *,
     client: Client,
-    did: str,
 ) -> Response[ResolutionResult]:
     kwargs = _get_kwargs(
-        client=client,
         did=did,
+        client=client,
     )
 
     async with httpx.AsyncClient() as _client:
@@ -89,15 +90,15 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    did: str,
     *,
     client: Client,
-    did: str,
 ) -> Optional[ResolutionResult]:
     """ """
 
     return (
         await asyncio_detailed(
-            client=client,
             did=did,
+            client=client,
         )
     ).parsed

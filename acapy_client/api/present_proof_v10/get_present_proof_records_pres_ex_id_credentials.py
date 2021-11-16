@@ -8,13 +8,13 @@ from ...types import UNSET, Response, Unset
 
 
 def _get_kwargs(
+    pres_ex_id: str,
     *,
     client: Client,
-    pres_ex_id: str,
-    count: Union[Unset, str] = UNSET,
-    extra_query: Union[Unset, str] = UNSET,
-    referent: Union[Unset, str] = UNSET,
-    start: Union[Unset, str] = UNSET,
+    count: Union[Unset, None, str] = UNSET,
+    extra_query: Union[Unset, None, str] = UNSET,
+    referent: Union[Unset, None, str] = UNSET,
+    start: Union[Unset, None, str] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/present-proof/records/{pres_ex_id}/credentials".format(client.base_url, pres_ex_id=pres_ex_id)
 
@@ -35,6 +35,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "params": params,
+        "verify": client.verify_ssl,
     }
 
 
@@ -61,17 +62,17 @@ def _build_response(*, response: httpx.Response) -> Response[List[IndyCredPrecis
 
 
 def sync_detailed(
+    pres_ex_id: str,
     *,
     client: Client,
-    pres_ex_id: str,
-    count: Union[Unset, str] = UNSET,
-    extra_query: Union[Unset, str] = UNSET,
-    referent: Union[Unset, str] = UNSET,
-    start: Union[Unset, str] = UNSET,
+    count: Union[Unset, None, str] = UNSET,
+    extra_query: Union[Unset, None, str] = UNSET,
+    referent: Union[Unset, None, str] = UNSET,
+    start: Union[Unset, None, str] = UNSET,
 ) -> Response[List[IndyCredPrecis]]:
     kwargs = _get_kwargs(
-        client=client,
         pres_ex_id=pres_ex_id,
+        client=client,
         count=count,
         extra_query=extra_query,
         referent=referent,
@@ -86,19 +87,19 @@ def sync_detailed(
 
 
 def sync(
+    pres_ex_id: str,
     *,
     client: Client,
-    pres_ex_id: str,
-    count: Union[Unset, str] = UNSET,
-    extra_query: Union[Unset, str] = UNSET,
-    referent: Union[Unset, str] = UNSET,
-    start: Union[Unset, str] = UNSET,
+    count: Union[Unset, None, str] = UNSET,
+    extra_query: Union[Unset, None, str] = UNSET,
+    referent: Union[Unset, None, str] = UNSET,
+    start: Union[Unset, None, str] = UNSET,
 ) -> Optional[List[IndyCredPrecis]]:
     """ """
 
     return sync_detailed(
-        client=client,
         pres_ex_id=pres_ex_id,
+        client=client,
         count=count,
         extra_query=extra_query,
         referent=referent,
@@ -107,17 +108,17 @@ def sync(
 
 
 async def asyncio_detailed(
+    pres_ex_id: str,
     *,
     client: Client,
-    pres_ex_id: str,
-    count: Union[Unset, str] = UNSET,
-    extra_query: Union[Unset, str] = UNSET,
-    referent: Union[Unset, str] = UNSET,
-    start: Union[Unset, str] = UNSET,
+    count: Union[Unset, None, str] = UNSET,
+    extra_query: Union[Unset, None, str] = UNSET,
+    referent: Union[Unset, None, str] = UNSET,
+    start: Union[Unset, None, str] = UNSET,
 ) -> Response[List[IndyCredPrecis]]:
     kwargs = _get_kwargs(
-        client=client,
         pres_ex_id=pres_ex_id,
+        client=client,
         count=count,
         extra_query=extra_query,
         referent=referent,
@@ -131,20 +132,20 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    pres_ex_id: str,
     *,
     client: Client,
-    pres_ex_id: str,
-    count: Union[Unset, str] = UNSET,
-    extra_query: Union[Unset, str] = UNSET,
-    referent: Union[Unset, str] = UNSET,
-    start: Union[Unset, str] = UNSET,
+    count: Union[Unset, None, str] = UNSET,
+    extra_query: Union[Unset, None, str] = UNSET,
+    referent: Union[Unset, None, str] = UNSET,
+    start: Union[Unset, None, str] = UNSET,
 ) -> Optional[List[IndyCredPrecis]]:
     """ """
 
     return (
         await asyncio_detailed(
-            client=client,
             pres_ex_id=pres_ex_id,
+            client=client,
             count=count,
             extra_query=extra_query,
             referent=referent,

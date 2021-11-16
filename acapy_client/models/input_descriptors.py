@@ -4,7 +4,7 @@ import attr
 
 from ..models.constraints import Constraints
 from ..models.input_descriptors_metadata import InputDescriptorsMetadata
-from ..models.schema_input_descriptor import SchemaInputDescriptor
+from ..models.schemas_input_descriptor_filter import SchemasInputDescriptorFilter
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="InputDescriptors")
@@ -20,7 +20,7 @@ class InputDescriptors:
     metadata: Union[Unset, InputDescriptorsMetadata] = UNSET
     name: Union[Unset, str] = UNSET
     purpose: Union[Unset, str] = UNSET
-    schema: Union[Unset, List[SchemaInputDescriptor]] = UNSET
+    schema: Union[Unset, SchemasInputDescriptorFilter] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -39,13 +39,9 @@ class InputDescriptors:
 
         name = self.name
         purpose = self.purpose
-        schema: Union[Unset, List[Dict[str, Any]]] = UNSET
+        schema: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.schema, Unset):
-            schema = []
-            for schema_item_data in self.schema:
-                schema_item = schema_item_data.to_dict()
-
-                schema.append(schema_item)
+            schema = self.schema.to_dict()
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
@@ -92,12 +88,12 @@ class InputDescriptors:
 
         purpose = d.pop("purpose", UNSET)
 
-        schema = []
         _schema = d.pop("schema", UNSET)
-        for schema_item_data in _schema or []:
-            schema_item = SchemaInputDescriptor.from_dict(schema_item_data)
-
-            schema.append(schema_item)
+        schema: Union[Unset, SchemasInputDescriptorFilter]
+        if isinstance(_schema, Unset):
+            schema = UNSET
+        else:
+            schema = SchemasInputDescriptorFilter.from_dict(_schema)
 
         input_descriptors = cls(
             constraints=constraints,

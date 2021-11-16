@@ -8,11 +8,11 @@ from ...types import UNSET, Response, Unset
 
 
 def _get_kwargs(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
     target_connection_id: str,
-    message: Union[Unset, str] = UNSET,
+    message: Union[Unset, None, str] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/connections/{conn_id}/start-introduction".format(client.base_url, conn_id=conn_id)
 
@@ -31,6 +31,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "params": params,
+        "verify": client.verify_ssl,
     }
 
 
@@ -52,15 +53,15 @@ def _build_response(*, response: httpx.Response) -> Response[IntroModuleResponse
 
 
 def sync_detailed(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
     target_connection_id: str,
-    message: Union[Unset, str] = UNSET,
+    message: Union[Unset, None, str] = UNSET,
 ) -> Response[IntroModuleResponse]:
     kwargs = _get_kwargs(
-        client=client,
         conn_id=conn_id,
+        client=client,
         target_connection_id=target_connection_id,
         message=message,
     )
@@ -73,32 +74,32 @@ def sync_detailed(
 
 
 def sync(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
     target_connection_id: str,
-    message: Union[Unset, str] = UNSET,
+    message: Union[Unset, None, str] = UNSET,
 ) -> Optional[IntroModuleResponse]:
     """ """
 
     return sync_detailed(
-        client=client,
         conn_id=conn_id,
+        client=client,
         target_connection_id=target_connection_id,
         message=message,
     ).parsed
 
 
 async def asyncio_detailed(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
     target_connection_id: str,
-    message: Union[Unset, str] = UNSET,
+    message: Union[Unset, None, str] = UNSET,
 ) -> Response[IntroModuleResponse]:
     kwargs = _get_kwargs(
-        client=client,
         conn_id=conn_id,
+        client=client,
         target_connection_id=target_connection_id,
         message=message,
     )
@@ -110,18 +111,18 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
     target_connection_id: str,
-    message: Union[Unset, str] = UNSET,
+    message: Union[Unset, None, str] = UNSET,
 ) -> Optional[IntroModuleResponse]:
     """ """
 
     return (
         await asyncio_detailed(
-            client=client,
             conn_id=conn_id,
+            client=client,
             target_connection_id=target_connection_id,
             message=message,
         )

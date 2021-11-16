@@ -8,11 +8,11 @@ from ...types import UNSET, Response, Unset
 
 
 def _get_kwargs(
+    rev_reg_id: str,
     *,
     client: Client,
-    rev_reg_id: str,
-    conn_id: Union[Unset, str] = UNSET,
-    create_transaction_for_endorser: Union[Unset, bool] = UNSET,
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/revocation/registry/{rev_reg_id}/entry".format(client.base_url, rev_reg_id=rev_reg_id)
 
@@ -31,6 +31,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "params": params,
+        "verify": client.verify_ssl,
     }
 
 
@@ -52,15 +53,15 @@ def _build_response(*, response: httpx.Response) -> Response[RevRegResult]:
 
 
 def sync_detailed(
+    rev_reg_id: str,
     *,
     client: Client,
-    rev_reg_id: str,
-    conn_id: Union[Unset, str] = UNSET,
-    create_transaction_for_endorser: Union[Unset, bool] = UNSET,
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
 ) -> Response[RevRegResult]:
     kwargs = _get_kwargs(
-        client=client,
         rev_reg_id=rev_reg_id,
+        client=client,
         conn_id=conn_id,
         create_transaction_for_endorser=create_transaction_for_endorser,
     )
@@ -73,32 +74,32 @@ def sync_detailed(
 
 
 def sync(
+    rev_reg_id: str,
     *,
     client: Client,
-    rev_reg_id: str,
-    conn_id: Union[Unset, str] = UNSET,
-    create_transaction_for_endorser: Union[Unset, bool] = UNSET,
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
 ) -> Optional[RevRegResult]:
     """ """
 
     return sync_detailed(
-        client=client,
         rev_reg_id=rev_reg_id,
+        client=client,
         conn_id=conn_id,
         create_transaction_for_endorser=create_transaction_for_endorser,
     ).parsed
 
 
 async def asyncio_detailed(
+    rev_reg_id: str,
     *,
     client: Client,
-    rev_reg_id: str,
-    conn_id: Union[Unset, str] = UNSET,
-    create_transaction_for_endorser: Union[Unset, bool] = UNSET,
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
 ) -> Response[RevRegResult]:
     kwargs = _get_kwargs(
-        client=client,
         rev_reg_id=rev_reg_id,
+        client=client,
         conn_id=conn_id,
         create_transaction_for_endorser=create_transaction_for_endorser,
     )
@@ -110,18 +111,18 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    rev_reg_id: str,
     *,
     client: Client,
-    rev_reg_id: str,
-    conn_id: Union[Unset, str] = UNSET,
-    create_transaction_for_endorser: Union[Unset, bool] = UNSET,
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
 ) -> Optional[RevRegResult]:
     """ """
 
     return (
         await asyncio_detailed(
-            client=client,
             rev_reg_id=rev_reg_id,
+            client=client,
             conn_id=conn_id,
             create_transaction_for_endorser=create_transaction_for_endorser,
         )

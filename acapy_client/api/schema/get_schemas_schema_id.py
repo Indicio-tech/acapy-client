@@ -8,9 +8,9 @@ from ...types import Response
 
 
 def _get_kwargs(
+    schema_id: str,
     *,
     client: Client,
-    schema_id: str,
 ) -> Dict[str, Any]:
     url = "{}/schemas/{schema_id}".format(client.base_url, schema_id=schema_id)
 
@@ -22,6 +22,7 @@ def _get_kwargs(
         "headers": headers,
         "cookies": cookies,
         "timeout": client.get_timeout(),
+        "verify": client.verify_ssl,
     }
 
 
@@ -43,13 +44,13 @@ def _build_response(*, response: httpx.Response) -> Response[SchemaGetResult]:
 
 
 def sync_detailed(
+    schema_id: str,
     *,
     client: Client,
-    schema_id: str,
 ) -> Response[SchemaGetResult]:
     kwargs = _get_kwargs(
-        client=client,
         schema_id=schema_id,
+        client=client,
     )
 
     response = httpx.get(
@@ -60,26 +61,26 @@ def sync_detailed(
 
 
 def sync(
+    schema_id: str,
     *,
     client: Client,
-    schema_id: str,
 ) -> Optional[SchemaGetResult]:
     """ """
 
     return sync_detailed(
-        client=client,
         schema_id=schema_id,
+        client=client,
     ).parsed
 
 
 async def asyncio_detailed(
+    schema_id: str,
     *,
     client: Client,
-    schema_id: str,
 ) -> Response[SchemaGetResult]:
     kwargs = _get_kwargs(
-        client=client,
         schema_id=schema_id,
+        client=client,
     )
 
     async with httpx.AsyncClient() as _client:
@@ -89,15 +90,15 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    schema_id: str,
     *,
     client: Client,
-    schema_id: str,
 ) -> Optional[SchemaGetResult]:
     """ """
 
     return (
         await asyncio_detailed(
-            client=client,
             schema_id=schema_id,
+            client=client,
         )
     ).parsed

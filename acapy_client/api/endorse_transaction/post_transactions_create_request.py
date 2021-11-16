@@ -13,7 +13,7 @@ def _get_kwargs(
     client: Client,
     json_body: Date,
     tran_id: str,
-    endorser_write_txn: Union[Unset, bool] = UNSET,
+    endorser_write_txn: Union[Unset, None, bool] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/transactions/create-request".format(client.base_url)
 
@@ -35,6 +35,7 @@ def _get_kwargs(
         "timeout": client.get_timeout(),
         "json": json_json_body,
         "params": params,
+        "verify": client.verify_ssl,
     }
 
 
@@ -60,7 +61,7 @@ def sync_detailed(
     client: Client,
     json_body: Date,
     tran_id: str,
-    endorser_write_txn: Union[Unset, bool] = UNSET,
+    endorser_write_txn: Union[Unset, None, bool] = UNSET,
 ) -> Response[TransactionRecord]:
     kwargs = _get_kwargs(
         client=client,
@@ -81,7 +82,7 @@ def sync(
     client: Client,
     json_body: Date,
     tran_id: str,
-    endorser_write_txn: Union[Unset, bool] = UNSET,
+    endorser_write_txn: Union[Unset, None, bool] = UNSET,
 ) -> Optional[TransactionRecord]:
     """ """
 
@@ -98,7 +99,7 @@ async def asyncio_detailed(
     client: Client,
     json_body: Date,
     tran_id: str,
-    endorser_write_txn: Union[Unset, bool] = UNSET,
+    endorser_write_txn: Union[Unset, None, bool] = UNSET,
 ) -> Response[TransactionRecord]:
     kwargs = _get_kwargs(
         client=client,
@@ -118,7 +119,7 @@ async def asyncio(
     client: Client,
     json_body: Date,
     tran_id: str,
-    endorser_write_txn: Union[Unset, bool] = UNSET,
+    endorser_write_txn: Union[Unset, None, bool] = UNSET,
 ) -> Optional[TransactionRecord]:
     """ """
 

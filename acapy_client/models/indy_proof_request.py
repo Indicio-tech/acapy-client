@@ -14,44 +14,41 @@ T = TypeVar("T", bound="IndyProofRequest")
 class IndyProofRequest:
     """ """
 
+    requested_attributes: IndyProofRequestRequestedAttributes
+    requested_predicates: IndyProofRequestRequestedPredicates
     name: Union[Unset, str] = UNSET
     non_revoked: Union[Unset, None, IndyProofRequestNonRevoked] = UNSET
     nonce: Union[Unset, str] = UNSET
-    requested_attributes: Union[Unset, IndyProofRequestRequestedAttributes] = UNSET
-    requested_predicates: Union[Unset, IndyProofRequestRequestedPredicates] = UNSET
     version: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        requested_attributes = self.requested_attributes.to_dict()
+
+        requested_predicates = self.requested_predicates.to_dict()
+
         name = self.name
         non_revoked: Union[Unset, None, Dict[str, Any]] = UNSET
         if not isinstance(self.non_revoked, Unset):
             non_revoked = self.non_revoked.to_dict() if self.non_revoked else None
 
         nonce = self.nonce
-        requested_attributes: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.requested_attributes, Unset):
-            requested_attributes = self.requested_attributes.to_dict()
-
-        requested_predicates: Union[Unset, Dict[str, Any]] = UNSET
-        if not isinstance(self.requested_predicates, Unset):
-            requested_predicates = self.requested_predicates.to_dict()
-
         version = self.version
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update({})
+        field_dict.update(
+            {
+                "requested_attributes": requested_attributes,
+                "requested_predicates": requested_predicates,
+            }
+        )
         if name is not UNSET:
             field_dict["name"] = name
         if non_revoked is not UNSET:
             field_dict["non_revoked"] = non_revoked
         if nonce is not UNSET:
             field_dict["nonce"] = nonce
-        if requested_attributes is not UNSET:
-            field_dict["requested_attributes"] = requested_attributes
-        if requested_predicates is not UNSET:
-            field_dict["requested_predicates"] = requested_predicates
         if version is not UNSET:
             field_dict["version"] = version
 
@@ -60,6 +57,10 @@ class IndyProofRequest:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
+        requested_attributes = IndyProofRequestRequestedAttributes.from_dict(d.pop("requested_attributes"))
+
+        requested_predicates = IndyProofRequestRequestedPredicates.from_dict(d.pop("requested_predicates"))
+
         name = d.pop("name", UNSET)
 
         _non_revoked = d.pop("non_revoked", UNSET)
@@ -73,28 +74,14 @@ class IndyProofRequest:
 
         nonce = d.pop("nonce", UNSET)
 
-        _requested_attributes = d.pop("requested_attributes", UNSET)
-        requested_attributes: Union[Unset, IndyProofRequestRequestedAttributes]
-        if isinstance(_requested_attributes, Unset):
-            requested_attributes = UNSET
-        else:
-            requested_attributes = IndyProofRequestRequestedAttributes.from_dict(_requested_attributes)
-
-        _requested_predicates = d.pop("requested_predicates", UNSET)
-        requested_predicates: Union[Unset, IndyProofRequestRequestedPredicates]
-        if isinstance(_requested_predicates, Unset):
-            requested_predicates = UNSET
-        else:
-            requested_predicates = IndyProofRequestRequestedPredicates.from_dict(_requested_predicates)
-
         version = d.pop("version", UNSET)
 
         indy_proof_request = cls(
+            requested_attributes=requested_attributes,
+            requested_predicates=requested_predicates,
             name=name,
             non_revoked=non_revoked,
             nonce=nonce,
-            requested_attributes=requested_attributes,
-            requested_predicates=requested_predicates,
             version=version,
         )
 

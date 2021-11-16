@@ -4,6 +4,7 @@ import attr
 
 from ..models.transaction_record_formats_item import TransactionRecordFormatsItem
 from ..models.transaction_record_messages_attach_item import TransactionRecordMessagesAttachItem
+from ..models.transaction_record_meta_data import TransactionRecordMetaData
 from ..models.transaction_record_signature_request_item import TransactionRecordSignatureRequestItem
 from ..models.transaction_record_signature_response_item import TransactionRecordSignatureResponseItem
 from ..models.transaction_record_timing import TransactionRecordTiming
@@ -22,6 +23,7 @@ class TransactionRecord:
     endorser_write_txn: Union[Unset, bool] = UNSET
     formats: Union[Unset, List[TransactionRecordFormatsItem]] = UNSET
     messages_attach: Union[Unset, List[TransactionRecordMessagesAttachItem]] = UNSET
+    meta_data: Union[Unset, TransactionRecordMetaData] = UNSET
     signature_request: Union[Unset, List[TransactionRecordSignatureRequestItem]] = UNSET
     signature_response: Union[Unset, List[TransactionRecordSignatureResponseItem]] = UNSET
     state: Union[Unset, str] = UNSET
@@ -52,6 +54,10 @@ class TransactionRecord:
                 messages_attach_item = messages_attach_item_data.to_dict()
 
                 messages_attach.append(messages_attach_item)
+
+        meta_data: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.meta_data, Unset):
+            meta_data = self.meta_data.to_dict()
 
         signature_request: Union[Unset, List[Dict[str, Any]]] = UNSET
         if not isinstance(self.signature_request, Unset):
@@ -94,6 +100,8 @@ class TransactionRecord:
             field_dict["formats"] = formats
         if messages_attach is not UNSET:
             field_dict["messages_attach"] = messages_attach
+        if meta_data is not UNSET:
+            field_dict["meta_data"] = meta_data
         if signature_request is not UNSET:
             field_dict["signature_request"] = signature_request
         if signature_response is not UNSET:
@@ -138,6 +146,13 @@ class TransactionRecord:
 
             messages_attach.append(messages_attach_item)
 
+        _meta_data = d.pop("meta_data", UNSET)
+        meta_data: Union[Unset, TransactionRecordMetaData]
+        if isinstance(_meta_data, Unset):
+            meta_data = UNSET
+        else:
+            meta_data = TransactionRecordMetaData.from_dict(_meta_data)
+
         signature_request = []
         _signature_request = d.pop("signature_request", UNSET)
         for signature_request_item_data in _signature_request or []:
@@ -176,6 +191,7 @@ class TransactionRecord:
             endorser_write_txn=endorser_write_txn,
             formats=formats,
             messages_attach=messages_attach,
+            meta_data=meta_data,
             signature_request=signature_request,
             signature_response=signature_response,
             state=state,

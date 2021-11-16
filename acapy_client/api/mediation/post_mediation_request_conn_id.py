@@ -9,9 +9,9 @@ from ...types import Response
 
 
 def _get_kwargs(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
     json_body: MediationCreateRequest,
 ) -> Dict[str, Any]:
     url = "{}/mediation/request/{conn_id}".format(client.base_url, conn_id=conn_id)
@@ -27,6 +27,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "json": json_json_body,
+        "verify": client.verify_ssl,
     }
 
 
@@ -48,14 +49,14 @@ def _build_response(*, response: httpx.Response) -> Response[MediationRecord]:
 
 
 def sync_detailed(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
     json_body: MediationCreateRequest,
 ) -> Response[MediationRecord]:
     kwargs = _get_kwargs(
-        client=client,
         conn_id=conn_id,
+        client=client,
         json_body=json_body,
     )
 
@@ -67,29 +68,29 @@ def sync_detailed(
 
 
 def sync(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
     json_body: MediationCreateRequest,
 ) -> Optional[MediationRecord]:
     """ """
 
     return sync_detailed(
-        client=client,
         conn_id=conn_id,
+        client=client,
         json_body=json_body,
     ).parsed
 
 
 async def asyncio_detailed(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
     json_body: MediationCreateRequest,
 ) -> Response[MediationRecord]:
     kwargs = _get_kwargs(
-        client=client,
         conn_id=conn_id,
+        client=client,
         json_body=json_body,
     )
 
@@ -100,17 +101,17 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
     json_body: MediationCreateRequest,
 ) -> Optional[MediationRecord]:
     """ """
 
     return (
         await asyncio_detailed(
-            client=client,
             conn_id=conn_id,
+            client=client,
             json_body=json_body,
         )
     ).parsed

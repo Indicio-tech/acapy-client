@@ -12,8 +12,8 @@ def _get_kwargs(
     *,
     client: Client,
     json_body: InvitationCreateRequest,
-    auto_accept: Union[Unset, bool] = UNSET,
-    multi_use: Union[Unset, bool] = UNSET,
+    auto_accept: Union[Unset, None, bool] = UNSET,
+    multi_use: Union[Unset, None, bool] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/out-of-band/create-invitation".format(client.base_url)
 
@@ -35,6 +35,7 @@ def _get_kwargs(
         "timeout": client.get_timeout(),
         "json": json_json_body,
         "params": params,
+        "verify": client.verify_ssl,
     }
 
 
@@ -59,8 +60,8 @@ def sync_detailed(
     *,
     client: Client,
     json_body: InvitationCreateRequest,
-    auto_accept: Union[Unset, bool] = UNSET,
-    multi_use: Union[Unset, bool] = UNSET,
+    auto_accept: Union[Unset, None, bool] = UNSET,
+    multi_use: Union[Unset, None, bool] = UNSET,
 ) -> Response[InvitationRecord]:
     kwargs = _get_kwargs(
         client=client,
@@ -80,8 +81,8 @@ def sync(
     *,
     client: Client,
     json_body: InvitationCreateRequest,
-    auto_accept: Union[Unset, bool] = UNSET,
-    multi_use: Union[Unset, bool] = UNSET,
+    auto_accept: Union[Unset, None, bool] = UNSET,
+    multi_use: Union[Unset, None, bool] = UNSET,
 ) -> Optional[InvitationRecord]:
     """ """
 
@@ -97,8 +98,8 @@ async def asyncio_detailed(
     *,
     client: Client,
     json_body: InvitationCreateRequest,
-    auto_accept: Union[Unset, bool] = UNSET,
-    multi_use: Union[Unset, bool] = UNSET,
+    auto_accept: Union[Unset, None, bool] = UNSET,
+    multi_use: Union[Unset, None, bool] = UNSET,
 ) -> Response[InvitationRecord]:
     kwargs = _get_kwargs(
         client=client,
@@ -117,8 +118,8 @@ async def asyncio(
     *,
     client: Client,
     json_body: InvitationCreateRequest,
-    auto_accept: Union[Unset, bool] = UNSET,
-    multi_use: Union[Unset, bool] = UNSET,
+    auto_accept: Union[Unset, None, bool] = UNSET,
+    multi_use: Union[Unset, None, bool] = UNSET,
 ) -> Optional[InvitationRecord]:
     """ """
 

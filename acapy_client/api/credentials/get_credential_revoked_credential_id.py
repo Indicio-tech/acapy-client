@@ -8,11 +8,11 @@ from ...types import UNSET, Response, Unset
 
 
 def _get_kwargs(
+    credential_id: str,
     *,
     client: Client,
-    credential_id: str,
-    from_: Union[Unset, str] = UNSET,
-    to: Union[Unset, str] = UNSET,
+    from_: Union[Unset, None, str] = UNSET,
+    to: Union[Unset, None, str] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/credential/revoked/{credential_id}".format(client.base_url, credential_id=credential_id)
 
@@ -31,6 +31,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "params": params,
+        "verify": client.verify_ssl,
     }
 
 
@@ -52,15 +53,15 @@ def _build_response(*, response: httpx.Response) -> Response[CredRevokedResult]:
 
 
 def sync_detailed(
+    credential_id: str,
     *,
     client: Client,
-    credential_id: str,
-    from_: Union[Unset, str] = UNSET,
-    to: Union[Unset, str] = UNSET,
+    from_: Union[Unset, None, str] = UNSET,
+    to: Union[Unset, None, str] = UNSET,
 ) -> Response[CredRevokedResult]:
     kwargs = _get_kwargs(
-        client=client,
         credential_id=credential_id,
+        client=client,
         from_=from_,
         to=to,
     )
@@ -73,32 +74,32 @@ def sync_detailed(
 
 
 def sync(
+    credential_id: str,
     *,
     client: Client,
-    credential_id: str,
-    from_: Union[Unset, str] = UNSET,
-    to: Union[Unset, str] = UNSET,
+    from_: Union[Unset, None, str] = UNSET,
+    to: Union[Unset, None, str] = UNSET,
 ) -> Optional[CredRevokedResult]:
     """ """
 
     return sync_detailed(
-        client=client,
         credential_id=credential_id,
+        client=client,
         from_=from_,
         to=to,
     ).parsed
 
 
 async def asyncio_detailed(
+    credential_id: str,
     *,
     client: Client,
-    credential_id: str,
-    from_: Union[Unset, str] = UNSET,
-    to: Union[Unset, str] = UNSET,
+    from_: Union[Unset, None, str] = UNSET,
+    to: Union[Unset, None, str] = UNSET,
 ) -> Response[CredRevokedResult]:
     kwargs = _get_kwargs(
-        client=client,
         credential_id=credential_id,
+        client=client,
         from_=from_,
         to=to,
     )
@@ -110,18 +111,18 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    credential_id: str,
     *,
     client: Client,
-    credential_id: str,
-    from_: Union[Unset, str] = UNSET,
-    to: Union[Unset, str] = UNSET,
+    from_: Union[Unset, None, str] = UNSET,
+    to: Union[Unset, None, str] = UNSET,
 ) -> Optional[CredRevokedResult]:
     """ """
 
     return (
         await asyncio_detailed(
-            client=client,
             credential_id=credential_id,
+            client=client,
             from_=from_,
             to=to,
         )

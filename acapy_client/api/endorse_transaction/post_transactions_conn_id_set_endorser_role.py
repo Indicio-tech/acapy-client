@@ -11,19 +11,19 @@ from ...types import UNSET, Response, Unset
 
 
 def _get_kwargs(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
-    transaction_my_job: Union[Unset, PostTransactionsConnIdSetEndorserRoleTransactionMyJob] = UNSET,
+    transaction_my_job: Union[Unset, None, PostTransactionsConnIdSetEndorserRoleTransactionMyJob] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/transactions/{conn_id}/set-endorser-role".format(client.base_url, conn_id=conn_id)
 
     headers: Dict[str, Any] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
-    json_transaction_my_job: Union[Unset, str] = UNSET
+    json_transaction_my_job: Union[Unset, None, str] = UNSET
     if not isinstance(transaction_my_job, Unset):
-        json_transaction_my_job = transaction_my_job.value
+        json_transaction_my_job = transaction_my_job.value if transaction_my_job else None
 
     params: Dict[str, Any] = {
         "transaction_my_job": json_transaction_my_job,
@@ -36,6 +36,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "params": params,
+        "verify": client.verify_ssl,
     }
 
 
@@ -57,14 +58,14 @@ def _build_response(*, response: httpx.Response) -> Response[TransactionJobs]:
 
 
 def sync_detailed(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
-    transaction_my_job: Union[Unset, PostTransactionsConnIdSetEndorserRoleTransactionMyJob] = UNSET,
+    transaction_my_job: Union[Unset, None, PostTransactionsConnIdSetEndorserRoleTransactionMyJob] = UNSET,
 ) -> Response[TransactionJobs]:
     kwargs = _get_kwargs(
-        client=client,
         conn_id=conn_id,
+        client=client,
         transaction_my_job=transaction_my_job,
     )
 
@@ -76,29 +77,29 @@ def sync_detailed(
 
 
 def sync(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
-    transaction_my_job: Union[Unset, PostTransactionsConnIdSetEndorserRoleTransactionMyJob] = UNSET,
+    transaction_my_job: Union[Unset, None, PostTransactionsConnIdSetEndorserRoleTransactionMyJob] = UNSET,
 ) -> Optional[TransactionJobs]:
     """ """
 
     return sync_detailed(
-        client=client,
         conn_id=conn_id,
+        client=client,
         transaction_my_job=transaction_my_job,
     ).parsed
 
 
 async def asyncio_detailed(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
-    transaction_my_job: Union[Unset, PostTransactionsConnIdSetEndorserRoleTransactionMyJob] = UNSET,
+    transaction_my_job: Union[Unset, None, PostTransactionsConnIdSetEndorserRoleTransactionMyJob] = UNSET,
 ) -> Response[TransactionJobs]:
     kwargs = _get_kwargs(
-        client=client,
         conn_id=conn_id,
+        client=client,
         transaction_my_job=transaction_my_job,
     )
 
@@ -109,17 +110,17 @@ async def asyncio_detailed(
 
 
 async def asyncio(
+    conn_id: str,
     *,
     client: Client,
-    conn_id: str,
-    transaction_my_job: Union[Unset, PostTransactionsConnIdSetEndorserRoleTransactionMyJob] = UNSET,
+    transaction_my_job: Union[Unset, None, PostTransactionsConnIdSetEndorserRoleTransactionMyJob] = UNSET,
 ) -> Optional[TransactionJobs]:
     """ """
 
     return (
         await asyncio_detailed(
-            client=client,
             conn_id=conn_id,
+            client=client,
             transaction_my_job=transaction_my_job,
         )
     ).parsed

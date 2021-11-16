@@ -10,10 +10,10 @@ from ...types import UNSET, Response, Unset
 def _get_kwargs(
     *,
     client: Client,
-    schema_id: Union[Unset, str] = UNSET,
-    schema_issuer_did: Union[Unset, str] = UNSET,
-    schema_name: Union[Unset, str] = UNSET,
-    schema_version: Union[Unset, str] = UNSET,
+    schema_id: Union[Unset, None, str] = UNSET,
+    schema_issuer_did: Union[Unset, None, str] = UNSET,
+    schema_name: Union[Unset, None, str] = UNSET,
+    schema_version: Union[Unset, None, str] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/schemas/created".format(client.base_url)
 
@@ -34,6 +34,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "params": params,
+        "verify": client.verify_ssl,
     }
 
 
@@ -57,10 +58,10 @@ def _build_response(*, response: httpx.Response) -> Response[SchemasCreatedResul
 def sync_detailed(
     *,
     client: Client,
-    schema_id: Union[Unset, str] = UNSET,
-    schema_issuer_did: Union[Unset, str] = UNSET,
-    schema_name: Union[Unset, str] = UNSET,
-    schema_version: Union[Unset, str] = UNSET,
+    schema_id: Union[Unset, None, str] = UNSET,
+    schema_issuer_did: Union[Unset, None, str] = UNSET,
+    schema_name: Union[Unset, None, str] = UNSET,
+    schema_version: Union[Unset, None, str] = UNSET,
 ) -> Response[SchemasCreatedResult]:
     kwargs = _get_kwargs(
         client=client,
@@ -80,10 +81,10 @@ def sync_detailed(
 def sync(
     *,
     client: Client,
-    schema_id: Union[Unset, str] = UNSET,
-    schema_issuer_did: Union[Unset, str] = UNSET,
-    schema_name: Union[Unset, str] = UNSET,
-    schema_version: Union[Unset, str] = UNSET,
+    schema_id: Union[Unset, None, str] = UNSET,
+    schema_issuer_did: Union[Unset, None, str] = UNSET,
+    schema_name: Union[Unset, None, str] = UNSET,
+    schema_version: Union[Unset, None, str] = UNSET,
 ) -> Optional[SchemasCreatedResult]:
     """ """
 
@@ -99,10 +100,10 @@ def sync(
 async def asyncio_detailed(
     *,
     client: Client,
-    schema_id: Union[Unset, str] = UNSET,
-    schema_issuer_did: Union[Unset, str] = UNSET,
-    schema_name: Union[Unset, str] = UNSET,
-    schema_version: Union[Unset, str] = UNSET,
+    schema_id: Union[Unset, None, str] = UNSET,
+    schema_issuer_did: Union[Unset, None, str] = UNSET,
+    schema_name: Union[Unset, None, str] = UNSET,
+    schema_version: Union[Unset, None, str] = UNSET,
 ) -> Response[SchemasCreatedResult]:
     kwargs = _get_kwargs(
         client=client,
@@ -121,10 +122,10 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Client,
-    schema_id: Union[Unset, str] = UNSET,
-    schema_issuer_did: Union[Unset, str] = UNSET,
-    schema_name: Union[Unset, str] = UNSET,
-    schema_version: Union[Unset, str] = UNSET,
+    schema_id: Union[Unset, None, str] = UNSET,
+    schema_issuer_did: Union[Unset, None, str] = UNSET,
+    schema_name: Union[Unset, None, str] = UNSET,
+    schema_version: Union[Unset, None, str] = UNSET,
 ) -> Optional[SchemasCreatedResult]:
     """ """
 

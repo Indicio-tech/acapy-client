@@ -13,17 +13,17 @@ def _get_kwargs(
     client: Client,
     did: str,
     verkey: str,
-    alias: Union[Unset, str] = UNSET,
-    role: Union[Unset, PostLedgerRegisterNymRole] = UNSET,
+    alias: Union[Unset, None, str] = UNSET,
+    role: Union[Unset, None, PostLedgerRegisterNymRole] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/ledger/register-nym".format(client.base_url)
 
     headers: Dict[str, Any] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
-    json_role: Union[Unset, str] = UNSET
+    json_role: Union[Unset, None, str] = UNSET
     if not isinstance(role, Unset):
-        json_role = role.value
+        json_role = role.value if role else None
 
     params: Dict[str, Any] = {
         "did": did,
@@ -39,6 +39,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "params": params,
+        "verify": client.verify_ssl,
     }
 
 
@@ -64,8 +65,8 @@ def sync_detailed(
     client: Client,
     did: str,
     verkey: str,
-    alias: Union[Unset, str] = UNSET,
-    role: Union[Unset, PostLedgerRegisterNymRole] = UNSET,
+    alias: Union[Unset, None, str] = UNSET,
+    role: Union[Unset, None, PostLedgerRegisterNymRole] = UNSET,
 ) -> Response[RegisterLedgerNymResponse]:
     kwargs = _get_kwargs(
         client=client,
@@ -87,8 +88,8 @@ def sync(
     client: Client,
     did: str,
     verkey: str,
-    alias: Union[Unset, str] = UNSET,
-    role: Union[Unset, PostLedgerRegisterNymRole] = UNSET,
+    alias: Union[Unset, None, str] = UNSET,
+    role: Union[Unset, None, PostLedgerRegisterNymRole] = UNSET,
 ) -> Optional[RegisterLedgerNymResponse]:
     """ """
 
@@ -106,8 +107,8 @@ async def asyncio_detailed(
     client: Client,
     did: str,
     verkey: str,
-    alias: Union[Unset, str] = UNSET,
-    role: Union[Unset, PostLedgerRegisterNymRole] = UNSET,
+    alias: Union[Unset, None, str] = UNSET,
+    role: Union[Unset, None, PostLedgerRegisterNymRole] = UNSET,
 ) -> Response[RegisterLedgerNymResponse]:
     kwargs = _get_kwargs(
         client=client,
@@ -128,8 +129,8 @@ async def asyncio(
     client: Client,
     did: str,
     verkey: str,
-    alias: Union[Unset, str] = UNSET,
-    role: Union[Unset, PostLedgerRegisterNymRole] = UNSET,
+    alias: Union[Unset, None, str] = UNSET,
+    role: Union[Unset, None, PostLedgerRegisterNymRole] = UNSET,
 ) -> Optional[RegisterLedgerNymResponse]:
     """ """
 

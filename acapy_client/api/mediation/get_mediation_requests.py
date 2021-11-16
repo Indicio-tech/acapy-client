@@ -11,27 +11,33 @@ from ...types import UNSET, Response, Unset
 def _get_kwargs(
     *,
     client: Client,
-    conn_id: Union[Unset, str] = UNSET,
-    mediator_terms: Union[Unset, List[str]] = UNSET,
-    recipient_terms: Union[Unset, List[str]] = UNSET,
-    state: Union[Unset, GetMediationRequestsState] = UNSET,
+    conn_id: Union[Unset, None, str] = UNSET,
+    mediator_terms: Union[Unset, None, List[str]] = UNSET,
+    recipient_terms: Union[Unset, None, List[str]] = UNSET,
+    state: Union[Unset, None, GetMediationRequestsState] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/mediation/requests".format(client.base_url)
 
     headers: Dict[str, Any] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
-    json_mediator_terms: Union[Unset, List[str]] = UNSET
+    json_mediator_terms: Union[Unset, None, List[str]] = UNSET
     if not isinstance(mediator_terms, Unset):
-        json_mediator_terms = mediator_terms
+        if mediator_terms is None:
+            json_mediator_terms = None
+        else:
+            json_mediator_terms = mediator_terms
 
-    json_recipient_terms: Union[Unset, List[str]] = UNSET
+    json_recipient_terms: Union[Unset, None, List[str]] = UNSET
     if not isinstance(recipient_terms, Unset):
-        json_recipient_terms = recipient_terms
+        if recipient_terms is None:
+            json_recipient_terms = None
+        else:
+            json_recipient_terms = recipient_terms
 
-    json_state: Union[Unset, str] = UNSET
+    json_state: Union[Unset, None, str] = UNSET
     if not isinstance(state, Unset):
-        json_state = state.value
+        json_state = state.value if state else None
 
     params: Dict[str, Any] = {
         "conn_id": conn_id,
@@ -47,6 +53,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "params": params,
+        "verify": client.verify_ssl,
     }
 
 
@@ -70,10 +77,10 @@ def _build_response(*, response: httpx.Response) -> Response[MediationList]:
 def sync_detailed(
     *,
     client: Client,
-    conn_id: Union[Unset, str] = UNSET,
-    mediator_terms: Union[Unset, List[str]] = UNSET,
-    recipient_terms: Union[Unset, List[str]] = UNSET,
-    state: Union[Unset, GetMediationRequestsState] = UNSET,
+    conn_id: Union[Unset, None, str] = UNSET,
+    mediator_terms: Union[Unset, None, List[str]] = UNSET,
+    recipient_terms: Union[Unset, None, List[str]] = UNSET,
+    state: Union[Unset, None, GetMediationRequestsState] = UNSET,
 ) -> Response[MediationList]:
     kwargs = _get_kwargs(
         client=client,
@@ -93,10 +100,10 @@ def sync_detailed(
 def sync(
     *,
     client: Client,
-    conn_id: Union[Unset, str] = UNSET,
-    mediator_terms: Union[Unset, List[str]] = UNSET,
-    recipient_terms: Union[Unset, List[str]] = UNSET,
-    state: Union[Unset, GetMediationRequestsState] = UNSET,
+    conn_id: Union[Unset, None, str] = UNSET,
+    mediator_terms: Union[Unset, None, List[str]] = UNSET,
+    recipient_terms: Union[Unset, None, List[str]] = UNSET,
+    state: Union[Unset, None, GetMediationRequestsState] = UNSET,
 ) -> Optional[MediationList]:
     """ """
 
@@ -112,10 +119,10 @@ def sync(
 async def asyncio_detailed(
     *,
     client: Client,
-    conn_id: Union[Unset, str] = UNSET,
-    mediator_terms: Union[Unset, List[str]] = UNSET,
-    recipient_terms: Union[Unset, List[str]] = UNSET,
-    state: Union[Unset, GetMediationRequestsState] = UNSET,
+    conn_id: Union[Unset, None, str] = UNSET,
+    mediator_terms: Union[Unset, None, List[str]] = UNSET,
+    recipient_terms: Union[Unset, None, List[str]] = UNSET,
+    state: Union[Unset, None, GetMediationRequestsState] = UNSET,
 ) -> Response[MediationList]:
     kwargs = _get_kwargs(
         client=client,
@@ -134,10 +141,10 @@ async def asyncio_detailed(
 async def asyncio(
     *,
     client: Client,
-    conn_id: Union[Unset, str] = UNSET,
-    mediator_terms: Union[Unset, List[str]] = UNSET,
-    recipient_terms: Union[Unset, List[str]] = UNSET,
-    state: Union[Unset, GetMediationRequestsState] = UNSET,
+    conn_id: Union[Unset, None, str] = UNSET,
+    mediator_terms: Union[Unset, None, List[str]] = UNSET,
+    recipient_terms: Union[Unset, None, List[str]] = UNSET,
+    state: Union[Unset, None, GetMediationRequestsState] = UNSET,
 ) -> Optional[MediationList]:
     """ """
 
