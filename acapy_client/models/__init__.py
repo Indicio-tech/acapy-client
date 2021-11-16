@@ -75,7 +75,7 @@ from .cred_info_list import CredInfoList
 from .cred_rev_record_result import CredRevRecordResult
 from .cred_revoked_result import CredRevokedResult
 from .credential import Credential
-from .credential_context_item import CredentialContextItem
+from .credential_context_item_type_0 import CredentialContextItemType0
 from .credential_credential_subject import CredentialCredentialSubject
 from .credential_definition import CredentialDefinition
 from .credential_definition_get_result import CredentialDefinitionGetResult
@@ -83,7 +83,7 @@ from .credential_definition_send_request import CredentialDefinitionSendRequest
 from .credential_definition_send_result import CredentialDefinitionSendResult
 from .credential_definition_type import CredentialDefinitionType
 from .credential_definitions_created_result import CredentialDefinitionsCreatedResult
-from .credential_issuer import CredentialIssuer
+from .credential_issuer_type_0 import CredentialIssuerType0
 from .credential_offer import CredentialOffer
 from .credential_preview import CredentialPreview
 from .credential_proposal import CredentialProposal
@@ -108,13 +108,17 @@ from .dif_field_predicate import DIFFieldPredicate
 from .dif_holder import DIFHolder
 from .dif_holder_directive import DIFHolderDirective
 from .dif_options import DIFOptions
+from .dif_pres_spec import DIFPresSpec
+from .dif_pres_spec_record_ids import DIFPresSpecRecordIds
+from .dif_pres_spec_reveal_doc import DIFPresSpecRevealDoc
 from .dif_proof_proposal import DIFProofProposal
+from .dif_proof_request import DIFProofRequest
 from .doc import Doc
 from .doc_credential import DocCredential
 from .endorser_info import EndorserInfo
 from .endpoints_result import EndpointsResult
 from .filter_ import Filter
-from .filter_const import FilterConst
+from .filter_const_type_5 import FilterConstType5
 from .filter_enum_item import FilterEnumItem
 from .filter_exclusive_maximum import FilterExclusiveMaximum
 from .filter_exclusive_minimum import FilterExclusiveMinimum
@@ -133,8 +137,8 @@ from .get_mediation_keylists_role import GetMediationKeylistsRole
 from .get_mediation_requests_state import GetMediationRequestsState
 from .get_nym_role_response import GetNymRoleResponse
 from .get_nym_role_response_role import GetNymRoleResponseRole
-from .get_present_proof_20_records_role import GetPresentProof20RecordsRole
-from .get_present_proof_20_records_state import GetPresentProof20RecordsState
+from .get_present_proof_20_records_present_proof_role_schema import GetPresentProof20RecordsPresentProofRoleSchema
+from .get_present_proof_20_records_present_proof_state_schema import GetPresentProof20RecordsPresentProofStateSchema
 from .get_present_proof_records_role import GetPresentProofRecordsRole
 from .get_present_proof_records_state import GetPresentProofRecordsState
 from .get_records_role import GetRecordsRole
@@ -264,6 +268,7 @@ from .post_ledger_register_nym_role import PostLedgerRegisterNymRole
 from .post_transactions_conn_id_set_endorser_role_transaction_my_job import (
     PostTransactionsConnIdSetEndorserRoleTransactionMyJob,
 )
+from .presentation_definition import PresentationDefinition
 from .presentation_proposal import PresentationProposal
 from .presentation_request import PresentationRequest
 from .publish_revocations import PublishRevocations
@@ -300,6 +305,9 @@ from .sign_response import SignResponse
 from .sign_response_signed_doc import SignResponseSignedDoc
 from .signature_options import SignatureOptions
 from .signed_doc import SignedDoc
+from .submission_requirements import SubmissionRequirements
+from .submission_requirements_from_nested_item import SubmissionRequirementsFromNestedItem
+from .submission_requirements_rule import SubmissionRequirementsRule
 from .taa_accept import TAAAccept
 from .taa_acceptance import TAAAcceptance
 from .taa_info import TAAInfo
@@ -382,6 +390,7 @@ from .v20_cred_store_request import V20CredStoreRequest
 from .v20_issue_cred_schema_core import V20IssueCredSchemaCore
 from .v20_issue_credential_module_response import V20IssueCredentialModuleResponse
 from .v20_pres import V20Pres
+from .v20_pres_create_request_request import V20PresCreateRequestRequest
 from .v20_pres_ex_record import V20PresExRecord
 from .v20_pres_ex_record_by_format import V20PresExRecordByFormat
 from .v20_pres_ex_record_by_format_pres import V20PresExRecordByFormatPres
@@ -398,6 +407,9 @@ from .v20_pres_proposal import V20PresProposal
 from .v20_pres_proposal_by_format import V20PresProposalByFormat
 from .v20_pres_proposal_request import V20PresProposalRequest
 from .v20_pres_request import V20PresRequest
+from .v20_pres_request_by_format import V20PresRequestByFormat
+from .v20_pres_send_request_request import V20PresSendRequestRequest
+from .v20_pres_spec_by_format_request import V20PresSpecByFormatRequest
 from .v20_present_proof_module_response import V20PresentProofModuleResponse
 from .vc_record import VCRecord
 from .vc_record_cred_tags import VCRecordCredTags

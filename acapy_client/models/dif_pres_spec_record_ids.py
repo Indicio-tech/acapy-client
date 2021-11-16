@@ -2,12 +2,12 @@ from typing import Any, Dict, List, Type, TypeVar
 
 import attr
 
-T = TypeVar("T", bound="CredentialIssuer")
+T = TypeVar("T", bound="DIFPresSpecRecordIds")
 
 
 @attr.s(auto_attribs=True)
-class CredentialIssuer:
-    """The JSON-LD Verifiable Credential Issuer. Either string of object with id field."""
+class DIFPresSpecRecordIds:
+    """Mapping of input_descriptor id to list of stored W3C credential record_id"""
 
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -22,10 +22,10 @@ class CredentialIssuer:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        credential_issuer = cls()
+        dif_pres_spec_record_ids = cls()
 
-        credential_issuer.additional_properties = d
-        return credential_issuer
+        dif_pres_spec_record_ids.additional_properties = d
+        return dif_pres_spec_record_ids
 
     @property
     def additional_keys(self) -> List[str]:

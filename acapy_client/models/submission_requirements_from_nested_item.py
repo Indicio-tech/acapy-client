@@ -2,42 +2,30 @@ from typing import Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.issuer_rev_reg_record import IssuerRevRegRecord
-
-T = TypeVar("T", bound="RevRegResult")
+T = TypeVar("T", bound="SubmissionRequirementsFromNestedItem")
 
 
 @attr.s(auto_attribs=True)
-class RevRegResult:
+class SubmissionRequirementsFromNestedItem:
     """ """
 
-    result: IssuerRevRegRecord
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        result = self.result.to_dict()
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "result": result,
-            }
-        )
+        field_dict.update({})
 
         return field_dict
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        result = IssuerRevRegRecord.from_dict(d.pop("result"))
+        submission_requirements_from_nested_item = cls()
 
-        rev_reg_result = cls(
-            result=result,
-        )
-
-        rev_reg_result.additional_properties = d
-        return rev_reg_result
+        submission_requirements_from_nested_item.additional_properties = d
+        return submission_requirements_from_nested_item
 
     @property
     def additional_keys(self) -> List[str]:

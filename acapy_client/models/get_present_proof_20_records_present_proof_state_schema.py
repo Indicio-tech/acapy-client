@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class GetPresentProof20RecordsState(str, Enum):
+class GetPresentProof20RecordsPresentProofStateSchema(str, Enum):
     PROPOSAL_SENT = "proposal-sent"
     PROPOSAL_RECEIVED = "proposal-received"
     REQUEST_SENT = "request-sent"

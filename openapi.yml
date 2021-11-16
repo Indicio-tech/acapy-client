@@ -694,7 +694,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TxnOrCredentialDefinitionSendResult'
+                oneOf:
+                  - $ref: '#/components/schemas/CredentialDefinitionSendResult'
+                  - $ref: '#/components/schemas/TxnOrCredentialDefinitionSendResult'
       x-codegen-request-body-name: body
       operationId: publish_cred_def
   /credential-definitions/created:
@@ -2549,6 +2551,7 @@ paths:
         in: query
         description: Role assigned in presentation exchange
         schema:
+          title: present_proof_role_schema
           type: string
           enum:
           - prover
@@ -2557,6 +2560,7 @@ paths:
         in: query
         description: Presentation exchange state
         schema:
+          title: present_proof_state_schema
           type: string
           enum:
           - proposal-sent
@@ -3219,7 +3223,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TxnOrPublishRevocationsResult'
+                oneOf:
+                  - $ref: '#/components/schemas/PublishRevocations'
+                  - $ref: '#/components/schemas/TxnOrPublishRevocationsResult'
       x-codegen-request-body-name: body
       operationId: publish_revocations
   /revocation/registries/created:
@@ -3327,7 +3333,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TxnOrRevRegResult'
+                oneOf:
+                  - $ref: '#/components/schemas/RevRegResult'
+                  - $ref: '#/components/schemas/TxnOrRevRegResult'
   /revocation/registry/{rev_reg_id}/entry:
     post:
       tags:
@@ -3498,7 +3506,9 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/TxnOrSchemaSendResult'
+                oneOf:
+                  - $ref: '#/components/schemas/SchemaSendResult'
+                  - $ref: '#/components/schemas/TxnOrSchemaSendResult'
       x-codegen-request-body-name: body
       operationId: publish_schema
   /schemas/created:
@@ -4850,7 +4860,9 @@ components:
           - https://www.w3.org/2018/credentials/v1
           - https://www.w3.org/2018/credentials/examples/v1
           items:
-            type: object
+            anyOf:
+              - type: object
+              - type: string
         credentialSubject:
           type: object
           example: ''
@@ -4869,7 +4881,9 @@ components:
           description: The issuance date
           example: 2010-01-01 19:23:24+00:00
         issuer:
-          type: object
+          oneOf:
+            - type: object
+            - type: string
           description: The JSON-LD Verifiable Credential Issuer. Either string of
             object with id field.
           example: did:key:z6MkpTHR8VNsBxYAAWHut2Geadd9jSwuBV8xRoAnwWsdvktH
@@ -4951,6 +4965,8 @@ components:
           example: default
     CredentialDefinitionSendResult:
       type: object
+      required:
+        - credential_definition_id
       properties:
         credential_definition_id:
           pattern: ^([123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz]{21,22}):3:CL:(([1-9][0-9]*)|([123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz]{21,22}:2:.+:[0-9.]+)):(.+)?$
@@ -5358,7 +5374,14 @@ components:
       type: object
       properties:
         const:
-          type: object
+          anyOf:
+            - type: string
+            - type: number
+            - type: integer
+            - type: boolean
+            - type: array
+              items: {}
+            - type: object
           description: Const
         enum:
           type: array
@@ -7293,6 +7316,8 @@ components:
           example: 0
     RevRegResult:
       type: object
+      required:
+        - result
       properties:
         result:
           $ref: '#/components/schemas/IssuerRevRegRecord'
@@ -7443,7 +7468,8 @@ components:
           example: '1.0'
     SchemaSendResult:
       required:
-      - schema_id
+        - schema_id
+        - schema
       type: object
       properties:
         schema:
@@ -7556,7 +7582,8 @@ components:
         from_nested:
           type: array
           items:
-            $ref: '#/components/schemas/SubmissionRequirements'
+            type: object
+            #$ref: '#/components/schemas/SubmissionRequirements'
         max:
           type: integer
           description: Max Value
@@ -7753,6 +7780,7 @@ components:
           example: 2021-12-31 23:59:59+00:00
     TxnOrCredentialDefinitionSendResult:
       type: object
+      additionalProperties: false
       properties:
         sent:
           $ref: '#/components/schemas/CredentialDefinitionSendResult'
@@ -7763,6 +7791,7 @@ components:
           - $ref: '#/components/schemas/TransactionRecord'
     TxnOrPublishRevocationsResult:
       type: object
+      additionalProperties: false
       properties:
         sent:
           $ref: '#/components/schemas/PublishRevocations'
@@ -7773,6 +7802,7 @@ components:
           - $ref: '#/components/schemas/TransactionRecord'
     TxnOrRevRegResult:
       type: object
+      additionalProperties: false
       properties:
         sent:
           $ref: '#/components/schemas/RevRegResult'
@@ -7783,6 +7813,7 @@ components:
           - $ref: '#/components/schemas/TransactionRecord'
     TxnOrSchemaSendResult:
       type: object
+      additionalProperties: false
       properties:
         sent:
           type: object

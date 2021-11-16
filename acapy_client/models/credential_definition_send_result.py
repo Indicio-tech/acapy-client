@@ -1,8 +1,6 @@
-from typing import Any, Dict, List, Type, TypeVar, Union
+from typing import Any, Dict, List, Type, TypeVar
 
 import attr
-
-from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="CredentialDefinitionSendResult")
 
@@ -11,7 +9,7 @@ T = TypeVar("T", bound="CredentialDefinitionSendResult")
 class CredentialDefinitionSendResult:
     """ """
 
-    credential_definition_id: Union[Unset, str] = UNSET
+    credential_definition_id: str
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -19,16 +17,18 @@ class CredentialDefinitionSendResult:
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update({})
-        if credential_definition_id is not UNSET:
-            field_dict["credential_definition_id"] = credential_definition_id
+        field_dict.update(
+            {
+                "credential_definition_id": credential_definition_id,
+            }
+        )
 
         return field_dict
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        credential_definition_id = d.pop("credential_definition_id", UNSET)
+        credential_definition_id = d.pop("credential_definition_id")
 
         credential_definition_send_result = cls(
             credential_definition_id=credential_definition_id,

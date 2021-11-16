@@ -2,9 +2,9 @@ from typing import Any, Dict, List, Type, TypeVar, Union, cast
 
 import attr
 
-from ..models.credential_context_item import CredentialContextItem
+from ..models.credential_context_item_type_0 import CredentialContextItemType0
 from ..models.credential_credential_subject import CredentialCredentialSubject
-from ..models.credential_issuer import CredentialIssuer
+from ..models.credential_issuer_type_0 import CredentialIssuerType0
 from ..models.linked_data_proof import LinkedDataProof
 from ..types import UNSET, Unset
 
@@ -15,10 +15,10 @@ T = TypeVar("T", bound="Credential")
 class Credential:
     """ """
 
-    context: List[CredentialContextItem]
+    context: List[Union[CredentialContextItemType0, str]]
     credential_subject: CredentialCredentialSubject
     issuance_date: str
-    issuer: CredentialIssuer
+    issuer: Union[CredentialIssuerType0, str]
     type: List[str]
     expiration_date: Union[Unset, str] = UNSET
     id: Union[Unset, str] = UNSET
@@ -28,14 +28,22 @@ class Credential:
     def to_dict(self) -> Dict[str, Any]:
         context = []
         for context_item_data in self.context:
-            context_item = context_item_data.to_dict()
+            if isinstance(context_item_data, CredentialContextItemType0):
+                context_item = context_item_data.to_dict()
+
+            else:
+                context_item = context_item_data
 
             context.append(context_item)
 
         credential_subject = self.credential_subject.to_dict()
 
         issuance_date = self.issuance_date
-        issuer = self.issuer.to_dict()
+        if isinstance(self.issuer, CredentialIssuerType0):
+            issuer = self.issuer.to_dict()
+
+        else:
+            issuer = self.issuer
 
         type = self.type
 
@@ -71,7 +79,19 @@ class Credential:
         context = []
         _context = d.pop("@context")
         for context_item_data in _context:
-            context_item = CredentialContextItem.from_dict(context_item_data)
+
+            def _parse_context_item(data: object) -> Union[CredentialContextItemType0, str]:
+                try:
+                    if not isinstance(data, dict):
+                        raise TypeError()
+                    context_item_type_0 = CredentialContextItemType0.from_dict(data)
+
+                    return context_item_type_0
+                except:  # noqa: E722
+                    pass
+                return cast(Union[CredentialContextItemType0, str], data)
+
+            context_item = _parse_context_item(context_item_data)
 
             context.append(context_item)
 
@@ -79,7 +99,18 @@ class Credential:
 
         issuance_date = d.pop("issuanceDate")
 
-        issuer = CredentialIssuer.from_dict(d.pop("issuer"))
+        def _parse_issuer(data: object) -> Union[CredentialIssuerType0, str]:
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                issuer_type_0 = CredentialIssuerType0.from_dict(data)
+
+                return issuer_type_0
+            except:  # noqa: E722
+                pass
+            return cast(Union[CredentialIssuerType0, str], data)
+
+        issuer = _parse_issuer(d.pop("issuer"))
 
         type = cast(List[str], d.pop("type"))
 

@@ -4,6 +4,7 @@ import httpx
 
 from ...client import Client
 from ...models.credential_definition_send_request import CredentialDefinitionSendRequest
+from ...models.credential_definition_send_result import CredentialDefinitionSendResult
 from ...models.txn_or_credential_definition_send_result import TxnOrCredentialDefinitionSendResult
 from ...types import UNSET, Response, Unset
 
@@ -39,15 +40,37 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, response: httpx.Response) -> Optional[TxnOrCredentialDefinitionSendResult]:
+def _parse_response(
+    *, response: httpx.Response
+) -> Optional[Union[CredentialDefinitionSendResult, TxnOrCredentialDefinitionSendResult]]:
     if response.status_code == 200:
-        response_200 = TxnOrCredentialDefinitionSendResult.from_dict(response.json())
+
+        def _parse_response_200(
+            data: object,
+        ) -> Union[CredentialDefinitionSendResult, TxnOrCredentialDefinitionSendResult]:
+            try:
+                if not isinstance(data, dict):
+                    raise TypeError()
+                response_200_type_0 = CredentialDefinitionSendResult.from_dict(data)
+
+                return response_200_type_0
+            except:  # noqa: E722
+                pass
+            if not isinstance(data, dict):
+                raise TypeError()
+            response_200_type_1 = TxnOrCredentialDefinitionSendResult.from_dict(data)
+
+            return response_200_type_1
+
+        response_200 = _parse_response_200(response.json())
 
         return response_200
     return None
 
 
-def _build_response(*, response: httpx.Response) -> Response[TxnOrCredentialDefinitionSendResult]:
+def _build_response(
+    *, response: httpx.Response
+) -> Response[Union[CredentialDefinitionSendResult, TxnOrCredentialDefinitionSendResult]]:
     return Response(
         status_code=response.status_code,
         content=response.content,
@@ -62,7 +85,7 @@ def sync_detailed(
     json_body: CredentialDefinitionSendRequest,
     conn_id: Union[Unset, None, str] = UNSET,
     create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
-) -> Response[TxnOrCredentialDefinitionSendResult]:
+) -> Response[Union[CredentialDefinitionSendResult, TxnOrCredentialDefinitionSendResult]]:
     kwargs = _get_kwargs(
         client=client,
         json_body=json_body,
@@ -83,7 +106,7 @@ def sync(
     json_body: CredentialDefinitionSendRequest,
     conn_id: Union[Unset, None, str] = UNSET,
     create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
-) -> Optional[TxnOrCredentialDefinitionSendResult]:
+) -> Optional[Union[CredentialDefinitionSendResult, TxnOrCredentialDefinitionSendResult]]:
     """ """
 
     return sync_detailed(
@@ -100,7 +123,7 @@ async def asyncio_detailed(
     json_body: CredentialDefinitionSendRequest,
     conn_id: Union[Unset, None, str] = UNSET,
     create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
-) -> Response[TxnOrCredentialDefinitionSendResult]:
+) -> Response[Union[CredentialDefinitionSendResult, TxnOrCredentialDefinitionSendResult]]:
     kwargs = _get_kwargs(
         client=client,
         json_body=json_body,
@@ -120,7 +143,7 @@ async def asyncio(
     json_body: CredentialDefinitionSendRequest,
     conn_id: Union[Unset, None, str] = UNSET,
     create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
-) -> Optional[TxnOrCredentialDefinitionSendResult]:
+) -> Optional[Union[CredentialDefinitionSendResult, TxnOrCredentialDefinitionSendResult]]:
     """ """
 
     return (

@@ -2,42 +2,30 @@ from typing import Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..models.issuer_rev_reg_record import IssuerRevRegRecord
-
-T = TypeVar("T", bound="RevRegResult")
+T = TypeVar("T", bound="CredentialContextItemType0")
 
 
 @attr.s(auto_attribs=True)
-class RevRegResult:
+class CredentialContextItemType0:
     """ """
 
-    result: IssuerRevRegRecord
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        result = self.result.to_dict()
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "result": result,
-            }
-        )
+        field_dict.update({})
 
         return field_dict
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        result = IssuerRevRegRecord.from_dict(d.pop("result"))
+        credential_context_item_type_0 = cls()
 
-        rev_reg_result = cls(
-            result=result,
-        )
-
-        rev_reg_result.additional_properties = d
-        return rev_reg_result
+        credential_context_item_type_0.additional_properties = d
+        return credential_context_item_type_0
 
     @property
     def additional_keys(self) -> List[str]:

@@ -2,12 +2,12 @@ from typing import Any, Dict, List, Type, TypeVar
 
 import attr
 
-T = TypeVar("T", bound="FilterConst")
+T = TypeVar("T", bound="DIFPresSpecRevealDoc")
 
 
 @attr.s(auto_attribs=True)
-class FilterConst:
-    """Const"""
+class DIFPresSpecRevealDoc:
+    """reveal doc [JSON-LD frame] dict used to derive the credential when selective disclosure is required"""
 
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -22,10 +22,10 @@ class FilterConst:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        filter_const = cls()
+        dif_pres_spec_reveal_doc = cls()
 
-        filter_const.additional_properties = d
-        return filter_const
+        dif_pres_spec_reveal_doc.additional_properties = d
+        return dif_pres_spec_reveal_doc
 
     @property
     def additional_keys(self) -> List[str]:
