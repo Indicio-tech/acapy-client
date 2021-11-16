@@ -7590,6 +7590,7 @@ components:
           type: string
     TAAAcceptance:
       type: object
+      nullable: true
       properties:
         mechanism:
           type: string
