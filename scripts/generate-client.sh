@@ -9,7 +9,7 @@ ${CONTAINER_RUNTIME} build -t openapi-client-generator -f ../docker/Dockerfile.o
 
 ${CONTAINER_RUNTIME} run --rm \
     -v "$(realpath "$PWD/../"):/usr/src/app:z" \
-    openapi-client-generator generate --path ./openapi.yml --config ./openapi-config.yml
+    openapi-client-generator generate --path ./openapi.yml --config /usr/src/app/openapi-config.yml
 
 for to_move in ../acapy-client/* ../acapy-client/.[!.]*; do
     filename="$(basename "${to_move}")"
