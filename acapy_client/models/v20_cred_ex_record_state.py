@@ -11,6 +11,7 @@ class V20CredExRecordState(str, Enum):
     CREDENTIAL_ISSUED = "credential-issued"
     CREDENTIAL_RECEIVED = "credential-received"
     DONE = "done"
+    CREDENTIAL_REVOKED = "credential-revoked"
 
     def __str__(self) -> str:
         return str(self.value)

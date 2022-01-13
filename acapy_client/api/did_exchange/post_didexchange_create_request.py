@@ -11,6 +11,7 @@ def _get_kwargs(
     *,
     client: Client,
     their_public_did: str,
+    alias: Union[Unset, None, str] = UNSET,
     mediation_id: Union[Unset, None, str] = UNSET,
     my_endpoint: Union[Unset, None, str] = UNSET,
     my_label: Union[Unset, None, str] = UNSET,
@@ -23,6 +24,7 @@ def _get_kwargs(
 
     params: Dict[str, Any] = {
         "their_public_did": their_public_did,
+        "alias": alias,
         "mediation_id": mediation_id,
         "my_endpoint": my_endpoint,
         "my_label": my_label,
@@ -60,6 +62,7 @@ def sync_detailed(
     *,
     client: Client,
     their_public_did: str,
+    alias: Union[Unset, None, str] = UNSET,
     mediation_id: Union[Unset, None, str] = UNSET,
     my_endpoint: Union[Unset, None, str] = UNSET,
     my_label: Union[Unset, None, str] = UNSET,
@@ -68,6 +71,7 @@ def sync_detailed(
     kwargs = _get_kwargs(
         client=client,
         their_public_did=their_public_did,
+        alias=alias,
         mediation_id=mediation_id,
         my_endpoint=my_endpoint,
         my_label=my_label,
@@ -86,6 +90,7 @@ def sync(
     *,
     client: Client,
     their_public_did: str,
+    alias: Union[Unset, None, str] = UNSET,
     mediation_id: Union[Unset, None, str] = UNSET,
     my_endpoint: Union[Unset, None, str] = UNSET,
     my_label: Union[Unset, None, str] = UNSET,
@@ -96,6 +101,7 @@ def sync(
     return sync_detailed(
         client=client,
         their_public_did=their_public_did,
+        alias=alias,
         mediation_id=mediation_id,
         my_endpoint=my_endpoint,
         my_label=my_label,
@@ -107,6 +113,7 @@ async def asyncio_detailed(
     *,
     client: Client,
     their_public_did: str,
+    alias: Union[Unset, None, str] = UNSET,
     mediation_id: Union[Unset, None, str] = UNSET,
     my_endpoint: Union[Unset, None, str] = UNSET,
     my_label: Union[Unset, None, str] = UNSET,
@@ -115,6 +122,7 @@ async def asyncio_detailed(
     kwargs = _get_kwargs(
         client=client,
         their_public_did=their_public_did,
+        alias=alias,
         mediation_id=mediation_id,
         my_endpoint=my_endpoint,
         my_label=my_label,
@@ -131,6 +139,7 @@ async def asyncio(
     *,
     client: Client,
     their_public_did: str,
+    alias: Union[Unset, None, str] = UNSET,
     mediation_id: Union[Unset, None, str] = UNSET,
     my_endpoint: Union[Unset, None, str] = UNSET,
     my_label: Union[Unset, None, str] = UNSET,
@@ -142,6 +151,7 @@ async def asyncio(
         await asyncio_detailed(
             client=client,
             their_public_did=their_public_did,
+            alias=alias,
             mediation_id=mediation_id,
             my_endpoint=my_endpoint,
             my_label=my_label,

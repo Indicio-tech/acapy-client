@@ -3,12 +3,8 @@ from typing import Any, Dict, Optional, Union
 import httpx
 
 from ...client import Client
-from ...models.get_present_proof_20_records_present_proof_role_schema import (
-    GetPresentProof20RecordsPresentProofRoleSchema,
-)
-from ...models.get_present_proof_20_records_present_proof_state_schema import (
-    GetPresentProof20RecordsPresentProofStateSchema,
-)
+from ...models.get_records_present_proof_role_schema import GetRecordsPresentProofRoleSchema
+from ...models.get_records_present_proof_state_schema import GetRecordsPresentProofStateSchema
 from ...models.v20_pres_ex_record_list import V20PresExRecordList
 from ...types import UNSET, Response, Unset
 
@@ -17,8 +13,8 @@ def _get_kwargs(
     *,
     client: Client,
     connection_id: Union[Unset, None, str] = UNSET,
-    role: Union[Unset, None, GetPresentProof20RecordsPresentProofRoleSchema] = UNSET,
-    state: Union[Unset, None, GetPresentProof20RecordsPresentProofStateSchema] = UNSET,
+    role: Union[Unset, None, GetRecordsPresentProofRoleSchema] = UNSET,
+    state: Union[Unset, None, GetRecordsPresentProofStateSchema] = UNSET,
     thread_id: Union[Unset, None, str] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/present-proof-2.0/records".format(client.base_url)
@@ -72,8 +68,8 @@ def sync_detailed(
     *,
     client: Client,
     connection_id: Union[Unset, None, str] = UNSET,
-    role: Union[Unset, None, GetPresentProof20RecordsPresentProofRoleSchema] = UNSET,
-    state: Union[Unset, None, GetPresentProof20RecordsPresentProofStateSchema] = UNSET,
+    role: Union[Unset, None, GetRecordsPresentProofRoleSchema] = UNSET,
+    state: Union[Unset, None, GetRecordsPresentProofStateSchema] = UNSET,
     thread_id: Union[Unset, None, str] = UNSET,
 ) -> Response[V20PresExRecordList]:
     kwargs = _get_kwargs(
@@ -96,8 +92,8 @@ def sync(
     *,
     client: Client,
     connection_id: Union[Unset, None, str] = UNSET,
-    role: Union[Unset, None, GetPresentProof20RecordsPresentProofRoleSchema] = UNSET,
-    state: Union[Unset, None, GetPresentProof20RecordsPresentProofStateSchema] = UNSET,
+    role: Union[Unset, None, GetRecordsPresentProofRoleSchema] = UNSET,
+    state: Union[Unset, None, GetRecordsPresentProofStateSchema] = UNSET,
     thread_id: Union[Unset, None, str] = UNSET,
 ) -> Optional[V20PresExRecordList]:
     """ """
@@ -115,8 +111,8 @@ async def asyncio_detailed(
     *,
     client: Client,
     connection_id: Union[Unset, None, str] = UNSET,
-    role: Union[Unset, None, GetPresentProof20RecordsPresentProofRoleSchema] = UNSET,
-    state: Union[Unset, None, GetPresentProof20RecordsPresentProofStateSchema] = UNSET,
+    role: Union[Unset, None, GetRecordsPresentProofRoleSchema] = UNSET,
+    state: Union[Unset, None, GetRecordsPresentProofStateSchema] = UNSET,
     thread_id: Union[Unset, None, str] = UNSET,
 ) -> Response[V20PresExRecordList]:
     kwargs = _get_kwargs(
@@ -137,8 +133,8 @@ async def asyncio(
     *,
     client: Client,
     connection_id: Union[Unset, None, str] = UNSET,
-    role: Union[Unset, None, GetPresentProof20RecordsPresentProofRoleSchema] = UNSET,
-    state: Union[Unset, None, GetPresentProof20RecordsPresentProofStateSchema] = UNSET,
+    role: Union[Unset, None, GetRecordsPresentProofRoleSchema] = UNSET,
+    state: Union[Unset, None, GetRecordsPresentProofStateSchema] = UNSET,
     thread_id: Union[Unset, None, str] = UNSET,
 ) -> Optional[V20PresExRecordList]:
     """ """

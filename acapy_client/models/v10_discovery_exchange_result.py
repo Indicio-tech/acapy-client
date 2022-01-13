@@ -2,17 +2,17 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..models.query_result_results import QueryResultResults
+from ..models.v10_discovery_record import V10DiscoveryRecord
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="QueryResult")
+T = TypeVar("T", bound="V10DiscoveryExchangeResult")
 
 
 @attr.s(auto_attribs=True)
-class QueryResult:
+class V10DiscoveryExchangeResult:
     """ """
 
-    results: Union[Unset, QueryResultResults] = UNSET
+    results: Union[Unset, V10DiscoveryRecord] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -32,18 +32,18 @@ class QueryResult:
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
         _results = d.pop("results", UNSET)
-        results: Union[Unset, QueryResultResults]
+        results: Union[Unset, V10DiscoveryRecord]
         if isinstance(_results, Unset):
             results = UNSET
         else:
-            results = QueryResultResults.from_dict(_results)
+            results = V10DiscoveryRecord.from_dict(_results)
 
-        query_result = cls(
+        v10_discovery_exchange_result = cls(
             results=results,
         )
 
-        query_result.additional_properties = d
-        return query_result
+        v10_discovery_exchange_result.additional_properties = d
+        return v10_discovery_exchange_result
 
     @property
     def additional_keys(self) -> List[str]:

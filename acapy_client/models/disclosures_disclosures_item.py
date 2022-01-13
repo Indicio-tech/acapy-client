@@ -2,12 +2,12 @@ from typing import Any, Dict, List, Type, TypeVar
 
 import attr
 
-T = TypeVar("T", bound="QueryResultResultsAdditionalProperty")
+T = TypeVar("T", bound="DisclosuresDisclosuresItem")
 
 
 @attr.s(auto_attribs=True)
-class QueryResultResultsAdditionalProperty:
-    """Protocol descriptor"""
+class DisclosuresDisclosuresItem:
+    """ """
 
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -22,10 +22,10 @@ class QueryResultResultsAdditionalProperty:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        query_result_results_additional_property = cls()
+        disclosures_disclosures_item = cls()
 
-        query_result_results_additional_property.additional_properties = d
-        return query_result_results_additional_property
+        disclosures_disclosures_item.additional_properties = d
+        return disclosures_disclosures_item
 
     @property
     def additional_keys(self) -> List[str]:

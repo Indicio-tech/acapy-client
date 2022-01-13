@@ -113,6 +113,9 @@ from .dif_pres_spec_record_ids import DIFPresSpecRecordIds
 from .dif_pres_spec_reveal_doc import DIFPresSpecRevealDoc
 from .dif_proof_proposal import DIFProofProposal
 from .dif_proof_request import DIFProofRequest
+from .disclose import Disclose
+from .disclosures import Disclosures
+from .disclosures_disclosures_item import DisclosuresDisclosuresItem
 from .doc import Doc
 from .doc_credential import DocCredential
 from .endorser_info import EndorserInfo
@@ -137,10 +140,10 @@ from .get_mediation_keylists_role import GetMediationKeylistsRole
 from .get_mediation_requests_state import GetMediationRequestsState
 from .get_nym_role_response import GetNymRoleResponse
 from .get_nym_role_response_role import GetNymRoleResponseRole
-from .get_present_proof_20_records_present_proof_role_schema import GetPresentProof20RecordsPresentProofRoleSchema
-from .get_present_proof_20_records_present_proof_state_schema import GetPresentProof20RecordsPresentProofStateSchema
 from .get_present_proof_records_role import GetPresentProofRecordsRole
 from .get_present_proof_records_state import GetPresentProofRecordsState
+from .get_records_present_proof_role_schema import GetRecordsPresentProofRoleSchema
+from .get_records_present_proof_state_schema import GetRecordsPresentProofStateSchema
 from .get_records_role import GetRecordsRole
 from .get_records_state import GetRecordsState
 from .get_revocation_registries_created_state import GetRevocationRegistriesCreatedState
@@ -246,6 +249,8 @@ from .keylist_update_rule import KeylistUpdateRule
 from .keylist_update_rule_action import KeylistUpdateRuleAction
 from .ld_proof_vc_detail import LDProofVCDetail
 from .ld_proof_vc_detail_options import LDProofVCDetailOptions
+from .ledger_config_instance import LedgerConfigInstance
+from .ledger_config_list import LedgerConfigList
 from .ledger_modules_result import LedgerModulesResult
 from .linked_data_proof import LinkedDataProof
 from .mediation_create_request import MediationCreateRequest
@@ -271,11 +276,13 @@ from .post_transactions_conn_id_set_endorser_role_transaction_my_job import (
 from .presentation_definition import PresentationDefinition
 from .presentation_proposal import PresentationProposal
 from .presentation_request import PresentationRequest
+from .protocol_descriptor import ProtocolDescriptor
 from .publish_revocations import PublishRevocations
 from .publish_revocations_rrid_2_crid import PublishRevocationsRrid2Crid
-from .query_result import QueryResult
-from .query_result_results import QueryResultResults
-from .query_result_results_additional_property import QueryResultResultsAdditionalProperty
+from .queries import Queries
+from .query import Query
+from .query_item import QueryItem
+from .query_item_feature_type import QueryItemFeatureType
 from .raw_encoded import RawEncoded
 from .receive_invitation_request import ReceiveInvitationRequest
 from .register_ledger_nym_response import RegisterLedgerNymResponse
@@ -344,6 +351,9 @@ from .v10_credential_problem_report_request import V10CredentialProblemReportReq
 from .v10_credential_proposal_request_mand import V10CredentialProposalRequestMand
 from .v10_credential_proposal_request_opt import V10CredentialProposalRequestOpt
 from .v10_credential_store_request import V10CredentialStoreRequest
+from .v10_discovery_exchange_list_result import V10DiscoveryExchangeListResult
+from .v10_discovery_exchange_result import V10DiscoveryExchangeResult
+from .v10_discovery_record import V10DiscoveryRecord
 from .v10_present_proof_module_response import V10PresentProofModuleResponse
 from .v10_presentation_create_request_request import V10PresentationCreateRequestRequest
 from .v10_presentation_exchange import V10PresentationExchange
@@ -387,6 +397,9 @@ from .v20_cred_request import V20CredRequest
 from .v20_cred_request_free import V20CredRequestFree
 from .v20_cred_request_request import V20CredRequestRequest
 from .v20_cred_store_request import V20CredStoreRequest
+from .v20_discovery_exchange_list_result import V20DiscoveryExchangeListResult
+from .v20_discovery_exchange_result import V20DiscoveryExchangeResult
+from .v20_discovery_record import V20DiscoveryRecord
 from .v20_issue_cred_schema_core import V20IssueCredSchemaCore
 from .v20_issue_credential_module_response import V20IssueCredentialModuleResponse
 from .v20_pres import V20Pres
@@ -424,3 +437,4 @@ from .wallet_module_response import WalletModuleResponse
 from .wallet_record import WalletRecord
 from .wallet_record_key_management_mode import WalletRecordKeyManagementMode
 from .wallet_record_settings import WalletRecordSettings
+from .write_ledger_request import WriteLedgerRequest
