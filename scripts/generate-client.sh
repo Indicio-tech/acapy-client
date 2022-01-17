@@ -5,7 +5,15 @@ cd "$(dirname "$0")" || exit
 
 CONTAINER_RUNTIME=${CONTAINER_RUNTIME:-docker}
 
-${CONTAINER_RUNTIME} build -t openapi-client-generator -f ../docker/Dockerfile.openapi-client-generator .
+${CONTAINER_RUNTIME} build -t openapi-client-generator - << DOCKERFILE
+FROM python:3.7
+
+WORKDIR /usr/src/app
+
+RUN pip install openapi-python-client==0.10.7
+
+ENTRYPOINT ["/bin/sh", "-c", "openapi-python-client \"$@\"", "--"]
+DOCKERFILE
 
 ${CONTAINER_RUNTIME} run --rm \
     -v "$(realpath "$PWD/../"):/usr/src/app:z" \
