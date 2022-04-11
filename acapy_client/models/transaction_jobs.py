@@ -11,7 +11,11 @@ T = TypeVar("T", bound="TransactionJobs")
 
 @attr.s(auto_attribs=True)
 class TransactionJobs:
-    """ """
+    """
+    Attributes:
+        transaction_my_job (Union[Unset, TransactionJobsTransactionMyJob]): My transaction related job
+        transaction_their_job (Union[Unset, TransactionJobsTransactionTheirJob]): Their transaction related job
+    """
 
     transaction_my_job: Union[Unset, TransactionJobsTransactionMyJob] = UNSET
     transaction_their_job: Union[Unset, TransactionJobsTransactionTheirJob] = UNSET

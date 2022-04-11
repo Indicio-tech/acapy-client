@@ -7,7 +7,10 @@ T = TypeVar("T", bound="AttachDecoratorDataJWSHeader")
 
 @attr.s(auto_attribs=True)
 class AttachDecoratorDataJWSHeader:
-    """ """
+    """
+    Attributes:
+        kid (str): Key identifier, in W3C did:key or DID URL format Example: did:sov:LjgpST2rjsoxYegQDRm7EL#keys-4.
+    """
 
     kid: str
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

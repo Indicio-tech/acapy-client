@@ -9,7 +9,10 @@ T = TypeVar("T", bound="SendMessage")
 
 @attr.s(auto_attribs=True)
 class SendMessage:
-    """ """
+    """
+    Attributes:
+        content (Union[Unset, str]): Message content Example: Hello.
+    """
 
     content: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

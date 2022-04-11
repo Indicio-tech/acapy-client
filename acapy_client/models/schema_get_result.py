@@ -10,7 +10,10 @@ T = TypeVar("T", bound="SchemaGetResult")
 
 @attr.s(auto_attribs=True)
 class SchemaGetResult:
-    """ """
+    """
+    Attributes:
+        schema (Union[Unset, Schema]):
+    """
 
     schema: Union[Unset, Schema] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

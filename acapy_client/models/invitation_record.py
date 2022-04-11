@@ -10,7 +10,18 @@ T = TypeVar("T", bound="InvitationRecord")
 
 @attr.s(auto_attribs=True)
 class InvitationRecord:
-    """ """
+    """
+    Attributes:
+        created_at (Union[Unset, str]): Time of record creation Example: 2021-12-31 23:59:59+00:00.
+        invi_msg_id (Union[Unset, str]): Invitation message identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        invitation (Union[Unset, InvitationMessage]):
+        invitation_id (Union[Unset, str]): Invitation record identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        invitation_url (Union[Unset, str]): Invitation message URL Example:
+            https://example.com/endpoint?c_i=eyJAdHlwZSI6ICIuLi4iLCAiLi4uIjogIi4uLiJ9XX0=.
+        state (Union[Unset, str]): Out of band message exchange state Example: await_response.
+        trace (Union[Unset, bool]): Record trace information, based on agent configuration
+        updated_at (Union[Unset, str]): Time of last record update Example: 2021-12-31 23:59:59+00:00.
+    """
 
     created_at: Union[Unset, str] = UNSET
     invi_msg_id: Union[Unset, str] = UNSET

@@ -9,7 +9,10 @@ T = TypeVar("T", bound="GetDIDVerkeyResponse")
 
 @attr.s(auto_attribs=True)
 class GetDIDVerkeyResponse:
-    """ """
+    """
+    Attributes:
+        verkey (Union[Unset, None, str]): Full verification key Example: H3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV.
+    """
 
     verkey: Union[Unset, None, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

@@ -9,7 +9,11 @@ T = TypeVar("T", bound="V20CredRequestRequest")
 
 @attr.s(auto_attribs=True)
 class V20CredRequestRequest:
-    """ """
+    """
+    Attributes:
+        holder_did (Union[Unset, None, str]): Holder DID to substitute for the credentialSubject.id Example:
+            did:key:ahsdkjahsdkjhaskjdhakjshdkajhsdkjahs.
+    """
 
     holder_did: Union[Unset, None, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

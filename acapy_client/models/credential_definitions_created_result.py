@@ -9,7 +9,10 @@ T = TypeVar("T", bound="CredentialDefinitionsCreatedResult")
 
 @attr.s(auto_attribs=True)
 class CredentialDefinitionsCreatedResult:
-    """ """
+    """
+    Attributes:
+        credential_definition_ids (Union[Unset, List[str]]):
+    """
 
     credential_definition_ids: Union[Unset, List[str]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

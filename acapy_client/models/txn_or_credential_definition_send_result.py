@@ -11,7 +11,11 @@ T = TypeVar("T", bound="TxnOrCredentialDefinitionSendResult")
 
 @attr.s(auto_attribs=True)
 class TxnOrCredentialDefinitionSendResult:
-    """ """
+    """
+    Attributes:
+        sent (Union[Unset, CredentialDefinitionSendResult]):
+        txn (Union[Unset, TransactionRecord]):
+    """
 
     sent: Union[Unset, CredentialDefinitionSendResult] = UNSET
     txn: Union[Unset, TransactionRecord] = UNSET

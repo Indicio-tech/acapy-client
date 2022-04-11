@@ -9,7 +9,13 @@ T = TypeVar("T", bound="CredentialDefinitionSendRequest")
 
 @attr.s(auto_attribs=True)
 class CredentialDefinitionSendRequest:
-    """ """
+    """
+    Attributes:
+        revocation_registry_size (Union[Unset, int]): Revocation registry size Example: 1000.
+        schema_id (Union[Unset, str]): Schema identifier Example: WgWxqztrNooG92RXvxSTWv:2:schema_name:1.0.
+        support_revocation (Union[Unset, bool]): Revocation supported flag
+        tag (Union[Unset, str]): Credential definition identifier tag Example: default.
+    """
 
     revocation_registry_size: Union[Unset, int] = UNSET
     schema_id: Union[Unset, str] = UNSET

@@ -9,7 +9,17 @@ T = TypeVar("T", bound="RouteRecord")
 
 @attr.s(auto_attribs=True)
 class RouteRecord:
-    """ """
+    """
+    Attributes:
+        recipient_key (str):
+        connection_id (Union[Unset, str]):
+        created_at (Union[Unset, str]): Time of record creation Example: 2021-12-31 23:59:59+00:00.
+        record_id (Union[Unset, str]):
+        role (Union[Unset, str]):
+        state (Union[Unset, str]): Current record state Example: active.
+        updated_at (Union[Unset, str]): Time of last record update Example: 2021-12-31 23:59:59+00:00.
+        wallet_id (Union[Unset, str]):
+    """
 
     recipient_key: str
     connection_id: Union[Unset, str] = UNSET

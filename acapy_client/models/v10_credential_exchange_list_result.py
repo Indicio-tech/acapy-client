@@ -10,7 +10,10 @@ T = TypeVar("T", bound="V10CredentialExchangeListResult")
 
 @attr.s(auto_attribs=True)
 class V10CredentialExchangeListResult:
-    """ """
+    """
+    Attributes:
+        results (Union[Unset, List[V10CredentialExchange]]): Aries#0036 v1.0 credential exchange records
+    """
 
     results: Union[Unset, List[V10CredentialExchange]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

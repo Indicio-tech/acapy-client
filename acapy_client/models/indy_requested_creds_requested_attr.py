@@ -9,7 +9,12 @@ T = TypeVar("T", bound="IndyRequestedCredsRequestedAttr")
 
 @attr.s(auto_attribs=True)
 class IndyRequestedCredsRequestedAttr:
-    """ """
+    """
+    Attributes:
+        cred_id (str): Wallet credential identifier (typically but not necessarily a UUID) Example:
+            3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        revealed (Union[Unset, bool]): Whether to reveal attribute in proof (default true)
+    """
 
     cred_id: str
     revealed: Union[Unset, bool] = UNSET

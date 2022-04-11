@@ -12,7 +12,16 @@ T = TypeVar("T", bound="InputDescriptors")
 
 @attr.s(auto_attribs=True)
 class InputDescriptors:
-    """ """
+    """
+    Attributes:
+        constraints (Union[Unset, Constraints]):
+        group (Union[Unset, List[str]]):
+        id (Union[Unset, str]): ID
+        metadata (Union[Unset, InputDescriptorsMetadata]): Metadata dictionary
+        name (Union[Unset, str]): Name
+        purpose (Union[Unset, str]): Purpose
+        schema (Union[Unset, SchemasInputDescriptorFilter]):
+    """
 
     constraints: Union[Unset, Constraints] = UNSET
     group: Union[Unset, List[str]] = UNSET

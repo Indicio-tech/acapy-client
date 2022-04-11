@@ -10,7 +10,12 @@ T = TypeVar("T", bound="V20PresCreateRequestRequest")
 
 @attr.s(auto_attribs=True)
 class V20PresCreateRequestRequest:
-    """ """
+    """
+    Attributes:
+        presentation_request (V20PresRequestByFormat):
+        comment (Union[Unset, None, str]):
+        trace (Union[Unset, bool]): Whether to trace event (default false)
+    """
 
     presentation_request: V20PresRequestByFormat
     comment: Union[Unset, None, str] = UNSET

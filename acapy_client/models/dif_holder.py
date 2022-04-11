@@ -10,7 +10,11 @@ T = TypeVar("T", bound="DIFHolder")
 
 @attr.s(auto_attribs=True)
 class DIFHolder:
-    """ """
+    """
+    Attributes:
+        directive (Union[Unset, DIFHolderDirective]): Preference
+        field_id (Union[Unset, List[str]]):
+    """
 
     directive: Union[Unset, DIFHolderDirective] = UNSET
     field_id: Union[Unset, List[str]] = UNSET

@@ -7,7 +7,12 @@ T = TypeVar("T", bound="AttachDecoratorDataJson")
 
 @attr.s(auto_attribs=True)
 class AttachDecoratorDataJson:
-    """JSON-serialized data"""
+    """JSON-serialized data
+
+    Example:
+        {"sample": "content"}
+
+    """
 
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 

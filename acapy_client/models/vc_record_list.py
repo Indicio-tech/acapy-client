@@ -10,7 +10,10 @@ T = TypeVar("T", bound="VCRecordList")
 
 @attr.s(auto_attribs=True)
 class VCRecordList:
-    """ """
+    """
+    Attributes:
+        results (Union[Unset, List[VCRecord]]):
+    """
 
     results: Union[Unset, List[VCRecord]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

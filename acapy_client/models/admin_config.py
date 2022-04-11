@@ -10,7 +10,10 @@ T = TypeVar("T", bound="AdminConfig")
 
 @attr.s(auto_attribs=True)
 class AdminConfig:
-    """ """
+    """
+    Attributes:
+        config (Union[Unset, AdminConfigConfig]): Configuration settings
+    """
 
     config: Union[Unset, AdminConfigConfig] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

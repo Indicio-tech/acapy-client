@@ -10,7 +10,11 @@ T = TypeVar("T", bound="LDProofVCDetail")
 
 @attr.s(auto_attribs=True)
 class LDProofVCDetail:
-    """ """
+    """
+    Attributes:
+        credential (Credential):
+        options (LDProofVCDetailOptions):
+    """
 
     credential: Credential
     options: LDProofVCDetailOptions

@@ -10,7 +10,10 @@ T = TypeVar("T", bound="GetNymRoleResponse")
 
 @attr.s(auto_attribs=True)
 class GetNymRoleResponse:
-    """ """
+    """
+    Attributes:
+        role (Union[Unset, GetNymRoleResponseRole]): Ledger role Example: ENDORSER.
+    """
 
     role: Union[Unset, GetNymRoleResponseRole] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

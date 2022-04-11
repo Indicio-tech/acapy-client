@@ -10,7 +10,10 @@ T = TypeVar("T", bound="CredInfoList")
 
 @attr.s(auto_attribs=True)
 class CredInfoList:
-    """ """
+    """
+    Attributes:
+        results (Union[Unset, List[IndyCredInfo]]):
+    """
 
     results: Union[Unset, List[IndyCredInfo]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

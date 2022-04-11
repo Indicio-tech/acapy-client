@@ -12,7 +12,15 @@ T = TypeVar("T", bound="IndyProofRequest")
 
 @attr.s(auto_attribs=True)
 class IndyProofRequest:
-    """ """
+    """
+    Attributes:
+        requested_attributes (IndyProofRequestRequestedAttributes): Requested attribute specifications of proof request
+        requested_predicates (IndyProofRequestRequestedPredicates): Requested predicate specifications of proof request
+        name (Union[Unset, str]): Proof request name Example: Proof request.
+        non_revoked (Union[Unset, None, IndyProofRequestNonRevoked]):
+        nonce (Union[Unset, str]): Nonce Example: 1.
+        version (Union[Unset, str]): Proof request version Example: 1.0.
+    """
 
     requested_attributes: IndyProofRequestRequestedAttributes
     requested_predicates: IndyProofRequestRequestedPredicates

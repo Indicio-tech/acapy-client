@@ -10,7 +10,10 @@ T = TypeVar("T", bound="CredRevRecordResult")
 
 @attr.s(auto_attribs=True)
 class CredRevRecordResult:
-    """ """
+    """
+    Attributes:
+        result (Union[Unset, IssuerCredRevRecord]):
+    """
 
     result: Union[Unset, IssuerCredRevRecord] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

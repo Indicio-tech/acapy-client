@@ -9,7 +9,10 @@ T = TypeVar("T", bound="SendMenu")
 
 @attr.s(auto_attribs=True)
 class SendMenu:
-    """ """
+    """
+    Attributes:
+        menu (MenuJson):
+    """
 
     menu: MenuJson
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

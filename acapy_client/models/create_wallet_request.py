@@ -12,7 +12,23 @@ T = TypeVar("T", bound="CreateWalletRequest")
 
 @attr.s(auto_attribs=True)
 class CreateWalletRequest:
-    """ """
+    """
+    Attributes:
+        image_url (Union[Unset, str]): Image url for this wallet. This image url is publicized            (self-
+            attested) to other agents as part of forming a connection. Example: https://aries.ca/images/sample.png.
+        key_management_mode (Union[Unset, CreateWalletRequestKeyManagementMode]): Key management method to use for this
+            wallet. Example: managed.
+        label (Union[Unset, str]): Label for this wallet. This label is publicized            (self-attested) to other
+            agents as part of forming a connection. Example: Alice.
+        wallet_dispatch_type (Union[Unset, CreateWalletRequestWalletDispatchType]): Webhook target dispatch type for
+            this wallet.             default - Dispatch only to webhooks associated with this wallet.             base -
+            Dispatch only to webhooks associated with the base wallet.             both - Dispatch to both webhook targets.
+            Example: default.
+        wallet_key (Union[Unset, str]): Master key used for key derivation. Example: MySecretKey123.
+        wallet_name (Union[Unset, str]): Wallet name Example: MyNewWallet.
+        wallet_type (Union[Unset, CreateWalletRequestWalletType]): Type of the wallet to create Example: indy.
+        wallet_webhook_urls (Union[Unset, List[str]]): List of Webhook URLs associated with this subwallet
+    """
 
     image_url: Union[Unset, str] = UNSET
     key_management_mode: Union[Unset, CreateWalletRequestKeyManagementMode] = UNSET

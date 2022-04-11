@@ -9,7 +9,10 @@ T = TypeVar("T", bound="V20CredIssueRequest")
 
 @attr.s(auto_attribs=True)
 class V20CredIssueRequest:
-    """ """
+    """
+    Attributes:
+        comment (Union[Unset, None, str]): Human-readable comment
+    """
 
     comment: Union[Unset, None, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

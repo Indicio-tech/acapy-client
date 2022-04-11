@@ -11,7 +11,16 @@ T = TypeVar("T", bound="V20CredExFree")
 
 @attr.s(auto_attribs=True)
 class V20CredExFree:
-    """ """
+    """
+    Attributes:
+        connection_id (str): Connection identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        filter_ (V20CredFilter):
+        auto_remove (Union[Unset, bool]): Whether to remove the credential exchange record on completion (overrides
+            --preserve-exchange-records configuration setting)
+        comment (Union[Unset, None, str]): Human-readable comment
+        credential_preview (Union[Unset, V20CredPreview]):
+        trace (Union[Unset, bool]): Record trace information, based on agent configuration
+    """
 
     connection_id: str
     filter_: V20CredFilter

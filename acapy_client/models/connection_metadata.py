@@ -10,7 +10,10 @@ T = TypeVar("T", bound="ConnectionMetadata")
 
 @attr.s(auto_attribs=True)
 class ConnectionMetadata:
-    """ """
+    """
+    Attributes:
+        results (Union[Unset, ConnectionMetadataResults]): Dictionary of metadata associated with connection.
+    """
 
     results: Union[Unset, ConnectionMetadataResults] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

@@ -9,7 +9,11 @@ T = TypeVar("T", bound="ProtocolDescriptor")
 
 @attr.s(auto_attribs=True)
 class ProtocolDescriptor:
-    """ """
+    """
+    Attributes:
+        pid (str):
+        roles (Union[Unset, None, List[str]]): List of roles
+    """
 
     pid: str
     roles: Union[Unset, None, List[str]] = UNSET

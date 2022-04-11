@@ -11,7 +11,17 @@ T = TypeVar("T", bound="V20CredOfferConnFreeRequest")
 
 @attr.s(auto_attribs=True)
 class V20CredOfferConnFreeRequest:
-    """ """
+    """
+    Attributes:
+        filter_ (V20CredFilter):
+        auto_issue (Union[Unset, bool]): Whether to respond automatically to credential requests, creating and issuing
+            requested credentials
+        auto_remove (Union[Unset, bool]): Whether to remove the credential exchange record on completion (overrides
+            --preserve-exchange-records configuration setting)
+        comment (Union[Unset, None, str]): Human-readable comment
+        credential_preview (Union[Unset, V20CredPreview]):
+        trace (Union[Unset, bool]): Record trace information, based on agent configuration
+    """
 
     filter_: V20CredFilter
     auto_issue: Union[Unset, bool] = UNSET

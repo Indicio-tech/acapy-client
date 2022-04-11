@@ -9,7 +9,12 @@ T = TypeVar("T", bound="Generated")
 
 @attr.s(auto_attribs=True)
 class Generated:
-    """ """
+    """
+    Attributes:
+        master_secret (Union[Unset, str]):  Example: 0.
+        number (Union[Unset, str]):  Example: 0.
+        remainder (Union[Unset, str]):  Example: 0.
+    """
 
     master_secret: Union[Unset, str] = UNSET
     number: Union[Unset, str] = UNSET

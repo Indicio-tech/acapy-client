@@ -14,10 +14,11 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/revocation/registry/{rev_reg_id}/tails-file".format(client.base_url, rev_reg_id=rev_reg_id)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
     return {
+        "method": "get",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -47,12 +48,21 @@ def sync_detailed(
     *,
     client: Client,
 ) -> Response[File]:
+    """Download tails file
+
+    Args:
+        rev_reg_id (str):
+
+    Returns:
+        Response[File]
+    """
+
     kwargs = _get_kwargs(
         rev_reg_id=rev_reg_id,
         client=client,
     )
 
-    response = httpx.get(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -65,7 +75,14 @@ def sync(
     *,
     client: Client,
 ) -> Optional[File]:
-    """ """
+    """Download tails file
+
+    Args:
+        rev_reg_id (str):
+
+    Returns:
+        Response[File]
+    """
 
     return sync_detailed(
         rev_reg_id=rev_reg_id,
@@ -78,13 +95,22 @@ async def asyncio_detailed(
     *,
     client: Client,
 ) -> Response[File]:
+    """Download tails file
+
+    Args:
+        rev_reg_id (str):
+
+    Returns:
+        Response[File]
+    """
+
     kwargs = _get_kwargs(
         rev_reg_id=rev_reg_id,
         client=client,
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.get(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -94,7 +120,14 @@ async def asyncio(
     *,
     client: Client,
 ) -> Optional[File]:
-    """ """
+    """Download tails file
+
+    Args:
+        rev_reg_id (str):
+
+    Returns:
+        Response[File]
+    """
 
     return (
         await asyncio_detailed(

@@ -11,7 +11,19 @@ T = TypeVar("T", bound="VCRecord")
 
 @attr.s(auto_attribs=True)
 class VCRecord:
-    """ """
+    """
+    Attributes:
+        contexts (Union[Unset, List[str]]):
+        cred_tags (Union[Unset, VCRecordCredTags]):
+        cred_value (Union[Unset, VCRecordCredValue]): (JSON-serializable) credential value
+        expanded_types (Union[Unset, List[str]]):
+        given_id (Union[Unset, str]): Credential identifier Example: http://example.edu/credentials/3732.
+        issuer_id (Union[Unset, str]): Issuer identifier Example: https://example.edu/issuers/14.
+        proof_types (Union[Unset, List[str]]):
+        record_id (Union[Unset, str]): Record identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        schema_ids (Union[Unset, List[str]]):
+        subject_ids (Union[Unset, List[str]]):
+    """
 
     contexts: Union[Unset, List[str]] = UNSET
     cred_tags: Union[Unset, VCRecordCredTags] = UNSET

@@ -11,7 +11,14 @@ T = TypeVar("T", bound="IndyRevRegDefValue")
 
 @attr.s(auto_attribs=True)
 class IndyRevRegDefValue:
-    """ """
+    """
+    Attributes:
+        issuance_type (Union[Unset, IndyRevRegDefValueIssuanceType]): Issuance type
+        max_cred_num (Union[Unset, int]): Maximum number of credentials; registry size Example: 10.
+        public_keys (Union[Unset, IndyRevRegDefValuePublicKeys]):
+        tails_hash (Union[Unset, str]): Tails hash value Example: H3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV.
+        tails_location (Union[Unset, str]): Tails file location
+    """
 
     issuance_type: Union[Unset, IndyRevRegDefValueIssuanceType] = UNSET
     max_cred_num: Union[Unset, int] = UNSET

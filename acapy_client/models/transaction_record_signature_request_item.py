@@ -7,7 +7,12 @@ T = TypeVar("T", bound="TransactionRecordSignatureRequestItem")
 
 @attr.s(auto_attribs=True)
 class TransactionRecordSignatureRequestItem:
-    """ """
+    """
+    Example:
+        {'author_goal_code': 'aries.transaction.ledger.write', 'context': 'did:sov', 'method': 'add-signature',
+            'signature_type': '<requested signature type>', 'signer_goal_code': 'aries.transaction.endorse'}
+
+    """
 
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 

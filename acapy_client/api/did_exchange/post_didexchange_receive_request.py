@@ -19,20 +19,24 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/didexchange/receive-request".format(client.base_url)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
-    params: Dict[str, Any] = {
-        "alias": alias,
-        "auto_accept": auto_accept,
-        "mediation_id": mediation_id,
-        "my_endpoint": my_endpoint,
-    }
+    params: Dict[str, Any] = {}
+    params["alias"] = alias
+
+    params["auto_accept"] = auto_accept
+
+    params["mediation_id"] = mediation_id
+
+    params["my_endpoint"] = my_endpoint
+
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     json_json_body = json_body.to_dict()
 
     return {
+        "method": "post",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -68,6 +72,19 @@ def sync_detailed(
     mediation_id: Union[Unset, None, str] = UNSET,
     my_endpoint: Union[Unset, None, str] = UNSET,
 ) -> Response[ConnRecord]:
+    """Receive request against public DID's implicit invitation
+
+    Args:
+        alias (Union[Unset, None, str]):
+        auto_accept (Union[Unset, None, bool]):
+        mediation_id (Union[Unset, None, str]):
+        my_endpoint (Union[Unset, None, str]):
+        json_body (DIDXRequest):
+
+    Returns:
+        Response[ConnRecord]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         json_body=json_body,
@@ -77,7 +94,7 @@ def sync_detailed(
         my_endpoint=my_endpoint,
     )
 
-    response = httpx.post(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -94,7 +111,18 @@ def sync(
     mediation_id: Union[Unset, None, str] = UNSET,
     my_endpoint: Union[Unset, None, str] = UNSET,
 ) -> Optional[ConnRecord]:
-    """ """
+    """Receive request against public DID's implicit invitation
+
+    Args:
+        alias (Union[Unset, None, str]):
+        auto_accept (Union[Unset, None, bool]):
+        mediation_id (Union[Unset, None, str]):
+        my_endpoint (Union[Unset, None, str]):
+        json_body (DIDXRequest):
+
+    Returns:
+        Response[ConnRecord]
+    """
 
     return sync_detailed(
         client=client,
@@ -115,6 +143,19 @@ async def asyncio_detailed(
     mediation_id: Union[Unset, None, str] = UNSET,
     my_endpoint: Union[Unset, None, str] = UNSET,
 ) -> Response[ConnRecord]:
+    """Receive request against public DID's implicit invitation
+
+    Args:
+        alias (Union[Unset, None, str]):
+        auto_accept (Union[Unset, None, bool]):
+        mediation_id (Union[Unset, None, str]):
+        my_endpoint (Union[Unset, None, str]):
+        json_body (DIDXRequest):
+
+    Returns:
+        Response[ConnRecord]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         json_body=json_body,
@@ -125,7 +166,7 @@ async def asyncio_detailed(
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.post(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -139,7 +180,18 @@ async def asyncio(
     mediation_id: Union[Unset, None, str] = UNSET,
     my_endpoint: Union[Unset, None, str] = UNSET,
 ) -> Optional[ConnRecord]:
-    """ """
+    """Receive request against public DID's implicit invitation
+
+    Args:
+        alias (Union[Unset, None, str]):
+        auto_accept (Union[Unset, None, bool]):
+        mediation_id (Union[Unset, None, str]):
+        my_endpoint (Union[Unset, None, str]):
+        json_body (DIDXRequest):
+
+    Returns:
+        Response[ConnRecord]
+    """
 
     return (
         await asyncio_detailed(

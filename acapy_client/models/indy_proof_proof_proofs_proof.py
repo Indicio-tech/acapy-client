@@ -11,7 +11,11 @@ T = TypeVar("T", bound="IndyProofProofProofsProof")
 
 @attr.s(auto_attribs=True)
 class IndyProofProofProofsProof:
-    """ """
+    """
+    Attributes:
+        non_revoc_proof (Union[Unset, None, IndyNonRevocProof]):
+        primary_proof (Union[Unset, IndyPrimaryProof]):
+    """
 
     non_revoc_proof: Union[Unset, None, IndyNonRevocProof] = UNSET
     primary_proof: Union[Unset, IndyPrimaryProof] = UNSET

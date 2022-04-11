@@ -9,7 +9,11 @@ T = TypeVar("T", bound="CreateWalletTokenResponse")
 
 @attr.s(auto_attribs=True)
 class CreateWalletTokenResponse:
-    """ """
+    """
+    Attributes:
+        token (Union[Unset, str]): Authorization token to authenticate wallet requests Example:
+            eyJhbGciOiJFZERTQSJ9.eyJhIjogIjAifQ.dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk.
+    """
 
     token: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

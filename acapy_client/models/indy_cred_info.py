@@ -10,7 +10,16 @@ T = TypeVar("T", bound="IndyCredInfo")
 
 @attr.s(auto_attribs=True)
 class IndyCredInfo:
-    """ """
+    """
+    Attributes:
+        attrs (Union[Unset, IndyCredInfoAttrs]): Attribute names and value
+        cred_def_id (Union[Unset, str]): Credential definition identifier Example: WgWxqztrNooG92RXvxSTWv:3:CL:20:tag.
+        cred_rev_id (Union[Unset, None, str]): Credential revocation identifier Example: 12345.
+        referent (Union[Unset, str]): Wallet referent Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        rev_reg_id (Union[Unset, None, str]): Revocation registry identifier Example:
+            WgWxqztrNooG92RXvxSTWv:4:WgWxqztrNooG92RXvxSTWv:3:CL:20:tag:CL_ACCUM:0.
+        schema_id (Union[Unset, str]): Schema identifier Example: WgWxqztrNooG92RXvxSTWv:2:schema_name:1.0.
+    """
 
     attrs: Union[Unset, IndyCredInfoAttrs] = UNSET
     cred_def_id: Union[Unset, str] = UNSET

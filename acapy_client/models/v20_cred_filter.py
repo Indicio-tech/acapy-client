@@ -11,7 +11,11 @@ T = TypeVar("T", bound="V20CredFilter")
 
 @attr.s(auto_attribs=True)
 class V20CredFilter:
-    """ """
+    """
+    Attributes:
+        indy (Union[Unset, V20CredFilterIndy]):
+        ld_proof (Union[Unset, LDProofVCDetail]):
+    """
 
     indy: Union[Unset, V20CredFilterIndy] = UNSET
     ld_proof: Union[Unset, LDProofVCDetail] = UNSET

@@ -9,7 +9,11 @@ T = TypeVar("T", bound="KeylistQueryPaginate")
 
 @attr.s(auto_attribs=True)
 class KeylistQueryPaginate:
-    """ """
+    """
+    Attributes:
+        limit (Union[Unset, int]): Limit for keylist query Example: 30.
+        offset (Union[Unset, int]): Offset value for query
+    """
 
     limit: Union[Unset, int] = UNSET
     offset: Union[Unset, int] = UNSET

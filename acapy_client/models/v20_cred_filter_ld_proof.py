@@ -9,7 +9,10 @@ T = TypeVar("T", bound="V20CredFilterLDProof")
 
 @attr.s(auto_attribs=True)
 class V20CredFilterLDProof:
-    """ """
+    """
+    Attributes:
+        ld_proof (LDProofVCDetail):
+    """
 
     ld_proof: LDProofVCDetail
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

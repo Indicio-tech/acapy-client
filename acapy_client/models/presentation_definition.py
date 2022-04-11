@@ -12,7 +12,16 @@ T = TypeVar("T", bound="PresentationDefinition")
 
 @attr.s(auto_attribs=True)
 class PresentationDefinition:
-    """ """
+    """
+    Attributes:
+        format_ (Union[Unset, ClaimFormat]):
+        id (Union[Unset, str]): Unique Resource Identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        input_descriptors (Union[Unset, List[InputDescriptors]]):
+        name (Union[Unset, str]): Human-friendly name that describes what the presentation definition pertains to
+        purpose (Union[Unset, str]): Describes the purpose for which the Presentation Definition's inputs are being
+            requested
+        submission_requirements (Union[Unset, List[SubmissionRequirements]]):
+    """
 
     format_: Union[Unset, ClaimFormat] = UNSET
     id: Union[Unset, str] = UNSET

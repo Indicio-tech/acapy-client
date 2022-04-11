@@ -12,7 +12,15 @@ T = TypeVar("T", bound="DID")
 
 @attr.s(auto_attribs=True)
 class DID:
-    """ """
+    """
+    Attributes:
+        did (Union[Unset, str]): DID of interest Example: WgWxqztrNooG92RXvxSTWv.
+        key_type (Union[Unset, DIDKeyType]): Key type associated with the DID Example: ed25519.
+        method (Union[Unset, DIDMethod]): Did method associated with the DID Example: sov.
+        posture (Union[Unset, DIDPosture]): Whether DID is current public DID, posted to ledger but not current public
+            DID, or local to the wallet Example: wallet_only.
+        verkey (Union[Unset, str]): Public verification key Example: H3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV.
+    """
 
     did: Union[Unset, str] = UNSET
     key_type: Union[Unset, DIDKeyType] = UNSET

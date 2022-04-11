@@ -11,7 +11,11 @@ T = TypeVar("T", bound="DIFProofRequest")
 
 @attr.s(auto_attribs=True)
 class DIFProofRequest:
-    """ """
+    """
+    Attributes:
+        presentation_definition (PresentationDefinition):
+        options (Union[Unset, DIFOptions]):
+    """
 
     presentation_definition: PresentationDefinition
     options: Union[Unset, DIFOptions] = UNSET

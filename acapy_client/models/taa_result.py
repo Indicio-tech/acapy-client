@@ -10,7 +10,10 @@ T = TypeVar("T", bound="TAAResult")
 
 @attr.s(auto_attribs=True)
 class TAAResult:
-    """ """
+    """
+    Attributes:
+        result (Union[Unset, TAAInfo]):
+    """
 
     result: Union[Unset, TAAInfo] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

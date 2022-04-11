@@ -10,7 +10,10 @@ T = TypeVar("T", bound="V20DiscoveryExchangeListResult")
 
 @attr.s(auto_attribs=True)
 class V20DiscoveryExchangeListResult:
-    """ """
+    """
+    Attributes:
+        results (Union[Unset, List[V20DiscoveryRecord]]):
+    """
 
     results: Union[Unset, List[V20DiscoveryRecord]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

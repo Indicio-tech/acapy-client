@@ -10,7 +10,13 @@ T = TypeVar("T", bound="IndyPresPredSpec")
 
 @attr.s(auto_attribs=True)
 class IndyPresPredSpec:
-    """ """
+    """
+    Attributes:
+        name (str): Attribute name Example: high_score.
+        predicate (IndyPresPredSpecPredicate): Predicate type ('<', '<=', '>=', or '>') Example: >=.
+        threshold (int): Threshold value
+        cred_def_id (Union[Unset, str]): Credential definition identifier Example: WgWxqztrNooG92RXvxSTWv:3:CL:20:tag.
+    """
 
     name: str
     predicate: IndyPresPredSpecPredicate

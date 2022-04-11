@@ -9,7 +9,10 @@ T = TypeVar("T", bound="SchemasCreatedResult")
 
 @attr.s(auto_attribs=True)
 class SchemasCreatedResult:
-    """ """
+    """
+    Attributes:
+        schema_ids (Union[Unset, List[str]]):
+    """
 
     schema_ids: Union[Unset, List[str]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

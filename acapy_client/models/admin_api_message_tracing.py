@@ -9,7 +9,10 @@ T = TypeVar("T", bound="AdminAPIMessageTracing")
 
 @attr.s(auto_attribs=True)
 class AdminAPIMessageTracing:
-    """ """
+    """
+    Attributes:
+        trace (Union[Unset, bool]): Record trace information, based on agent configuration
+    """
 
     trace: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

@@ -15,12 +15,13 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/wallet/set-did-endpoint".format(client.base_url)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
     json_json_body = json_body.to_dict()
 
     return {
+        "method": "post",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -51,12 +52,21 @@ def sync_detailed(
     client: Client,
     json_body: DIDEndpointWithType,
 ) -> Response[WalletModuleResponse]:
+    """Update endpoint in wallet and on ledger if posted to it
+
+    Args:
+        json_body (DIDEndpointWithType):
+
+    Returns:
+        Response[WalletModuleResponse]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         json_body=json_body,
     )
 
-    response = httpx.post(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -69,7 +79,14 @@ def sync(
     client: Client,
     json_body: DIDEndpointWithType,
 ) -> Optional[WalletModuleResponse]:
-    """ """
+    """Update endpoint in wallet and on ledger if posted to it
+
+    Args:
+        json_body (DIDEndpointWithType):
+
+    Returns:
+        Response[WalletModuleResponse]
+    """
 
     return sync_detailed(
         client=client,
@@ -82,13 +99,22 @@ async def asyncio_detailed(
     client: Client,
     json_body: DIDEndpointWithType,
 ) -> Response[WalletModuleResponse]:
+    """Update endpoint in wallet and on ledger if posted to it
+
+    Args:
+        json_body (DIDEndpointWithType):
+
+    Returns:
+        Response[WalletModuleResponse]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         json_body=json_body,
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.post(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -98,7 +124,14 @@ async def asyncio(
     client: Client,
     json_body: DIDEndpointWithType,
 ) -> Optional[WalletModuleResponse]:
-    """ """
+    """Update endpoint in wallet and on ledger if posted to it
+
+    Args:
+        json_body (DIDEndpointWithType):
+
+    Returns:
+        Response[WalletModuleResponse]
+    """
 
     return (
         await asyncio_detailed(

@@ -7,7 +7,12 @@ T = TypeVar("T", bound="TransactionRecordMetaData")
 
 @attr.s(auto_attribs=True)
 class TransactionRecordMetaData:
-    """ """
+    """
+    Example:
+        {'context': {'param1': 'param1_value', 'param2': 'param2_value'}, 'post_process': [{'topic': 'topic_value',
+            'other': 'other_value'}]}
+
+    """
 
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 

@@ -12,7 +12,12 @@ T = TypeVar("T", bound="IndyProofRequestedProofRevealedAttrGroup")
 
 @attr.s(auto_attribs=True)
 class IndyProofRequestedProofRevealedAttrGroup:
-    """ """
+    """
+    Attributes:
+        sub_proof_index (Union[Unset, int]): Sub-proof index
+        values (Union[Unset, IndyProofRequestedProofRevealedAttrGroupValues]): Indy proof requested proof revealed attr
+            groups group value
+    """
 
     sub_proof_index: Union[Unset, int] = UNSET
     values: Union[Unset, IndyProofRequestedProofRevealedAttrGroupValues] = UNSET

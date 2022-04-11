@@ -10,7 +10,13 @@ T = TypeVar("T", bound="V10PresentationSendRequestRequest")
 
 @attr.s(auto_attribs=True)
 class V10PresentationSendRequestRequest:
-    """ """
+    """
+    Attributes:
+        connection_id (str): Connection identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        proof_request (IndyProofRequest):
+        comment (Union[Unset, None, str]):
+        trace (Union[Unset, bool]): Whether to trace event (default false)
+    """
 
     connection_id: str
     proof_request: IndyProofRequest

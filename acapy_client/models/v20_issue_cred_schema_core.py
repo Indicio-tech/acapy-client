@@ -11,7 +11,15 @@ T = TypeVar("T", bound="V20IssueCredSchemaCore")
 
 @attr.s(auto_attribs=True)
 class V20IssueCredSchemaCore:
-    """ """
+    """
+    Attributes:
+        filter_ (V20CredFilter):
+        auto_remove (Union[Unset, bool]): Whether to remove the credential exchange record on completion (overrides
+            --preserve-exchange-records configuration setting)
+        comment (Union[Unset, None, str]): Human-readable comment
+        credential_preview (Union[Unset, V20CredPreview]):
+        trace (Union[Unset, bool]): Record trace information, based on agent configuration
+    """
 
     filter_: V20CredFilter
     auto_remove: Union[Unset, bool] = UNSET

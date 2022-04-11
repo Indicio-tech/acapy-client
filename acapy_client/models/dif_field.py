@@ -11,7 +11,14 @@ T = TypeVar("T", bound="DIFField")
 
 @attr.s(auto_attribs=True)
 class DIFField:
-    """ """
+    """
+    Attributes:
+        filter_ (Union[Unset, Filter]):
+        id (Union[Unset, str]): ID
+        path (Union[Unset, List[str]]):
+        predicate (Union[Unset, DIFFieldPredicate]): Preference
+        purpose (Union[Unset, str]): Purpose
+    """
 
     filter_: Union[Unset, Filter] = UNSET
     id: Union[Unset, str] = UNSET

@@ -9,7 +9,10 @@ T = TypeVar("T", bound="RevRegIssuedResult")
 
 @attr.s(auto_attribs=True)
 class RevRegIssuedResult:
-    """ """
+    """
+    Attributes:
+        result (Union[Unset, int]): Number of credentials issued against revocation registry
+    """
 
     result: Union[Unset, int] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

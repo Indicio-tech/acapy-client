@@ -9,7 +9,19 @@ T = TypeVar("T", bound="MediationRecord")
 
 @attr.s(auto_attribs=True)
 class MediationRecord:
-    """ """
+    """
+    Attributes:
+        connection_id (str):
+        role (str):
+        created_at (Union[Unset, str]): Time of record creation Example: 2021-12-31 23:59:59+00:00.
+        endpoint (Union[Unset, str]):
+        mediation_id (Union[Unset, str]):
+        mediator_terms (Union[Unset, List[str]]):
+        recipient_terms (Union[Unset, List[str]]):
+        routing_keys (Union[Unset, List[str]]):
+        state (Union[Unset, str]): Current record state Example: active.
+        updated_at (Union[Unset, str]): Time of last record update Example: 2021-12-31 23:59:59+00:00.
+    """
 
     connection_id: str
     role: str

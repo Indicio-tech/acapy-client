@@ -9,7 +9,10 @@ T = TypeVar("T", bound="V20CredStoreRequest")
 
 @attr.s(auto_attribs=True)
 class V20CredStoreRequest:
-    """ """
+    """
+    Attributes:
+        credential_id (Union[Unset, str]):
+    """
 
     credential_id: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

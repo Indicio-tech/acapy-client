@@ -10,7 +10,10 @@ T = TypeVar("T", bound="DIDList")
 
 @attr.s(auto_attribs=True)
 class DIDList:
-    """ """
+    """
+    Attributes:
+        results (Union[Unset, List[DID]]): DID list
+    """
 
     results: Union[Unset, List[DID]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

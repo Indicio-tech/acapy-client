@@ -10,7 +10,10 @@ T = TypeVar("T", bound="V10PresentationExchangeList")
 
 @attr.s(auto_attribs=True)
 class V10PresentationExchangeList:
-    """ """
+    """
+    Attributes:
+        results (Union[Unset, List[V10PresentationExchange]]): Aries RFC 37 v1.0 presentation exchange records
+    """
 
     results: Union[Unset, List[V10PresentationExchange]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

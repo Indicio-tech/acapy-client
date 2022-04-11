@@ -9,7 +9,10 @@ T = TypeVar("T", bound="SignedDoc")
 
 @attr.s(auto_attribs=True)
 class SignedDoc:
-    """ """
+    """
+    Attributes:
+        proof (SignatureOptions):
+    """
 
     proof: SignatureOptions
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

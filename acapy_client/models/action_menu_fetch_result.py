@@ -10,7 +10,10 @@ T = TypeVar("T", bound="ActionMenuFetchResult")
 
 @attr.s(auto_attribs=True)
 class ActionMenuFetchResult:
-    """ """
+    """
+    Attributes:
+        result (Union[Unset, Menu]):
+    """
 
     result: Union[Unset, Menu] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

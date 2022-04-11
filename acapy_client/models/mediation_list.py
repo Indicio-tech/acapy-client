@@ -10,7 +10,10 @@ T = TypeVar("T", bound="MediationList")
 
 @attr.s(auto_attribs=True)
 class MediationList:
-    """ """
+    """
+    Attributes:
+        results (Union[Unset, List[MediationRecord]]): List of mediation records
+    """
 
     results: Union[Unset, List[MediationRecord]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

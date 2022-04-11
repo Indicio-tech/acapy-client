@@ -9,7 +9,10 @@ T = TypeVar("T", bound="IndyRevRegDefValuePublicKeysAccumKey")
 
 @attr.s(auto_attribs=True)
 class IndyRevRegDefValuePublicKeysAccumKey:
-    """ """
+    """
+    Attributes:
+        z (Union[Unset, str]): Value for z Example: 1 120F522F81E6B7 1 09F7A59005C4939854.
+    """
 
     z: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

@@ -23,33 +23,40 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/connections".format(client.base_url)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
+
+    params: Dict[str, Any] = {}
+    params["alias"] = alias
 
     json_connection_protocol: Union[Unset, None, str] = UNSET
     if not isinstance(connection_protocol, Unset):
         json_connection_protocol = connection_protocol.value if connection_protocol else None
 
+    params["connection_protocol"] = json_connection_protocol
+
+    params["invitation_key"] = invitation_key
+
+    params["my_did"] = my_did
+
     json_state: Union[Unset, None, str] = UNSET
     if not isinstance(state, Unset):
         json_state = state.value if state else None
+
+    params["state"] = json_state
+
+    params["their_did"] = their_did
 
     json_their_role: Union[Unset, None, str] = UNSET
     if not isinstance(their_role, Unset):
         json_their_role = their_role.value if their_role else None
 
-    params: Dict[str, Any] = {
-        "alias": alias,
-        "connection_protocol": json_connection_protocol,
-        "invitation_key": invitation_key,
-        "my_did": my_did,
-        "state": json_state,
-        "their_did": their_did,
-        "their_role": json_their_role,
-    }
+    params["their_role"] = json_their_role
+
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     return {
+        "method": "get",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -86,6 +93,21 @@ def sync_detailed(
     their_did: Union[Unset, None, str] = UNSET,
     their_role: Union[Unset, None, GetConnectionsTheirRole] = UNSET,
 ) -> Response[ConnectionList]:
+    """Query agent-to-agent connections
+
+    Args:
+        alias (Union[Unset, None, str]):
+        connection_protocol (Union[Unset, None, GetConnectionsConnectionProtocol]):
+        invitation_key (Union[Unset, None, str]):
+        my_did (Union[Unset, None, str]):
+        state (Union[Unset, None, GetConnectionsState]):
+        their_did (Union[Unset, None, str]):
+        their_role (Union[Unset, None, GetConnectionsTheirRole]):
+
+    Returns:
+        Response[ConnectionList]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         alias=alias,
@@ -97,7 +119,7 @@ def sync_detailed(
         their_role=their_role,
     )
 
-    response = httpx.get(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -116,7 +138,20 @@ def sync(
     their_did: Union[Unset, None, str] = UNSET,
     their_role: Union[Unset, None, GetConnectionsTheirRole] = UNSET,
 ) -> Optional[ConnectionList]:
-    """ """
+    """Query agent-to-agent connections
+
+    Args:
+        alias (Union[Unset, None, str]):
+        connection_protocol (Union[Unset, None, GetConnectionsConnectionProtocol]):
+        invitation_key (Union[Unset, None, str]):
+        my_did (Union[Unset, None, str]):
+        state (Union[Unset, None, GetConnectionsState]):
+        their_did (Union[Unset, None, str]):
+        their_role (Union[Unset, None, GetConnectionsTheirRole]):
+
+    Returns:
+        Response[ConnectionList]
+    """
 
     return sync_detailed(
         client=client,
@@ -141,6 +176,21 @@ async def asyncio_detailed(
     their_did: Union[Unset, None, str] = UNSET,
     their_role: Union[Unset, None, GetConnectionsTheirRole] = UNSET,
 ) -> Response[ConnectionList]:
+    """Query agent-to-agent connections
+
+    Args:
+        alias (Union[Unset, None, str]):
+        connection_protocol (Union[Unset, None, GetConnectionsConnectionProtocol]):
+        invitation_key (Union[Unset, None, str]):
+        my_did (Union[Unset, None, str]):
+        state (Union[Unset, None, GetConnectionsState]):
+        their_did (Union[Unset, None, str]):
+        their_role (Union[Unset, None, GetConnectionsTheirRole]):
+
+    Returns:
+        Response[ConnectionList]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         alias=alias,
@@ -153,7 +203,7 @@ async def asyncio_detailed(
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.get(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -169,7 +219,20 @@ async def asyncio(
     their_did: Union[Unset, None, str] = UNSET,
     their_role: Union[Unset, None, GetConnectionsTheirRole] = UNSET,
 ) -> Optional[ConnectionList]:
-    """ """
+    """Query agent-to-agent connections
+
+    Args:
+        alias (Union[Unset, None, str]):
+        connection_protocol (Union[Unset, None, GetConnectionsConnectionProtocol]):
+        invitation_key (Union[Unset, None, str]):
+        my_did (Union[Unset, None, str]):
+        state (Union[Unset, None, GetConnectionsState]):
+        their_did (Union[Unset, None, str]):
+        their_role (Union[Unset, None, GetConnectionsTheirRole]):
+
+    Returns:
+        Response[ConnectionList]
+    """
 
     return (
         await asyncio_detailed(

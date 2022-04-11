@@ -12,7 +12,16 @@ T = TypeVar("T", bound="IndyProofReqPredSpec")
 
 @attr.s(auto_attribs=True)
 class IndyProofReqPredSpec:
-    """ """
+    """
+    Attributes:
+        name (str): Attribute name Example: index.
+        p_type (IndyProofReqPredSpecPType): Predicate type ('<', '<=', '>=', or '>') Example: >=.
+        p_value (int): Threshold value
+        non_revoked (Union[Unset, None, IndyProofReqPredSpecNonRevoked]):
+        restrictions (Union[Unset, List[IndyProofReqPredSpecRestrictionsItem]]): If present, credential must satisfy one
+            of given restrictions: specify schema_id, schema_issuer_did, schema_name, schema_version, issuer_did,
+            cred_def_id, and/or attr::<attribute-name>::value where <attribute-name> represents a credential attribute name
+    """
 
     name: str
     p_type: IndyProofReqPredSpecPType

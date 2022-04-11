@@ -9,7 +9,10 @@ T = TypeVar("T", bound="Date")
 
 @attr.s(auto_attribs=True)
 class Date:
-    """ """
+    """
+    Attributes:
+        expires_time (datetime.datetime): Expiry Date Example: 2021-03-29 05:22:19+00:00.
+    """
 
     expires_time: datetime.datetime
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

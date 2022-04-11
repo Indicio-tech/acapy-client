@@ -9,7 +9,11 @@ T = TypeVar("T", bound="AdminMediationDeny")
 
 @attr.s(auto_attribs=True)
 class AdminMediationDeny:
-    """ """
+    """
+    Attributes:
+        mediator_terms (Union[Unset, List[str]]): List of mediator rules for recipient
+        recipient_terms (Union[Unset, List[str]]): List of recipient rules for mediation
+    """
 
     mediator_terms: Union[Unset, List[str]] = UNSET
     recipient_terms: Union[Unset, List[str]] = UNSET

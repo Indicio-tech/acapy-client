@@ -9,7 +9,10 @@ T = TypeVar("T", bound="RegisterLedgerNymResponse")
 
 @attr.s(auto_attribs=True)
 class RegisterLedgerNymResponse:
-    """ """
+    """
+    Attributes:
+        success (Union[Unset, bool]): Success of nym registration operation Example: True.
+    """
 
     success: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

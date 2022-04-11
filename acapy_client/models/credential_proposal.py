@@ -10,7 +10,19 @@ T = TypeVar("T", bound="CredentialProposal")
 
 @attr.s(auto_attribs=True)
 class CredentialProposal:
-    """ """
+    """
+    Attributes:
+        id (Union[Unset, str]): Message identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        type (Union[Unset, str]): Message type Example: https://didcomm.org/my-family/1.0/my-message-type.
+        comment (Union[Unset, None, str]): Human-readable comment
+        cred_def_id (Union[Unset, str]):  Example: WgWxqztrNooG92RXvxSTWv:3:CL:20:tag.
+        credential_proposal (Union[Unset, CredentialPreview]):
+        issuer_did (Union[Unset, str]):  Example: WgWxqztrNooG92RXvxSTWv.
+        schema_id (Union[Unset, str]):  Example: WgWxqztrNooG92RXvxSTWv:2:schema_name:1.0.
+        schema_issuer_did (Union[Unset, str]):  Example: WgWxqztrNooG92RXvxSTWv.
+        schema_name (Union[Unset, str]):
+        schema_version (Union[Unset, str]):  Example: 1.0.
+    """
 
     id: Union[Unset, str] = UNSET
     type: Union[Unset, str] = UNSET

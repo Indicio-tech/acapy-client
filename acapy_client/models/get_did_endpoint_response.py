@@ -9,7 +9,10 @@ T = TypeVar("T", bound="GetDIDEndpointResponse")
 
 @attr.s(auto_attribs=True)
 class GetDIDEndpointResponse:
-    """ """
+    """
+    Attributes:
+        endpoint (Union[Unset, None, str]): Full verification key Example: https://myhost:8021.
+    """
 
     endpoint: Union[Unset, None, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

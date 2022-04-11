@@ -10,7 +10,10 @@ T = TypeVar("T", bound="V20PresExRecordList")
 
 @attr.s(auto_attribs=True)
 class V20PresExRecordList:
-    """ """
+    """
+    Attributes:
+        results (Union[Unset, List[V20PresExRecord]]): Presentation exchange records
+    """
 
     results: Union[Unset, List[V20PresExRecord]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

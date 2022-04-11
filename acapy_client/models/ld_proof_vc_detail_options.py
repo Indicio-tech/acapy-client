@@ -10,7 +10,19 @@ T = TypeVar("T", bound="LDProofVCDetailOptions")
 
 @attr.s(auto_attribs=True)
 class LDProofVCDetailOptions:
-    """ """
+    """
+    Attributes:
+        proof_type (str): The proof type used for the proof. Should match suites registered in the Linked Data
+            Cryptographic Suite Registry Example: Ed25519Signature2018.
+        challenge (Union[Unset, str]): A challenge to include in the proof. SHOULD be provided by the requesting party
+            of the credential (=holder) Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        created (Union[Unset, str]): The date and time of the proof (with a maximum accuracy in seconds). Defaults to
+            current system time Example: 2021-12-31 23:59:59+00:00.
+        credential_status (Union[Unset, CredentialStatusOptions]):
+        domain (Union[Unset, str]): The intended domain of validity for the proof Example: example.com.
+        proof_purpose (Union[Unset, str]): The proof purpose used for the proof. Should match proof purposes registered
+            in the Linked Data Proofs Specification Example: assertionMethod.
+    """
 
     proof_type: str
     challenge: Union[Unset, str] = UNSET

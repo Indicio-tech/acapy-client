@@ -10,7 +10,20 @@ T = TypeVar("T", bound="V10CredentialCreate")
 
 @attr.s(auto_attribs=True)
 class V10CredentialCreate:
-    """ """
+    """
+    Attributes:
+        credential_proposal (CredentialPreview):
+        auto_remove (Union[Unset, bool]): Whether to remove the credential exchange record on completion (overrides
+            --preserve-exchange-records configuration setting)
+        comment (Union[Unset, None, str]): Human-readable comment
+        cred_def_id (Union[Unset, str]): Credential definition identifier Example: WgWxqztrNooG92RXvxSTWv:3:CL:20:tag.
+        issuer_did (Union[Unset, str]): Credential issuer DID Example: WgWxqztrNooG92RXvxSTWv.
+        schema_id (Union[Unset, str]): Schema identifier Example: WgWxqztrNooG92RXvxSTWv:2:schema_name:1.0.
+        schema_issuer_did (Union[Unset, str]): Schema issuer DID Example: WgWxqztrNooG92RXvxSTWv.
+        schema_name (Union[Unset, str]): Schema name Example: preferences.
+        schema_version (Union[Unset, str]): Schema version Example: 1.0.
+        trace (Union[Unset, bool]): Record trace information, based on agent configuration
+    """
 
     credential_proposal: CredentialPreview
     auto_remove: Union[Unset, bool] = UNSET

@@ -11,7 +11,11 @@ T = TypeVar("T", bound="IndyPrimaryProof")
 
 @attr.s(auto_attribs=True)
 class IndyPrimaryProof:
-    """ """
+    """
+    Attributes:
+        eq_proof (Union[Unset, None, IndyEQProof]):
+        ge_proofs (Union[Unset, None, List[IndyGEProof]]): Indy GE proofs
+    """
 
     eq_proof: Union[Unset, None, IndyEQProof] = UNSET
     ge_proofs: Union[Unset, None, List[IndyGEProof]] = UNSET

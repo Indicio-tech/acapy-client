@@ -12,7 +12,19 @@ T = TypeVar("T", bound="DIFPresSpec")
 
 @attr.s(auto_attribs=True)
 class DIFPresSpec:
-    """ """
+    """
+    Attributes:
+        issuer_id (Union[Unset, str]): Issuer identifier to sign the presentation, if different from current public DID
+        presentation_definition (Union[Unset, PresentationDefinition]):
+        record_ids (Union[Unset, DIFPresSpecRecordIds]): Mapping of input_descriptor id to list of stored W3C credential
+            record_id Example: {'<input descriptor id_1>': ['<record id_1>', '<record id_2>'], '<input descriptor id_2>':
+            ['<record id>']}.
+        reveal_doc (Union[Unset, DIFPresSpecRevealDoc]): reveal doc [JSON-LD frame] dict used to derive the credential
+            when selective disclosure is required Example: {'@context': ['https://www.w3.org/2018/credentials/v1',
+            'https://w3id.org/security/bbs/v1'], '@explicit': True, '@requireAll': True, 'credentialSubject': {'@explicit':
+            True, '@requireAll': True, 'Observation': [{'effectiveDateTime': {}, '@explicit': True, '@requireAll': True}]},
+            'issuanceDate': {}, 'issuer': {}, 'type': ['VerifiableCredential', 'LabReport']}.
+    """
 
     issuer_id: Union[Unset, str] = UNSET
     presentation_definition: Union[Unset, PresentationDefinition] = UNSET

@@ -7,7 +7,12 @@ T = TypeVar("T", bound="TransactionRecordSignatureResponseItem")
 
 @attr.s(auto_attribs=True)
 class TransactionRecordSignatureResponseItem:
-    """ """
+    """
+    Example:
+        {'context': 'did:sov', 'message_id': '3fa85f64-5717-4562-b3fc-2c963f66afa6', 'method': 'add-signature',
+            'signer_goal_code': 'aries.transaction.refuse'}
+
+    """
 
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 

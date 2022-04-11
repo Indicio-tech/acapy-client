@@ -10,7 +10,11 @@ T = TypeVar("T", bound="Doc")
 
 @attr.s(auto_attribs=True)
 class Doc:
-    """ """
+    """
+    Attributes:
+        credential (DocCredential): Credential to sign
+        options (SignatureOptions):
+    """
 
     credential: DocCredential
     options: SignatureOptions

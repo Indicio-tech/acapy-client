@@ -10,7 +10,10 @@ T = TypeVar("T", bound="V10CredentialBoundOfferRequest")
 
 @attr.s(auto_attribs=True)
 class V10CredentialBoundOfferRequest:
-    """ """
+    """
+    Attributes:
+        counter_proposal (Union[Unset, CredentialProposal]):
+    """
 
     counter_proposal: Union[Unset, CredentialProposal] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

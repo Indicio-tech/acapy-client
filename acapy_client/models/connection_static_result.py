@@ -9,7 +9,15 @@ T = TypeVar("T", bound="ConnectionStaticResult")
 
 @attr.s(auto_attribs=True)
 class ConnectionStaticResult:
-    """ """
+    """
+    Attributes:
+        my_did (str): Local DID Example: WgWxqztrNooG92RXvxSTWv.
+        my_endpoint (str): My URL endpoint Example: https://myhost:8021.
+        my_verkey (str): My verification key Example: H3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV.
+        record (ConnRecord):
+        their_did (str): Remote DID Example: WgWxqztrNooG92RXvxSTWv.
+        their_verkey (str): Remote verification key Example: H3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV.
+    """
 
     my_did: str
     my_endpoint: str

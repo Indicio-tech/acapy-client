@@ -9,7 +9,11 @@ T = TypeVar("T", bound="IndyProofReqAttrSpecNonRevoked")
 
 @attr.s(auto_attribs=True)
 class IndyProofReqAttrSpecNonRevoked:
-    """ """
+    """
+    Attributes:
+        from_ (Union[Unset, int]): Earliest time of interest in non-revocation interval Example: 1640995199.
+        to (Union[Unset, int]): Latest time of interest in non-revocation interval Example: 1640995199.
+    """
 
     from_: Union[Unset, int] = UNSET
     to: Union[Unset, int] = UNSET

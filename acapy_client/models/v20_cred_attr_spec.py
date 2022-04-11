@@ -9,7 +9,12 @@ T = TypeVar("T", bound="V20CredAttrSpec")
 
 @attr.s(auto_attribs=True)
 class V20CredAttrSpec:
-    """ """
+    """
+    Attributes:
+        name (str): Attribute name Example: favourite_drink.
+        value (str): Attribute value: base64-encode if MIME type is present Example: martini.
+        mime_type (Union[Unset, None, str]): MIME type: omit for (null) default Example: image/jpeg.
+    """
 
     name: str
     value: str

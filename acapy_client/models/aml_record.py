@@ -10,7 +10,12 @@ T = TypeVar("T", bound="AMLRecord")
 
 @attr.s(auto_attribs=True)
 class AMLRecord:
-    """ """
+    """
+    Attributes:
+        aml (Union[Unset, AMLRecordAml]):
+        aml_context (Union[Unset, str]):
+        version (Union[Unset, str]):
+    """
 
     aml: Union[Unset, AMLRecordAml] = UNSET
     aml_context: Union[Unset, str] = UNSET

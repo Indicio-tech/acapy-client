@@ -11,7 +11,11 @@ T = TypeVar("T", bound="TxnOrSchemaSendResult")
 
 @attr.s(auto_attribs=True)
 class TxnOrSchemaSendResult:
-    """ """
+    """
+    Attributes:
+        sent (Union[Unset, SchemaSendResult]):
+        txn (Union[Unset, TransactionRecord]):
+    """
 
     sent: Union[Unset, SchemaSendResult] = UNSET
     txn: Union[Unset, TransactionRecord] = UNSET

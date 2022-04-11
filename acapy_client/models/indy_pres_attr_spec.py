@@ -9,7 +9,14 @@ T = TypeVar("T", bound="IndyPresAttrSpec")
 
 @attr.s(auto_attribs=True)
 class IndyPresAttrSpec:
-    """ """
+    """
+    Attributes:
+        name (str): Attribute name Example: favourite_drink.
+        cred_def_id (Union[Unset, str]):  Example: WgWxqztrNooG92RXvxSTWv:3:CL:20:tag.
+        mime_type (Union[Unset, str]): MIME type (default null) Example: image/jpeg.
+        referent (Union[Unset, str]): Credential referent Example: 0.
+        value (Union[Unset, str]): Attribute value Example: martini.
+    """
 
     name: str
     cred_def_id: Union[Unset, str] = UNSET

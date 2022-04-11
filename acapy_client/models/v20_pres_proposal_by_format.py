@@ -11,7 +11,11 @@ T = TypeVar("T", bound="V20PresProposalByFormat")
 
 @attr.s(auto_attribs=True)
 class V20PresProposalByFormat:
-    """ """
+    """
+    Attributes:
+        dif (Union[Unset, DIFProofProposal]):
+        indy (Union[Unset, IndyProofRequest]):
+    """
 
     dif: Union[Unset, DIFProofProposal] = UNSET
     indy: Union[Unset, IndyProofRequest] = UNSET

@@ -9,7 +9,10 @@ T = TypeVar("T", bound="AdminModules")
 
 @attr.s(auto_attribs=True)
 class AdminModules:
-    """ """
+    """
+    Attributes:
+        result (Union[Unset, List[str]]): List of admin modules
+    """
 
     result: Union[Unset, List[str]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

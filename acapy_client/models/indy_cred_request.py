@@ -11,7 +11,14 @@ T = TypeVar("T", bound="IndyCredRequest")
 
 @attr.s(auto_attribs=True)
 class IndyCredRequest:
-    """ """
+    """
+    Attributes:
+        blinded_ms (IndyCredRequestBlindedMs): Blinded master secret
+        blinded_ms_correctness_proof (IndyCredRequestBlindedMsCorrectnessProof): Blinded master secret correctness proof
+        cred_def_id (str): Credential definition identifier Example: WgWxqztrNooG92RXvxSTWv:3:CL:20:tag.
+        nonce (str): Nonce in credential request Example: 0.
+        prover_did (Union[Unset, str]): Prover DID Example: WgWxqztrNooG92RXvxSTWv.
+    """
 
     blinded_ms: IndyCredRequestBlindedMs
     blinded_ms_correctness_proof: IndyCredRequestBlindedMsCorrectnessProof

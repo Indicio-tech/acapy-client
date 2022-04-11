@@ -19,20 +19,26 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/didexchange/create-request".format(client.base_url)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
-    params: Dict[str, Any] = {
-        "their_public_did": their_public_did,
-        "alias": alias,
-        "mediation_id": mediation_id,
-        "my_endpoint": my_endpoint,
-        "my_label": my_label,
-        "use_public_did": use_public_did,
-    }
+    params: Dict[str, Any] = {}
+    params["their_public_did"] = their_public_did
+
+    params["alias"] = alias
+
+    params["mediation_id"] = mediation_id
+
+    params["my_endpoint"] = my_endpoint
+
+    params["my_label"] = my_label
+
+    params["use_public_did"] = use_public_did
+
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     return {
+        "method": "post",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -68,6 +74,20 @@ def sync_detailed(
     my_label: Union[Unset, None, str] = UNSET,
     use_public_did: Union[Unset, None, bool] = UNSET,
 ) -> Response[ConnRecord]:
+    """Create and send a request against public DID's implicit invitation
+
+    Args:
+        their_public_did (str):
+        alias (Union[Unset, None, str]):
+        mediation_id (Union[Unset, None, str]):
+        my_endpoint (Union[Unset, None, str]):
+        my_label (Union[Unset, None, str]):
+        use_public_did (Union[Unset, None, bool]):
+
+    Returns:
+        Response[ConnRecord]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         their_public_did=their_public_did,
@@ -78,7 +98,7 @@ def sync_detailed(
         use_public_did=use_public_did,
     )
 
-    response = httpx.post(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -96,7 +116,19 @@ def sync(
     my_label: Union[Unset, None, str] = UNSET,
     use_public_did: Union[Unset, None, bool] = UNSET,
 ) -> Optional[ConnRecord]:
-    """ """
+    """Create and send a request against public DID's implicit invitation
+
+    Args:
+        their_public_did (str):
+        alias (Union[Unset, None, str]):
+        mediation_id (Union[Unset, None, str]):
+        my_endpoint (Union[Unset, None, str]):
+        my_label (Union[Unset, None, str]):
+        use_public_did (Union[Unset, None, bool]):
+
+    Returns:
+        Response[ConnRecord]
+    """
 
     return sync_detailed(
         client=client,
@@ -119,6 +151,20 @@ async def asyncio_detailed(
     my_label: Union[Unset, None, str] = UNSET,
     use_public_did: Union[Unset, None, bool] = UNSET,
 ) -> Response[ConnRecord]:
+    """Create and send a request against public DID's implicit invitation
+
+    Args:
+        their_public_did (str):
+        alias (Union[Unset, None, str]):
+        mediation_id (Union[Unset, None, str]):
+        my_endpoint (Union[Unset, None, str]):
+        my_label (Union[Unset, None, str]):
+        use_public_did (Union[Unset, None, bool]):
+
+    Returns:
+        Response[ConnRecord]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         their_public_did=their_public_did,
@@ -130,7 +176,7 @@ async def asyncio_detailed(
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.post(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -145,7 +191,19 @@ async def asyncio(
     my_label: Union[Unset, None, str] = UNSET,
     use_public_did: Union[Unset, None, bool] = UNSET,
 ) -> Optional[ConnRecord]:
-    """ """
+    """Create and send a request against public DID's implicit invitation
+
+    Args:
+        their_public_did (str):
+        alias (Union[Unset, None, str]):
+        mediation_id (Union[Unset, None, str]):
+        my_endpoint (Union[Unset, None, str]):
+        my_label (Union[Unset, None, str]):
+        use_public_did (Union[Unset, None, bool]):
+
+    Returns:
+        Response[ConnRecord]
+    """
 
     return (
         await asyncio_detailed(

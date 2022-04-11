@@ -9,7 +9,14 @@ T = TypeVar("T", bound="IndyProofIdentifier")
 
 @attr.s(auto_attribs=True)
 class IndyProofIdentifier:
-    """ """
+    """
+    Attributes:
+        cred_def_id (Union[Unset, str]): Credential definition identifier Example: WgWxqztrNooG92RXvxSTWv:3:CL:20:tag.
+        rev_reg_id (Union[Unset, None, str]): Revocation registry identifier Example:
+            WgWxqztrNooG92RXvxSTWv:4:WgWxqztrNooG92RXvxSTWv:3:CL:20:tag:CL_ACCUM:0.
+        schema_id (Union[Unset, str]): Schema identifier Example: WgWxqztrNooG92RXvxSTWv:2:schema_name:1.0.
+        timestamp (Union[Unset, None, int]): Timestamp epoch Example: 1640995199.
+    """
 
     cred_def_id: Union[Unset, str] = UNSET
     rev_reg_id: Union[Unset, None, str] = UNSET

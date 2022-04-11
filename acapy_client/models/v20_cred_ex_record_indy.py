@@ -10,7 +10,22 @@ T = TypeVar("T", bound="V20CredExRecordIndy")
 
 @attr.s(auto_attribs=True)
 class V20CredExRecordIndy:
-    """ """
+    """
+    Attributes:
+        created_at (Union[Unset, str]): Time of record creation Example: 2021-12-31 23:59:59+00:00.
+        cred_ex_id (Union[Unset, str]): Corresponding v2.0 credential exchange record identifier Example:
+            3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        cred_ex_indy_id (Union[Unset, str]): Record identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        cred_id_stored (Union[Unset, str]): Credential identifier stored in wallet Example:
+            3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        cred_request_metadata (Union[Unset, V20CredExRecordIndyCredRequestMetadata]): Credential request metadata for
+            indy holder
+        cred_rev_id (Union[Unset, str]): Credential revocation identifier within revocation registry Example: 12345.
+        rev_reg_id (Union[Unset, str]): Revocation registry identifier Example:
+            WgWxqztrNooG92RXvxSTWv:4:WgWxqztrNooG92RXvxSTWv:3:CL:20:tag:CL_ACCUM:0.
+        state (Union[Unset, str]): Current record state Example: active.
+        updated_at (Union[Unset, str]): Time of last record update Example: 2021-12-31 23:59:59+00:00.
+    """
 
     created_at: Union[Unset, str] = UNSET
     cred_ex_id: Union[Unset, str] = UNSET

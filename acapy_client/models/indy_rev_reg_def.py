@@ -11,7 +11,17 @@ T = TypeVar("T", bound="IndyRevRegDef")
 
 @attr.s(auto_attribs=True)
 class IndyRevRegDef:
-    """ """
+    """
+    Attributes:
+        cred_def_id (Union[Unset, str]): Credential definition identifier Example: WgWxqztrNooG92RXvxSTWv:3:CL:20:tag.
+        id (Union[Unset, str]): Indy revocation registry identifier Example:
+            WgWxqztrNooG92RXvxSTWv:4:WgWxqztrNooG92RXvxSTWv:3:CL:20:tag:CL_ACCUM:0.
+        revoc_def_type (Union[Unset, IndyRevRegDefRevocDefType]): Revocation registry type (specify CL_ACCUM) Example:
+            CL_ACCUM.
+        tag (Union[Unset, str]): Revocation registry tag
+        value (Union[Unset, IndyRevRegDefValue]):
+        ver (Union[Unset, str]): Version of revocation registry definition Example: 1.0.
+    """
 
     cred_def_id: Union[Unset, str] = UNSET
     id: Union[Unset, str] = UNSET

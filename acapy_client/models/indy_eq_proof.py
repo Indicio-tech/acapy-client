@@ -11,7 +11,15 @@ T = TypeVar("T", bound="IndyEQProof")
 
 @attr.s(auto_attribs=True)
 class IndyEQProof:
-    """ """
+    """
+    Attributes:
+        a_prime (Union[Unset, str]):  Example: 0.
+        e (Union[Unset, str]):  Example: 0.
+        m (Union[Unset, IndyEQProofM]):
+        m2 (Union[Unset, str]):  Example: 0.
+        revealed_attrs (Union[Unset, IndyEQProofRevealedAttrs]):
+        v (Union[Unset, str]):  Example: 0.
+    """
 
     a_prime: Union[Unset, str] = UNSET
     e: Union[Unset, str] = UNSET

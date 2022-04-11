@@ -17,18 +17,20 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/transactions/create-request".format(client.base_url)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
-    params: Dict[str, Any] = {
-        "tran_id": tran_id,
-        "endorser_write_txn": endorser_write_txn,
-    }
+    params: Dict[str, Any] = {}
+    params["tran_id"] = tran_id
+
+    params["endorser_write_txn"] = endorser_write_txn
+
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     json_json_body = json_body.to_dict()
 
     return {
+        "method": "post",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -62,6 +64,17 @@ def sync_detailed(
     tran_id: str,
     endorser_write_txn: Union[Unset, None, bool] = UNSET,
 ) -> Response[TransactionRecord]:
+    """For author to send a transaction request
+
+    Args:
+        tran_id (str):
+        endorser_write_txn (Union[Unset, None, bool]):
+        json_body (Date):
+
+    Returns:
+        Response[TransactionRecord]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         json_body=json_body,
@@ -69,7 +82,7 @@ def sync_detailed(
         endorser_write_txn=endorser_write_txn,
     )
 
-    response = httpx.post(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -84,7 +97,16 @@ def sync(
     tran_id: str,
     endorser_write_txn: Union[Unset, None, bool] = UNSET,
 ) -> Optional[TransactionRecord]:
-    """ """
+    """For author to send a transaction request
+
+    Args:
+        tran_id (str):
+        endorser_write_txn (Union[Unset, None, bool]):
+        json_body (Date):
+
+    Returns:
+        Response[TransactionRecord]
+    """
 
     return sync_detailed(
         client=client,
@@ -101,6 +123,17 @@ async def asyncio_detailed(
     tran_id: str,
     endorser_write_txn: Union[Unset, None, bool] = UNSET,
 ) -> Response[TransactionRecord]:
+    """For author to send a transaction request
+
+    Args:
+        tran_id (str):
+        endorser_write_txn (Union[Unset, None, bool]):
+        json_body (Date):
+
+    Returns:
+        Response[TransactionRecord]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         json_body=json_body,
@@ -109,7 +142,7 @@ async def asyncio_detailed(
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.post(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -121,7 +154,16 @@ async def asyncio(
     tran_id: str,
     endorser_write_txn: Union[Unset, None, bool] = UNSET,
 ) -> Optional[TransactionRecord]:
-    """ """
+    """For author to send a transaction request
+
+    Args:
+        tran_id (str):
+        endorser_write_txn (Union[Unset, None, bool]):
+        json_body (Date):
+
+    Returns:
+        Response[TransactionRecord]
+    """
 
     return (
         await asyncio_detailed(

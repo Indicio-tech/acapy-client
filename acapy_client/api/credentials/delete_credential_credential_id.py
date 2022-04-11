@@ -14,10 +14,11 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/credential/{credential_id}".format(client.base_url, credential_id=credential_id)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
     return {
+        "method": "delete",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -47,12 +48,21 @@ def sync_detailed(
     *,
     client: Client,
 ) -> Response[HolderModuleResponse]:
+    """Remove credential from wallet by id
+
+    Args:
+        credential_id (str):
+
+    Returns:
+        Response[HolderModuleResponse]
+    """
+
     kwargs = _get_kwargs(
         credential_id=credential_id,
         client=client,
     )
 
-    response = httpx.delete(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -65,7 +75,14 @@ def sync(
     *,
     client: Client,
 ) -> Optional[HolderModuleResponse]:
-    """ """
+    """Remove credential from wallet by id
+
+    Args:
+        credential_id (str):
+
+    Returns:
+        Response[HolderModuleResponse]
+    """
 
     return sync_detailed(
         credential_id=credential_id,
@@ -78,13 +95,22 @@ async def asyncio_detailed(
     *,
     client: Client,
 ) -> Response[HolderModuleResponse]:
+    """Remove credential from wallet by id
+
+    Args:
+        credential_id (str):
+
+    Returns:
+        Response[HolderModuleResponse]
+    """
+
     kwargs = _get_kwargs(
         credential_id=credential_id,
         client=client,
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.delete(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -94,7 +120,14 @@ async def asyncio(
     *,
     client: Client,
 ) -> Optional[HolderModuleResponse]:
-    """ """
+    """Remove credential from wallet by id
+
+    Args:
+        credential_id (str):
+
+    Returns:
+        Response[HolderModuleResponse]
+    """
 
     return (
         await asyncio_detailed(

@@ -16,7 +16,29 @@ T = TypeVar("T", bound="V10PresentationExchange")
 
 @attr.s(auto_attribs=True)
 class V10PresentationExchange:
-    """ """
+    """
+    Attributes:
+        auto_present (Union[Unset, bool]): Prover choice to auto-present proof as verifier requests
+        connection_id (Union[Unset, str]): Connection identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        created_at (Union[Unset, str]): Time of record creation Example: 2021-12-31 23:59:59+00:00.
+        error_msg (Union[Unset, str]): Error message Example: Invalid structure.
+        initiator (Union[Unset, V10PresentationExchangeInitiator]): Present-proof exchange initiator: self or external
+            Example: self.
+        presentation (Union[Unset, IndyProof]):
+        presentation_exchange_id (Union[Unset, str]): Presentation exchange identifier Example:
+            3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        presentation_proposal_dict (Union[Unset, PresentationProposal]):
+        presentation_request (Union[Unset, IndyProofRequest]):
+        presentation_request_dict (Union[Unset, PresentationRequest]):
+        role (Union[Unset, V10PresentationExchangeRole]): Present-proof exchange role: prover or verifier Example:
+            prover.
+        state (Union[Unset, str]): Present-proof exchange state Example: verified.
+        thread_id (Union[Unset, str]): Thread identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        trace (Union[Unset, bool]): Record trace information, based on agent configuration
+        updated_at (Union[Unset, str]): Time of last record update Example: 2021-12-31 23:59:59+00:00.
+        verified (Union[Unset, V10PresentationExchangeVerified]): Whether presentation is verified: true or false
+            Example: true.
+    """
 
     auto_present: Union[Unset, bool] = UNSET
     connection_id: Union[Unset, str] = UNSET

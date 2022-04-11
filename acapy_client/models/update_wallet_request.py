@@ -10,7 +10,18 @@ T = TypeVar("T", bound="UpdateWalletRequest")
 
 @attr.s(auto_attribs=True)
 class UpdateWalletRequest:
-    """ """
+    """
+    Attributes:
+        image_url (Union[Unset, str]): Image url for this wallet. This image url is publicized            (self-
+            attested) to other agents as part of forming a connection. Example: https://aries.ca/images/sample.png.
+        label (Union[Unset, str]): Label for this wallet. This label is publicized            (self-attested) to other
+            agents as part of forming a connection. Example: Alice.
+        wallet_dispatch_type (Union[Unset, UpdateWalletRequestWalletDispatchType]): Webhook target dispatch type for
+            this wallet.             default - Dispatch only to webhooks associated with this wallet.             base -
+            Dispatch only to webhooks associated with the base wallet.             both - Dispatch to both webhook targets.
+            Example: default.
+        wallet_webhook_urls (Union[Unset, List[str]]): List of Webhook URLs associated with this subwallet
+    """
 
     image_url: Union[Unset, str] = UNSET
     label: Union[Unset, str] = UNSET

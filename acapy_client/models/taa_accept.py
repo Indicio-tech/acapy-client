@@ -9,7 +9,12 @@ T = TypeVar("T", bound="TAAAccept")
 
 @attr.s(auto_attribs=True)
 class TAAAccept:
-    """ """
+    """
+    Attributes:
+        mechanism (Union[Unset, str]):
+        text (Union[Unset, str]):
+        version (Union[Unset, str]):
+    """
 
     mechanism: Union[Unset, str] = UNSET
     text: Union[Unset, str] = UNSET

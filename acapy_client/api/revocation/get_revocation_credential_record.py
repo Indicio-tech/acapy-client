@@ -16,17 +16,20 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/revocation/credential-record".format(client.base_url)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
-    params: Dict[str, Any] = {
-        "cred_ex_id": cred_ex_id,
-        "cred_rev_id": cred_rev_id,
-        "rev_reg_id": rev_reg_id,
-    }
+    params: Dict[str, Any] = {}
+    params["cred_ex_id"] = cred_ex_id
+
+    params["cred_rev_id"] = cred_rev_id
+
+    params["rev_reg_id"] = rev_reg_id
+
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     return {
+        "method": "get",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -59,6 +62,17 @@ def sync_detailed(
     cred_rev_id: Union[Unset, None, str] = UNSET,
     rev_reg_id: Union[Unset, None, str] = UNSET,
 ) -> Response[CredRevRecordResult]:
+    """Get credential revocation status
+
+    Args:
+        cred_ex_id (Union[Unset, None, str]):
+        cred_rev_id (Union[Unset, None, str]):
+        rev_reg_id (Union[Unset, None, str]):
+
+    Returns:
+        Response[CredRevRecordResult]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         cred_ex_id=cred_ex_id,
@@ -66,7 +80,7 @@ def sync_detailed(
         rev_reg_id=rev_reg_id,
     )
 
-    response = httpx.get(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -81,7 +95,16 @@ def sync(
     cred_rev_id: Union[Unset, None, str] = UNSET,
     rev_reg_id: Union[Unset, None, str] = UNSET,
 ) -> Optional[CredRevRecordResult]:
-    """ """
+    """Get credential revocation status
+
+    Args:
+        cred_ex_id (Union[Unset, None, str]):
+        cred_rev_id (Union[Unset, None, str]):
+        rev_reg_id (Union[Unset, None, str]):
+
+    Returns:
+        Response[CredRevRecordResult]
+    """
 
     return sync_detailed(
         client=client,
@@ -98,6 +121,17 @@ async def asyncio_detailed(
     cred_rev_id: Union[Unset, None, str] = UNSET,
     rev_reg_id: Union[Unset, None, str] = UNSET,
 ) -> Response[CredRevRecordResult]:
+    """Get credential revocation status
+
+    Args:
+        cred_ex_id (Union[Unset, None, str]):
+        cred_rev_id (Union[Unset, None, str]):
+        rev_reg_id (Union[Unset, None, str]):
+
+    Returns:
+        Response[CredRevRecordResult]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         cred_ex_id=cred_ex_id,
@@ -106,7 +140,7 @@ async def asyncio_detailed(
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.get(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -118,7 +152,16 @@ async def asyncio(
     cred_rev_id: Union[Unset, None, str] = UNSET,
     rev_reg_id: Union[Unset, None, str] = UNSET,
 ) -> Optional[CredRevRecordResult]:
-    """ """
+    """Get credential revocation status
+
+    Args:
+        cred_ex_id (Union[Unset, None, str]):
+        cred_rev_id (Union[Unset, None, str]):
+        rev_reg_id (Union[Unset, None, str]):
+
+    Returns:
+        Response[CredRevRecordResult]
+    """
 
     return (
         await asyncio_detailed(

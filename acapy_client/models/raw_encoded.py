@@ -9,7 +9,11 @@ T = TypeVar("T", bound="RawEncoded")
 
 @attr.s(auto_attribs=True)
 class RawEncoded:
-    """ """
+    """
+    Attributes:
+        encoded (Union[Unset, str]): Encoded value Example: -1.
+        raw (Union[Unset, str]): Raw value
+    """
 
     encoded: Union[Unset, str] = UNSET
     raw: Union[Unset, str] = UNSET

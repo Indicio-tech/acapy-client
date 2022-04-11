@@ -7,7 +7,10 @@ T = TypeVar("T", bound="V10CredentialProblemReportRequest")
 
 @attr.s(auto_attribs=True)
 class V10CredentialProblemReportRequest:
-    """ """
+    """
+    Attributes:
+        description (str):
+    """
 
     description: str
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

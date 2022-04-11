@@ -11,7 +11,12 @@ T = TypeVar("T", bound="IndyCredPrecis")
 
 @attr.s(auto_attribs=True)
 class IndyCredPrecis:
-    """ """
+    """
+    Attributes:
+        cred_info (Union[Unset, IndyCredInfo]):
+        interval (Union[Unset, IndyNonRevocationInterval]):
+        presentation_referents (Union[Unset, List[str]]):
+    """
 
     cred_info: Union[Unset, IndyCredInfo] = UNSET
     interval: Union[Unset, IndyNonRevocationInterval] = UNSET

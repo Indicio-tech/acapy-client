@@ -7,7 +7,11 @@ T = TypeVar("T", bound="CredentialStatusOptions")
 
 @attr.s(auto_attribs=True)
 class CredentialStatusOptions:
-    """ """
+    """
+    Attributes:
+        type (str): Credential status method type to use for the credential. Should match status method registered in
+            the Verifiable Credential Extension Registry Example: CredentialStatusList2017.
+    """
 
     type: str
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

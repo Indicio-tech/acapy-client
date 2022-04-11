@@ -10,7 +10,10 @@ T = TypeVar("T", bound="PublishRevocations")
 
 @attr.s(auto_attribs=True)
 class PublishRevocations:
-    """ """
+    """
+    Attributes:
+        rrid2crid (Union[Unset, PublishRevocationsRrid2Crid]): Credential revocation ids by revocation registry id
+    """
 
     rrid2crid: Union[Unset, PublishRevocationsRrid2Crid] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

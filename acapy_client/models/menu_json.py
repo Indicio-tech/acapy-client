@@ -10,7 +10,13 @@ T = TypeVar("T", bound="MenuJson")
 
 @attr.s(auto_attribs=True)
 class MenuJson:
-    """ """
+    """
+    Attributes:
+        options (List[MenuOption]): List of menu options
+        description (Union[Unset, str]): Introductory text for the menu Example: User preferences for window settings.
+        errormsg (Union[Unset, str]): Optional error message to display in menu header Example: Error: item not present.
+        title (Union[Unset, str]): Menu title Example: My Menu.
+    """
 
     options: List[MenuOption]
     description: Union[Unset, str] = UNSET

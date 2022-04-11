@@ -11,7 +11,13 @@ T = TypeVar("T", bound="IndyPresPreview")
 
 @attr.s(auto_attribs=True)
 class IndyPresPreview:
-    """ """
+    """
+    Attributes:
+        attributes (List[IndyPresAttrSpec]):
+        predicates (List[IndyPresPredSpec]):
+        type (Union[Unset, str]): Message type identifier Example: did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/present-
+            proof/1.0/presentation-preview.
+    """
 
     attributes: List[IndyPresAttrSpec]
     predicates: List[IndyPresPredSpec]

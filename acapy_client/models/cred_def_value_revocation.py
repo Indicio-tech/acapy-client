@@ -9,7 +9,20 @@ T = TypeVar("T", bound="CredDefValueRevocation")
 
 @attr.s(auto_attribs=True)
 class CredDefValueRevocation:
-    """ """
+    """
+    Attributes:
+        g (Union[Unset, str]):  Example: 1 1F14F&ECB578F 2 095E45DDF417D.
+        g_dash (Union[Unset, str]):  Example: 1 1D64716fCDC00C 1 0C781960FA66E3D3 2 095E45DDF417D.
+        h (Union[Unset, str]):  Example: 1 16675DAE54BFAE8 2 095E45DD417D.
+        h0 (Union[Unset, str]):  Example: 1 21E5EF9476EAF18 2 095E45DDF417D.
+        h1 (Union[Unset, str]):  Example: 1 236D1D99236090 2 095E45DDF417D.
+        h2 (Union[Unset, str]):  Example: 1 1C3AE8D1F1E277 2 095E45DDF417D.
+        h_cap (Union[Unset, str]):  Example: 1 1B2A32CF3167 1 2490FEBF6EE55 1 0000000000000000.
+        htilde (Union[Unset, str]):  Example: 1 1D8549E8C0F8 2 095E45DDF417D.
+        pk (Union[Unset, str]):  Example: 1 142CD5E5A7DC 1 153885BD903312 2 095E45DDF417D.
+        u (Union[Unset, str]):  Example: 1 0C430AAB2B4710 1 1CB3A0932EE7E 1 0000000000000000.
+        y (Union[Unset, str]):  Example: 1 153558BD903312 2 095E45DDF417D 1 0000000000000000.
+    """
 
     g: Union[Unset, str] = UNSET
     g_dash: Union[Unset, str] = UNSET

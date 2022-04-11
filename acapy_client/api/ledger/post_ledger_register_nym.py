@@ -18,22 +18,26 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/ledger/register-nym".format(client.base_url)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
+
+    params: Dict[str, Any] = {}
+    params["did"] = did
+
+    params["verkey"] = verkey
+
+    params["alias"] = alias
 
     json_role: Union[Unset, None, str] = UNSET
     if not isinstance(role, Unset):
         json_role = role.value if role else None
 
-    params: Dict[str, Any] = {
-        "did": did,
-        "verkey": verkey,
-        "alias": alias,
-        "role": json_role,
-    }
+    params["role"] = json_role
+
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     return {
+        "method": "post",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -67,6 +71,18 @@ def sync_detailed(
     alias: Union[Unset, None, str] = UNSET,
     role: Union[Unset, None, PostLedgerRegisterNymRole] = UNSET,
 ) -> Response[RegisterLedgerNymResponse]:
+    """Send a NYM registration to the ledger.
+
+    Args:
+        did (str):
+        verkey (str):
+        alias (Union[Unset, None, str]):
+        role (Union[Unset, None, PostLedgerRegisterNymRole]):
+
+    Returns:
+        Response[RegisterLedgerNymResponse]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         did=did,
@@ -75,7 +91,7 @@ def sync_detailed(
         role=role,
     )
 
-    response = httpx.post(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -91,7 +107,17 @@ def sync(
     alias: Union[Unset, None, str] = UNSET,
     role: Union[Unset, None, PostLedgerRegisterNymRole] = UNSET,
 ) -> Optional[RegisterLedgerNymResponse]:
-    """ """
+    """Send a NYM registration to the ledger.
+
+    Args:
+        did (str):
+        verkey (str):
+        alias (Union[Unset, None, str]):
+        role (Union[Unset, None, PostLedgerRegisterNymRole]):
+
+    Returns:
+        Response[RegisterLedgerNymResponse]
+    """
 
     return sync_detailed(
         client=client,
@@ -110,6 +136,18 @@ async def asyncio_detailed(
     alias: Union[Unset, None, str] = UNSET,
     role: Union[Unset, None, PostLedgerRegisterNymRole] = UNSET,
 ) -> Response[RegisterLedgerNymResponse]:
+    """Send a NYM registration to the ledger.
+
+    Args:
+        did (str):
+        verkey (str):
+        alias (Union[Unset, None, str]):
+        role (Union[Unset, None, PostLedgerRegisterNymRole]):
+
+    Returns:
+        Response[RegisterLedgerNymResponse]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         did=did,
@@ -119,7 +157,7 @@ async def asyncio_detailed(
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.post(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -132,7 +170,17 @@ async def asyncio(
     alias: Union[Unset, None, str] = UNSET,
     role: Union[Unset, None, PostLedgerRegisterNymRole] = UNSET,
 ) -> Optional[RegisterLedgerNymResponse]:
-    """ """
+    """Send a NYM registration to the ledger.
+
+    Args:
+        did (str):
+        verkey (str):
+        alias (Union[Unset, None, str]):
+        role (Union[Unset, None, PostLedgerRegisterNymRole]):
+
+    Returns:
+        Response[RegisterLedgerNymResponse]
+    """
 
     return (
         await asyncio_detailed(
