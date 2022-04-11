@@ -9,7 +9,12 @@ T = TypeVar("T", bound="DIFOptions")
 
 @attr.s(auto_attribs=True)
 class DIFOptions:
-    """ """
+    """
+    Attributes:
+        challenge (Union[Unset, str]): Challenge protect against replay attack Example:
+            3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        domain (Union[Unset, str]): Domain protect against replay attack Example: 4jt78h47fh47.
+    """
 
     challenge: Union[Unset, str] = UNSET
     domain: Union[Unset, str] = UNSET

@@ -9,7 +9,11 @@ T = TypeVar("T", bound="SchemaInputDescriptor")
 
 @attr.s(auto_attribs=True)
 class SchemaInputDescriptor:
-    """ """
+    """
+    Attributes:
+        required (Union[Unset, bool]): Required
+        uri (Union[Unset, str]): URI
+    """
 
     required: Union[Unset, bool] = UNSET
     uri: Union[Unset, str] = UNSET

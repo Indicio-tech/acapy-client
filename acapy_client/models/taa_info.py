@@ -12,7 +12,13 @@ T = TypeVar("T", bound="TAAInfo")
 
 @attr.s(auto_attribs=True)
 class TAAInfo:
-    """ """
+    """
+    Attributes:
+        aml_record (Union[Unset, AMLRecord]):
+        taa_accepted (Union[Unset, None, TAAAcceptance]):
+        taa_record (Union[Unset, TAARecord]):
+        taa_required (Union[Unset, bool]):
+    """
 
     aml_record: Union[Unset, AMLRecord] = UNSET
     taa_accepted: Union[Unset, None, TAAAcceptance] = UNSET

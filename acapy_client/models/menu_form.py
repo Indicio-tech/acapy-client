@@ -10,7 +10,13 @@ T = TypeVar("T", bound="MenuForm")
 
 @attr.s(auto_attribs=True)
 class MenuForm:
-    """ """
+    """
+    Attributes:
+        description (Union[Unset, str]): Additional descriptive text for menu form Example: Window preference settings.
+        params (Union[Unset, List[MenuFormParam]]): List of form parameters
+        submit_label (Union[Unset, str]): Alternative label for form submit button Example: Send.
+        title (Union[Unset, str]): Menu form title Example: Preferences.
+    """
 
     description: Union[Unset, str] = UNSET
     params: Union[Unset, List[MenuFormParam]] = UNSET

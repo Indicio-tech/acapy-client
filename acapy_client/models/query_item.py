@@ -9,7 +9,11 @@ T = TypeVar("T", bound="QueryItem")
 
 @attr.s(auto_attribs=True)
 class QueryItem:
-    """ """
+    """
+    Attributes:
+        feature_type (QueryItemFeatureType): feature type
+        match (str): match
+    """
 
     feature_type: QueryItemFeatureType
     match: str

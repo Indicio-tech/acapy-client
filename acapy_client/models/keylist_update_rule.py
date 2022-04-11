@@ -9,7 +9,11 @@ T = TypeVar("T", bound="KeylistUpdateRule")
 
 @attr.s(auto_attribs=True)
 class KeylistUpdateRule:
-    """ """
+    """
+    Attributes:
+        action (KeylistUpdateRuleAction): Action for specific key Example: add.
+        recipient_key (str): Key to remove or add Example: H3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV.
+    """
 
     action: KeylistUpdateRuleAction
     recipient_key: str

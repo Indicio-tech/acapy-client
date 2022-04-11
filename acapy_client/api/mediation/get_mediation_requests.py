@@ -18,8 +18,11 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/mediation/requests".format(client.base_url)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
+
+    params: Dict[str, Any] = {}
+    params["conn_id"] = conn_id
 
     json_mediator_terms: Union[Unset, None, List[str]] = UNSET
     if not isinstance(mediator_terms, Unset):
@@ -28,6 +31,8 @@ def _get_kwargs(
         else:
             json_mediator_terms = mediator_terms
 
+    params["mediator_terms"] = json_mediator_terms
+
     json_recipient_terms: Union[Unset, None, List[str]] = UNSET
     if not isinstance(recipient_terms, Unset):
         if recipient_terms is None:
@@ -35,19 +40,18 @@ def _get_kwargs(
         else:
             json_recipient_terms = recipient_terms
 
+    params["recipient_terms"] = json_recipient_terms
+
     json_state: Union[Unset, None, str] = UNSET
     if not isinstance(state, Unset):
         json_state = state.value if state else None
 
-    params: Dict[str, Any] = {
-        "conn_id": conn_id,
-        "mediator_terms": json_mediator_terms,
-        "recipient_terms": json_recipient_terms,
-        "state": json_state,
-    }
+    params["state"] = json_state
+
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     return {
+        "method": "get",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -81,6 +85,18 @@ def sync_detailed(
     recipient_terms: Union[Unset, None, List[str]] = UNSET,
     state: Union[Unset, None, GetMediationRequestsState] = UNSET,
 ) -> Response[MediationList]:
+    """Query mediation requests, returns list of all mediation records
+
+    Args:
+        conn_id (Union[Unset, None, str]):
+        mediator_terms (Union[Unset, None, List[str]]):
+        recipient_terms (Union[Unset, None, List[str]]):
+        state (Union[Unset, None, GetMediationRequestsState]):
+
+    Returns:
+        Response[MediationList]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         conn_id=conn_id,
@@ -89,7 +105,7 @@ def sync_detailed(
         state=state,
     )
 
-    response = httpx.get(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -105,7 +121,17 @@ def sync(
     recipient_terms: Union[Unset, None, List[str]] = UNSET,
     state: Union[Unset, None, GetMediationRequestsState] = UNSET,
 ) -> Optional[MediationList]:
-    """ """
+    """Query mediation requests, returns list of all mediation records
+
+    Args:
+        conn_id (Union[Unset, None, str]):
+        mediator_terms (Union[Unset, None, List[str]]):
+        recipient_terms (Union[Unset, None, List[str]]):
+        state (Union[Unset, None, GetMediationRequestsState]):
+
+    Returns:
+        Response[MediationList]
+    """
 
     return sync_detailed(
         client=client,
@@ -124,6 +150,18 @@ async def asyncio_detailed(
     recipient_terms: Union[Unset, None, List[str]] = UNSET,
     state: Union[Unset, None, GetMediationRequestsState] = UNSET,
 ) -> Response[MediationList]:
+    """Query mediation requests, returns list of all mediation records
+
+    Args:
+        conn_id (Union[Unset, None, str]):
+        mediator_terms (Union[Unset, None, List[str]]):
+        recipient_terms (Union[Unset, None, List[str]]):
+        state (Union[Unset, None, GetMediationRequestsState]):
+
+    Returns:
+        Response[MediationList]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         conn_id=conn_id,
@@ -133,7 +171,7 @@ async def asyncio_detailed(
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.get(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -146,7 +184,17 @@ async def asyncio(
     recipient_terms: Union[Unset, None, List[str]] = UNSET,
     state: Union[Unset, None, GetMediationRequestsState] = UNSET,
 ) -> Optional[MediationList]:
-    """ """
+    """Query mediation requests, returns list of all mediation records
+
+    Args:
+        conn_id (Union[Unset, None, str]):
+        mediator_terms (Union[Unset, None, List[str]]):
+        recipient_terms (Union[Unset, None, List[str]]):
+        state (Union[Unset, None, GetMediationRequestsState]):
+
+    Returns:
+        Response[MediationList]
+    """
 
     return (
         await asyncio_detailed(

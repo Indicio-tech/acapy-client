@@ -18,19 +18,22 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/credentials/w3c".format(client.base_url)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
-    params: Dict[str, Any] = {
-        "count": count,
-        "start": start,
-        "wql": wql,
-    }
+    params: Dict[str, Any] = {}
+    params["count"] = count
+
+    params["start"] = start
+
+    params["wql"] = wql
+
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     json_json_body = json_body.to_dict()
 
     return {
+        "method": "post",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -65,6 +68,18 @@ def sync_detailed(
     start: Union[Unset, None, str] = UNSET,
     wql: Union[Unset, None, str] = UNSET,
 ) -> Response[VCRecordList]:
+    """Fetch W3C credentials from wallet
+
+    Args:
+        count (Union[Unset, None, str]):
+        start (Union[Unset, None, str]):
+        wql (Union[Unset, None, str]):
+        json_body (W3CCredentialsListRequest):
+
+    Returns:
+        Response[VCRecordList]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         json_body=json_body,
@@ -73,7 +88,7 @@ def sync_detailed(
         wql=wql,
     )
 
-    response = httpx.post(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -89,7 +104,17 @@ def sync(
     start: Union[Unset, None, str] = UNSET,
     wql: Union[Unset, None, str] = UNSET,
 ) -> Optional[VCRecordList]:
-    """ """
+    """Fetch W3C credentials from wallet
+
+    Args:
+        count (Union[Unset, None, str]):
+        start (Union[Unset, None, str]):
+        wql (Union[Unset, None, str]):
+        json_body (W3CCredentialsListRequest):
+
+    Returns:
+        Response[VCRecordList]
+    """
 
     return sync_detailed(
         client=client,
@@ -108,6 +133,18 @@ async def asyncio_detailed(
     start: Union[Unset, None, str] = UNSET,
     wql: Union[Unset, None, str] = UNSET,
 ) -> Response[VCRecordList]:
+    """Fetch W3C credentials from wallet
+
+    Args:
+        count (Union[Unset, None, str]):
+        start (Union[Unset, None, str]):
+        wql (Union[Unset, None, str]):
+        json_body (W3CCredentialsListRequest):
+
+    Returns:
+        Response[VCRecordList]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         json_body=json_body,
@@ -117,7 +154,7 @@ async def asyncio_detailed(
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.post(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -130,7 +167,17 @@ async def asyncio(
     start: Union[Unset, None, str] = UNSET,
     wql: Union[Unset, None, str] = UNSET,
 ) -> Optional[VCRecordList]:
-    """ """
+    """Fetch W3C credentials from wallet
+
+    Args:
+        count (Union[Unset, None, str]):
+        start (Union[Unset, None, str]):
+        wql (Union[Unset, None, str]):
+        json_body (W3CCredentialsListRequest):
+
+    Returns:
+        Response[VCRecordList]
+    """
 
     return (
         await asyncio_detailed(

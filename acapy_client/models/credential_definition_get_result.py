@@ -10,7 +10,10 @@ T = TypeVar("T", bound="CredentialDefinitionGetResult")
 
 @attr.s(auto_attribs=True)
 class CredentialDefinitionGetResult:
-    """ """
+    """
+    Attributes:
+        credential_definition (Union[Unset, CredentialDefinition]):
+    """
 
     credential_definition: Union[Unset, CredentialDefinition] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

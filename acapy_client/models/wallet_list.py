@@ -10,7 +10,10 @@ T = TypeVar("T", bound="WalletList")
 
 @attr.s(auto_attribs=True)
 class WalletList:
-    """ """
+    """
+    Attributes:
+        results (Union[Unset, List[WalletRecord]]): List of wallet records
+    """
 
     results: Union[Unset, List[WalletRecord]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

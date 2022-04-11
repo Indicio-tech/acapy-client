@@ -18,7 +18,40 @@ T = TypeVar("T", bound="V10CredentialExchange")
 
 @attr.s(auto_attribs=True)
 class V10CredentialExchange:
-    """ """
+    """
+    Attributes:
+        auto_issue (Union[Unset, bool]): Issuer choice to issue to request in this credential exchange
+        auto_offer (Union[Unset, bool]): Holder choice to accept offer in this credential exchange
+        auto_remove (Union[Unset, bool]): Issuer choice to remove this credential exchange record when complete
+        connection_id (Union[Unset, str]): Connection identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        created_at (Union[Unset, str]): Time of record creation Example: 2021-12-31 23:59:59+00:00.
+        credential (Union[Unset, IndyCredInfo]):
+        credential_definition_id (Union[Unset, str]): Credential definition identifier Example:
+            WgWxqztrNooG92RXvxSTWv:3:CL:20:tag.
+        credential_exchange_id (Union[Unset, str]): Credential exchange identifier Example:
+            3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        credential_id (Union[Unset, str]): Credential identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        credential_offer (Union[Unset, IndyCredAbstract]):
+        credential_offer_dict (Union[Unset, CredentialOffer]):
+        credential_proposal_dict (Union[Unset, CredentialProposal]):
+        credential_request (Union[Unset, IndyCredRequest]):
+        credential_request_metadata (Union[Unset, V10CredentialExchangeCredentialRequestMetadata]): (Indy) credential
+            request metadata
+        error_msg (Union[Unset, str]): Error message Example: Credential definition identifier is not set in proposal.
+        initiator (Union[Unset, V10CredentialExchangeInitiator]): Issue-credential exchange initiator: self or external
+            Example: self.
+        parent_thread_id (Union[Unset, str]): Parent thread identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        raw_credential (Union[Unset, IndyCredential]):
+        revoc_reg_id (Union[Unset, str]): Revocation registry identifier
+        revocation_id (Union[Unset, str]): Credential identifier within revocation registry
+        role (Union[Unset, V10CredentialExchangeRole]): Issue-credential exchange role: holder or issuer Example:
+            issuer.
+        schema_id (Union[Unset, str]): Schema identifier Example: WgWxqztrNooG92RXvxSTWv:2:schema_name:1.0.
+        state (Union[Unset, str]): Issue-credential exchange state Example: credential_acked.
+        thread_id (Union[Unset, str]): Thread identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        trace (Union[Unset, bool]): Record trace information, based on agent configuration
+        updated_at (Union[Unset, str]): Time of last record update Example: 2021-12-31 23:59:59+00:00.
+    """
 
     auto_issue: Union[Unset, bool] = UNSET
     auto_offer: Union[Unset, bool] = UNSET

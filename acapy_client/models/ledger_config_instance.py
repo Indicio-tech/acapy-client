@@ -9,7 +9,14 @@ T = TypeVar("T", bound="LedgerConfigInstance")
 
 @attr.s(auto_attribs=True)
 class LedgerConfigInstance:
-    """ """
+    """
+    Attributes:
+        genesis_file (Union[Unset, str]): genesis_file
+        genesis_transactions (Union[Unset, str]): genesis_transactions
+        genesis_url (Union[Unset, str]): genesis_url
+        id (Union[Unset, str]): ledger_id
+        is_production (Union[Unset, bool]): is_production
+    """
 
     genesis_file: Union[Unset, str] = UNSET
     genesis_transactions: Union[Unset, str] = UNSET

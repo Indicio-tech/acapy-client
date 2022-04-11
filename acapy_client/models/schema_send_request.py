@@ -7,7 +7,12 @@ T = TypeVar("T", bound="SchemaSendRequest")
 
 @attr.s(auto_attribs=True)
 class SchemaSendRequest:
-    """ """
+    """
+    Attributes:
+        attributes (List[str]): List of schema attributes
+        schema_name (str): Schema name Example: prefs.
+        schema_version (str): Schema version Example: 1.0.
+    """
 
     attributes: List[str]
     schema_name: str

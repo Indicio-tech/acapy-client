@@ -10,7 +10,10 @@ T = TypeVar("T", bound="Keylist")
 
 @attr.s(auto_attribs=True)
 class Keylist:
-    """ """
+    """
+    Attributes:
+        results (Union[Unset, List[RouteRecord]]): List of keylist records
+    """
 
     results: Union[Unset, List[RouteRecord]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

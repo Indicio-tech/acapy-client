@@ -9,7 +9,10 @@ T = TypeVar("T", bound="RevRegResult")
 
 @attr.s(auto_attribs=True)
 class RevRegResult:
-    """ """
+    """
+    Attributes:
+        result (IssuerRevRegRecord):
+    """
 
     result: IssuerRevRegRecord
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

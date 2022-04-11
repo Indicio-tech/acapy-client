@@ -7,7 +7,12 @@ T = TypeVar("T", bound="IndyKeyCorrectnessProof")
 
 @attr.s(auto_attribs=True)
 class IndyKeyCorrectnessProof:
-    """ """
+    """
+    Attributes:
+        c (str): c in key correctness proof Example: 0.
+        xr_cap (List[List[str]]): xr_cap in key correctness proof
+        xz_cap (str): xz_cap in key correctness proof Example: 0.
+    """
 
     c: str
     xr_cap: List[List[str]]

@@ -11,7 +11,17 @@ T = TypeVar("T", bound="SubmissionRequirements")
 
 @attr.s(auto_attribs=True)
 class SubmissionRequirements:
-    """ """
+    """
+    Attributes:
+        count (Union[Unset, int]): Count Value Example: 1234.
+        from_ (Union[Unset, str]): From
+        from_nested (Union[Unset, List[SubmissionRequirementsFromNestedItem]]):
+        max_ (Union[Unset, int]): Max Value Example: 1234.
+        min_ (Union[Unset, int]): Min Value Example: 1234.
+        name (Union[Unset, str]): Name
+        purpose (Union[Unset, str]): Purpose
+        rule (Union[Unset, SubmissionRequirementsRule]): Selection
+    """
 
     count: Union[Unset, int] = UNSET
     from_: Union[Unset, str] = UNSET

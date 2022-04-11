@@ -7,7 +7,12 @@ T = TypeVar("T", bound="CredentialDefinitionType")
 
 @attr.s(auto_attribs=True)
 class CredentialDefinitionType:
-    """Signature type: CL for Camenisch-Lysyanskaya"""
+    """Signature type: CL for Camenisch-Lysyanskaya
+
+    Example:
+        CL
+
+    """
 
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 

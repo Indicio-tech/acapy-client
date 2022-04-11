@@ -11,7 +11,11 @@ T = TypeVar("T", bound="DIDCreate")
 
 @attr.s(auto_attribs=True)
 class DIDCreate:
-    """ """
+    """
+    Attributes:
+        method (Union[Unset, DIDCreateMethod]):  Example: sov.
+        options (Union[Unset, DIDCreateOptions]):
+    """
 
     method: Union[Unset, DIDCreateMethod] = UNSET
     options: Union[Unset, DIDCreateOptions] = UNSET

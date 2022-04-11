@@ -9,7 +9,15 @@ T = TypeVar("T", bound="Schema")
 
 @attr.s(auto_attribs=True)
 class Schema:
-    """ """
+    """
+    Attributes:
+        attr_names (Union[Unset, List[str]]): Schema attribute names
+        id (Union[Unset, str]): Schema identifier Example: WgWxqztrNooG92RXvxSTWv:2:schema_name:1.0.
+        name (Union[Unset, str]): Schema name Example: schema_name.
+        seq_no (Union[Unset, int]): Schema sequence number Example: 10.
+        ver (Union[Unset, str]): Node protocol version Example: 1.0.
+        version (Union[Unset, str]): Schema version Example: 1.0.
+    """
 
     attr_names: Union[Unset, List[str]] = UNSET
     id: Union[Unset, str] = UNSET

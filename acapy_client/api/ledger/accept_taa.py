@@ -15,12 +15,13 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/ledger/taa/accept".format(client.base_url)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
     json_json_body = json_body.to_dict()
 
     return {
+        "method": "post",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -51,12 +52,21 @@ def sync_detailed(
     client: Client,
     json_body: TAAAccept,
 ) -> Response[LedgerModulesResult]:
+    """Accept the transaction author agreement
+
+    Args:
+        json_body (TAAAccept):
+
+    Returns:
+        Response[LedgerModulesResult]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         json_body=json_body,
     )
 
-    response = httpx.post(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -69,7 +79,14 @@ def sync(
     client: Client,
     json_body: TAAAccept,
 ) -> Optional[LedgerModulesResult]:
-    """ """
+    """Accept the transaction author agreement
+
+    Args:
+        json_body (TAAAccept):
+
+    Returns:
+        Response[LedgerModulesResult]
+    """
 
     return sync_detailed(
         client=client,
@@ -82,13 +99,22 @@ async def asyncio_detailed(
     client: Client,
     json_body: TAAAccept,
 ) -> Response[LedgerModulesResult]:
+    """Accept the transaction author agreement
+
+    Args:
+        json_body (TAAAccept):
+
+    Returns:
+        Response[LedgerModulesResult]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         json_body=json_body,
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.post(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -98,7 +124,14 @@ async def asyncio(
     client: Client,
     json_body: TAAAccept,
 ) -> Optional[LedgerModulesResult]:
-    """ """
+    """Accept the transaction author agreement
+
+    Args:
+        json_body (TAAAccept):
+
+    Returns:
+        Response[LedgerModulesResult]
+    """
 
     return (
         await asyncio_detailed(

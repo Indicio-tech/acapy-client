@@ -7,7 +7,11 @@ T = TypeVar("T", bound="TransactionRecordFormatsItem")
 
 @attr.s(auto_attribs=True)
 class TransactionRecordFormatsItem:
-    """ """
+    """
+    Example:
+        {'attach_id': '3fa85f64-5717-4562-b3fc-2c963f66afa6', 'format': 'dif/endorse-transaction/request@v1.0'}
+
+    """
 
     additional_properties: Dict[str, str] = attr.ib(init=False, factory=dict)
 

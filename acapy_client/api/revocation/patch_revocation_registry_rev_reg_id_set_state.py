@@ -16,17 +16,18 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/revocation/registry/{rev_reg_id}/set-state".format(client.base_url, rev_reg_id=rev_reg_id)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
+    params: Dict[str, Any] = {}
     json_state = state.value
 
-    params: Dict[str, Any] = {
-        "state": json_state,
-    }
+    params["state"] = json_state
+
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     return {
+        "method": "patch",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -58,13 +59,23 @@ def sync_detailed(
     client: Client,
     state: PatchRevocationRegistryRevRegIdSetStateState,
 ) -> Response[RevRegResult]:
+    """Set revocation registry state manually
+
+    Args:
+        rev_reg_id (str):
+        state (PatchRevocationRegistryRevRegIdSetStateState):
+
+    Returns:
+        Response[RevRegResult]
+    """
+
     kwargs = _get_kwargs(
         rev_reg_id=rev_reg_id,
         client=client,
         state=state,
     )
 
-    response = httpx.patch(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -78,7 +89,15 @@ def sync(
     client: Client,
     state: PatchRevocationRegistryRevRegIdSetStateState,
 ) -> Optional[RevRegResult]:
-    """ """
+    """Set revocation registry state manually
+
+    Args:
+        rev_reg_id (str):
+        state (PatchRevocationRegistryRevRegIdSetStateState):
+
+    Returns:
+        Response[RevRegResult]
+    """
 
     return sync_detailed(
         rev_reg_id=rev_reg_id,
@@ -93,6 +112,16 @@ async def asyncio_detailed(
     client: Client,
     state: PatchRevocationRegistryRevRegIdSetStateState,
 ) -> Response[RevRegResult]:
+    """Set revocation registry state manually
+
+    Args:
+        rev_reg_id (str):
+        state (PatchRevocationRegistryRevRegIdSetStateState):
+
+    Returns:
+        Response[RevRegResult]
+    """
+
     kwargs = _get_kwargs(
         rev_reg_id=rev_reg_id,
         client=client,
@@ -100,7 +129,7 @@ async def asyncio_detailed(
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.patch(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -111,7 +140,15 @@ async def asyncio(
     client: Client,
     state: PatchRevocationRegistryRevRegIdSetStateState,
 ) -> Optional[RevRegResult]:
-    """ """
+    """Set revocation registry state manually
+
+    Args:
+        rev_reg_id (str):
+        state (PatchRevocationRegistryRevRegIdSetStateState):
+
+    Returns:
+        Response[RevRegResult]
+    """
 
     return (
         await asyncio_detailed(

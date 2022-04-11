@@ -15,7 +15,15 @@ T = TypeVar("T", bound="ClaimFormat")
 
 @attr.s(auto_attribs=True)
 class ClaimFormat:
-    """ """
+    """
+    Attributes:
+        jwt (Union[Unset, ClaimFormatJwt]):
+        jwt_vc (Union[Unset, ClaimFormatJwtVc]):
+        jwt_vp (Union[Unset, ClaimFormatJwtVp]):
+        ldp (Union[Unset, ClaimFormatLdp]):
+        ldp_vc (Union[Unset, ClaimFormatLdpVc]):
+        ldp_vp (Union[Unset, ClaimFormatLdpVp]):
+    """
 
     jwt: Union[Unset, ClaimFormatJwt] = UNSET
     jwt_vc: Union[Unset, ClaimFormatJwtVc] = UNSET

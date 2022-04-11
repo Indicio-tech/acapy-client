@@ -10,7 +10,14 @@ T = TypeVar("T", bound="CredDefValuePrimary")
 
 @attr.s(auto_attribs=True)
 class CredDefValuePrimary:
-    """ """
+    """
+    Attributes:
+        n (Union[Unset, str]):  Example: 0.
+        r (Union[Unset, Generated]):
+        rctxt (Union[Unset, str]):  Example: 0.
+        s (Union[Unset, str]):  Example: 0.
+        z (Union[Unset, str]):  Example: 0.
+    """
 
     n: Union[Unset, str] = UNSET
     r: Union[Unset, Generated] = UNSET

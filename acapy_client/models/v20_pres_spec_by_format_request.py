@@ -11,7 +11,12 @@ T = TypeVar("T", bound="V20PresSpecByFormatRequest")
 
 @attr.s(auto_attribs=True)
 class V20PresSpecByFormatRequest:
-    """ """
+    """
+    Attributes:
+        dif (Union[Unset, DIFPresSpec]):
+        indy (Union[Unset, IndyPresSpec]):
+        trace (Union[Unset, bool]): Record trace information, based on agent configuration
+    """
 
     dif: Union[Unset, DIFPresSpec] = UNSET
     indy: Union[Unset, IndyPresSpec] = UNSET

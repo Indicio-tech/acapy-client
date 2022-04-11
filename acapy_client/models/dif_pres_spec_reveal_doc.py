@@ -7,7 +7,15 @@ T = TypeVar("T", bound="DIFPresSpecRevealDoc")
 
 @attr.s(auto_attribs=True)
 class DIFPresSpecRevealDoc:
-    """reveal doc [JSON-LD frame] dict used to derive the credential when selective disclosure is required"""
+    """reveal doc [JSON-LD frame] dict used to derive the credential when selective disclosure is required
+
+    Example:
+        {'@context': ['https://www.w3.org/2018/credentials/v1', 'https://w3id.org/security/bbs/v1'], '@explicit': True,
+            '@requireAll': True, 'credentialSubject': {'@explicit': True, '@requireAll': True, 'Observation':
+            [{'effectiveDateTime': {}, '@explicit': True, '@requireAll': True}]}, 'issuanceDate': {}, 'issuer': {}, 'type':
+            ['VerifiableCredential', 'LabReport']}
+
+    """
 
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 

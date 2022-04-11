@@ -10,7 +10,13 @@ T = TypeVar("T", bound="DIDEndpointWithType")
 
 @attr.s(auto_attribs=True)
 class DIDEndpointWithType:
-    """ """
+    """
+    Attributes:
+        did (str): DID of interest Example: WgWxqztrNooG92RXvxSTWv.
+        endpoint (Union[Unset, str]): Endpoint to set (omit to delete) Example: https://myhost:8021.
+        endpoint_type (Union[Unset, DIDEndpointWithTypeEndpointType]): Endpoint type to set (default 'Endpoint');
+            affects only public or posted DIDs Example: Endpoint.
+    """
 
     did: str
     endpoint: Union[Unset, str] = UNSET

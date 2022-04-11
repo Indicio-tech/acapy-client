@@ -7,7 +7,11 @@ T = TypeVar("T", bound="RevRegUpdateTailsFileUri")
 
 @attr.s(auto_attribs=True)
 class RevRegUpdateTailsFileUri:
-    """ """
+    """
+    Attributes:
+        tails_public_uri (str): Public URI to the tails file Example: http://192.168.56.133:6543/revocation/registry/WgW
+            xqztrNooG92RXvxSTWv:4:WgWxqztrNooG92RXvxSTWv:3:CL:20:tag:CL_ACCUM:0/tails-file.
+    """
 
     tails_public_uri: str
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

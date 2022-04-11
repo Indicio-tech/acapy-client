@@ -9,7 +9,12 @@ T = TypeVar("T", bound="TAARecord")
 
 @attr.s(auto_attribs=True)
 class TAARecord:
-    """ """
+    """
+    Attributes:
+        digest (Union[Unset, str]):
+        text (Union[Unset, str]):
+        version (Union[Unset, str]):
+    """
 
     digest: Union[Unset, str] = UNSET
     text: Union[Unset, str] = UNSET

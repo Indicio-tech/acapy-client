@@ -11,7 +11,11 @@ T = TypeVar("T", bound="CredDefValue")
 
 @attr.s(auto_attribs=True)
 class CredDefValue:
-    """ """
+    """
+    Attributes:
+        primary (Union[Unset, CredDefValuePrimary]):
+        revocation (Union[Unset, CredDefValueRevocation]):
+    """
 
     primary: Union[Unset, CredDefValuePrimary] = UNSET
     revocation: Union[Unset, CredDefValueRevocation] = UNSET

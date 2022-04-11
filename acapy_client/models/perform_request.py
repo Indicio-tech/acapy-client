@@ -10,7 +10,11 @@ T = TypeVar("T", bound="PerformRequest")
 
 @attr.s(auto_attribs=True)
 class PerformRequest:
-    """ """
+    """
+    Attributes:
+        name (Union[Unset, str]): Menu option name Example: Query.
+        params (Union[Unset, PerformRequestParams]): Input parameter values
+    """
 
     name: Union[Unset, str] = UNSET
     params: Union[Unset, PerformRequestParams] = UNSET

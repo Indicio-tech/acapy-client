@@ -9,7 +9,19 @@ T = TypeVar("T", bound="ReceiveInvitationRequest")
 
 @attr.s(auto_attribs=True)
 class ReceiveInvitationRequest:
-    """ """
+    """
+    Attributes:
+        id (Union[Unset, str]): Message identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        type (Union[Unset, str]): Message type Example: https://didcomm.org/my-family/1.0/my-message-type.
+        did (Union[Unset, str]): DID for connection invitation Example: WgWxqztrNooG92RXvxSTWv.
+        image_url (Union[Unset, None, str]): Optional image URL for connection invitation Example:
+            http://192.168.56.101/img/logo.jpg.
+        label (Union[Unset, str]): Optional label for connection invitation Example: Bob.
+        recipient_keys (Union[Unset, List[str]]): List of recipient keys
+        routing_keys (Union[Unset, List[str]]): List of routing keys
+        service_endpoint (Union[Unset, str]): Service endpoint at which to reach this agent Example:
+            http://192.168.56.101:8020.
+    """
 
     id: Union[Unset, str] = UNSET
     type: Union[Unset, str] = UNSET

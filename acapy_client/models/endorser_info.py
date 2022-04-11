@@ -9,7 +9,11 @@ T = TypeVar("T", bound="EndorserInfo")
 
 @attr.s(auto_attribs=True)
 class EndorserInfo:
-    """ """
+    """
+    Attributes:
+        endorser_did (str): Endorser DID
+        endorser_name (Union[Unset, str]): Endorser Name
+    """
 
     endorser_did: str
     endorser_name: Union[Unset, str] = UNSET

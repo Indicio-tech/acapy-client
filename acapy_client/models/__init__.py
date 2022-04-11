@@ -230,7 +230,7 @@ from .intro_module_response import IntroModuleResponse
 from .invitation_create_request import InvitationCreateRequest
 from .invitation_create_request_metadata import InvitationCreateRequestMetadata
 from .invitation_message import InvitationMessage
-from .invitation_message_services_item import InvitationMessageServicesItem
+from .invitation_message_services_item_type_0 import InvitationMessageServicesItemType0
 from .invitation_record import InvitationRecord
 from .invitation_result import InvitationResult
 from .issue_credential_module_response import IssueCredentialModuleResponse

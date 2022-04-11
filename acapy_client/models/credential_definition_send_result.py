@@ -7,7 +7,10 @@ T = TypeVar("T", bound="CredentialDefinitionSendResult")
 
 @attr.s(auto_attribs=True)
 class CredentialDefinitionSendResult:
-    """ """
+    """
+    Attributes:
+        credential_definition_id (str): Credential definition identifier Example: WgWxqztrNooG92RXvxSTWv:3:CL:20:tag.
+    """
 
     credential_definition_id: str
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

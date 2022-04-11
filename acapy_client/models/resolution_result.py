@@ -10,7 +10,11 @@ T = TypeVar("T", bound="ResolutionResult")
 
 @attr.s(auto_attribs=True)
 class ResolutionResult:
-    """ """
+    """
+    Attributes:
+        did_doc (ResolutionResultDidDoc): DID Document
+        metadata (ResolutionResultMetadata): Resolution metadata
+    """
 
     did_doc: ResolutionResultDidDoc
     metadata: ResolutionResultMetadata

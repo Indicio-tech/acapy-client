@@ -10,7 +10,11 @@ T = TypeVar("T", bound="ClearPendingRevocationsRequest")
 
 @attr.s(auto_attribs=True)
 class ClearPendingRevocationsRequest:
-    """ """
+    """
+    Attributes:
+        purge (Union[Unset, ClearPendingRevocationsRequestPurge]): Credential revocation ids by revocation registry id:
+            omit for all, specify null or empty list for all pending per revocation registry
+    """
 
     purge: Union[Unset, ClearPendingRevocationsRequestPurge] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

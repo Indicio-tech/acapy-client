@@ -15,7 +15,27 @@ T = TypeVar("T", bound="TransactionRecord")
 
 @attr.s(auto_attribs=True)
 class TransactionRecord:
-    """ """
+    """
+    Attributes:
+        type (Union[Unset, str]): Transaction type Example: 101.
+        connection_id (Union[Unset, str]): The connection identifier for thie particular transaction record Example:
+            3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        created_at (Union[Unset, str]): Time of record creation Example: 2021-12-31 23:59:59+00:00.
+        endorser_write_txn (Union[Unset, bool]): If True, Endorser will write the transaction after endorsing it
+            Example: True.
+        formats (Union[Unset, List[TransactionRecordFormatsItem]]):
+        messages_attach (Union[Unset, List[TransactionRecordMessagesAttachItem]]):
+        meta_data (Union[Unset, TransactionRecordMetaData]):  Example: {'context': {'param1': 'param1_value', 'param2':
+            'param2_value'}, 'post_process': [{'topic': 'topic_value', 'other': 'other_value'}]}.
+        signature_request (Union[Unset, List[TransactionRecordSignatureRequestItem]]):
+        signature_response (Union[Unset, List[TransactionRecordSignatureResponseItem]]):
+        state (Union[Unset, str]): Current record state Example: active.
+        thread_id (Union[Unset, str]): Thread Identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        timing (Union[Unset, TransactionRecordTiming]):  Example: {'expires_time': '2020-12-13T17:29:06+0000'}.
+        trace (Union[Unset, bool]): Record trace information, based on agent configuration
+        transaction_id (Union[Unset, str]): Transaction identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        updated_at (Union[Unset, str]): Time of last record update Example: 2021-12-31 23:59:59+00:00.
+    """
 
     type: Union[Unset, str] = UNSET
     connection_id: Union[Unset, str] = UNSET

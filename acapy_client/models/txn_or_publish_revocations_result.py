@@ -11,7 +11,11 @@ T = TypeVar("T", bound="TxnOrPublishRevocationsResult")
 
 @attr.s(auto_attribs=True)
 class TxnOrPublishRevocationsResult:
-    """ """
+    """
+    Attributes:
+        sent (Union[Unset, PublishRevocations]):
+        txn (Union[Unset, TransactionRecord]):
+    """
 
     sent: Union[Unset, PublishRevocations] = UNSET
     txn: Union[Unset, TransactionRecord] = UNSET

@@ -10,7 +10,12 @@ T = TypeVar("T", bound="V10PresentationCreateRequestRequest")
 
 @attr.s(auto_attribs=True)
 class V10PresentationCreateRequestRequest:
-    """ """
+    """
+    Attributes:
+        proof_request (IndyProofRequest):
+        comment (Union[Unset, None, str]):
+        trace (Union[Unset, bool]): Whether to trace event (default false)
+    """
 
     proof_request: IndyProofRequest
     comment: Union[Unset, None, str] = UNSET

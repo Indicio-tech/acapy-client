@@ -11,7 +11,11 @@ T = TypeVar("T", bound="V20CredBoundOfferRequest")
 
 @attr.s(auto_attribs=True)
 class V20CredBoundOfferRequest:
-    """ """
+    """
+    Attributes:
+        counter_preview (Union[Unset, V20CredPreview]):
+        filter_ (Union[Unset, V20CredFilter]):
+    """
 
     counter_preview: Union[Unset, V20CredPreview] = UNSET
     filter_: Union[Unset, V20CredFilter] = UNSET

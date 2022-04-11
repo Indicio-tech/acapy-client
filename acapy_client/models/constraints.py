@@ -15,7 +15,16 @@ T = TypeVar("T", bound="Constraints")
 
 @attr.s(auto_attribs=True)
 class Constraints:
-    """ """
+    """
+    Attributes:
+        fields (Union[Unset, List[DIFField]]):
+        is_holder (Union[Unset, List[DIFHolder]]):
+        limit_disclosure (Union[Unset, str]): LimitDisclosure
+        status_active (Union[Unset, ConstraintsStatusActive]):
+        status_revoked (Union[Unset, ConstraintsStatusRevoked]):
+        status_suspended (Union[Unset, ConstraintsStatusSuspended]):
+        subject_is_issuer (Union[Unset, ConstraintsSubjectIsIssuer]): SubjectIsIssuer
+    """
 
     fields: Union[Unset, List[DIFField]] = UNSET
     is_holder: Union[Unset, List[DIFHolder]] = UNSET

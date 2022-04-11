@@ -11,7 +11,17 @@ T = TypeVar("T", bound="CreateWalletResponse")
 
 @attr.s(auto_attribs=True)
 class CreateWalletResponse:
-    """ """
+    """
+    Attributes:
+        key_management_mode (CreateWalletResponseKeyManagementMode): Mode regarding management of wallet key
+        wallet_id (str): Wallet record ID Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        created_at (Union[Unset, str]): Time of record creation Example: 2021-12-31 23:59:59+00:00.
+        settings (Union[Unset, CreateWalletResponseSettings]): Settings for this wallet.
+        state (Union[Unset, str]): Current record state Example: active.
+        token (Union[Unset, str]): Authorization token to authenticate wallet requests Example:
+            eyJhbGciOiJFZERTQSJ9.eyJhIjogIjAifQ.dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk.
+        updated_at (Union[Unset, str]): Time of last record update Example: 2021-12-31 23:59:59+00:00.
+    """
 
     key_management_mode: CreateWalletResponseKeyManagementMode
     wallet_id: str

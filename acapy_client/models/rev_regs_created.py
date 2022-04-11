@@ -9,7 +9,10 @@ T = TypeVar("T", bound="RevRegsCreated")
 
 @attr.s(auto_attribs=True)
 class RevRegsCreated:
-    """ """
+    """
+    Attributes:
+        rev_reg_ids (Union[Unset, List[str]]):
+    """
 
     rev_reg_ids: Union[Unset, List[str]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

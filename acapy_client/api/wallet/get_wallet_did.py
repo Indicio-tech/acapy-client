@@ -21,31 +21,36 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/wallet/did".format(client.base_url)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
+
+    params: Dict[str, Any] = {}
+    params["did"] = did
 
     json_key_type: Union[Unset, None, str] = UNSET
     if not isinstance(key_type, Unset):
         json_key_type = key_type.value if key_type else None
 
+    params["key_type"] = json_key_type
+
     json_method: Union[Unset, None, str] = UNSET
     if not isinstance(method, Unset):
         json_method = method.value if method else None
+
+    params["method"] = json_method
 
     json_posture: Union[Unset, None, str] = UNSET
     if not isinstance(posture, Unset):
         json_posture = posture.value if posture else None
 
-    params: Dict[str, Any] = {
-        "did": did,
-        "key_type": json_key_type,
-        "method": json_method,
-        "posture": json_posture,
-        "verkey": verkey,
-    }
+    params["posture"] = json_posture
+
+    params["verkey"] = verkey
+
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     return {
+        "method": "get",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -80,6 +85,19 @@ def sync_detailed(
     posture: Union[Unset, None, GetWalletDidPosture] = UNSET,
     verkey: Union[Unset, None, str] = UNSET,
 ) -> Response[DIDList]:
+    """List wallet DIDs
+
+    Args:
+        did (Union[Unset, None, str]):
+        key_type (Union[Unset, None, GetWalletDidKeyType]):
+        method (Union[Unset, None, GetWalletDidMethod]):
+        posture (Union[Unset, None, GetWalletDidPosture]):
+        verkey (Union[Unset, None, str]):
+
+    Returns:
+        Response[DIDList]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         did=did,
@@ -89,7 +107,7 @@ def sync_detailed(
         verkey=verkey,
     )
 
-    response = httpx.get(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -106,7 +124,18 @@ def sync(
     posture: Union[Unset, None, GetWalletDidPosture] = UNSET,
     verkey: Union[Unset, None, str] = UNSET,
 ) -> Optional[DIDList]:
-    """ """
+    """List wallet DIDs
+
+    Args:
+        did (Union[Unset, None, str]):
+        key_type (Union[Unset, None, GetWalletDidKeyType]):
+        method (Union[Unset, None, GetWalletDidMethod]):
+        posture (Union[Unset, None, GetWalletDidPosture]):
+        verkey (Union[Unset, None, str]):
+
+    Returns:
+        Response[DIDList]
+    """
 
     return sync_detailed(
         client=client,
@@ -127,6 +156,19 @@ async def asyncio_detailed(
     posture: Union[Unset, None, GetWalletDidPosture] = UNSET,
     verkey: Union[Unset, None, str] = UNSET,
 ) -> Response[DIDList]:
+    """List wallet DIDs
+
+    Args:
+        did (Union[Unset, None, str]):
+        key_type (Union[Unset, None, GetWalletDidKeyType]):
+        method (Union[Unset, None, GetWalletDidMethod]):
+        posture (Union[Unset, None, GetWalletDidPosture]):
+        verkey (Union[Unset, None, str]):
+
+    Returns:
+        Response[DIDList]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         did=did,
@@ -137,7 +179,7 @@ async def asyncio_detailed(
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.get(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -151,7 +193,18 @@ async def asyncio(
     posture: Union[Unset, None, GetWalletDidPosture] = UNSET,
     verkey: Union[Unset, None, str] = UNSET,
 ) -> Optional[DIDList]:
-    """ """
+    """List wallet DIDs
+
+    Args:
+        did (Union[Unset, None, str]):
+        key_type (Union[Unset, None, GetWalletDidKeyType]):
+        method (Union[Unset, None, GetWalletDidMethod]):
+        posture (Union[Unset, None, GetWalletDidPosture]):
+        verkey (Union[Unset, None, str]):
+
+    Returns:
+        Response[DIDList]
+    """
 
     return (
         await asyncio_detailed(

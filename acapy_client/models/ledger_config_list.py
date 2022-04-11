@@ -9,7 +9,10 @@ T = TypeVar("T", bound="LedgerConfigList")
 
 @attr.s(auto_attribs=True)
 class LedgerConfigList:
-    """ """
+    """
+    Attributes:
+        ledger_config_list (List[LedgerConfigInstance]):
+    """
 
     ledger_config_list: List[LedgerConfigInstance]
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

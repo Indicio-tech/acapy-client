@@ -9,7 +9,10 @@ T = TypeVar("T", bound="DIDCreateOptions")
 
 @attr.s(auto_attribs=True)
 class DIDCreateOptions:
-    """ """
+    """
+    Attributes:
+        key_type (DIDCreateOptionsKeyType):  Example: ed25519.
+    """
 
     key_type: DIDCreateOptionsKeyType
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

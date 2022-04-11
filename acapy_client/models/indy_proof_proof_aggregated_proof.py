@@ -9,7 +9,11 @@ T = TypeVar("T", bound="IndyProofProofAggregatedProof")
 
 @attr.s(auto_attribs=True)
 class IndyProofProofAggregatedProof:
-    """ """
+    """
+    Attributes:
+        c_hash (Union[Unset, str]): c_hash value
+        c_list (Union[Unset, List[List[int]]]): c_list value
+    """
 
     c_hash: Union[Unset, str] = UNSET
     c_list: Union[Unset, List[List[int]]] = UNSET

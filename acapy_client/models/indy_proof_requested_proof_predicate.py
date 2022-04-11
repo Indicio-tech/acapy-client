@@ -9,7 +9,10 @@ T = TypeVar("T", bound="IndyProofRequestedProofPredicate")
 
 @attr.s(auto_attribs=True)
 class IndyProofRequestedProofPredicate:
-    """ """
+    """
+    Attributes:
+        sub_proof_index (Union[Unset, int]): Sub-proof index
+    """
 
     sub_proof_index: Union[Unset, int] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

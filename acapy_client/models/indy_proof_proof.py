@@ -11,7 +11,11 @@ T = TypeVar("T", bound="IndyProofProof")
 
 @attr.s(auto_attribs=True)
 class IndyProofProof:
-    """ """
+    """
+    Attributes:
+        aggregated_proof (Union[Unset, IndyProofProofAggregatedProof]):
+        proofs (Union[Unset, List[IndyProofProofProofsProof]]): Indy proof proofs
+    """
 
     aggregated_proof: Union[Unset, IndyProofProofAggregatedProof] = UNSET
     proofs: Union[Unset, List[IndyProofProofProofsProof]] = UNSET

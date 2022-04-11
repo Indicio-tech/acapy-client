@@ -9,7 +9,15 @@ T = TypeVar("T", bound="V20CredFilterIndy")
 
 @attr.s(auto_attribs=True)
 class V20CredFilterIndy:
-    """ """
+    """
+    Attributes:
+        cred_def_id (Union[Unset, str]): Credential definition identifier Example: WgWxqztrNooG92RXvxSTWv:3:CL:20:tag.
+        issuer_did (Union[Unset, str]): Credential issuer DID Example: WgWxqztrNooG92RXvxSTWv.
+        schema_id (Union[Unset, str]): Schema identifier Example: WgWxqztrNooG92RXvxSTWv:2:schema_name:1.0.
+        schema_issuer_did (Union[Unset, str]): Schema issuer DID Example: WgWxqztrNooG92RXvxSTWv.
+        schema_name (Union[Unset, str]): Schema name Example: preferences.
+        schema_version (Union[Unset, str]): Schema version Example: 1.0.
+    """
 
     cred_def_id: Union[Unset, str] = UNSET
     issuer_did: Union[Unset, str] = UNSET

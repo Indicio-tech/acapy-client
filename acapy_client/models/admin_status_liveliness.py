@@ -9,7 +9,10 @@ T = TypeVar("T", bound="AdminStatusLiveliness")
 
 @attr.s(auto_attribs=True)
 class AdminStatusLiveliness:
-    """ """
+    """
+    Attributes:
+        alive (Union[Unset, bool]): Liveliness status Example: True.
+    """
 
     alive: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

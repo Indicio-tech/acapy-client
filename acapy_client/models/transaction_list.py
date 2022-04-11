@@ -10,7 +10,10 @@ T = TypeVar("T", bound="TransactionList")
 
 @attr.s(auto_attribs=True)
 class TransactionList:
-    """ """
+    """
+    Attributes:
+        results (Union[Unset, List[TransactionRecord]]): List of transaction records
+    """
 
     results: Union[Unset, List[TransactionRecord]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

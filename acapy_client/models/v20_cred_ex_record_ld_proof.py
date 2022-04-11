@@ -9,7 +9,17 @@ T = TypeVar("T", bound="V20CredExRecordLDProof")
 
 @attr.s(auto_attribs=True)
 class V20CredExRecordLDProof:
-    """ """
+    """
+    Attributes:
+        created_at (Union[Unset, str]): Time of record creation Example: 2021-12-31 23:59:59+00:00.
+        cred_ex_id (Union[Unset, str]): Corresponding v2.0 credential exchange record identifier Example:
+            3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        cred_ex_ld_proof_id (Union[Unset, str]): Record identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        cred_id_stored (Union[Unset, str]): Credential identifier stored in wallet Example:
+            3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        state (Union[Unset, str]): Current record state Example: active.
+        updated_at (Union[Unset, str]): Time of last record update Example: 2021-12-31 23:59:59+00:00.
+    """
 
     created_at: Union[Unset, str] = UNSET
     cred_ex_id: Union[Unset, str] = UNSET

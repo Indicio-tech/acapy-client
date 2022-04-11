@@ -9,7 +9,10 @@ T = TypeVar("T", bound="AdminStatusReadiness")
 
 @attr.s(auto_attribs=True)
 class AdminStatusReadiness:
-    """ """
+    """
+    Attributes:
+        ready (Union[Unset, bool]): Readiness status Example: True.
+    """
 
     ready: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

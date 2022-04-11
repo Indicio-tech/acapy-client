@@ -10,7 +10,10 @@ T = TypeVar("T", bound="DIFProofProposal")
 
 @attr.s(auto_attribs=True)
 class DIFProofProposal:
-    """ """
+    """
+    Attributes:
+        input_descriptors (Union[Unset, List[InputDescriptors]]):
+    """
 
     input_descriptors: Union[Unset, List[InputDescriptors]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

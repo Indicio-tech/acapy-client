@@ -7,7 +7,11 @@ T = TypeVar("T", bound="TransactionRecordTiming")
 
 @attr.s(auto_attribs=True)
 class TransactionRecordTiming:
-    """ """
+    """
+    Example:
+        {'expires_time': '2020-12-13T17:29:06+0000'}
+
+    """
 
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 

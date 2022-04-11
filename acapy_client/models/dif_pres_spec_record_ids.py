@@ -7,7 +7,12 @@ T = TypeVar("T", bound="DIFPresSpecRecordIds")
 
 @attr.s(auto_attribs=True)
 class DIFPresSpecRecordIds:
-    """Mapping of input_descriptor id to list of stored W3C credential record_id"""
+    """Mapping of input_descriptor id to list of stored W3C credential record_id
+
+    Example:
+        {'<input descriptor id_1>': ['<record id_1>', '<record id_2>'], '<input descriptor id_2>': ['<record id>']}
+
+    """
 
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 

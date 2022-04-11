@@ -11,7 +11,15 @@ T = TypeVar("T", bound="IndyProofReqAttrSpec")
 
 @attr.s(auto_attribs=True)
 class IndyProofReqAttrSpec:
-    """ """
+    """
+    Attributes:
+        name (Union[Unset, str]): Attribute name Example: favouriteDrink.
+        names (Union[Unset, List[str]]): Attribute name group
+        non_revoked (Union[Unset, None, IndyProofReqAttrSpecNonRevoked]):
+        restrictions (Union[Unset, List[IndyProofReqAttrSpecRestrictionsItem]]): If present, credential must satisfy one
+            of given restrictions: specify schema_id, schema_issuer_did, schema_name, schema_version, issuer_did,
+            cred_def_id, and/or attr::<attribute-name>::value where <attribute-name> represents a credential attribute name
+    """
 
     name: Union[Unset, str] = UNSET
     names: Union[Unset, List[str]] = UNSET

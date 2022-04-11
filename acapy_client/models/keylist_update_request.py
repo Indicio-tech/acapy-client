@@ -10,7 +10,10 @@ T = TypeVar("T", bound="KeylistUpdateRequest")
 
 @attr.s(auto_attribs=True)
 class KeylistUpdateRequest:
-    """ """
+    """
+    Attributes:
+        updates (Union[Unset, List[KeylistUpdateRule]]):
+    """
 
     updates: Union[Unset, List[KeylistUpdateRule]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

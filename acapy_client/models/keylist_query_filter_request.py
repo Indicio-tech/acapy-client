@@ -10,7 +10,10 @@ T = TypeVar("T", bound="KeylistQueryFilterRequest")
 
 @attr.s(auto_attribs=True)
 class KeylistQueryFilterRequest:
-    """ """
+    """
+    Attributes:
+        filter_ (Union[Unset, KeylistQueryFilterRequestFilter]): Filter for keylist query
+    """
 
     filter_: Union[Unset, KeylistQueryFilterRequestFilter] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

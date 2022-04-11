@@ -9,7 +9,11 @@ T = TypeVar("T", bound="DIDEndpoint")
 
 @attr.s(auto_attribs=True)
 class DIDEndpoint:
-    """ """
+    """
+    Attributes:
+        did (str): DID of interest Example: WgWxqztrNooG92RXvxSTWv.
+        endpoint (Union[Unset, str]): Endpoint to set (omit to delete) Example: https://myhost:8021.
+    """
 
     did: str
     endpoint: Union[Unset, str] = UNSET

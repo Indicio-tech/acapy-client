@@ -14,7 +14,18 @@ T = TypeVar("T", bound="IndyCredential")
 
 @attr.s(auto_attribs=True)
 class IndyCredential:
-    """ """
+    """
+    Attributes:
+        cred_def_id (str): Credential definition identifier Example: WgWxqztrNooG92RXvxSTWv:3:CL:20:tag.
+        schema_id (str): Schema identifier Example: WgWxqztrNooG92RXvxSTWv:2:schema_name:1.0.
+        signature (IndyCredentialSignature): Credential signature
+        signature_correctness_proof (IndyCredentialSignatureCorrectnessProof): Credential signature correctness proof
+        values (IndyCredentialValues): Credential attributes
+        rev_reg (Union[Unset, None, IndyCredentialRevReg]): Revocation registry state
+        rev_reg_id (Union[Unset, None, str]): Revocation registry identifier Example:
+            WgWxqztrNooG92RXvxSTWv:4:WgWxqztrNooG92RXvxSTWv:3:CL:20:tag:CL_ACCUM:0.
+        witness (Union[Unset, None, IndyCredentialWitness]): Witness for revocation proof
+    """
 
     cred_def_id: str
     schema_id: str

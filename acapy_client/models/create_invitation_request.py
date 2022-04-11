@@ -10,7 +10,17 @@ T = TypeVar("T", bound="CreateInvitationRequest")
 
 @attr.s(auto_attribs=True)
 class CreateInvitationRequest:
-    """ """
+    """
+    Attributes:
+        mediation_id (Union[Unset, str]): Identifier for active mediation record to be used Example:
+            3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        metadata (Union[Unset, CreateInvitationRequestMetadata]): Optional metadata to attach to the connection created
+            with the invitation
+        my_label (Union[Unset, str]): Optional label for connection invitation Example: Bob.
+        recipient_keys (Union[Unset, List[str]]): List of recipient keys
+        routing_keys (Union[Unset, List[str]]): List of routing keys
+        service_endpoint (Union[Unset, str]): Connection endpoint Example: http://192.168.56.102:8020.
+    """
 
     mediation_id: Union[Unset, str] = UNSET
     metadata: Union[Unset, CreateInvitationRequestMetadata] = UNSET

@@ -7,7 +7,10 @@ T = TypeVar("T", bound="ClearPendingRevocationsRequestPurge")
 
 @attr.s(auto_attribs=True)
 class ClearPendingRevocationsRequestPurge:
-    """Credential revocation ids by revocation registry id: omit for all, specify null or empty list for all pending per revocation registry"""
+    """Credential revocation ids by revocation registry id: omit for all, specify null or empty list for all pending per
+    revocation registry
+
+    """
 
     additional_properties: Dict[str, List[str]] = attr.ib(init=False, factory=dict)
 

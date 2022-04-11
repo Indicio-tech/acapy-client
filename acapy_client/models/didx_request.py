@@ -10,7 +10,14 @@ T = TypeVar("T", bound="DIDXRequest")
 
 @attr.s(auto_attribs=True)
 class DIDXRequest:
-    """ """
+    """
+    Attributes:
+        label (str): Label for DID exchange request Example: Request to connect with Bob.
+        id (Union[Unset, str]): Message identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        type (Union[Unset, str]): Message type Example: https://didcomm.org/my-family/1.0/my-message-type.
+        did (Union[Unset, str]): DID of exchange Example: WgWxqztrNooG92RXvxSTWv.
+        did_docattach (Union[Unset, AttachDecorator]):
+    """
 
     label: str
     id: Union[Unset, str] = UNSET

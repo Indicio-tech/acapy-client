@@ -10,7 +10,17 @@ T = TypeVar("T", bound="V20CredRequestFree")
 
 @attr.s(auto_attribs=True)
 class V20CredRequestFree:
-    """ """
+    """
+    Attributes:
+        connection_id (str): Connection identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        filter_ (V20CredFilterLDProof):
+        auto_remove (Union[Unset, bool]): Whether to remove the credential exchange record on completion (overrides
+            --preserve-exchange-records configuration setting)
+        comment (Union[Unset, None, str]): Human-readable comment
+        holder_did (Union[Unset, None, str]): Holder DID to substitute for the credentialSubject.id Example:
+            did:key:ahsdkjahsdkjhaskjdhakjshdkajhsdkjahs.
+        trace (Union[Unset, bool]): Whether to trace event (default false)
+    """
 
     connection_id: str
     filter_: V20CredFilterLDProof

@@ -17,18 +17,20 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/out-of-band/create-invitation".format(client.base_url)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
-    params: Dict[str, Any] = {
-        "auto_accept": auto_accept,
-        "multi_use": multi_use,
-    }
+    params: Dict[str, Any] = {}
+    params["auto_accept"] = auto_accept
+
+    params["multi_use"] = multi_use
+
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     json_json_body = json_body.to_dict()
 
     return {
+        "method": "post",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -62,6 +64,17 @@ def sync_detailed(
     auto_accept: Union[Unset, None, bool] = UNSET,
     multi_use: Union[Unset, None, bool] = UNSET,
 ) -> Response[InvitationRecord]:
+    """Create a new connection invitation
+
+    Args:
+        auto_accept (Union[Unset, None, bool]):
+        multi_use (Union[Unset, None, bool]):
+        json_body (InvitationCreateRequest):
+
+    Returns:
+        Response[InvitationRecord]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         json_body=json_body,
@@ -69,7 +82,7 @@ def sync_detailed(
         multi_use=multi_use,
     )
 
-    response = httpx.post(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -84,7 +97,16 @@ def sync(
     auto_accept: Union[Unset, None, bool] = UNSET,
     multi_use: Union[Unset, None, bool] = UNSET,
 ) -> Optional[InvitationRecord]:
-    """ """
+    """Create a new connection invitation
+
+    Args:
+        auto_accept (Union[Unset, None, bool]):
+        multi_use (Union[Unset, None, bool]):
+        json_body (InvitationCreateRequest):
+
+    Returns:
+        Response[InvitationRecord]
+    """
 
     return sync_detailed(
         client=client,
@@ -101,6 +123,17 @@ async def asyncio_detailed(
     auto_accept: Union[Unset, None, bool] = UNSET,
     multi_use: Union[Unset, None, bool] = UNSET,
 ) -> Response[InvitationRecord]:
+    """Create a new connection invitation
+
+    Args:
+        auto_accept (Union[Unset, None, bool]):
+        multi_use (Union[Unset, None, bool]):
+        json_body (InvitationCreateRequest):
+
+    Returns:
+        Response[InvitationRecord]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         json_body=json_body,
@@ -109,7 +142,7 @@ async def asyncio_detailed(
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.post(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -121,7 +154,16 @@ async def asyncio(
     auto_accept: Union[Unset, None, bool] = UNSET,
     multi_use: Union[Unset, None, bool] = UNSET,
 ) -> Optional[InvitationRecord]:
-    """ """
+    """Create a new connection invitation
+
+    Args:
+        auto_accept (Union[Unset, None, bool]):
+        multi_use (Union[Unset, None, bool]):
+        json_body (InvitationCreateRequest):
+
+    Returns:
+        Response[InvitationRecord]
+    """
 
     return (
         await asyncio_detailed(

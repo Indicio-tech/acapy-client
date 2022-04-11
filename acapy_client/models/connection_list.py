@@ -10,7 +10,10 @@ T = TypeVar("T", bound="ConnectionList")
 
 @attr.s(auto_attribs=True)
 class ConnectionList:
-    """ """
+    """
+    Attributes:
+        results (Union[Unset, List[ConnRecord]]): List of connection records
+    """
 
     results: Union[Unset, List[ConnRecord]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

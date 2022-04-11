@@ -10,7 +10,11 @@ T = TypeVar("T", bound="VerifyRequest")
 
 @attr.s(auto_attribs=True)
 class VerifyRequest:
-    """ """
+    """
+    Attributes:
+        doc (SignedDoc):
+        verkey (Union[Unset, str]): Verkey to use for doc verification
+    """
 
     doc: SignedDoc
     verkey: Union[Unset, str] = UNSET

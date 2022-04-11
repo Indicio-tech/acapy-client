@@ -9,7 +9,12 @@ T = TypeVar("T", bound="IndyRequestedCredsRequestedPred")
 
 @attr.s(auto_attribs=True)
 class IndyRequestedCredsRequestedPred:
-    """ """
+    """
+    Attributes:
+        cred_id (str): Wallet credential identifier (typically but not necessarily a UUID) Example:
+            3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        timestamp (Union[Unset, int]): Epoch timestamp of interest for non-revocation proof Example: 1640995199.
+    """
 
     cred_id: str
     timestamp: Union[Unset, int] = UNSET

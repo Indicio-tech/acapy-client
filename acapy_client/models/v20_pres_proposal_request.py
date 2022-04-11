@@ -10,7 +10,15 @@ T = TypeVar("T", bound="V20PresProposalRequest")
 
 @attr.s(auto_attribs=True)
 class V20PresProposalRequest:
-    """ """
+    """
+    Attributes:
+        connection_id (str): Connection identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        presentation_proposal (V20PresProposalByFormat):
+        auto_present (Union[Unset, bool]): Whether to respond automatically to presentation requests, building and
+            presenting requested proof
+        comment (Union[Unset, None, str]): Human-readable comment
+        trace (Union[Unset, bool]): Whether to trace event (default false)
+    """
 
     connection_id: str
     presentation_proposal: V20PresProposalByFormat

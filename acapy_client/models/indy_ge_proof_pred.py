@@ -10,7 +10,12 @@ T = TypeVar("T", bound="IndyGEProofPred")
 
 @attr.s(auto_attribs=True)
 class IndyGEProofPred:
-    """ """
+    """
+    Attributes:
+        attr_name (Union[Unset, str]): Attribute name, indy-canonicalized
+        p_type (Union[Unset, IndyGEProofPredPType]): Predicate type
+        value (Union[Unset, int]): Predicate threshold value
+    """
 
     attr_name: Union[Unset, str] = UNSET
     p_type: Union[Unset, IndyGEProofPredPType] = UNSET

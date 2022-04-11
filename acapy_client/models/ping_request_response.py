@@ -9,7 +9,10 @@ T = TypeVar("T", bound="PingRequestResponse")
 
 @attr.s(auto_attribs=True)
 class PingRequestResponse:
-    """ """
+    """
+    Attributes:
+        thread_id (Union[Unset, str]): Thread ID of the ping message
+    """
 
     thread_id: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

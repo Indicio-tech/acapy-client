@@ -9,7 +9,12 @@ T = TypeVar("T", bound="IndyRevRegEntryValue")
 
 @attr.s(auto_attribs=True)
 class IndyRevRegEntryValue:
-    """ """
+    """
+    Attributes:
+        accum (Union[Unset, str]): Accumulator value Example: 21 11792B036AED0AAA12A4 4 298B2571FFC63A737.
+        prev_accum (Union[Unset, str]): Previous accumulator value Example: 21 137AC810975E4 6 76F0384B6F23.
+        revoked (Union[Unset, List[int]]): Revoked credential revocation identifiers
+    """
 
     accum: Union[Unset, str] = UNSET
     prev_accum: Union[Unset, str] = UNSET

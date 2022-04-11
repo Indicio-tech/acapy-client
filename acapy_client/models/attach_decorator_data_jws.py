@@ -11,7 +11,13 @@ T = TypeVar("T", bound="AttachDecoratorDataJWS")
 
 @attr.s(auto_attribs=True)
 class AttachDecoratorDataJWS:
-    """ """
+    """
+    Attributes:
+        header (Union[Unset, AttachDecoratorDataJWSHeader]):
+        protected (Union[Unset, str]): protected JWS header Example: ey4uLn0.
+        signature (Union[Unset, str]): signature Example: ey4uLn0.
+        signatures (Union[Unset, List[AttachDecoratorData1JWS]]): List of signatures
+    """
 
     header: Union[Unset, AttachDecoratorDataJWSHeader] = UNSET
     protected: Union[Unset, str] = UNSET

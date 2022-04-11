@@ -9,7 +9,16 @@ T = TypeVar("T", bound="MenuFormParam")
 
 @attr.s(auto_attribs=True)
 class MenuFormParam:
-    """ """
+    """
+    Attributes:
+        name (str): Menu parameter name Example: delay.
+        title (str): Menu parameter title Example: Delay in seconds.
+        default (Union[Unset, str]): Default parameter value Example: 0.
+        description (Union[Unset, str]): Additional descriptive text for menu form parameter Example: Delay in seconds
+            before starting.
+        required (Union[Unset, bool]): Whether parameter is required
+        type (Union[Unset, str]): Menu form parameter input type Example: int.
+    """
 
     name: str
     title: str

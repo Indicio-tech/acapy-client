@@ -14,10 +14,11 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/action-menu/{conn_id}/fetch".format(client.base_url, conn_id=conn_id)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
     return {
+        "method": "post",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -47,12 +48,21 @@ def sync_detailed(
     *,
     client: Client,
 ) -> Response[ActionMenuFetchResult]:
+    """Fetch the active menu
+
+    Args:
+        conn_id (str):
+
+    Returns:
+        Response[ActionMenuFetchResult]
+    """
+
     kwargs = _get_kwargs(
         conn_id=conn_id,
         client=client,
     )
 
-    response = httpx.post(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -65,7 +75,14 @@ def sync(
     *,
     client: Client,
 ) -> Optional[ActionMenuFetchResult]:
-    """ """
+    """Fetch the active menu
+
+    Args:
+        conn_id (str):
+
+    Returns:
+        Response[ActionMenuFetchResult]
+    """
 
     return sync_detailed(
         conn_id=conn_id,
@@ -78,13 +95,22 @@ async def asyncio_detailed(
     *,
     client: Client,
 ) -> Response[ActionMenuFetchResult]:
+    """Fetch the active menu
+
+    Args:
+        conn_id (str):
+
+    Returns:
+        Response[ActionMenuFetchResult]
+    """
+
     kwargs = _get_kwargs(
         conn_id=conn_id,
         client=client,
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.post(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -94,7 +120,14 @@ async def asyncio(
     *,
     client: Client,
 ) -> Optional[ActionMenuFetchResult]:
-    """ """
+    """Fetch the active menu
+
+    Args:
+        conn_id (str):
+
+    Returns:
+        Response[ActionMenuFetchResult]
+    """
 
     return (
         await asyncio_detailed(

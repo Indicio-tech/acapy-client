@@ -9,7 +9,12 @@ T = TypeVar("T", bound="RevRegCreateRequest")
 
 @attr.s(auto_attribs=True)
 class RevRegCreateRequest:
-    """ """
+    """
+    Attributes:
+        credential_definition_id (Union[Unset, str]): Credential definition identifier Example:
+            WgWxqztrNooG92RXvxSTWv:3:CL:20:tag.
+        max_cred_num (Union[Unset, int]): Revocation registry size Example: 1000.
+    """
 
     credential_definition_id: Union[Unset, str] = UNSET
     max_cred_num: Union[Unset, int] = UNSET

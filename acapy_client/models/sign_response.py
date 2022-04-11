@@ -10,7 +10,11 @@ T = TypeVar("T", bound="SignResponse")
 
 @attr.s(auto_attribs=True)
 class SignResponse:
-    """ """
+    """
+    Attributes:
+        error (Union[Unset, str]): Error text
+        signed_doc (Union[Unset, SignResponseSignedDoc]): Signed document
+    """
 
     error: Union[Unset, str] = UNSET
     signed_doc: Union[Unset, SignResponseSignedDoc] = UNSET

@@ -16,16 +16,18 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/connections/{conn_id}/start-introduction".format(client.base_url, conn_id=conn_id)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
-    params: Dict[str, Any] = {
-        "target_connection_id": target_connection_id,
-        "message": message,
-    }
+    params: Dict[str, Any] = {}
+    params["target_connection_id"] = target_connection_id
+
+    params["message"] = message
+
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     return {
+        "method": "post",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -58,6 +60,17 @@ def sync_detailed(
     target_connection_id: str,
     message: Union[Unset, None, str] = UNSET,
 ) -> Response[IntroModuleResponse]:
+    """Start an introduction between two connections
+
+    Args:
+        conn_id (str):
+        target_connection_id (str):
+        message (Union[Unset, None, str]):
+
+    Returns:
+        Response[IntroModuleResponse]
+    """
+
     kwargs = _get_kwargs(
         conn_id=conn_id,
         client=client,
@@ -65,7 +78,7 @@ def sync_detailed(
         message=message,
     )
 
-    response = httpx.post(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -80,7 +93,16 @@ def sync(
     target_connection_id: str,
     message: Union[Unset, None, str] = UNSET,
 ) -> Optional[IntroModuleResponse]:
-    """ """
+    """Start an introduction between two connections
+
+    Args:
+        conn_id (str):
+        target_connection_id (str):
+        message (Union[Unset, None, str]):
+
+    Returns:
+        Response[IntroModuleResponse]
+    """
 
     return sync_detailed(
         conn_id=conn_id,
@@ -97,6 +119,17 @@ async def asyncio_detailed(
     target_connection_id: str,
     message: Union[Unset, None, str] = UNSET,
 ) -> Response[IntroModuleResponse]:
+    """Start an introduction between two connections
+
+    Args:
+        conn_id (str):
+        target_connection_id (str):
+        message (Union[Unset, None, str]):
+
+    Returns:
+        Response[IntroModuleResponse]
+    """
+
     kwargs = _get_kwargs(
         conn_id=conn_id,
         client=client,
@@ -105,7 +138,7 @@ async def asyncio_detailed(
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.post(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -117,7 +150,16 @@ async def asyncio(
     target_connection_id: str,
     message: Union[Unset, None, str] = UNSET,
 ) -> Optional[IntroModuleResponse]:
-    """ """
+    """Start an introduction between two connections
+
+    Args:
+        conn_id (str):
+        target_connection_id (str):
+        message (Union[Unset, None, str]):
+
+    Returns:
+        Response[IntroModuleResponse]
+    """
 
     return (
         await asyncio_detailed(

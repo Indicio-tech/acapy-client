@@ -18,7 +18,30 @@ T = TypeVar("T", bound="V20CredExRecord")
 
 @attr.s(auto_attribs=True)
 class V20CredExRecord:
-    """ """
+    """
+    Attributes:
+        auto_issue (Union[Unset, bool]): Issuer choice to issue to request in this credential exchange
+        auto_offer (Union[Unset, bool]): Holder choice to accept offer in this credential exchange
+        auto_remove (Union[Unset, bool]): Issuer choice to remove this credential exchange record when complete
+        by_format (Union[Unset, V20CredExRecordByFormat]):
+        connection_id (Union[Unset, str]): Connection identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        created_at (Union[Unset, str]): Time of record creation Example: 2021-12-31 23:59:59+00:00.
+        cred_ex_id (Union[Unset, str]): Credential exchange identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        cred_issue (Union[Unset, V20CredIssue]):
+        cred_offer (Union[Unset, V20CredOffer]):
+        cred_preview (Union[Unset, V20CredPreview]):
+        cred_proposal (Union[Unset, V20CredProposal]):
+        cred_request (Union[Unset, V20CredRequest]):
+        error_msg (Union[Unset, str]): Error message Example: The front fell off.
+        initiator (Union[Unset, V20CredExRecordInitiator]): Issue-credential exchange initiator: self or external
+            Example: self.
+        parent_thread_id (Union[Unset, str]): Parent thread identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        role (Union[Unset, V20CredExRecordRole]): Issue-credential exchange role: holder or issuer Example: issuer.
+        state (Union[Unset, V20CredExRecordState]): Issue-credential exchange state Example: done.
+        thread_id (Union[Unset, str]): Thread identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        trace (Union[Unset, bool]): Record trace information, based on agent configuration
+        updated_at (Union[Unset, str]): Time of last record update Example: 2021-12-31 23:59:59+00:00.
+    """
 
     auto_issue: Union[Unset, bool] = UNSET
     auto_offer: Union[Unset, bool] = UNSET

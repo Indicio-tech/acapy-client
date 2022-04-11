@@ -10,7 +10,15 @@ T = TypeVar("T", bound="MenuOption")
 
 @attr.s(auto_attribs=True)
 class MenuOption:
-    """ """
+    """
+    Attributes:
+        name (str): Menu option name (unique identifier) Example: window_prefs.
+        title (str): Menu option title Example: Window Preferences.
+        description (Union[Unset, str]): Additional descriptive text for menu option Example: Window display
+            preferences.
+        disabled (Union[Unset, bool]): Whether to show option as disabled
+        form (Union[Unset, MenuForm]):
+    """
 
     name: str
     title: str

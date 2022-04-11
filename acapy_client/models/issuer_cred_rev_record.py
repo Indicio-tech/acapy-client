@@ -9,7 +9,20 @@ T = TypeVar("T", bound="IssuerCredRevRecord")
 
 @attr.s(auto_attribs=True)
 class IssuerCredRevRecord:
-    """ """
+    """
+    Attributes:
+        created_at (Union[Unset, str]): Time of record creation Example: 2021-12-31 23:59:59+00:00.
+        cred_def_id (Union[Unset, str]): Credential definition identifier Example: WgWxqztrNooG92RXvxSTWv:3:CL:20:tag.
+        cred_ex_id (Union[Unset, str]): Credential exchange record identifier at credential issue Example:
+            3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        cred_rev_id (Union[Unset, str]): Credential revocation identifier Example: 12345.
+        record_id (Union[Unset, str]): Issuer credential revocation record identifier Example:
+            3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        rev_reg_id (Union[Unset, str]): Revocation registry identifier Example:
+            WgWxqztrNooG92RXvxSTWv:4:WgWxqztrNooG92RXvxSTWv:3:CL:20:tag:CL_ACCUM:0.
+        state (Union[Unset, str]): Issue credential revocation record state Example: issued.
+        updated_at (Union[Unset, str]): Time of last record update Example: 2021-12-31 23:59:59+00:00.
+    """
 
     created_at: Union[Unset, str] = UNSET
     cred_def_id: Union[Unset, str] = UNSET

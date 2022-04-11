@@ -11,7 +11,15 @@ T = TypeVar("T", bound="AttachDecoratorData")
 
 @attr.s(auto_attribs=True)
 class AttachDecoratorData:
-    """ """
+    """
+    Attributes:
+        base64 (Union[Unset, str]): Base64-encoded data Example: ey4uLn0=.
+        json (Union[Unset, AttachDecoratorDataJson]): JSON-serialized data Example: {"sample": "content"}.
+        jws (Union[Unset, AttachDecoratorDataJWS]):
+        links (Union[Unset, List[str]]): List of hypertext links to data
+        sha256 (Union[Unset, str]): SHA256 hash (binhex encoded) of content Example:
+            617a48c7c8afe0521efdc03e5bb0ad9e655893e6b4b51f0e794d70fba132aacb.
+    """
 
     base64: Union[Unset, str] = UNSET
     json: Union[Unset, AttachDecoratorDataJson] = UNSET

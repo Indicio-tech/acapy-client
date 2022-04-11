@@ -10,9 +10,9 @@ FROM python:3.7
 
 WORKDIR /usr/src/app
 
-RUN pip install openapi-python-client==0.10.7
+RUN pip install openapi-python-client==0.11.1
 
-ENTRYPOINT ["/bin/sh", "-c", "openapi-python-client \"$@\"", "--"]
+ENTRYPOINT ["openapi-python-client"]
 DOCKERFILE
 
 ${CONTAINER_RUNTIME} run --rm \

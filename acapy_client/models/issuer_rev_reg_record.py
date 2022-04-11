@@ -12,7 +12,30 @@ T = TypeVar("T", bound="IssuerRevRegRecord")
 
 @attr.s(auto_attribs=True)
 class IssuerRevRegRecord:
-    """ """
+    """
+    Attributes:
+        created_at (Union[Unset, str]): Time of record creation Example: 2021-12-31 23:59:59+00:00.
+        cred_def_id (Union[Unset, str]): Credential definition identifier Example: WgWxqztrNooG92RXvxSTWv:3:CL:20:tag.
+        error_msg (Union[Unset, str]): Error message Example: Revocation registry undefined.
+        issuer_did (Union[Unset, str]): Issuer DID Example: WgWxqztrNooG92RXvxSTWv.
+        max_cred_num (Union[Unset, int]): Maximum number of credentials for revocation registry Example: 1000.
+        pending_pub (Union[Unset, List[str]]): Credential revocation identifier for credential revoked and pending
+            publication to ledger
+        record_id (Union[Unset, str]): Issuer revocation registry record identifier Example:
+            3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        revoc_def_type (Union[Unset, IssuerRevRegRecordRevocDefType]): Revocation registry type (specify CL_ACCUM)
+            Example: CL_ACCUM.
+        revoc_reg_def (Union[Unset, IndyRevRegDef]):
+        revoc_reg_entry (Union[Unset, IndyRevRegEntry]):
+        revoc_reg_id (Union[Unset, str]): Revocation registry identifier Example:
+            WgWxqztrNooG92RXvxSTWv:4:WgWxqztrNooG92RXvxSTWv:3:CL:20:tag:CL_ACCUM:0.
+        state (Union[Unset, str]): Issue revocation registry record state Example: active.
+        tag (Union[Unset, str]): Tag within issuer revocation registry identifier
+        tails_hash (Union[Unset, str]): Tails hash Example: H3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV.
+        tails_local_path (Union[Unset, str]): Local path to tails file
+        tails_public_uri (Union[Unset, str]): Public URI for tails file
+        updated_at (Union[Unset, str]): Time of last record update Example: 2021-12-31 23:59:59+00:00.
+    """
 
     created_at: Union[Unset, str] = UNSET
     cred_def_id: Union[Unset, str] = UNSET

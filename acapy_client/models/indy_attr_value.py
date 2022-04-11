@@ -7,7 +7,11 @@ T = TypeVar("T", bound="IndyAttrValue")
 
 @attr.s(auto_attribs=True)
 class IndyAttrValue:
-    """ """
+    """
+    Attributes:
+        encoded (str): Attribute encoded value Example: -1.
+        raw (str): Attribute raw value
+    """
 
     encoded: str
     raw: str

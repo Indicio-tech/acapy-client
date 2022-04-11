@@ -14,15 +14,16 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/discover-features/records".format(client.base_url)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
-    params: Dict[str, Any] = {
-        "connection_id": connection_id,
-    }
+    params: Dict[str, Any] = {}
+    params["connection_id"] = connection_id
+
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     return {
+        "method": "get",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -53,12 +54,21 @@ def sync_detailed(
     client: Client,
     connection_id: Union[Unset, None, str] = UNSET,
 ) -> Response[V10DiscoveryExchangeListResult]:
+    """Discover Features records
+
+    Args:
+        connection_id (Union[Unset, None, str]):
+
+    Returns:
+        Response[V10DiscoveryExchangeListResult]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         connection_id=connection_id,
     )
 
-    response = httpx.get(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -71,7 +81,14 @@ def sync(
     client: Client,
     connection_id: Union[Unset, None, str] = UNSET,
 ) -> Optional[V10DiscoveryExchangeListResult]:
-    """ """
+    """Discover Features records
+
+    Args:
+        connection_id (Union[Unset, None, str]):
+
+    Returns:
+        Response[V10DiscoveryExchangeListResult]
+    """
 
     return sync_detailed(
         client=client,
@@ -84,13 +101,22 @@ async def asyncio_detailed(
     client: Client,
     connection_id: Union[Unset, None, str] = UNSET,
 ) -> Response[V10DiscoveryExchangeListResult]:
+    """Discover Features records
+
+    Args:
+        connection_id (Union[Unset, None, str]):
+
+    Returns:
+        Response[V10DiscoveryExchangeListResult]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         connection_id=connection_id,
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.get(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -100,7 +126,14 @@ async def asyncio(
     client: Client,
     connection_id: Union[Unset, None, str] = UNSET,
 ) -> Optional[V10DiscoveryExchangeListResult]:
-    """ """
+    """Discover Features records
+
+    Args:
+        connection_id (Union[Unset, None, str]):
+
+    Returns:
+        Response[V10DiscoveryExchangeListResult]
+    """
 
     return (
         await asyncio_detailed(

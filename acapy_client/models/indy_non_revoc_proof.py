@@ -11,7 +11,11 @@ T = TypeVar("T", bound="IndyNonRevocProof")
 
 @attr.s(auto_attribs=True)
 class IndyNonRevocProof:
-    """ """
+    """
+    Attributes:
+        c_list (Union[Unset, IndyNonRevocProofCList]):
+        x_list (Union[Unset, IndyNonRevocProofXList]):
+    """
 
     c_list: Union[Unset, IndyNonRevocProofCList] = UNSET
     x_list: Union[Unset, IndyNonRevocProofXList] = UNSET

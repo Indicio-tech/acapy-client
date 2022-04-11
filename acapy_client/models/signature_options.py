@@ -9,7 +9,14 @@ T = TypeVar("T", bound="SignatureOptions")
 
 @attr.s(auto_attribs=True)
 class SignatureOptions:
-    """ """
+    """
+    Attributes:
+        proof_purpose (str):
+        verification_method (str):
+        challenge (Union[Unset, str]):
+        domain (Union[Unset, str]):
+        type (Union[Unset, str]):
+    """
 
     proof_purpose: str
     verification_method: str

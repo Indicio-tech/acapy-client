@@ -14,10 +14,11 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/mediation/{mediation_id}/default-mediator".format(client.base_url, mediation_id=mediation_id)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
     return {
+        "method": "put",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -47,12 +48,21 @@ def sync_detailed(
     *,
     client: Client,
 ) -> Response[MediationRecord]:
+    """Set default mediator
+
+    Args:
+        mediation_id (str):
+
+    Returns:
+        Response[MediationRecord]
+    """
+
     kwargs = _get_kwargs(
         mediation_id=mediation_id,
         client=client,
     )
 
-    response = httpx.put(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -65,7 +75,14 @@ def sync(
     *,
     client: Client,
 ) -> Optional[MediationRecord]:
-    """ """
+    """Set default mediator
+
+    Args:
+        mediation_id (str):
+
+    Returns:
+        Response[MediationRecord]
+    """
 
     return sync_detailed(
         mediation_id=mediation_id,
@@ -78,13 +95,22 @@ async def asyncio_detailed(
     *,
     client: Client,
 ) -> Response[MediationRecord]:
+    """Set default mediator
+
+    Args:
+        mediation_id (str):
+
+    Returns:
+        Response[MediationRecord]
+    """
+
     kwargs = _get_kwargs(
         mediation_id=mediation_id,
         client=client,
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.put(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -94,7 +120,14 @@ async def asyncio(
     *,
     client: Client,
 ) -> Optional[MediationRecord]:
-    """ """
+    """Set default mediator
+
+    Args:
+        mediation_id (str):
+
+    Returns:
+        Response[MediationRecord]
+    """
 
     return (
         await asyncio_detailed(

@@ -11,7 +11,15 @@ T = TypeVar("T", bound="CredentialDefinition")
 
 @attr.s(auto_attribs=True)
 class CredentialDefinition:
-    """ """
+    """
+    Attributes:
+        id (Union[Unset, str]): Credential definition identifier Example: WgWxqztrNooG92RXvxSTWv:3:CL:20:tag.
+        schema_id (Union[Unset, str]): Schema identifier within credential definition identifier Example: 20.
+        tag (Union[Unset, str]): Tag within credential definition identifier Example: tag.
+        type (Union[Unset, CredentialDefinitionType]): Signature type: CL for Camenisch-Lysyanskaya Example: CL.
+        value (Union[Unset, CredDefValue]):
+        ver (Union[Unset, str]): Node protocol version Example: 1.0.
+    """
 
     id: Union[Unset, str] = UNSET
     schema_id: Union[Unset, str] = UNSET

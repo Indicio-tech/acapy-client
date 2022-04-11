@@ -11,7 +11,18 @@ T = TypeVar("T", bound="InvitationCreateRequest")
 
 @attr.s(auto_attribs=True)
 class InvitationCreateRequest:
-    """ """
+    """
+    Attributes:
+        alias (Union[Unset, str]): Alias for connection Example: Barry.
+        attachments (Union[Unset, List[AttachmentDef]]): Optional invitation attachments
+        handshake_protocols (Union[Unset, List[str]]):
+        mediation_id (Union[Unset, str]): Identifier for active mediation record to be used Example:
+            3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        metadata (Union[Unset, InvitationCreateRequestMetadata]): Optional metadata to attach to the connection created
+            with the invitation
+        my_label (Union[Unset, str]): Label for connection invitation Example: Invitation to Barry.
+        use_public_did (Union[Unset, bool]): Whether to use public DID in invitation
+    """
 
     alias: Union[Unset, str] = UNSET
     attachments: Union[Unset, List[AttachmentDef]] = UNSET

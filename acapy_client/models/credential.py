@@ -13,7 +13,19 @@ T = TypeVar("T", bound="Credential")
 
 @attr.s(auto_attribs=True)
 class Credential:
-    """ """
+    """
+    Attributes:
+        context (List[Union[CredentialContextItemType0, str]]): The JSON-LD context of the credential Example:
+            ['https://www.w3.org/2018/credentials/v1', 'https://www.w3.org/2018/credentials/examples/v1'].
+        credential_subject (CredentialCredentialSubject):
+        issuance_date (str): The issuance date Example: 2010-01-01 19:23:24+00:00.
+        issuer (Union[CredentialIssuerType0, str]): The JSON-LD Verifiable Credential Issuer. Either string of object
+            with id field. Example: did:key:z6MkpTHR8VNsBxYAAWHut2Geadd9jSwuBV8xRoAnwWsdvktH.
+        type (List[str]): The JSON-LD type of the credential Example: ['VerifiableCredential', 'AlumniCredential'].
+        expiration_date (Union[Unset, str]): The expiration date Example: 2010-01-01 19:23:24+00:00.
+        id (Union[Unset, str]):  Example: http://example.edu/credentials/1872.
+        proof (Union[Unset, LinkedDataProof]):
+    """
 
     context: List[Union[CredentialContextItemType0, str]]
     credential_subject: CredentialCredentialSubject
@@ -28,6 +40,7 @@ class Credential:
     def to_dict(self) -> Dict[str, Any]:
         context = []
         for context_item_data in self.context:
+
             if isinstance(context_item_data, CredentialContextItemType0):
                 context_item = context_item_data.to_dict()
 
@@ -39,6 +52,7 @@ class Credential:
         credential_subject = self.credential_subject.to_dict()
 
         issuance_date = self.issuance_date
+
         if isinstance(self.issuer, CredentialIssuerType0):
             issuer = self.issuer.to_dict()
 

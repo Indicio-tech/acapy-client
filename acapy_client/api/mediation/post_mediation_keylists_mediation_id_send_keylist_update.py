@@ -16,12 +16,13 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/mediation/keylists/{mediation_id}/send-keylist-update".format(client.base_url, mediation_id=mediation_id)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
     json_json_body = json_body.to_dict()
 
     return {
+        "method": "post",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -53,13 +54,23 @@ def sync_detailed(
     client: Client,
     json_body: KeylistUpdateRequest,
 ) -> Response[KeylistUpdate]:
+    """Send keylist update to mediator
+
+    Args:
+        mediation_id (str):
+        json_body (KeylistUpdateRequest):
+
+    Returns:
+        Response[KeylistUpdate]
+    """
+
     kwargs = _get_kwargs(
         mediation_id=mediation_id,
         client=client,
         json_body=json_body,
     )
 
-    response = httpx.post(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -73,7 +84,15 @@ def sync(
     client: Client,
     json_body: KeylistUpdateRequest,
 ) -> Optional[KeylistUpdate]:
-    """ """
+    """Send keylist update to mediator
+
+    Args:
+        mediation_id (str):
+        json_body (KeylistUpdateRequest):
+
+    Returns:
+        Response[KeylistUpdate]
+    """
 
     return sync_detailed(
         mediation_id=mediation_id,
@@ -88,6 +107,16 @@ async def asyncio_detailed(
     client: Client,
     json_body: KeylistUpdateRequest,
 ) -> Response[KeylistUpdate]:
+    """Send keylist update to mediator
+
+    Args:
+        mediation_id (str):
+        json_body (KeylistUpdateRequest):
+
+    Returns:
+        Response[KeylistUpdate]
+    """
+
     kwargs = _get_kwargs(
         mediation_id=mediation_id,
         client=client,
@@ -95,7 +124,7 @@ async def asyncio_detailed(
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.post(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -106,7 +135,15 @@ async def asyncio(
     client: Client,
     json_body: KeylistUpdateRequest,
 ) -> Optional[KeylistUpdate]:
-    """ """
+    """Send keylist update to mediator
+
+    Args:
+        mediation_id (str):
+        json_body (KeylistUpdateRequest):
+
+    Returns:
+        Response[KeylistUpdate]
+    """
 
     return (
         await asyncio_detailed(

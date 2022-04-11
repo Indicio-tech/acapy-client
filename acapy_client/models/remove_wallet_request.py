@@ -9,7 +9,11 @@ T = TypeVar("T", bound="RemoveWalletRequest")
 
 @attr.s(auto_attribs=True)
 class RemoveWalletRequest:
-    """ """
+    """
+    Attributes:
+        wallet_key (Union[Unset, str]): Master key used for key derivation. Only required for             unmanaged
+            wallets. Example: MySecretKey123.
+    """
 
     wallet_key: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

@@ -10,7 +10,11 @@ T = TypeVar("T", bound="IndyRevRegEntry")
 
 @attr.s(auto_attribs=True)
 class IndyRevRegEntry:
-    """ """
+    """
+    Attributes:
+        value (Union[Unset, IndyRevRegEntryValue]):
+        ver (Union[Unset, str]): Version of revocation registry entry Example: 1.0.
+    """
 
     value: Union[Unset, IndyRevRegEntryValue] = UNSET
     ver: Union[Unset, str] = UNSET

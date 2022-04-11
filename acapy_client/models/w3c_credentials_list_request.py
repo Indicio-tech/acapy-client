@@ -10,7 +10,18 @@ T = TypeVar("T", bound="W3CCredentialsListRequest")
 
 @attr.s(auto_attribs=True)
 class W3CCredentialsListRequest:
-    """ """
+    """
+    Attributes:
+        contexts (Union[Unset, List[str]]):
+        given_id (Union[Unset, str]): Given credential id to match
+        issuer_id (Union[Unset, str]): Credential issuer identifier to match
+        max_results (Union[Unset, int]): Maximum number of results to return
+        proof_types (Union[Unset, List[str]]):
+        schema_ids (Union[Unset, List[str]]): Schema identifiers, all of which to match
+        subject_ids (Union[Unset, List[str]]): Subject identifiers, all of which to match
+        tag_query (Union[Unset, W3CCredentialsListRequestTagQuery]): Tag filter
+        types (Union[Unset, List[str]]):
+    """
 
     contexts: Union[Unset, List[str]] = UNSET
     given_id: Union[Unset, str] = UNSET

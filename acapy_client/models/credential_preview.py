@@ -10,7 +10,11 @@ T = TypeVar("T", bound="CredentialPreview")
 
 @attr.s(auto_attribs=True)
 class CredentialPreview:
-    """ """
+    """
+    Attributes:
+        attributes (List[CredAttrSpec]):
+        type (Union[Unset, str]): Message type identifier Example: issue-credential/1.0/credential-preview.
+    """
 
     attributes: List[CredAttrSpec]
     type: Union[Unset, str] = UNSET

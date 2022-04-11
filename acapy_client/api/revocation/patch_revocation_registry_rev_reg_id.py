@@ -16,12 +16,13 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/revocation/registry/{rev_reg_id}".format(client.base_url, rev_reg_id=rev_reg_id)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
     json_json_body = json_body.to_dict()
 
     return {
+        "method": "patch",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -53,13 +54,23 @@ def sync_detailed(
     client: Client,
     json_body: RevRegUpdateTailsFileUri,
 ) -> Response[RevRegResult]:
+    """Update revocation registry with new public URI to its tails file
+
+    Args:
+        rev_reg_id (str):
+        json_body (RevRegUpdateTailsFileUri):
+
+    Returns:
+        Response[RevRegResult]
+    """
+
     kwargs = _get_kwargs(
         rev_reg_id=rev_reg_id,
         client=client,
         json_body=json_body,
     )
 
-    response = httpx.patch(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -73,7 +84,15 @@ def sync(
     client: Client,
     json_body: RevRegUpdateTailsFileUri,
 ) -> Optional[RevRegResult]:
-    """ """
+    """Update revocation registry with new public URI to its tails file
+
+    Args:
+        rev_reg_id (str):
+        json_body (RevRegUpdateTailsFileUri):
+
+    Returns:
+        Response[RevRegResult]
+    """
 
     return sync_detailed(
         rev_reg_id=rev_reg_id,
@@ -88,6 +107,16 @@ async def asyncio_detailed(
     client: Client,
     json_body: RevRegUpdateTailsFileUri,
 ) -> Response[RevRegResult]:
+    """Update revocation registry with new public URI to its tails file
+
+    Args:
+        rev_reg_id (str):
+        json_body (RevRegUpdateTailsFileUri):
+
+    Returns:
+        Response[RevRegResult]
+    """
+
     kwargs = _get_kwargs(
         rev_reg_id=rev_reg_id,
         client=client,
@@ -95,7 +124,7 @@ async def asyncio_detailed(
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.patch(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -106,7 +135,15 @@ async def asyncio(
     client: Client,
     json_body: RevRegUpdateTailsFileUri,
 ) -> Optional[RevRegResult]:
-    """ """
+    """Update revocation registry with new public URI to its tails file
+
+    Args:
+        rev_reg_id (str):
+        json_body (RevRegUpdateTailsFileUri):
+
+    Returns:
+        Response[RevRegResult]
+    """
 
     return (
         await asyncio_detailed(

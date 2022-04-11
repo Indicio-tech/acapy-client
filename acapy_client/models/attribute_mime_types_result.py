@@ -10,7 +10,10 @@ T = TypeVar("T", bound="AttributeMimeTypesResult")
 
 @attr.s(auto_attribs=True)
 class AttributeMimeTypesResult:
-    """ """
+    """
+    Attributes:
+        results (Union[Unset, None, AttributeMimeTypesResultResults]):
+    """
 
     results: Union[Unset, None, AttributeMimeTypesResultResults] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

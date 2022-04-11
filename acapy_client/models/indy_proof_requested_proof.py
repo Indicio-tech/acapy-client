@@ -14,7 +14,17 @@ T = TypeVar("T", bound="IndyProofRequestedProof")
 
 @attr.s(auto_attribs=True)
 class IndyProofRequestedProof:
-    """ """
+    """
+    Attributes:
+        predicates (Union[Unset, IndyProofRequestedProofPredicates]): Proof requested proof predicates.
+        revealed_attr_groups (Union[Unset, None, IndyProofRequestedProofRevealedAttrGroups]): Proof requested proof
+            revealed attribute groups
+        revealed_attrs (Union[Unset, None, IndyProofRequestedProofRevealedAttrs]): Proof requested proof revealed
+            attributes
+        self_attested_attrs (Union[Unset, IndyProofRequestedProofSelfAttestedAttrs]): Proof requested proof self-
+            attested attributes
+        unrevealed_attrs (Union[Unset, IndyProofRequestedProofUnrevealedAttrs]): Unrevealed attributes
+    """
 
     predicates: Union[Unset, IndyProofRequestedProofPredicates] = UNSET
     revealed_attr_groups: Union[Unset, None, IndyProofRequestedProofRevealedAttrGroups] = UNSET

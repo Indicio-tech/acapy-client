@@ -13,7 +13,13 @@ T = TypeVar("T", bound="V20CredExRecordByFormat")
 
 @attr.s(auto_attribs=True)
 class V20CredExRecordByFormat:
-    """ """
+    """
+    Attributes:
+        cred_issue (Union[Unset, V20CredExRecordByFormatCredIssue]):
+        cred_offer (Union[Unset, V20CredExRecordByFormatCredOffer]):
+        cred_proposal (Union[Unset, V20CredExRecordByFormatCredProposal]):
+        cred_request (Union[Unset, V20CredExRecordByFormatCredRequest]):
+    """
 
     cred_issue: Union[Unset, V20CredExRecordByFormatCredIssue] = UNSET
     cred_offer: Union[Unset, V20CredExRecordByFormatCredOffer] = UNSET

@@ -10,7 +10,13 @@ T = TypeVar("T", bound="InvitationResult")
 
 @attr.s(auto_attribs=True)
 class InvitationResult:
-    """ """
+    """
+    Attributes:
+        connection_id (Union[Unset, str]): Connection identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        invitation (Union[Unset, ConnectionInvitation]):
+        invitation_url (Union[Unset, str]): Invitation URL Example:
+            http://192.168.56.101:8020/invite?c_i=eyJAdHlwZSI6Li4ufQ==.
+    """
 
     connection_id: Union[Unset, str] = UNSET
     invitation: Union[Unset, ConnectionInvitation] = UNSET

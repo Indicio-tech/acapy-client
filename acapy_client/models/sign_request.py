@@ -9,7 +9,11 @@ T = TypeVar("T", bound="SignRequest")
 
 @attr.s(auto_attribs=True)
 class SignRequest:
-    """ """
+    """
+    Attributes:
+        doc (Doc):
+        verkey (str): Verkey to use for signing
+    """
 
     doc: Doc
     verkey: str

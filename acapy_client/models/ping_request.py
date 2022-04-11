@@ -9,7 +9,10 @@ T = TypeVar("T", bound="PingRequest")
 
 @attr.s(auto_attribs=True)
 class PingRequest:
-    """ """
+    """
+    Attributes:
+        comment (Union[Unset, None, str]): Comment for the ping message
+    """
 
     comment: Union[Unset, None, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

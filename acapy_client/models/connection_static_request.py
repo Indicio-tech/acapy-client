@@ -9,7 +9,17 @@ T = TypeVar("T", bound="ConnectionStaticRequest")
 
 @attr.s(auto_attribs=True)
 class ConnectionStaticRequest:
-    """ """
+    """
+    Attributes:
+        alias (Union[Unset, str]): Alias to assign to this connection
+        my_did (Union[Unset, str]): Local DID Example: WgWxqztrNooG92RXvxSTWv.
+        my_seed (Union[Unset, str]): Seed to use for the local DID
+        their_did (Union[Unset, str]): Remote DID Example: WgWxqztrNooG92RXvxSTWv.
+        their_endpoint (Union[Unset, str]): URL endpoint for other party Example: https://myhost:8021.
+        their_label (Union[Unset, str]): Other party's label for this connection
+        their_seed (Union[Unset, str]): Seed to use for the remote DID
+        their_verkey (Union[Unset, str]): Remote verification key
+    """
 
     alias: Union[Unset, str] = UNSET
     my_did: Union[Unset, str] = UNSET

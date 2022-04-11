@@ -12,7 +12,12 @@ T = TypeVar("T", bound="V20CredExRecordDetail")
 
 @attr.s(auto_attribs=True)
 class V20CredExRecordDetail:
-    """ """
+    """
+    Attributes:
+        cred_ex_record (Union[Unset, V20CredExRecord]):
+        indy (Union[Unset, V20CredExRecordIndy]):
+        ld_proof (Union[Unset, V20CredExRecordLDProof]):
+    """
 
     cred_ex_record: Union[Unset, V20CredExRecord] = UNSET
     indy: Union[Unset, V20CredExRecordIndy] = UNSET

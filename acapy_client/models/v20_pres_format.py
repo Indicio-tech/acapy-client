@@ -7,7 +7,11 @@ T = TypeVar("T", bound="V20PresFormat")
 
 @attr.s(auto_attribs=True)
 class V20PresFormat:
-    """ """
+    """
+    Attributes:
+        attach_id (str): Attachment identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        format_ (str): Attachment format specifier Example: dif/presentation-exchange/submission@v1.0.
+    """
 
     attach_id: str
     format_: str

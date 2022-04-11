@@ -9,7 +9,10 @@ T = TypeVar("T", bound="ConnectionMetadataSetRequest")
 
 @attr.s(auto_attribs=True)
 class ConnectionMetadataSetRequest:
-    """ """
+    """
+    Attributes:
+        metadata (ConnectionMetadataSetRequestMetadata): Dictionary of metadata to set for connection.
+    """
 
     metadata: ConnectionMetadataSetRequestMetadata
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

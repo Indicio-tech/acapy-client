@@ -16,17 +16,20 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/discover-features/query".format(client.base_url)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
 
-    params: Dict[str, Any] = {
-        "comment": comment,
-        "connection_id": connection_id,
-        "query": query,
-    }
+    params: Dict[str, Any] = {}
+    params["comment"] = comment
+
+    params["connection_id"] = connection_id
+
+    params["query"] = query
+
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     return {
+        "method": "get",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -59,6 +62,17 @@ def sync_detailed(
     connection_id: Union[Unset, None, str] = UNSET,
     query: Union[Unset, None, str] = UNSET,
 ) -> Response[V10DiscoveryExchangeResult]:
+    """Query supported features
+
+    Args:
+        comment (Union[Unset, None, str]):
+        connection_id (Union[Unset, None, str]):
+        query (Union[Unset, None, str]):
+
+    Returns:
+        Response[V10DiscoveryExchangeResult]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         comment=comment,
@@ -66,7 +80,7 @@ def sync_detailed(
         query=query,
     )
 
-    response = httpx.get(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -81,7 +95,16 @@ def sync(
     connection_id: Union[Unset, None, str] = UNSET,
     query: Union[Unset, None, str] = UNSET,
 ) -> Optional[V10DiscoveryExchangeResult]:
-    """ """
+    """Query supported features
+
+    Args:
+        comment (Union[Unset, None, str]):
+        connection_id (Union[Unset, None, str]):
+        query (Union[Unset, None, str]):
+
+    Returns:
+        Response[V10DiscoveryExchangeResult]
+    """
 
     return sync_detailed(
         client=client,
@@ -98,6 +121,17 @@ async def asyncio_detailed(
     connection_id: Union[Unset, None, str] = UNSET,
     query: Union[Unset, None, str] = UNSET,
 ) -> Response[V10DiscoveryExchangeResult]:
+    """Query supported features
+
+    Args:
+        comment (Union[Unset, None, str]):
+        connection_id (Union[Unset, None, str]):
+        query (Union[Unset, None, str]):
+
+    Returns:
+        Response[V10DiscoveryExchangeResult]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         comment=comment,
@@ -106,7 +140,7 @@ async def asyncio_detailed(
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.get(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -118,7 +152,16 @@ async def asyncio(
     connection_id: Union[Unset, None, str] = UNSET,
     query: Union[Unset, None, str] = UNSET,
 ) -> Optional[V10DiscoveryExchangeResult]:
-    """ """
+    """Query supported features
+
+    Args:
+        comment (Union[Unset, None, str]):
+        connection_id (Union[Unset, None, str]):
+        query (Union[Unset, None, str]):
+
+    Returns:
+        Response[V10DiscoveryExchangeResult]
+    """
 
     return (
         await asyncio_detailed(

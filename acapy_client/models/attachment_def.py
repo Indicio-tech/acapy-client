@@ -10,7 +10,11 @@ T = TypeVar("T", bound="AttachmentDef")
 
 @attr.s(auto_attribs=True)
 class AttachmentDef:
-    """ """
+    """
+    Attributes:
+        id (Union[Unset, str]): Attachment identifier Example: attachment-0.
+        type (Union[Unset, AttachmentDefType]): Attachment type Example: present-proof.
+    """
 
     id: Union[Unset, str] = UNSET
     type: Union[Unset, AttachmentDefType] = UNSET

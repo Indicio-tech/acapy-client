@@ -12,7 +12,12 @@ T = TypeVar("T", bound="V20PresExRecordByFormat")
 
 @attr.s(auto_attribs=True)
 class V20PresExRecordByFormat:
-    """ """
+    """
+    Attributes:
+        pres (Union[Unset, V20PresExRecordByFormatPres]):
+        pres_proposal (Union[Unset, V20PresExRecordByFormatPresProposal]):
+        pres_request (Union[Unset, V20PresExRecordByFormatPresRequest]):
+    """
 
     pres: Union[Unset, V20PresExRecordByFormatPres] = UNSET
     pres_proposal: Union[Unset, V20PresExRecordByFormatPresProposal] = UNSET

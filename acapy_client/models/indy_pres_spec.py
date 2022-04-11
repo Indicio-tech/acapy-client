@@ -12,7 +12,15 @@ T = TypeVar("T", bound="IndyPresSpec")
 
 @attr.s(auto_attribs=True)
 class IndyPresSpec:
-    """ """
+    """
+    Attributes:
+        requested_attributes (IndyPresSpecRequestedAttributes): Nested object mapping proof request attribute referents
+            to requested-attribute specifiers
+        requested_predicates (IndyPresSpecRequestedPredicates): Nested object mapping proof request predicate referents
+            to requested-predicate specifiers
+        self_attested_attributes (IndyPresSpecSelfAttestedAttributes): Self-attested attributes to build into proof
+        trace (Union[Unset, bool]): Whether to trace event (default false)
+    """
 
     requested_attributes: IndyPresSpecRequestedAttributes
     requested_predicates: IndyPresSpecRequestedPredicates

@@ -7,7 +7,12 @@ T = TypeVar("T", bound="KeylistQueryFilter")
 
 @attr.s(auto_attribs=True)
 class KeylistQueryFilter:
-    """Query dictionary object"""
+    """Query dictionary object
+
+    Example:
+        {'filter': {}}
+
+    """
 
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 

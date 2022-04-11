@@ -9,7 +9,11 @@ T = TypeVar("T", bound="VerifyResponse")
 
 @attr.s(auto_attribs=True)
 class VerifyResponse:
-    """ """
+    """
+    Attributes:
+        valid (bool):
+        error (Union[Unset, str]): Error text
+    """
 
     valid: bool
     error: Union[Unset, str] = UNSET

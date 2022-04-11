@@ -10,7 +10,11 @@ T = TypeVar("T", bound="SchemasInputDescriptorFilter")
 
 @attr.s(auto_attribs=True)
 class SchemasInputDescriptorFilter:
-    """ """
+    """
+    Attributes:
+        oneof_filter (Union[Unset, bool]): oneOf
+        uri_groups (Union[Unset, List[List[SchemaInputDescriptor]]]):
+    """
 
     oneof_filter: Union[Unset, bool] = UNSET
     uri_groups: Union[Unset, List[List[SchemaInputDescriptor]]] = UNSET

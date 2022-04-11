@@ -10,7 +10,18 @@ T = TypeVar("T", bound="AttachDecorator")
 
 @attr.s(auto_attribs=True)
 class AttachDecorator:
-    """ """
+    """
+    Attributes:
+        data (AttachDecoratorData):
+        id (Union[Unset, str]): Attachment identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        byte_count (Union[Unset, int]): Byte count of data included by reference Example: 1234.
+        description (Union[Unset, str]): Human-readable description of content Example: view from doorway, facing east,
+            with lights off.
+        filename (Union[Unset, str]): File name Example: IMG1092348.png.
+        lastmod_time (Union[Unset, str]): Hint regarding last modification datetime, in ISO-8601 format Example:
+            2021-12-31 23:59:59+00:00.
+        mime_type (Union[Unset, str]): MIME type Example: image/png.
+    """
 
     data: AttachDecoratorData
     id: Union[Unset, str] = UNSET

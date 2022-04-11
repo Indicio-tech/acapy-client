@@ -11,7 +11,13 @@ T = TypeVar("T", bound="AdminStatus")
 
 @attr.s(auto_attribs=True)
 class AdminStatus:
-    """ """
+    """
+    Attributes:
+        conductor (Union[Unset, AdminStatusConductor]): Conductor statistics
+        label (Union[Unset, None, str]): Default label
+        timing (Union[Unset, AdminStatusTiming]): Timing results
+        version (Union[Unset, str]): Version code
+    """
 
     conductor: Union[Unset, AdminStatusConductor] = UNSET
     label: Union[Unset, None, str] = UNSET

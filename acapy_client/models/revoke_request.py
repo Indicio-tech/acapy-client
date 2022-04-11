@@ -9,7 +9,21 @@ T = TypeVar("T", bound="RevokeRequest")
 
 @attr.s(auto_attribs=True)
 class RevokeRequest:
-    """ """
+    """
+    Attributes:
+        comment (Union[Unset, str]): Optional comment to include in revocation notification
+        connection_id (Union[Unset, str]): Connection ID to which the revocation notification will be sent; required if
+            notify is true Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        cred_ex_id (Union[Unset, str]): Credential exchange identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        cred_rev_id (Union[Unset, str]): Credential revocation identifier Example: 12345.
+        notify (Union[Unset, bool]): Send a notification to the credential recipient
+        publish (Union[Unset, bool]): (True) publish revocation to ledger immediately, or (default, False) mark it
+            pending
+        rev_reg_id (Union[Unset, str]): Revocation registry identifier Example:
+            WgWxqztrNooG92RXvxSTWv:4:WgWxqztrNooG92RXvxSTWv:3:CL:20:tag:CL_ACCUM:0.
+        thread_id (Union[Unset, str]): Thread ID of the credential exchange message thread resulting in the credential
+            now being revoked; required if notify is true
+    """
 
     comment: Union[Unset, str] = UNSET
     connection_id: Union[Unset, str] = UNSET

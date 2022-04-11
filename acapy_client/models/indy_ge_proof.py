@@ -13,7 +13,15 @@ T = TypeVar("T", bound="IndyGEProof")
 
 @attr.s(auto_attribs=True)
 class IndyGEProof:
-    """ """
+    """
+    Attributes:
+        alpha (Union[Unset, str]):  Example: 0.
+        mj (Union[Unset, str]):  Example: 0.
+        predicate (Union[Unset, IndyGEProofPred]):
+        r (Union[Unset, IndyGEProofR]):
+        t (Union[Unset, IndyGEProofT]):
+        u (Union[Unset, IndyGEProofU]):
+    """
 
     alpha: Union[Unset, str] = UNSET
     mj: Union[Unset, str] = UNSET

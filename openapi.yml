@@ -6616,8 +6616,8 @@ components:
           - did:sov:WgWxqztrNooG92RXvxSTWv
           items:
             anyOf:
-            - object
-            - string
+            - type: object
+            - type: string
             description: Either a DIDComm service object (as per RFC0067) or a DID
               string.
     InvitationRecord:

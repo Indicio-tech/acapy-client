@@ -12,7 +12,15 @@ T = TypeVar("T", bound="V20CredProposal")
 
 @attr.s(auto_attribs=True)
 class V20CredProposal:
-    """ """
+    """
+    Attributes:
+        filtersattach (List[AttachDecorator]): Credential filter per acceptable format on corresponding identifier
+        formats (List[V20CredFormat]): Attachment formats
+        id (Union[Unset, str]): Message identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        type (Union[Unset, str]): Message type Example: https://didcomm.org/my-family/1.0/my-message-type.
+        comment (Union[Unset, None, str]): Human-readable comment
+        credential_preview (Union[Unset, V20CredPreview]):
+    """
 
     filtersattach: List[AttachDecorator]
     formats: List[V20CredFormat]

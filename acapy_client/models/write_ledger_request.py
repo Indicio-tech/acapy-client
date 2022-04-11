@@ -9,7 +9,10 @@ T = TypeVar("T", bound="WriteLedgerRequest")
 
 @attr.s(auto_attribs=True)
 class WriteLedgerRequest:
-    """ """
+    """
+    Attributes:
+        ledger_id (Union[Unset, str]):
+    """
 
     ledger_id: Union[Unset, str] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

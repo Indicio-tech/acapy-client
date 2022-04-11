@@ -14,7 +14,33 @@ T = TypeVar("T", bound="ConnRecord")
 
 @attr.s(auto_attribs=True)
 class ConnRecord:
-    """ """
+    """
+    Attributes:
+        accept (Union[Unset, ConnRecordAccept]): Connection acceptance: manual or auto Example: auto.
+        alias (Union[Unset, str]): Optional alias to apply to connection for later use Example: Bob, providing quotes.
+        connection_id (Union[Unset, str]): Connection identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        connection_protocol (Union[Unset, ConnRecordConnectionProtocol]): Connection protocol used Example:
+            connections/1.0.
+        created_at (Union[Unset, str]): Time of record creation Example: 2021-12-31 23:59:59+00:00.
+        error_msg (Union[Unset, str]): Error message Example: No DIDDoc provided; cannot connect to public DID.
+        inbound_connection_id (Union[Unset, str]): Inbound routing connection id to use Example:
+            3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        invitation_key (Union[Unset, str]): Public key for connection Example:
+            H3C2AVvLMv6gmMNam3uVAjZpfkcJCwDwnZn6z3wXmqPV.
+        invitation_mode (Union[Unset, ConnRecordInvitationMode]): Invitation mode Example: once.
+        invitation_msg_id (Union[Unset, str]): ID of out-of-band invitation message Example:
+            3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        my_did (Union[Unset, str]): Our DID for connection Example: WgWxqztrNooG92RXvxSTWv.
+        request_id (Union[Unset, str]): Connection request identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        rfc23_state (Union[Unset, str]): State per RFC 23 Example: invitation-sent.
+        routing_state (Union[Unset, ConnRecordRoutingState]): Routing state of connection Example: active.
+        state (Union[Unset, str]): Current record state Example: active.
+        their_did (Union[Unset, str]): Their DID for connection Example: WgWxqztrNooG92RXvxSTWv.
+        their_label (Union[Unset, str]): Their label for connection Example: Bob.
+        their_public_did (Union[Unset, str]): Other agent's public DID for connection Example: 2cpBmR3FqGKWi5EyUbpRY8.
+        their_role (Union[Unset, ConnRecordTheirRole]): Their role in the connection protocol Example: requester.
+        updated_at (Union[Unset, str]): Time of last record update Example: 2021-12-31 23:59:59+00:00.
+    """
 
     accept: Union[Unset, ConnRecordAccept] = UNSET
     alias: Union[Unset, str] = UNSET

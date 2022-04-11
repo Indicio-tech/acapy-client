@@ -15,7 +15,21 @@ T = TypeVar("T", bound="Filter")
 
 @attr.s(auto_attribs=True)
 class Filter:
-    """ """
+    """
+    Attributes:
+        const (Union[FilterConstType5, List[Any], Unset, bool, float, int, str]): Const
+        enum (Union[Unset, List[FilterEnumItem]]):
+        exclusive_maximum (Union[Unset, FilterExclusiveMaximum]): ExclusiveMaximum
+        exclusive_minimum (Union[Unset, FilterExclusiveMinimum]): ExclusiveMinimum
+        format_ (Union[Unset, str]): Format
+        max_length (Union[Unset, int]): Max Length Example: 1234.
+        maximum (Union[Unset, FilterMaximum]): Maximum
+        min_length (Union[Unset, int]): Min Length Example: 1234.
+        minimum (Union[Unset, FilterMinimum]): Minimum
+        not_ (Union[Unset, bool]): Not
+        pattern (Union[Unset, str]): Pattern
+        type (Union[Unset, str]): Type
+    """
 
     const: Union[FilterConstType5, List[Any], Unset, bool, float, int, str] = UNSET
     enum: Union[Unset, List[FilterEnumItem]] = UNSET
@@ -35,14 +49,11 @@ class Filter:
         const: Union[Dict[str, Any], List[Any], Unset, bool, float, int, str]
         if isinstance(self.const, Unset):
             const = UNSET
+
         elif isinstance(self.const, list):
             const = UNSET
             if not isinstance(self.const, Unset):
-                const = []
-                for const_type_4_item_data in self.const:
-                    const_type_4_item = const_type_4_item_data
-
-                    const.append(const_type_4_item)
+                const = self.const
 
         elif isinstance(self.const, FilterConstType5):
             const = UNSET
@@ -123,12 +134,7 @@ class Filter:
             try:
                 if not isinstance(data, list):
                     raise TypeError()
-                const_type_4 = UNSET
-                _const_type_4 = data
-                for const_type_4_item_data in _const_type_4 or []:
-                    const_type_4_item = const_type_4_item_data
-
-                    const_type_4.append(const_type_4_item)
+                const_type_4 = cast(List[Any], data)
 
                 return const_type_4
             except:  # noqa: E722

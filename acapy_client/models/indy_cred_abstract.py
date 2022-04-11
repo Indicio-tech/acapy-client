@@ -9,7 +9,13 @@ T = TypeVar("T", bound="IndyCredAbstract")
 
 @attr.s(auto_attribs=True)
 class IndyCredAbstract:
-    """ """
+    """
+    Attributes:
+        cred_def_id (str): Credential definition identifier Example: WgWxqztrNooG92RXvxSTWv:3:CL:20:tag.
+        key_correctness_proof (IndyKeyCorrectnessProof):
+        nonce (str): Nonce in credential abstract Example: 0.
+        schema_id (str): Schema identifier Example: WgWxqztrNooG92RXvxSTWv:2:schema_name:1.0.
+    """
 
     cred_def_id: str
     key_correctness_proof: IndyKeyCorrectnessProof

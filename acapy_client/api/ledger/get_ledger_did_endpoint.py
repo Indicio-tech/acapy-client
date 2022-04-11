@@ -16,20 +16,22 @@ def _get_kwargs(
 ) -> Dict[str, Any]:
     url = "{}/ledger/did-endpoint".format(client.base_url)
 
-    headers: Dict[str, Any] = client.get_headers()
+    headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
+
+    params: Dict[str, Any] = {}
+    params["did"] = did
 
     json_endpoint_type: Union[Unset, None, str] = UNSET
     if not isinstance(endpoint_type, Unset):
         json_endpoint_type = endpoint_type.value if endpoint_type else None
 
-    params: Dict[str, Any] = {
-        "did": did,
-        "endpoint_type": json_endpoint_type,
-    }
+    params["endpoint_type"] = json_endpoint_type
+
     params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     return {
+        "method": "get",
         "url": url,
         "headers": headers,
         "cookies": cookies,
@@ -61,13 +63,23 @@ def sync_detailed(
     did: str,
     endpoint_type: Union[Unset, None, GetLedgerDidEndpointEndpointType] = UNSET,
 ) -> Response[GetDIDEndpointResponse]:
+    """Get the endpoint for a DID from the ledger.
+
+    Args:
+        did (str):
+        endpoint_type (Union[Unset, None, GetLedgerDidEndpointEndpointType]):
+
+    Returns:
+        Response[GetDIDEndpointResponse]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         did=did,
         endpoint_type=endpoint_type,
     )
 
-    response = httpx.get(
+    response = httpx.request(
         verify=client.verify_ssl,
         **kwargs,
     )
@@ -81,7 +93,15 @@ def sync(
     did: str,
     endpoint_type: Union[Unset, None, GetLedgerDidEndpointEndpointType] = UNSET,
 ) -> Optional[GetDIDEndpointResponse]:
-    """ """
+    """Get the endpoint for a DID from the ledger.
+
+    Args:
+        did (str):
+        endpoint_type (Union[Unset, None, GetLedgerDidEndpointEndpointType]):
+
+    Returns:
+        Response[GetDIDEndpointResponse]
+    """
 
     return sync_detailed(
         client=client,
@@ -96,6 +116,16 @@ async def asyncio_detailed(
     did: str,
     endpoint_type: Union[Unset, None, GetLedgerDidEndpointEndpointType] = UNSET,
 ) -> Response[GetDIDEndpointResponse]:
+    """Get the endpoint for a DID from the ledger.
+
+    Args:
+        did (str):
+        endpoint_type (Union[Unset, None, GetLedgerDidEndpointEndpointType]):
+
+    Returns:
+        Response[GetDIDEndpointResponse]
+    """
+
     kwargs = _get_kwargs(
         client=client,
         did=did,
@@ -103,7 +133,7 @@ async def asyncio_detailed(
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
-        response = await _client.get(**kwargs)
+        response = await _client.request(**kwargs)
 
     return _build_response(response=response)
 
@@ -114,7 +144,15 @@ async def asyncio(
     did: str,
     endpoint_type: Union[Unset, None, GetLedgerDidEndpointEndpointType] = UNSET,
 ) -> Optional[GetDIDEndpointResponse]:
-    """ """
+    """Get the endpoint for a DID from the ledger.
+
+    Args:
+        did (str):
+        endpoint_type (Union[Unset, None, GetLedgerDidEndpointEndpointType]):
+
+    Returns:
+        Response[GetDIDEndpointResponse]
+    """
 
     return (
         await asyncio_detailed(

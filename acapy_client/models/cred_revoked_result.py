@@ -9,7 +9,10 @@ T = TypeVar("T", bound="CredRevokedResult")
 
 @attr.s(auto_attribs=True)
 class CredRevokedResult:
-    """ """
+    """
+    Attributes:
+        revoked (Union[Unset, bool]): Whether credential is revoked on the ledger
+    """
 
     revoked: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)

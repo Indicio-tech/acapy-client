@@ -10,7 +10,18 @@ T = TypeVar("T", bound="V10CredentialFreeOfferRequest")
 
 @attr.s(auto_attribs=True)
 class V10CredentialFreeOfferRequest:
-    """ """
+    """
+    Attributes:
+        connection_id (str): Connection identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        cred_def_id (str): Credential definition identifier Example: WgWxqztrNooG92RXvxSTWv:3:CL:20:tag.
+        credential_preview (CredentialPreview):
+        auto_issue (Union[Unset, bool]): Whether to respond automatically to credential requests, creating and issuing
+            requested credentials
+        auto_remove (Union[Unset, bool]): Whether to remove the credential exchange record on completion (overrides
+            --preserve-exchange-records configuration setting)
+        comment (Union[Unset, None, str]): Human-readable comment
+        trace (Union[Unset, bool]): Record trace information, based on agent configuration
+    """
 
     connection_id: str
     cred_def_id: str

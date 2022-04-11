@@ -9,7 +9,11 @@ T = TypeVar("T", bound="SchemaSendResult")
 
 @attr.s(auto_attribs=True)
 class SchemaSendResult:
-    """ """
+    """
+    Attributes:
+        schema (Schema):
+        schema_id (str): Schema identifier Example: WgWxqztrNooG92RXvxSTWv:2:schema_name:1.0.
+    """
 
     schema: Schema
     schema_id: str

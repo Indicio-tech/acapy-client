@@ -9,7 +9,11 @@ T = TypeVar("T", bound="EndpointsResult")
 
 @attr.s(auto_attribs=True)
 class EndpointsResult:
-    """ """
+    """
+    Attributes:
+        my_endpoint (Union[Unset, str]): My endpoint Example: https://myhost:8021.
+        their_endpoint (Union[Unset, str]): Their endpoint Example: https://myhost:8021.
+    """
 
     my_endpoint: Union[Unset, str] = UNSET
     their_endpoint: Union[Unset, str] = UNSET

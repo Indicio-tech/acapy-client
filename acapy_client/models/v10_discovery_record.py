@@ -11,7 +11,19 @@ T = TypeVar("T", bound="V10DiscoveryRecord")
 
 @attr.s(auto_attribs=True)
 class V10DiscoveryRecord:
-    """ """
+    """
+    Attributes:
+        connection_id (Union[Unset, str]): Connection identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        created_at (Union[Unset, str]): Time of record creation Example: 2021-12-31 23:59:59+00:00.
+        disclose (Union[Unset, Disclose]):
+        discovery_exchange_id (Union[Unset, str]): Credential exchange identifier Example:
+            3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        query_msg (Union[Unset, Query]):
+        state (Union[Unset, str]): Current record state Example: active.
+        thread_id (Union[Unset, str]): Thread identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
+        trace (Union[Unset, bool]): Record trace information, based on agent configuration
+        updated_at (Union[Unset, str]): Time of last record update Example: 2021-12-31 23:59:59+00:00.
+    """
 
     connection_id: Union[Unset, str] = UNSET
     created_at: Union[Unset, str] = UNSET
