@@ -9,7 +9,7 @@ FROM python:3.8
 RUN pip install pyyaml deepmerge
 DOCKERFILE
 ${CONTAINER_RUNTIME} run --name ${CONTAINER_NAME} --rm -it \
-    -v ../openapi.yml:/app/openapi.yml:z \
-    -v ./operation-id-map.yml:/app/operation-id-map.yml:z \
-    -v ./merge-operation-ids.py:/app/merge-operation-ids.py:z \
+    -v $(realpath $(pwd)/../openapi.yml):/app/openapi.yml:z \
+    -v $(realpath $(pwd)/operation-id-map.yml):/app/operation-id-map.yml:z \
+    -v $(realpath $(pwd)/merge-operation-ids.py):/app/merge-operation-ids.py:z \
     ${CONTAINER_NAME} python /app/merge-operation-ids.py
