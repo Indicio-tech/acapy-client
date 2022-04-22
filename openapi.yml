@@ -706,8 +706,8 @@ paths:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/CredentialDefinitionSendResult'
-                  - $ref: '#/components/schemas/TxnOrCredentialDefinitionSendResult'
+                - $ref: '#/components/schemas/CredentialDefinitionSendResult'
+                - $ref: '#/components/schemas/TxnOrCredentialDefinitionSendResult'
       x-codegen-request-body-name: body
       operationId: publish_cred_def
   /credential-definitions/created:
@@ -867,6 +867,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/VCRecord'
+      operationId: get_w3c_credential
     delete:
       tags:
       - credentials
@@ -885,6 +886,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/HolderModuleResponse'
+      operationId: delete_w3c_credential
   /credential/{credential_id}:
     get:
       tags:
@@ -991,6 +993,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/VCRecordList'
       x-codegen-request-body-name: body
+      operationId: get_w3c_credentials
   /didexchange/create-request:
     post:
       tags:
@@ -2665,6 +2668,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/V20PresExRecord'
       x-codegen-request-body-name: body
+      operationId: create_proof_request
   /present-proof-2.0/records:
     get:
       tags:
@@ -2714,6 +2718,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/V20PresExRecordList'
+      operationId: get_records
   /present-proof-2.0/records/{pres_ex_id}:
     get:
       tags:
@@ -2734,6 +2739,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/V20PresExRecord'
+      operationId: get_record
     delete:
       tags:
       - present-proof v2.0
@@ -2753,6 +2759,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/V20PresentProofModuleResponse'
+      operationId: delete_record
   /present-proof-2.0/records/{pres_ex_id}/credentials:
     get:
       tags:
@@ -2798,6 +2805,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/IndyCredPrecis'
+      operationId: get_matching_credentials
   /present-proof-2.0/records/{pres_ex_id}/problem-report:
     post:
       tags:
@@ -2825,6 +2833,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/V20PresentProofModuleResponse'
       x-codegen-request-body-name: body
+      operationId: report_problem
   /present-proof-2.0/records/{pres_ex_id}/send-presentation:
     post:
       tags:
@@ -2852,6 +2861,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/V20PresExRecord'
       x-codegen-request-body-name: body
+      operationId: send_presentation
   /present-proof-2.0/records/{pres_ex_id}/send-request:
     post:
       tags:
@@ -2879,6 +2889,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/V20PresExRecord'
       x-codegen-request-body-name: body
+      operationId: send_request
   /present-proof-2.0/records/{pres_ex_id}/verify-presentation:
     post:
       tags:
@@ -2899,6 +2910,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/V20PresExRecord'
+      operationId: verify_presentation
   /present-proof-2.0/send-proposal:
     post:
       tags:
@@ -2918,6 +2930,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/V20PresExRecord'
       x-codegen-request-body-name: body
+      operationId: send_proposal
   /present-proof-2.0/send-request:
     post:
       tags:
@@ -2937,6 +2950,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/V20PresExRecord'
       x-codegen-request-body-name: body
+      operationId: send_request_free
   /present-proof/create-request:
     post:
       tags:
@@ -3355,8 +3369,8 @@ paths:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/PublishRevocations'
-                  - $ref: '#/components/schemas/TxnOrPublishRevocationsResult'
+                - $ref: '#/components/schemas/PublishRevocations'
+                - $ref: '#/components/schemas/TxnOrPublishRevocationsResult'
       x-codegen-request-body-name: body
       operationId: publish_revocations
   /revocation/registries/created:
@@ -3465,8 +3479,8 @@ paths:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/RevRegResult'
-                  - $ref: '#/components/schemas/TxnOrRevRegResult'
+                - $ref: '#/components/schemas/RevRegResult'
+                - $ref: '#/components/schemas/TxnOrRevRegResult'
   /revocation/registry/{rev_reg_id}/entry:
     post:
       tags:
@@ -3638,8 +3652,8 @@ paths:
             application/json:
               schema:
                 oneOf:
-                  - $ref: '#/components/schemas/SchemaSendResult'
-                  - $ref: '#/components/schemas/TxnOrSchemaSendResult'
+                - $ref: '#/components/schemas/SchemaSendResult'
+                - $ref: '#/components/schemas/TxnOrSchemaSendResult'
       x-codegen-request-body-name: body
       operationId: publish_schema
   /schemas/created:
@@ -5012,8 +5026,8 @@ components:
           - https://www.w3.org/2018/credentials/examples/v1
           items:
             anyOf:
-              - type: object
-              - type: string
+            - type: object
+            - type: string
         credentialSubject:
           type: object
           example: ''
@@ -5033,8 +5047,8 @@ components:
           example: 2010-01-01 19:23:24+00:00
         issuer:
           oneOf:
-            - type: object
-            - type: string
+          - type: object
+          - type: string
           description: The JSON-LD Verifiable Credential Issuer. Either string of
             object with id field.
           example: did:key:z6MkpTHR8VNsBxYAAWHut2Geadd9jSwuBV8xRoAnwWsdvktH
@@ -5117,7 +5131,7 @@ components:
     CredentialDefinitionSendResult:
       type: object
       required:
-        - credential_definition_id
+      - credential_definition_id
       properties:
         credential_definition_id:
           pattern: ^([123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz]{21,22}):3:CL:(([1-9][0-9]*)|([123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz]{21,22}:2:.+:[0-9.]+)):(.+)?$
@@ -5566,13 +5580,13 @@ components:
       properties:
         const:
           anyOf:
-            - type: string
-            - type: number
-            - type: integer
-            - type: boolean
-            - type: array
-              items: {}
-            - type: object
+          - type: string
+          - type: number
+          - type: integer
+          - type: boolean
+          - type: array
+            items: {}
+          - type: object
           description: Const
         enum:
           type: array
@@ -7583,7 +7597,7 @@ components:
     RevRegResult:
       type: object
       required:
-        - result
+      - result
       properties:
         result:
           $ref: '#/components/schemas/IssuerRevRegRecord'
@@ -7750,8 +7764,8 @@ components:
           example: '1.0'
     SchemaSendResult:
       required:
-        - schema_id
-        - schema
+      - schema_id
+      - schema
       type: object
       properties:
         schema:
@@ -7865,7 +7879,6 @@ components:
           type: array
           items:
             type: object
-            #$ref: '#/components/schemas/SubmissionRequirements'
         max:
           type: integer
           description: Max Value
