@@ -4,25 +4,30 @@ import attr
 
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="AdminAPIMessageTracing")
+T = TypeVar("T", bound="V20PresentationSendRequestToProposal")
 
 
 @attr.s(auto_attribs=True)
-class AdminAPIMessageTracing:
+class V20PresentationSendRequestToProposal:
     """
     Attributes:
-        trace (Union[Unset, bool]): Record trace information, based on agent configuration
+        auto_verify (Union[Unset, bool]): Verifier choice to auto-verify proof presentation
+        trace (Union[Unset, bool]): Whether to trace event (default false)
     """
 
+    auto_verify: Union[Unset, bool] = UNSET
     trace: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
+        auto_verify = self.auto_verify
         trace = self.trace
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
+        if auto_verify is not UNSET:
+            field_dict["auto_verify"] = auto_verify
         if trace is not UNSET:
             field_dict["trace"] = trace
 
@@ -31,14 +36,17 @@ class AdminAPIMessageTracing:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
+        auto_verify = d.pop("auto_verify", UNSET)
+
         trace = d.pop("trace", UNSET)
 
-        admin_api_message_tracing = cls(
+        v20_presentation_send_request_to_proposal = cls(
+            auto_verify=auto_verify,
             trace=trace,
         )
 
-        admin_api_message_tracing.additional_properties = d
-        return admin_api_message_tracing
+        v20_presentation_send_request_to_proposal.additional_properties = d
+        return v20_presentation_send_request_to_proposal
 
     @property
     def additional_keys(self) -> List[str]:

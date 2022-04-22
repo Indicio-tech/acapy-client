@@ -20,6 +20,7 @@ class V20PresExRecord:
     """
     Attributes:
         auto_present (Union[Unset, bool]): Prover choice to auto-present proof as verifier requests
+        auto_verify (Union[Unset, bool]): Verifier choice to auto-verify proof presentation
         by_format (Union[Unset, V20PresExRecordByFormat]):
         connection_id (Union[Unset, str]): Connection identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
         created_at (Union[Unset, str]): Time of record creation Example: 2021-12-31 23:59:59+00:00.
@@ -40,6 +41,7 @@ class V20PresExRecord:
     """
 
     auto_present: Union[Unset, bool] = UNSET
+    auto_verify: Union[Unset, bool] = UNSET
     by_format: Union[Unset, V20PresExRecordByFormat] = UNSET
     connection_id: Union[Unset, str] = UNSET
     created_at: Union[Unset, str] = UNSET
@@ -59,6 +61,7 @@ class V20PresExRecord:
 
     def to_dict(self) -> Dict[str, Any]:
         auto_present = self.auto_present
+        auto_verify = self.auto_verify
         by_format: Union[Unset, Dict[str, Any]] = UNSET
         if not isinstance(self.by_format, Unset):
             by_format = self.by_format.to_dict()
@@ -103,6 +106,8 @@ class V20PresExRecord:
         field_dict.update({})
         if auto_present is not UNSET:
             field_dict["auto_present"] = auto_present
+        if auto_verify is not UNSET:
+            field_dict["auto_verify"] = auto_verify
         if by_format is not UNSET:
             field_dict["by_format"] = by_format
         if connection_id is not UNSET:
@@ -140,6 +145,8 @@ class V20PresExRecord:
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
         auto_present = d.pop("auto_present", UNSET)
+
+        auto_verify = d.pop("auto_verify", UNSET)
 
         _by_format = d.pop("by_format", UNSET)
         by_format: Union[Unset, V20PresExRecordByFormat]
@@ -213,6 +220,7 @@ class V20PresExRecord:
 
         v20_pres_ex_record = cls(
             auto_present=auto_present,
+            auto_verify=auto_verify,
             by_format=by_format,
             connection_id=connection_id,
             created_at=created_at,

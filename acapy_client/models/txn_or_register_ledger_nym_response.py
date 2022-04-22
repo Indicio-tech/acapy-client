@@ -2,29 +2,37 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
+from ..models.transaction_record import TransactionRecord
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="RegisterLedgerNymResponse")
+T = TypeVar("T", bound="TxnOrRegisterLedgerNymResponse")
 
 
 @attr.s(auto_attribs=True)
-class RegisterLedgerNymResponse:
+class TxnOrRegisterLedgerNymResponse:
     """
     Attributes:
         success (Union[Unset, bool]): Success of nym registration operation Example: True.
+        txn (Union[Unset, TransactionRecord]):
     """
 
     success: Union[Unset, bool] = UNSET
+    txn: Union[Unset, TransactionRecord] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
         success = self.success
+        txn: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.txn, Unset):
+            txn = self.txn.to_dict()
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if success is not UNSET:
             field_dict["success"] = success
+        if txn is not UNSET:
+            field_dict["txn"] = txn
 
         return field_dict
 
@@ -33,12 +41,20 @@ class RegisterLedgerNymResponse:
         d = src_dict.copy()
         success = d.pop("success", UNSET)
 
-        register_ledger_nym_response = cls(
+        _txn = d.pop("txn", UNSET)
+        txn: Union[Unset, TransactionRecord]
+        if isinstance(_txn, Unset):
+            txn = UNSET
+        else:
+            txn = TransactionRecord.from_dict(_txn)
+
+        txn_or_register_ledger_nym_response = cls(
             success=success,
+            txn=txn,
         )
 
-        register_ledger_nym_response.additional_properties = d
-        return register_ledger_nym_response
+        txn_or_register_ledger_nym_response.additional_properties = d
+        return txn_or_register_ledger_nym_response
 
     @property
     def additional_keys(self) -> List[str]:

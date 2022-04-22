@@ -1,7 +1,7 @@
 from enum import Enum
 
 
-class GetRecordsPresentProofRoleSchema(str, Enum):
+class GetPresentProof20RecordsPresentProofRoleSchema(str, Enum):
     PROVER = "prover"
     VERIFIER = "verifier"
 

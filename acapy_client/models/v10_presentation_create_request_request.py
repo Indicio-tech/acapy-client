@@ -13,11 +13,13 @@ class V10PresentationCreateRequestRequest:
     """
     Attributes:
         proof_request (IndyProofRequest):
+        auto_verify (Union[Unset, bool]): Verifier choice to auto-verify proof presentation
         comment (Union[Unset, None, str]):
         trace (Union[Unset, bool]): Whether to trace event (default false)
     """
 
     proof_request: IndyProofRequest
+    auto_verify: Union[Unset, bool] = UNSET
     comment: Union[Unset, None, str] = UNSET
     trace: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
@@ -25,6 +27,7 @@ class V10PresentationCreateRequestRequest:
     def to_dict(self) -> Dict[str, Any]:
         proof_request = self.proof_request.to_dict()
 
+        auto_verify = self.auto_verify
         comment = self.comment
         trace = self.trace
 
@@ -35,6 +38,8 @@ class V10PresentationCreateRequestRequest:
                 "proof_request": proof_request,
             }
         )
+        if auto_verify is not UNSET:
+            field_dict["auto_verify"] = auto_verify
         if comment is not UNSET:
             field_dict["comment"] = comment
         if trace is not UNSET:
@@ -47,12 +52,15 @@ class V10PresentationCreateRequestRequest:
         d = src_dict.copy()
         proof_request = IndyProofRequest.from_dict(d.pop("proof_request"))
 
+        auto_verify = d.pop("auto_verify", UNSET)
+
         comment = d.pop("comment", UNSET)
 
         trace = d.pop("trace", UNSET)
 
         v10_presentation_create_request_request = cls(
             proof_request=proof_request,
+            auto_verify=auto_verify,
             comment=comment,
             trace=trace,
         )

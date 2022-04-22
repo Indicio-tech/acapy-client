@@ -14,12 +14,14 @@ class V20PresSendRequestRequest:
     Attributes:
         connection_id (str): Connection identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
         presentation_request (V20PresRequestByFormat):
+        auto_verify (Union[Unset, bool]): Verifier choice to auto-verify proof presentation
         comment (Union[Unset, None, str]):
         trace (Union[Unset, bool]): Whether to trace event (default false)
     """
 
     connection_id: str
     presentation_request: V20PresRequestByFormat
+    auto_verify: Union[Unset, bool] = UNSET
     comment: Union[Unset, None, str] = UNSET
     trace: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
@@ -28,6 +30,7 @@ class V20PresSendRequestRequest:
         connection_id = self.connection_id
         presentation_request = self.presentation_request.to_dict()
 
+        auto_verify = self.auto_verify
         comment = self.comment
         trace = self.trace
 
@@ -39,6 +42,8 @@ class V20PresSendRequestRequest:
                 "presentation_request": presentation_request,
             }
         )
+        if auto_verify is not UNSET:
+            field_dict["auto_verify"] = auto_verify
         if comment is not UNSET:
             field_dict["comment"] = comment
         if trace is not UNSET:
@@ -53,6 +58,8 @@ class V20PresSendRequestRequest:
 
         presentation_request = V20PresRequestByFormat.from_dict(d.pop("presentation_request"))
 
+        auto_verify = d.pop("auto_verify", UNSET)
+
         comment = d.pop("comment", UNSET)
 
         trace = d.pop("trace", UNSET)
@@ -60,6 +67,7 @@ class V20PresSendRequestRequest:
         v20_pres_send_request_request = cls(
             connection_id=connection_id,
             presentation_request=presentation_request,
+            auto_verify=auto_verify,
             comment=comment,
             trace=trace,
         )

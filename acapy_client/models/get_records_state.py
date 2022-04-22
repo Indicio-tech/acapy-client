@@ -12,6 +12,7 @@ class GetRecordsState(str, Enum):
     CREDENTIAL_RECEIVED = "credential-received"
     DONE = "done"
     CREDENTIAL_REVOKED = "credential-revoked"
+    ABANDONED = "abandoned"
 
     def __str__(self) -> str:
         return str(self.value)

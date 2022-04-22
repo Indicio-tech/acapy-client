@@ -3,8 +3,12 @@ from typing import Any, Dict, Optional, Union
 import httpx
 
 from ...client import Client
-from ...models.get_records_present_proof_role_schema import GetRecordsPresentProofRoleSchema
-from ...models.get_records_present_proof_state_schema import GetRecordsPresentProofStateSchema
+from ...models.get_present_proof_20_records_present_proof_role_schema import (
+    GetPresentProof20RecordsPresentProofRoleSchema,
+)
+from ...models.get_present_proof_20_records_present_proof_state_schema import (
+    GetPresentProof20RecordsPresentProofStateSchema,
+)
 from ...models.v20_pres_ex_record_list import V20PresExRecordList
 from ...types import UNSET, Response, Unset
 
@@ -13,8 +17,8 @@ def _get_kwargs(
     *,
     client: Client,
     connection_id: Union[Unset, None, str] = UNSET,
-    role: Union[Unset, None, GetRecordsPresentProofRoleSchema] = UNSET,
-    state: Union[Unset, None, GetRecordsPresentProofStateSchema] = UNSET,
+    role: Union[Unset, None, GetPresentProof20RecordsPresentProofRoleSchema] = UNSET,
+    state: Union[Unset, None, GetPresentProof20RecordsPresentProofStateSchema] = UNSET,
     thread_id: Union[Unset, None, str] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/present-proof-2.0/records".format(client.base_url)
@@ -72,16 +76,16 @@ def sync_detailed(
     *,
     client: Client,
     connection_id: Union[Unset, None, str] = UNSET,
-    role: Union[Unset, None, GetRecordsPresentProofRoleSchema] = UNSET,
-    state: Union[Unset, None, GetRecordsPresentProofStateSchema] = UNSET,
+    role: Union[Unset, None, GetPresentProof20RecordsPresentProofRoleSchema] = UNSET,
+    state: Union[Unset, None, GetPresentProof20RecordsPresentProofStateSchema] = UNSET,
     thread_id: Union[Unset, None, str] = UNSET,
 ) -> Response[V20PresExRecordList]:
     """Fetch all present-proof exchange records
 
     Args:
         connection_id (Union[Unset, None, str]):
-        role (Union[Unset, None, GetRecordsPresentProofRoleSchema]):
-        state (Union[Unset, None, GetRecordsPresentProofStateSchema]):
+        role (Union[Unset, None, GetPresentProof20RecordsPresentProofRoleSchema]):
+        state (Union[Unset, None, GetPresentProof20RecordsPresentProofStateSchema]):
         thread_id (Union[Unset, None, str]):
 
     Returns:
@@ -108,16 +112,16 @@ def sync(
     *,
     client: Client,
     connection_id: Union[Unset, None, str] = UNSET,
-    role: Union[Unset, None, GetRecordsPresentProofRoleSchema] = UNSET,
-    state: Union[Unset, None, GetRecordsPresentProofStateSchema] = UNSET,
+    role: Union[Unset, None, GetPresentProof20RecordsPresentProofRoleSchema] = UNSET,
+    state: Union[Unset, None, GetPresentProof20RecordsPresentProofStateSchema] = UNSET,
     thread_id: Union[Unset, None, str] = UNSET,
 ) -> Optional[V20PresExRecordList]:
     """Fetch all present-proof exchange records
 
     Args:
         connection_id (Union[Unset, None, str]):
-        role (Union[Unset, None, GetRecordsPresentProofRoleSchema]):
-        state (Union[Unset, None, GetRecordsPresentProofStateSchema]):
+        role (Union[Unset, None, GetPresentProof20RecordsPresentProofRoleSchema]):
+        state (Union[Unset, None, GetPresentProof20RecordsPresentProofStateSchema]):
         thread_id (Union[Unset, None, str]):
 
     Returns:
@@ -137,16 +141,16 @@ async def asyncio_detailed(
     *,
     client: Client,
     connection_id: Union[Unset, None, str] = UNSET,
-    role: Union[Unset, None, GetRecordsPresentProofRoleSchema] = UNSET,
-    state: Union[Unset, None, GetRecordsPresentProofStateSchema] = UNSET,
+    role: Union[Unset, None, GetPresentProof20RecordsPresentProofRoleSchema] = UNSET,
+    state: Union[Unset, None, GetPresentProof20RecordsPresentProofStateSchema] = UNSET,
     thread_id: Union[Unset, None, str] = UNSET,
 ) -> Response[V20PresExRecordList]:
     """Fetch all present-proof exchange records
 
     Args:
         connection_id (Union[Unset, None, str]):
-        role (Union[Unset, None, GetRecordsPresentProofRoleSchema]):
-        state (Union[Unset, None, GetRecordsPresentProofStateSchema]):
+        role (Union[Unset, None, GetPresentProof20RecordsPresentProofRoleSchema]):
+        state (Union[Unset, None, GetPresentProof20RecordsPresentProofStateSchema]):
         thread_id (Union[Unset, None, str]):
 
     Returns:
@@ -171,16 +175,16 @@ async def asyncio(
     *,
     client: Client,
     connection_id: Union[Unset, None, str] = UNSET,
-    role: Union[Unset, None, GetRecordsPresentProofRoleSchema] = UNSET,
-    state: Union[Unset, None, GetRecordsPresentProofStateSchema] = UNSET,
+    role: Union[Unset, None, GetPresentProof20RecordsPresentProofRoleSchema] = UNSET,
+    state: Union[Unset, None, GetPresentProof20RecordsPresentProofStateSchema] = UNSET,
     thread_id: Union[Unset, None, str] = UNSET,
 ) -> Optional[V20PresExRecordList]:
     """Fetch all present-proof exchange records
 
     Args:
         connection_id (Union[Unset, None, str]):
-        role (Union[Unset, None, GetRecordsPresentProofRoleSchema]):
-        state (Union[Unset, None, GetRecordsPresentProofStateSchema]):
+        role (Union[Unset, None, GetPresentProof20RecordsPresentProofRoleSchema]):
+        state (Union[Unset, None, GetPresentProof20RecordsPresentProofStateSchema]):
         thread_id (Union[Unset, None, str]):
 
     Returns:

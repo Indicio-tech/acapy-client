@@ -2,6 +2,7 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
+from ..models.dif_options import DIFOptions
 from ..models.input_descriptors import InputDescriptors
 from ..types import UNSET, Unset
 
@@ -13,9 +14,11 @@ class DIFProofProposal:
     """
     Attributes:
         input_descriptors (Union[Unset, List[InputDescriptors]]):
+        options (Union[Unset, DIFOptions]):
     """
 
     input_descriptors: Union[Unset, List[InputDescriptors]] = UNSET
+    options: Union[Unset, DIFOptions] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -27,11 +30,17 @@ class DIFProofProposal:
 
                 input_descriptors.append(input_descriptors_item)
 
+        options: Union[Unset, Dict[str, Any]] = UNSET
+        if not isinstance(self.options, Unset):
+            options = self.options.to_dict()
+
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
         if input_descriptors is not UNSET:
             field_dict["input_descriptors"] = input_descriptors
+        if options is not UNSET:
+            field_dict["options"] = options
 
         return field_dict
 
@@ -45,8 +54,16 @@ class DIFProofProposal:
 
             input_descriptors.append(input_descriptors_item)
 
+        _options = d.pop("options", UNSET)
+        options: Union[Unset, DIFOptions]
+        if isinstance(_options, Unset):
+            options = UNSET
+        else:
+            options = DIFOptions.from_dict(_options)
+
         dif_proof_proposal = cls(
             input_descriptors=input_descriptors,
+            options=options,
         )
 
         dif_proof_proposal.additional_properties = d

@@ -2,7 +2,6 @@
 
 from .action_menu_fetch_result import ActionMenuFetchResult
 from .action_menu_modules_result import ActionMenuModulesResult
-from .admin_api_message_tracing import AdminAPIMessageTracing
 from .admin_config import AdminConfig
 from .admin_config_config import AdminConfigConfig
 from .admin_mediation_deny import AdminMediationDeny
@@ -140,10 +139,10 @@ from .get_mediation_keylists_role import GetMediationKeylistsRole
 from .get_mediation_requests_state import GetMediationRequestsState
 from .get_nym_role_response import GetNymRoleResponse
 from .get_nym_role_response_role import GetNymRoleResponseRole
+from .get_present_proof_20_records_present_proof_role_schema import GetPresentProof20RecordsPresentProofRoleSchema
+from .get_present_proof_20_records_present_proof_state_schema import GetPresentProof20RecordsPresentProofStateSchema
 from .get_present_proof_records_role import GetPresentProofRecordsRole
 from .get_present_proof_records_state import GetPresentProofRecordsState
-from .get_records_present_proof_role_schema import GetRecordsPresentProofRoleSchema
-from .get_records_present_proof_state_schema import GetRecordsPresentProofStateSchema
 from .get_records_role import GetRecordsRole
 from .get_records_state import GetRecordsState
 from .get_revocation_registries_created_state import GetRevocationRegistriesCreatedState
@@ -230,7 +229,7 @@ from .intro_module_response import IntroModuleResponse
 from .invitation_create_request import InvitationCreateRequest
 from .invitation_create_request_metadata import InvitationCreateRequestMetadata
 from .invitation_message import InvitationMessage
-from .invitation_message_services_item_type_0 import InvitationMessageServicesItemType0
+from .invitation_message_services_item import InvitationMessageServicesItem
 from .invitation_record import InvitationRecord
 from .invitation_result import InvitationResult
 from .issue_credential_module_response import IssueCredentialModuleResponse
@@ -285,7 +284,6 @@ from .query_item import QueryItem
 from .query_item_feature_type import QueryItemFeatureType
 from .raw_encoded import RawEncoded
 from .receive_invitation_request import ReceiveInvitationRequest
-from .register_ledger_nym_response import RegisterLedgerNymResponse
 from .remove_wallet_request import RemoveWalletRequest
 from .resolution_result import ResolutionResult
 from .resolution_result_did_doc import ResolutionResultDidDoc
@@ -333,6 +331,7 @@ from .transaction_record_signature_response_item import TransactionRecordSignatu
 from .transaction_record_timing import TransactionRecordTiming
 from .txn_or_credential_definition_send_result import TxnOrCredentialDefinitionSendResult
 from .txn_or_publish_revocations_result import TxnOrPublishRevocationsResult
+from .txn_or_register_ledger_nym_response import TxnOrRegisterLedgerNymResponse
 from .txn_or_rev_reg_result import TxnOrRevRegResult
 from .txn_or_schema_send_result import TxnOrSchemaSendResult
 from .update_wallet_request import UpdateWalletRequest
@@ -364,6 +363,7 @@ from .v10_presentation_exchange_verified import V10PresentationExchangeVerified
 from .v10_presentation_problem_report_request import V10PresentationProblemReportRequest
 from .v10_presentation_proposal_request import V10PresentationProposalRequest
 from .v10_presentation_send_request_request import V10PresentationSendRequestRequest
+from .v10_presentation_send_request_to_proposal import V10PresentationSendRequestToProposal
 from .v20_cred_attr_spec import V20CredAttrSpec
 from .v20_cred_bound_offer_request import V20CredBoundOfferRequest
 from .v20_cred_ex_free import V20CredExFree
@@ -424,6 +424,7 @@ from .v20_pres_request_by_format import V20PresRequestByFormat
 from .v20_pres_send_request_request import V20PresSendRequestRequest
 from .v20_pres_spec_by_format_request import V20PresSpecByFormatRequest
 from .v20_present_proof_module_response import V20PresentProofModuleResponse
+from .v20_presentation_send_request_to_proposal import V20PresentationSendRequestToProposal
 from .vc_record import VCRecord
 from .vc_record_cred_tags import VCRecordCredTags
 from .vc_record_cred_value import VCRecordCredValue
