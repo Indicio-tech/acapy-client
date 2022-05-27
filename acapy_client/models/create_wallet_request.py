@@ -4,6 +4,7 @@ import attr
 
 from ..models.create_wallet_request_key_management_mode import CreateWalletRequestKeyManagementMode
 from ..models.create_wallet_request_wallet_dispatch_type import CreateWalletRequestWalletDispatchType
+from ..models.create_wallet_request_wallet_key_derivation import CreateWalletRequestWalletKeyDerivation
 from ..models.create_wallet_request_wallet_type import CreateWalletRequestWalletType
 from ..types import UNSET, Unset
 
@@ -25,6 +26,7 @@ class CreateWalletRequest:
             Dispatch only to webhooks associated with the base wallet.             both - Dispatch to both webhook targets.
             Example: default.
         wallet_key (Union[Unset, str]): Master key used for key derivation. Example: MySecretKey123.
+        wallet_key_derivation (Union[Unset, CreateWalletRequestWalletKeyDerivation]): Key derivation Example: RAW.
         wallet_name (Union[Unset, str]): Wallet name Example: MyNewWallet.
         wallet_type (Union[Unset, CreateWalletRequestWalletType]): Type of the wallet to create Example: indy.
         wallet_webhook_urls (Union[Unset, List[str]]): List of Webhook URLs associated with this subwallet
@@ -35,6 +37,7 @@ class CreateWalletRequest:
     label: Union[Unset, str] = UNSET
     wallet_dispatch_type: Union[Unset, CreateWalletRequestWalletDispatchType] = UNSET
     wallet_key: Union[Unset, str] = UNSET
+    wallet_key_derivation: Union[Unset, CreateWalletRequestWalletKeyDerivation] = UNSET
     wallet_name: Union[Unset, str] = UNSET
     wallet_type: Union[Unset, CreateWalletRequestWalletType] = UNSET
     wallet_webhook_urls: Union[Unset, List[str]] = UNSET
@@ -52,6 +55,10 @@ class CreateWalletRequest:
             wallet_dispatch_type = self.wallet_dispatch_type.value
 
         wallet_key = self.wallet_key
+        wallet_key_derivation: Union[Unset, str] = UNSET
+        if not isinstance(self.wallet_key_derivation, Unset):
+            wallet_key_derivation = self.wallet_key_derivation.value
+
         wallet_name = self.wallet_name
         wallet_type: Union[Unset, str] = UNSET
         if not isinstance(self.wallet_type, Unset):
@@ -74,6 +81,8 @@ class CreateWalletRequest:
             field_dict["wallet_dispatch_type"] = wallet_dispatch_type
         if wallet_key is not UNSET:
             field_dict["wallet_key"] = wallet_key
+        if wallet_key_derivation is not UNSET:
+            field_dict["wallet_key_derivation"] = wallet_key_derivation
         if wallet_name is not UNSET:
             field_dict["wallet_name"] = wallet_name
         if wallet_type is not UNSET:
@@ -106,6 +115,13 @@ class CreateWalletRequest:
 
         wallet_key = d.pop("wallet_key", UNSET)
 
+        _wallet_key_derivation = d.pop("wallet_key_derivation", UNSET)
+        wallet_key_derivation: Union[Unset, CreateWalletRequestWalletKeyDerivation]
+        if isinstance(_wallet_key_derivation, Unset):
+            wallet_key_derivation = UNSET
+        else:
+            wallet_key_derivation = CreateWalletRequestWalletKeyDerivation(_wallet_key_derivation)
+
         wallet_name = d.pop("wallet_name", UNSET)
 
         _wallet_type = d.pop("wallet_type", UNSET)
@@ -123,6 +139,7 @@ class CreateWalletRequest:
             label=label,
             wallet_dispatch_type=wallet_dispatch_type,
             wallet_key=wallet_key,
+            wallet_key_derivation=wallet_key_derivation,
             wallet_name=wallet_name,
             wallet_type=wallet_type,
             wallet_webhook_urls=wallet_webhook_urls,

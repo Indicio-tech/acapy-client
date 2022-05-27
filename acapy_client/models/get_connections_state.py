@@ -3,14 +3,14 @@ from enum import Enum
 
 class GetConnectionsState(str, Enum):
     ERROR = "error"
+    START = "start"
+    ABANDONED = "abandoned"
     ACTIVE = "active"
     INVITATION = "invitation"
-    INIT = "init"
-    START = "start"
     RESPONSE = "response"
-    REQUEST = "request"
+    INIT = "init"
     COMPLETED = "completed"
-    ABANDONED = "abandoned"
+    REQUEST = "request"
 
     def __str__(self) -> str:
         return str(self.value)

@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
   title: Aries Cloud Agent
-  version: v0.7.4-rc0
+  version: v0.7.4-rc2
 servers:
 - url: /
 security:
@@ -263,14 +263,14 @@ paths:
           type: string
           enum:
           - error
+          - start
+          - abandoned
           - active
           - invitation
-          - init
-          - start
           - response
-          - request
+          - init
           - completed
-          - abandoned
+          - request
       - name: their_did
         in: query
         description: Their DID
@@ -4830,6 +4830,14 @@ components:
           type: string
           description: Master key used for key derivation.
           example: MySecretKey123
+        wallet_key_derivation:
+          type: string
+          description: Key derivation
+          example: RAW
+          enum:
+          - ARGON2I_MOD
+          - ARGON2I_INT
+          - RAW
         wallet_name:
           type: string
           description: Wallet name
