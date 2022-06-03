@@ -262,15 +262,15 @@ paths:
         schema:
           type: string
           enum:
-          - error
+          - response
+          - completed
           - start
           - abandoned
+          - error
+          - request
           - active
           - invitation
-          - response
           - init
-          - completed
-          - request
       - name: their_did
         in: query
         description: Their DID
@@ -6664,7 +6664,9 @@ components:
             type: string
           - did:sov:WgWxqztrNooG92RXvxSTWv
           items:
-            type: object
+            oneOf:
+            - type: object
+            - type: string
             description: Either a DIDComm service object (as per RFC0067) or a DID
               string.
     InvitationRecord:

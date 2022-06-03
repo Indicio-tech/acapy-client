@@ -2,12 +2,12 @@ from typing import Any, Dict, List, Type, TypeVar
 
 import attr
 
-T = TypeVar("T", bound="InvitationMessageServicesItem")
+T = TypeVar("T", bound="InvitationMessageServicesItemType0")
 
 
 @attr.s(auto_attribs=True)
-class InvitationMessageServicesItem:
-    """Either a DIDComm service object (as per RFC0067) or a DID string."""
+class InvitationMessageServicesItemType0:
+    """ """
 
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
@@ -22,10 +22,10 @@ class InvitationMessageServicesItem:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        invitation_message_services_item = cls()
+        invitation_message_services_item_type_0 = cls()
 
-        invitation_message_services_item.additional_properties = d
-        return invitation_message_services_item
+        invitation_message_services_item_type_0.additional_properties = d
+        return invitation_message_services_item_type_0
 
     @property
     def additional_keys(self) -> List[str]:

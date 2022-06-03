@@ -3,7 +3,7 @@ from typing import Any, Dict, List, Type, TypeVar, Union, cast
 import attr
 
 from ..models.attach_decorator import AttachDecorator
-from ..models.invitation_message_services_item import InvitationMessageServicesItem
+from ..models.invitation_message_services_item_type_0 import InvitationMessageServicesItemType0
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="InvitationMessage")
@@ -18,8 +18,9 @@ class InvitationMessage:
         handshake_protocols (Union[Unset, List[str]]):
         label (Union[Unset, str]): Optional label Example: Bob.
         requestsattach (Union[Unset, List[AttachDecorator]]): Optional request attachment
-        services (Union[Unset, List[InvitationMessageServicesItem]]):  Example: [{'did': 'WgWxqztrNooG92RXvxSTWv', 'id':
-            'string', 'recipientKeys': ['did:key:z6MkpTHR8VNsBxYAAWHut2Geadd9jSwuBV8xRoAnwWsdvktH'], 'routingKeys':
+        services (Union[Unset, List[Union[InvitationMessageServicesItemType0, str]]]):  Example: [{'did':
+            'WgWxqztrNooG92RXvxSTWv', 'id': 'string', 'recipientKeys':
+            ['did:key:z6MkpTHR8VNsBxYAAWHut2Geadd9jSwuBV8xRoAnwWsdvktH'], 'routingKeys':
             ['did:key:z6MkpTHR8VNsBxYAAWHut2Geadd9jSwuBV8xRoAnwWsdvktH'], 'serviceEndpoint': 'http://192.168.56.101:8020',
             'type': 'string'}, 'did:sov:WgWxqztrNooG92RXvxSTWv'].
     """
@@ -29,7 +30,7 @@ class InvitationMessage:
     handshake_protocols: Union[Unset, List[str]] = UNSET
     label: Union[Unset, str] = UNSET
     requestsattach: Union[Unset, List[AttachDecorator]] = UNSET
-    services: Union[Unset, List[InvitationMessageServicesItem]] = UNSET
+    services: Union[Unset, List[Union[InvitationMessageServicesItemType0, str]]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
@@ -48,11 +49,16 @@ class InvitationMessage:
 
                 requestsattach.append(requestsattach_item)
 
-        services: Union[Unset, List[Dict[str, Any]]] = UNSET
+        services: Union[Unset, List[Union[Dict[str, Any], str]]] = UNSET
         if not isinstance(self.services, Unset):
             services = []
             for services_item_data in self.services:
-                services_item = services_item_data.to_dict()
+
+                if isinstance(services_item_data, InvitationMessageServicesItemType0):
+                    services_item = services_item_data.to_dict()
+
+                else:
+                    services_item = services_item_data
 
                 services.append(services_item)
 
@@ -95,7 +101,19 @@ class InvitationMessage:
         services = []
         _services = d.pop("services", UNSET)
         for services_item_data in _services or []:
-            services_item = InvitationMessageServicesItem.from_dict(services_item_data)
+
+            def _parse_services_item(data: object) -> Union[InvitationMessageServicesItemType0, str]:
+                try:
+                    if not isinstance(data, dict):
+                        raise TypeError()
+                    services_item_type_0 = InvitationMessageServicesItemType0.from_dict(data)
+
+                    return services_item_type_0
+                except:  # noqa: E722
+                    pass
+                return cast(Union[InvitationMessageServicesItemType0, str], data)
+
+            services_item = _parse_services_item(services_item_data)
 
             services.append(services_item)
 
