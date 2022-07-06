@@ -16,6 +16,7 @@ def _get_kwargs(
     alias: Union[Unset, None, str] = UNSET,
     connection_protocol: Union[Unset, None, GetConnectionsConnectionProtocol] = UNSET,
     invitation_key: Union[Unset, None, str] = UNSET,
+    invitation_msg_id: Union[Unset, None, str] = UNSET,
     my_did: Union[Unset, None, str] = UNSET,
     state: Union[Unset, None, GetConnectionsState] = UNSET,
     their_did: Union[Unset, None, str] = UNSET,
@@ -37,6 +38,8 @@ def _get_kwargs(
     params["connection_protocol"] = json_connection_protocol
 
     params["invitation_key"] = invitation_key
+
+    params["invitation_msg_id"] = invitation_msg_id
 
     params["my_did"] = my_did
 
@@ -91,6 +94,7 @@ def sync_detailed(
     alias: Union[Unset, None, str] = UNSET,
     connection_protocol: Union[Unset, None, GetConnectionsConnectionProtocol] = UNSET,
     invitation_key: Union[Unset, None, str] = UNSET,
+    invitation_msg_id: Union[Unset, None, str] = UNSET,
     my_did: Union[Unset, None, str] = UNSET,
     state: Union[Unset, None, GetConnectionsState] = UNSET,
     their_did: Union[Unset, None, str] = UNSET,
@@ -103,6 +107,7 @@ def sync_detailed(
         alias (Union[Unset, None, str]):
         connection_protocol (Union[Unset, None, GetConnectionsConnectionProtocol]):
         invitation_key (Union[Unset, None, str]):
+        invitation_msg_id (Union[Unset, None, str]):
         my_did (Union[Unset, None, str]):
         state (Union[Unset, None, GetConnectionsState]):
         their_did (Union[Unset, None, str]):
@@ -118,6 +123,7 @@ def sync_detailed(
         alias=alias,
         connection_protocol=connection_protocol,
         invitation_key=invitation_key,
+        invitation_msg_id=invitation_msg_id,
         my_did=my_did,
         state=state,
         their_did=their_did,
@@ -139,6 +145,7 @@ def sync(
     alias: Union[Unset, None, str] = UNSET,
     connection_protocol: Union[Unset, None, GetConnectionsConnectionProtocol] = UNSET,
     invitation_key: Union[Unset, None, str] = UNSET,
+    invitation_msg_id: Union[Unset, None, str] = UNSET,
     my_did: Union[Unset, None, str] = UNSET,
     state: Union[Unset, None, GetConnectionsState] = UNSET,
     their_did: Union[Unset, None, str] = UNSET,
@@ -151,6 +158,7 @@ def sync(
         alias (Union[Unset, None, str]):
         connection_protocol (Union[Unset, None, GetConnectionsConnectionProtocol]):
         invitation_key (Union[Unset, None, str]):
+        invitation_msg_id (Union[Unset, None, str]):
         my_did (Union[Unset, None, str]):
         state (Union[Unset, None, GetConnectionsState]):
         their_did (Union[Unset, None, str]):
@@ -166,6 +174,7 @@ def sync(
         alias=alias,
         connection_protocol=connection_protocol,
         invitation_key=invitation_key,
+        invitation_msg_id=invitation_msg_id,
         my_did=my_did,
         state=state,
         their_did=their_did,
@@ -180,6 +189,7 @@ async def asyncio_detailed(
     alias: Union[Unset, None, str] = UNSET,
     connection_protocol: Union[Unset, None, GetConnectionsConnectionProtocol] = UNSET,
     invitation_key: Union[Unset, None, str] = UNSET,
+    invitation_msg_id: Union[Unset, None, str] = UNSET,
     my_did: Union[Unset, None, str] = UNSET,
     state: Union[Unset, None, GetConnectionsState] = UNSET,
     their_did: Union[Unset, None, str] = UNSET,
@@ -192,6 +202,7 @@ async def asyncio_detailed(
         alias (Union[Unset, None, str]):
         connection_protocol (Union[Unset, None, GetConnectionsConnectionProtocol]):
         invitation_key (Union[Unset, None, str]):
+        invitation_msg_id (Union[Unset, None, str]):
         my_did (Union[Unset, None, str]):
         state (Union[Unset, None, GetConnectionsState]):
         their_did (Union[Unset, None, str]):
@@ -207,6 +218,7 @@ async def asyncio_detailed(
         alias=alias,
         connection_protocol=connection_protocol,
         invitation_key=invitation_key,
+        invitation_msg_id=invitation_msg_id,
         my_did=my_did,
         state=state,
         their_did=their_did,
@@ -226,6 +238,7 @@ async def asyncio(
     alias: Union[Unset, None, str] = UNSET,
     connection_protocol: Union[Unset, None, GetConnectionsConnectionProtocol] = UNSET,
     invitation_key: Union[Unset, None, str] = UNSET,
+    invitation_msg_id: Union[Unset, None, str] = UNSET,
     my_did: Union[Unset, None, str] = UNSET,
     state: Union[Unset, None, GetConnectionsState] = UNSET,
     their_did: Union[Unset, None, str] = UNSET,
@@ -238,6 +251,7 @@ async def asyncio(
         alias (Union[Unset, None, str]):
         connection_protocol (Union[Unset, None, GetConnectionsConnectionProtocol]):
         invitation_key (Union[Unset, None, str]):
+        invitation_msg_id (Union[Unset, None, str]):
         my_did (Union[Unset, None, str]):
         state (Union[Unset, None, GetConnectionsState]):
         their_did (Union[Unset, None, str]):
@@ -254,6 +268,7 @@ async def asyncio(
             alias=alias,
             connection_protocol=connection_protocol,
             invitation_key=invitation_key,
+            invitation_msg_id=invitation_msg_id,
             my_did=my_did,
             state=state,
             their_did=their_did,

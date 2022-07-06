@@ -2,6 +2,7 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
+from ..models.revoke_request_notify_version import RevokeRequestNotifyVersion
 from ..types import UNSET, Unset
 
 T = TypeVar("T", bound="RevokeRequest")
@@ -17,6 +18,8 @@ class RevokeRequest:
         cred_ex_id (Union[Unset, str]): Credential exchange identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
         cred_rev_id (Union[Unset, str]): Credential revocation identifier Example: 12345.
         notify (Union[Unset, bool]): Send a notification to the credential recipient
+        notify_version (Union[Unset, RevokeRequestNotifyVersion]): Specify which version of the revocation notification
+            should be sent
         publish (Union[Unset, bool]): (True) publish revocation to ledger immediately, or (default, False) mark it
             pending
         rev_reg_id (Union[Unset, str]): Revocation registry identifier Example:
@@ -30,6 +33,7 @@ class RevokeRequest:
     cred_ex_id: Union[Unset, str] = UNSET
     cred_rev_id: Union[Unset, str] = UNSET
     notify: Union[Unset, bool] = UNSET
+    notify_version: Union[Unset, RevokeRequestNotifyVersion] = UNSET
     publish: Union[Unset, bool] = UNSET
     rev_reg_id: Union[Unset, str] = UNSET
     thread_id: Union[Unset, str] = UNSET
@@ -41,6 +45,10 @@ class RevokeRequest:
         cred_ex_id = self.cred_ex_id
         cred_rev_id = self.cred_rev_id
         notify = self.notify
+        notify_version: Union[Unset, str] = UNSET
+        if not isinstance(self.notify_version, Unset):
+            notify_version = self.notify_version.value
+
         publish = self.publish
         rev_reg_id = self.rev_reg_id
         thread_id = self.thread_id
@@ -58,6 +66,8 @@ class RevokeRequest:
             field_dict["cred_rev_id"] = cred_rev_id
         if notify is not UNSET:
             field_dict["notify"] = notify
+        if notify_version is not UNSET:
+            field_dict["notify_version"] = notify_version
         if publish is not UNSET:
             field_dict["publish"] = publish
         if rev_reg_id is not UNSET:
@@ -80,6 +90,13 @@ class RevokeRequest:
 
         notify = d.pop("notify", UNSET)
 
+        _notify_version = d.pop("notify_version", UNSET)
+        notify_version: Union[Unset, RevokeRequestNotifyVersion]
+        if isinstance(_notify_version, Unset):
+            notify_version = UNSET
+        else:
+            notify_version = RevokeRequestNotifyVersion(_notify_version)
+
         publish = d.pop("publish", UNSET)
 
         rev_reg_id = d.pop("rev_reg_id", UNSET)
@@ -92,6 +109,7 @@ class RevokeRequest:
             cred_ex_id=cred_ex_id,
             cred_rev_id=cred_rev_id,
             notify=notify,
+            notify_version=notify_version,
             publish=publish,
             rev_reg_id=rev_reg_id,
             thread_id=thread_id,

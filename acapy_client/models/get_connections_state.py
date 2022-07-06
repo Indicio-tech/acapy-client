@@ -2,15 +2,15 @@ from enum import Enum
 
 
 class GetConnectionsState(str, Enum):
-    RESPONSE = "response"
-    COMPLETED = "completed"
-    START = "start"
     ABANDONED = "abandoned"
-    ERROR = "error"
-    REQUEST = "request"
-    ACTIVE = "active"
     INVITATION = "invitation"
+    ERROR = "error"
+    COMPLETED = "completed"
+    ACTIVE = "active"
+    REQUEST = "request"
     INIT = "init"
+    START = "start"
+    RESPONSE = "response"
 
     def __str__(self) -> str:
         return str(self.value)

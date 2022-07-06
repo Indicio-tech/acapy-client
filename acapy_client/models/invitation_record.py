@@ -18,6 +18,7 @@ class InvitationRecord:
         invitation_id (Union[Unset, str]): Invitation record identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
         invitation_url (Union[Unset, str]): Invitation message URL Example:
             https://example.com/endpoint?c_i=eyJAdHlwZSI6ICIuLi4iLCAiLi4uIjogIi4uLiJ9XX0=.
+        oob_id (Union[Unset, str]): Out of band record identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
         state (Union[Unset, str]): Out of band message exchange state Example: await_response.
         trace (Union[Unset, bool]): Record trace information, based on agent configuration
         updated_at (Union[Unset, str]): Time of last record update Example: 2021-12-31 23:59:59+00:00.
@@ -28,6 +29,7 @@ class InvitationRecord:
     invitation: Union[Unset, InvitationMessage] = UNSET
     invitation_id: Union[Unset, str] = UNSET
     invitation_url: Union[Unset, str] = UNSET
+    oob_id: Union[Unset, str] = UNSET
     state: Union[Unset, str] = UNSET
     trace: Union[Unset, bool] = UNSET
     updated_at: Union[Unset, str] = UNSET
@@ -42,6 +44,7 @@ class InvitationRecord:
 
         invitation_id = self.invitation_id
         invitation_url = self.invitation_url
+        oob_id = self.oob_id
         state = self.state
         trace = self.trace
         updated_at = self.updated_at
@@ -59,6 +62,8 @@ class InvitationRecord:
             field_dict["invitation_id"] = invitation_id
         if invitation_url is not UNSET:
             field_dict["invitation_url"] = invitation_url
+        if oob_id is not UNSET:
+            field_dict["oob_id"] = oob_id
         if state is not UNSET:
             field_dict["state"] = state
         if trace is not UNSET:
@@ -86,6 +91,8 @@ class InvitationRecord:
 
         invitation_url = d.pop("invitation_url", UNSET)
 
+        oob_id = d.pop("oob_id", UNSET)
+
         state = d.pop("state", UNSET)
 
         trace = d.pop("trace", UNSET)
@@ -98,6 +105,7 @@ class InvitationRecord:
             invitation=invitation,
             invitation_id=invitation_id,
             invitation_url=invitation_url,
+            oob_id=oob_id,
             state=state,
             trace=trace,
             updated_at=updated_at,

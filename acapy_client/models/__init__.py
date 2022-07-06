@@ -72,6 +72,9 @@ from .cred_def_value import CredDefValue
 from .cred_def_value_primary import CredDefValuePrimary
 from .cred_def_value_revocation import CredDefValueRevocation
 from .cred_info_list import CredInfoList
+from .cred_rev_indy_records_result import CredRevIndyRecordsResult
+from .cred_rev_indy_records_result_rev_reg_delta import CredRevIndyRecordsResultRevRegDelta
+from .cred_rev_record_details_result import CredRevRecordDetailsResult
 from .cred_rev_record_result import CredRevRecordResult
 from .cred_revoked_result import CredRevokedResult
 from .credential import Credential
@@ -293,9 +296,14 @@ from .rev_reg_create_request import RevRegCreateRequest
 from .rev_reg_issued_result import RevRegIssuedResult
 from .rev_reg_result import RevRegResult
 from .rev_reg_update_tails_file_uri import RevRegUpdateTailsFileUri
+from .rev_reg_wallet_updated_result import RevRegWalletUpdatedResult
+from .rev_reg_wallet_updated_result_accum_calculated import RevRegWalletUpdatedResultAccumCalculated
+from .rev_reg_wallet_updated_result_accum_fixed import RevRegWalletUpdatedResultAccumFixed
+from .rev_reg_wallet_updated_result_rev_reg_delta import RevRegWalletUpdatedResultRevRegDelta
 from .rev_regs_created import RevRegsCreated
 from .revocation_module_response import RevocationModuleResponse
 from .revoke_request import RevokeRequest
+from .revoke_request_notify_version import RevokeRequestNotifyVersion
 from .route_record import RouteRecord
 from .schema import Schema
 from .schema_get_result import SchemaGetResult
