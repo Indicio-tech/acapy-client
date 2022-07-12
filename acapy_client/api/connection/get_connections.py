@@ -16,9 +16,11 @@ def _get_kwargs(
     alias: Union[Unset, None, str] = UNSET,
     connection_protocol: Union[Unset, None, GetConnectionsConnectionProtocol] = UNSET,
     invitation_key: Union[Unset, None, str] = UNSET,
+    invitation_msg_id: Union[Unset, None, str] = UNSET,
     my_did: Union[Unset, None, str] = UNSET,
     state: Union[Unset, None, GetConnectionsState] = UNSET,
     their_did: Union[Unset, None, str] = UNSET,
+    their_public_did: Union[Unset, None, str] = UNSET,
     their_role: Union[Unset, None, GetConnectionsTheirRole] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/connections".format(client.base_url)
@@ -37,6 +39,8 @@ def _get_kwargs(
 
     params["invitation_key"] = invitation_key
 
+    params["invitation_msg_id"] = invitation_msg_id
+
     params["my_did"] = my_did
 
     json_state: Union[Unset, None, str] = UNSET
@@ -46,6 +50,8 @@ def _get_kwargs(
     params["state"] = json_state
 
     params["their_did"] = their_did
+
+    params["their_public_did"] = their_public_did
 
     json_their_role: Union[Unset, None, str] = UNSET
     if not isinstance(their_role, Unset):
@@ -88,9 +94,11 @@ def sync_detailed(
     alias: Union[Unset, None, str] = UNSET,
     connection_protocol: Union[Unset, None, GetConnectionsConnectionProtocol] = UNSET,
     invitation_key: Union[Unset, None, str] = UNSET,
+    invitation_msg_id: Union[Unset, None, str] = UNSET,
     my_did: Union[Unset, None, str] = UNSET,
     state: Union[Unset, None, GetConnectionsState] = UNSET,
     their_did: Union[Unset, None, str] = UNSET,
+    their_public_did: Union[Unset, None, str] = UNSET,
     their_role: Union[Unset, None, GetConnectionsTheirRole] = UNSET,
 ) -> Response[ConnectionList]:
     """Query agent-to-agent connections
@@ -99,9 +107,11 @@ def sync_detailed(
         alias (Union[Unset, None, str]):
         connection_protocol (Union[Unset, None, GetConnectionsConnectionProtocol]):
         invitation_key (Union[Unset, None, str]):
+        invitation_msg_id (Union[Unset, None, str]):
         my_did (Union[Unset, None, str]):
         state (Union[Unset, None, GetConnectionsState]):
         their_did (Union[Unset, None, str]):
+        their_public_did (Union[Unset, None, str]):
         their_role (Union[Unset, None, GetConnectionsTheirRole]):
 
     Returns:
@@ -113,9 +123,11 @@ def sync_detailed(
         alias=alias,
         connection_protocol=connection_protocol,
         invitation_key=invitation_key,
+        invitation_msg_id=invitation_msg_id,
         my_did=my_did,
         state=state,
         their_did=their_did,
+        their_public_did=their_public_did,
         their_role=their_role,
     )
 
@@ -133,9 +145,11 @@ def sync(
     alias: Union[Unset, None, str] = UNSET,
     connection_protocol: Union[Unset, None, GetConnectionsConnectionProtocol] = UNSET,
     invitation_key: Union[Unset, None, str] = UNSET,
+    invitation_msg_id: Union[Unset, None, str] = UNSET,
     my_did: Union[Unset, None, str] = UNSET,
     state: Union[Unset, None, GetConnectionsState] = UNSET,
     their_did: Union[Unset, None, str] = UNSET,
+    their_public_did: Union[Unset, None, str] = UNSET,
     their_role: Union[Unset, None, GetConnectionsTheirRole] = UNSET,
 ) -> Optional[ConnectionList]:
     """Query agent-to-agent connections
@@ -144,9 +158,11 @@ def sync(
         alias (Union[Unset, None, str]):
         connection_protocol (Union[Unset, None, GetConnectionsConnectionProtocol]):
         invitation_key (Union[Unset, None, str]):
+        invitation_msg_id (Union[Unset, None, str]):
         my_did (Union[Unset, None, str]):
         state (Union[Unset, None, GetConnectionsState]):
         their_did (Union[Unset, None, str]):
+        their_public_did (Union[Unset, None, str]):
         their_role (Union[Unset, None, GetConnectionsTheirRole]):
 
     Returns:
@@ -158,9 +174,11 @@ def sync(
         alias=alias,
         connection_protocol=connection_protocol,
         invitation_key=invitation_key,
+        invitation_msg_id=invitation_msg_id,
         my_did=my_did,
         state=state,
         their_did=their_did,
+        their_public_did=their_public_did,
         their_role=their_role,
     ).parsed
 
@@ -171,9 +189,11 @@ async def asyncio_detailed(
     alias: Union[Unset, None, str] = UNSET,
     connection_protocol: Union[Unset, None, GetConnectionsConnectionProtocol] = UNSET,
     invitation_key: Union[Unset, None, str] = UNSET,
+    invitation_msg_id: Union[Unset, None, str] = UNSET,
     my_did: Union[Unset, None, str] = UNSET,
     state: Union[Unset, None, GetConnectionsState] = UNSET,
     their_did: Union[Unset, None, str] = UNSET,
+    their_public_did: Union[Unset, None, str] = UNSET,
     their_role: Union[Unset, None, GetConnectionsTheirRole] = UNSET,
 ) -> Response[ConnectionList]:
     """Query agent-to-agent connections
@@ -182,9 +202,11 @@ async def asyncio_detailed(
         alias (Union[Unset, None, str]):
         connection_protocol (Union[Unset, None, GetConnectionsConnectionProtocol]):
         invitation_key (Union[Unset, None, str]):
+        invitation_msg_id (Union[Unset, None, str]):
         my_did (Union[Unset, None, str]):
         state (Union[Unset, None, GetConnectionsState]):
         their_did (Union[Unset, None, str]):
+        their_public_did (Union[Unset, None, str]):
         their_role (Union[Unset, None, GetConnectionsTheirRole]):
 
     Returns:
@@ -196,9 +218,11 @@ async def asyncio_detailed(
         alias=alias,
         connection_protocol=connection_protocol,
         invitation_key=invitation_key,
+        invitation_msg_id=invitation_msg_id,
         my_did=my_did,
         state=state,
         their_did=their_did,
+        their_public_did=their_public_did,
         their_role=their_role,
     )
 
@@ -214,9 +238,11 @@ async def asyncio(
     alias: Union[Unset, None, str] = UNSET,
     connection_protocol: Union[Unset, None, GetConnectionsConnectionProtocol] = UNSET,
     invitation_key: Union[Unset, None, str] = UNSET,
+    invitation_msg_id: Union[Unset, None, str] = UNSET,
     my_did: Union[Unset, None, str] = UNSET,
     state: Union[Unset, None, GetConnectionsState] = UNSET,
     their_did: Union[Unset, None, str] = UNSET,
+    their_public_did: Union[Unset, None, str] = UNSET,
     their_role: Union[Unset, None, GetConnectionsTheirRole] = UNSET,
 ) -> Optional[ConnectionList]:
     """Query agent-to-agent connections
@@ -225,9 +251,11 @@ async def asyncio(
         alias (Union[Unset, None, str]):
         connection_protocol (Union[Unset, None, GetConnectionsConnectionProtocol]):
         invitation_key (Union[Unset, None, str]):
+        invitation_msg_id (Union[Unset, None, str]):
         my_did (Union[Unset, None, str]):
         state (Union[Unset, None, GetConnectionsState]):
         their_did (Union[Unset, None, str]):
+        their_public_did (Union[Unset, None, str]):
         their_role (Union[Unset, None, GetConnectionsTheirRole]):
 
     Returns:
@@ -240,9 +268,11 @@ async def asyncio(
             alias=alias,
             connection_protocol=connection_protocol,
             invitation_key=invitation_key,
+            invitation_msg_id=invitation_msg_id,
             my_did=my_did,
             state=state,
             their_did=their_did,
+            their_public_did=their_public_did,
             their_role=their_role,
         )
     ).parsed

@@ -3,8 +3,8 @@ from typing import Any, Dict, Optional
 import httpx
 
 from ...client import Client
-from ...models.admin_api_message_tracing import AdminAPIMessageTracing
 from ...models.v10_presentation_exchange import V10PresentationExchange
+from ...models.v10_presentation_send_request_to_proposal import V10PresentationSendRequestToProposal
 from ...types import Response
 
 
@@ -12,7 +12,7 @@ def _get_kwargs(
     pres_ex_id: str,
     *,
     client: Client,
-    json_body: AdminAPIMessageTracing,
+    json_body: V10PresentationSendRequestToProposal,
 ) -> Dict[str, Any]:
     url = "{}/present-proof/records/{pres_ex_id}/send-request".format(client.base_url, pres_ex_id=pres_ex_id)
 
@@ -52,13 +52,13 @@ def sync_detailed(
     pres_ex_id: str,
     *,
     client: Client,
-    json_body: AdminAPIMessageTracing,
+    json_body: V10PresentationSendRequestToProposal,
 ) -> Response[V10PresentationExchange]:
     """Sends a presentation request in reference to a proposal
 
     Args:
         pres_ex_id (str):
-        json_body (AdminAPIMessageTracing):
+        json_body (V10PresentationSendRequestToProposal):
 
     Returns:
         Response[V10PresentationExchange]
@@ -82,13 +82,13 @@ def sync(
     pres_ex_id: str,
     *,
     client: Client,
-    json_body: AdminAPIMessageTracing,
+    json_body: V10PresentationSendRequestToProposal,
 ) -> Optional[V10PresentationExchange]:
     """Sends a presentation request in reference to a proposal
 
     Args:
         pres_ex_id (str):
-        json_body (AdminAPIMessageTracing):
+        json_body (V10PresentationSendRequestToProposal):
 
     Returns:
         Response[V10PresentationExchange]
@@ -105,13 +105,13 @@ async def asyncio_detailed(
     pres_ex_id: str,
     *,
     client: Client,
-    json_body: AdminAPIMessageTracing,
+    json_body: V10PresentationSendRequestToProposal,
 ) -> Response[V10PresentationExchange]:
     """Sends a presentation request in reference to a proposal
 
     Args:
         pres_ex_id (str):
-        json_body (AdminAPIMessageTracing):
+        json_body (V10PresentationSendRequestToProposal):
 
     Returns:
         Response[V10PresentationExchange]
@@ -133,13 +133,13 @@ async def asyncio(
     pres_ex_id: str,
     *,
     client: Client,
-    json_body: AdminAPIMessageTracing,
+    json_body: V10PresentationSendRequestToProposal,
 ) -> Optional[V10PresentationExchange]:
     """Sends a presentation request in reference to a proposal
 
     Args:
         pres_ex_id (str):
-        json_body (AdminAPIMessageTracing):
+        json_body (V10PresentationSendRequestToProposal):
 
     Returns:
         Response[V10PresentationExchange]

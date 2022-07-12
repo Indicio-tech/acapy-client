@@ -10,6 +10,7 @@ class GetPresentProofRecordsState(str, Enum):
     PRESENTATION_RECEIVED = "presentation_received"
     VERIFIED = "verified"
     PRESENTATION_ACKED = "presentation_acked"
+    ABANDONED = "abandoned"
 
     def __str__(self) -> str:
         return str(self.value)

@@ -1,21 +1,27 @@
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Union
 
 import httpx
 
 from ...client import Client
 from ...models.transaction_record import TransactionRecord
-from ...types import Response
+from ...types import UNSET, Response, Unset
 
 
 def _get_kwargs(
     tran_id: str,
     *,
     client: Client,
+    endorser_did: Union[Unset, None, str] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/transactions/{tran_id}/endorse".format(client.base_url, tran_id=tran_id)
 
     headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
+
+    params: Dict[str, Any] = {}
+    params["endorser_did"] = endorser_did
+
+    params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     return {
         "method": "post",
@@ -23,6 +29,7 @@ def _get_kwargs(
         "headers": headers,
         "cookies": cookies,
         "timeout": client.get_timeout(),
+        "params": params,
     }
 
 
@@ -47,11 +54,13 @@ def sync_detailed(
     tran_id: str,
     *,
     client: Client,
+    endorser_did: Union[Unset, None, str] = UNSET,
 ) -> Response[TransactionRecord]:
     """For Endorser to endorse a particular transaction record
 
     Args:
         tran_id (str):
+        endorser_did (Union[Unset, None, str]):
 
     Returns:
         Response[TransactionRecord]
@@ -60,6 +69,7 @@ def sync_detailed(
     kwargs = _get_kwargs(
         tran_id=tran_id,
         client=client,
+        endorser_did=endorser_did,
     )
 
     response = httpx.request(
@@ -74,11 +84,13 @@ def sync(
     tran_id: str,
     *,
     client: Client,
+    endorser_did: Union[Unset, None, str] = UNSET,
 ) -> Optional[TransactionRecord]:
     """For Endorser to endorse a particular transaction record
 
     Args:
         tran_id (str):
+        endorser_did (Union[Unset, None, str]):
 
     Returns:
         Response[TransactionRecord]
@@ -87,6 +99,7 @@ def sync(
     return sync_detailed(
         tran_id=tran_id,
         client=client,
+        endorser_did=endorser_did,
     ).parsed
 
 
@@ -94,11 +107,13 @@ async def asyncio_detailed(
     tran_id: str,
     *,
     client: Client,
+    endorser_did: Union[Unset, None, str] = UNSET,
 ) -> Response[TransactionRecord]:
     """For Endorser to endorse a particular transaction record
 
     Args:
         tran_id (str):
+        endorser_did (Union[Unset, None, str]):
 
     Returns:
         Response[TransactionRecord]
@@ -107,6 +122,7 @@ async def asyncio_detailed(
     kwargs = _get_kwargs(
         tran_id=tran_id,
         client=client,
+        endorser_did=endorser_did,
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
@@ -119,11 +135,13 @@ async def asyncio(
     tran_id: str,
     *,
     client: Client,
+    endorser_did: Union[Unset, None, str] = UNSET,
 ) -> Optional[TransactionRecord]:
     """For Endorser to endorse a particular transaction record
 
     Args:
         tran_id (str):
+        endorser_did (Union[Unset, None, str]):
 
     Returns:
         Response[TransactionRecord]
@@ -133,5 +151,6 @@ async def asyncio(
         await asyncio_detailed(
             tran_id=tran_id,
             client=client,
+            endorser_did=endorser_did,
         )
     ).parsed

@@ -12,6 +12,7 @@ class GetIssueCredentialRecordsState(str, Enum):
     CREDENTIAL_RECEIVED = "credential_received"
     CREDENTIAL_ACKED = "credential_acked"
     CREDENTIAL_REVOKED = "credential_revoked"
+    ABANDONED = "abandoned"
 
     def __str__(self) -> str:
         return str(self.value)

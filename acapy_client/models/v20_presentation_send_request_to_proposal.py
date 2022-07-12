@@ -2,46 +2,32 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
-from ..models.v20_pres_request_by_format import V20PresRequestByFormat
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="V20PresCreateRequestRequest")
+T = TypeVar("T", bound="V20PresentationSendRequestToProposal")
 
 
 @attr.s(auto_attribs=True)
-class V20PresCreateRequestRequest:
+class V20PresentationSendRequestToProposal:
     """
     Attributes:
-        presentation_request (V20PresRequestByFormat):
         auto_verify (Union[Unset, bool]): Verifier choice to auto-verify proof presentation
-        comment (Union[Unset, None, str]):
         trace (Union[Unset, bool]): Whether to trace event (default false)
     """
 
-    presentation_request: V20PresRequestByFormat
     auto_verify: Union[Unset, bool] = UNSET
-    comment: Union[Unset, None, str] = UNSET
     trace: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        presentation_request = self.presentation_request.to_dict()
-
         auto_verify = self.auto_verify
-        comment = self.comment
         trace = self.trace
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
-        field_dict.update(
-            {
-                "presentation_request": presentation_request,
-            }
-        )
+        field_dict.update({})
         if auto_verify is not UNSET:
             field_dict["auto_verify"] = auto_verify
-        if comment is not UNSET:
-            field_dict["comment"] = comment
         if trace is not UNSET:
             field_dict["trace"] = trace
 
@@ -50,23 +36,17 @@ class V20PresCreateRequestRequest:
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        presentation_request = V20PresRequestByFormat.from_dict(d.pop("presentation_request"))
-
         auto_verify = d.pop("auto_verify", UNSET)
-
-        comment = d.pop("comment", UNSET)
 
         trace = d.pop("trace", UNSET)
 
-        v20_pres_create_request_request = cls(
-            presentation_request=presentation_request,
+        v20_presentation_send_request_to_proposal = cls(
             auto_verify=auto_verify,
-            comment=comment,
             trace=trace,
         )
 
-        v20_pres_create_request_request.additional_properties = d
-        return v20_pres_create_request_request
+        v20_presentation_send_request_to_proposal.additional_properties = d
+        return v20_presentation_send_request_to_proposal
 
     @property
     def additional_keys(self) -> List[str]:

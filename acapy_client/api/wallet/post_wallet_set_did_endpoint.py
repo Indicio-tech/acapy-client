@@ -1,22 +1,31 @@
-from typing import Any, Dict, Optional
+from typing import Any, Dict, Optional, Union
 
 import httpx
 
 from ...client import Client
 from ...models.did_endpoint_with_type import DIDEndpointWithType
 from ...models.wallet_module_response import WalletModuleResponse
-from ...types import Response
+from ...types import UNSET, Response, Unset
 
 
 def _get_kwargs(
     *,
     client: Client,
     json_body: DIDEndpointWithType,
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/wallet/set-did-endpoint".format(client.base_url)
 
     headers: Dict[str, str] = client.get_headers()
     cookies: Dict[str, Any] = client.get_cookies()
+
+    params: Dict[str, Any] = {}
+    params["conn_id"] = conn_id
+
+    params["create_transaction_for_endorser"] = create_transaction_for_endorser
+
+    params = {k: v for k, v in params.items() if v is not UNSET and v is not None}
 
     json_json_body = json_body.to_dict()
 
@@ -27,6 +36,7 @@ def _get_kwargs(
         "cookies": cookies,
         "timeout": client.get_timeout(),
         "json": json_json_body,
+        "params": params,
     }
 
 
@@ -51,10 +61,14 @@ def sync_detailed(
     *,
     client: Client,
     json_body: DIDEndpointWithType,
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
 ) -> Response[WalletModuleResponse]:
     """Update endpoint in wallet and on ledger if posted to it
 
     Args:
+        conn_id (Union[Unset, None, str]):
+        create_transaction_for_endorser (Union[Unset, None, bool]):
         json_body (DIDEndpointWithType):
 
     Returns:
@@ -64,6 +78,8 @@ def sync_detailed(
     kwargs = _get_kwargs(
         client=client,
         json_body=json_body,
+        conn_id=conn_id,
+        create_transaction_for_endorser=create_transaction_for_endorser,
     )
 
     response = httpx.request(
@@ -78,10 +94,14 @@ def sync(
     *,
     client: Client,
     json_body: DIDEndpointWithType,
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
 ) -> Optional[WalletModuleResponse]:
     """Update endpoint in wallet and on ledger if posted to it
 
     Args:
+        conn_id (Union[Unset, None, str]):
+        create_transaction_for_endorser (Union[Unset, None, bool]):
         json_body (DIDEndpointWithType):
 
     Returns:
@@ -91,6 +111,8 @@ def sync(
     return sync_detailed(
         client=client,
         json_body=json_body,
+        conn_id=conn_id,
+        create_transaction_for_endorser=create_transaction_for_endorser,
     ).parsed
 
 
@@ -98,10 +120,14 @@ async def asyncio_detailed(
     *,
     client: Client,
     json_body: DIDEndpointWithType,
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
 ) -> Response[WalletModuleResponse]:
     """Update endpoint in wallet and on ledger if posted to it
 
     Args:
+        conn_id (Union[Unset, None, str]):
+        create_transaction_for_endorser (Union[Unset, None, bool]):
         json_body (DIDEndpointWithType):
 
     Returns:
@@ -111,6 +137,8 @@ async def asyncio_detailed(
     kwargs = _get_kwargs(
         client=client,
         json_body=json_body,
+        conn_id=conn_id,
+        create_transaction_for_endorser=create_transaction_for_endorser,
     )
 
     async with httpx.AsyncClient(verify=client.verify_ssl) as _client:
@@ -123,10 +151,14 @@ async def asyncio(
     *,
     client: Client,
     json_body: DIDEndpointWithType,
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
 ) -> Optional[WalletModuleResponse]:
     """Update endpoint in wallet and on ledger if posted to it
 
     Args:
+        conn_id (Union[Unset, None, str]):
+        create_transaction_for_endorser (Union[Unset, None, bool]):
         json_body (DIDEndpointWithType):
 
     Returns:
@@ -137,5 +169,7 @@ async def asyncio(
         await asyncio_detailed(
             client=client,
             json_body=json_body,
+            conn_id=conn_id,
+            create_transaction_for_endorser=create_transaction_for_endorser,
         )
     ).parsed

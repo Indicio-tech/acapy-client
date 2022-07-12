@@ -19,6 +19,7 @@ class V10PresentationExchange:
     """
     Attributes:
         auto_present (Union[Unset, bool]): Prover choice to auto-present proof as verifier requests
+        auto_verify (Union[Unset, bool]): Verifier choice to auto-verify proof presentation
         connection_id (Union[Unset, str]): Connection identifier Example: 3fa85f64-5717-4562-b3fc-2c963f66afa6.
         created_at (Union[Unset, str]): Time of record creation Example: 2021-12-31 23:59:59+00:00.
         error_msg (Union[Unset, str]): Error message Example: Invalid structure.
@@ -41,6 +42,7 @@ class V10PresentationExchange:
     """
 
     auto_present: Union[Unset, bool] = UNSET
+    auto_verify: Union[Unset, bool] = UNSET
     connection_id: Union[Unset, str] = UNSET
     created_at: Union[Unset, str] = UNSET
     error_msg: Union[Unset, str] = UNSET
@@ -60,6 +62,7 @@ class V10PresentationExchange:
 
     def to_dict(self) -> Dict[str, Any]:
         auto_present = self.auto_present
+        auto_verify = self.auto_verify
         connection_id = self.connection_id
         created_at = self.created_at
         error_msg = self.error_msg
@@ -101,6 +104,8 @@ class V10PresentationExchange:
         field_dict.update({})
         if auto_present is not UNSET:
             field_dict["auto_present"] = auto_present
+        if auto_verify is not UNSET:
+            field_dict["auto_verify"] = auto_verify
         if connection_id is not UNSET:
             field_dict["connection_id"] = connection_id
         if created_at is not UNSET:
@@ -138,6 +143,8 @@ class V10PresentationExchange:
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
         auto_present = d.pop("auto_present", UNSET)
+
+        auto_verify = d.pop("auto_verify", UNSET)
 
         connection_id = d.pop("connection_id", UNSET)
 
@@ -206,6 +213,7 @@ class V10PresentationExchange:
 
         v10_presentation_exchange = cls(
             auto_present=auto_present,
+            auto_verify=auto_verify,
             connection_id=connection_id,
             created_at=created_at,
             error_msg=error_msg,

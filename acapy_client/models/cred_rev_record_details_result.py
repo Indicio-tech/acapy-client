@@ -2,43 +2,55 @@ from typing import Any, Dict, List, Type, TypeVar, Union
 
 import attr
 
+from ..models.issuer_cred_rev_record import IssuerCredRevRecord
 from ..types import UNSET, Unset
 
-T = TypeVar("T", bound="AdminAPIMessageTracing")
+T = TypeVar("T", bound="CredRevRecordDetailsResult")
 
 
 @attr.s(auto_attribs=True)
-class AdminAPIMessageTracing:
+class CredRevRecordDetailsResult:
     """
     Attributes:
-        trace (Union[Unset, bool]): Record trace information, based on agent configuration
+        results (Union[Unset, List[IssuerCredRevRecord]]):
     """
 
-    trace: Union[Unset, bool] = UNSET
+    results: Union[Unset, List[IssuerCredRevRecord]] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        trace = self.trace
+        results: Union[Unset, List[Dict[str, Any]]] = UNSET
+        if not isinstance(self.results, Unset):
+            results = []
+            for results_item_data in self.results:
+                results_item = results_item_data.to_dict()
+
+                results.append(results_item)
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
-        if trace is not UNSET:
-            field_dict["trace"] = trace
+        if results is not UNSET:
+            field_dict["results"] = results
 
         return field_dict
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        trace = d.pop("trace", UNSET)
+        results = []
+        _results = d.pop("results", UNSET)
+        for results_item_data in _results or []:
+            results_item = IssuerCredRevRecord.from_dict(results_item_data)
 
-        admin_api_message_tracing = cls(
-            trace=trace,
+            results.append(results_item)
+
+        cred_rev_record_details_result = cls(
+            results=results,
         )
 
-        admin_api_message_tracing.additional_properties = d
-        return admin_api_message_tracing
+        cred_rev_record_details_result.additional_properties = d
+        return cred_rev_record_details_result
 
     @property
     def additional_keys(self) -> List[str]:

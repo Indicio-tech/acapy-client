@@ -2,7 +2,6 @@
 
 from .action_menu_fetch_result import ActionMenuFetchResult
 from .action_menu_modules_result import ActionMenuModulesResult
-from .admin_api_message_tracing import AdminAPIMessageTracing
 from .admin_config import AdminConfig
 from .admin_config_config import AdminConfigConfig
 from .admin_mediation_deny import AdminMediationDeny
@@ -61,6 +60,7 @@ from .create_invitation_request_metadata import CreateInvitationRequestMetadata
 from .create_wallet_request import CreateWalletRequest
 from .create_wallet_request_key_management_mode import CreateWalletRequestKeyManagementMode
 from .create_wallet_request_wallet_dispatch_type import CreateWalletRequestWalletDispatchType
+from .create_wallet_request_wallet_key_derivation import CreateWalletRequestWalletKeyDerivation
 from .create_wallet_request_wallet_type import CreateWalletRequestWalletType
 from .create_wallet_response import CreateWalletResponse
 from .create_wallet_response_key_management_mode import CreateWalletResponseKeyManagementMode
@@ -72,6 +72,9 @@ from .cred_def_value import CredDefValue
 from .cred_def_value_primary import CredDefValuePrimary
 from .cred_def_value_revocation import CredDefValueRevocation
 from .cred_info_list import CredInfoList
+from .cred_rev_indy_records_result import CredRevIndyRecordsResult
+from .cred_rev_indy_records_result_rev_reg_delta import CredRevIndyRecordsResultRevRegDelta
+from .cred_rev_record_details_result import CredRevRecordDetailsResult
 from .cred_rev_record_result import CredRevRecordResult
 from .cred_revoked_result import CredRevokedResult
 from .credential import Credential
@@ -285,7 +288,6 @@ from .query_item import QueryItem
 from .query_item_feature_type import QueryItemFeatureType
 from .raw_encoded import RawEncoded
 from .receive_invitation_request import ReceiveInvitationRequest
-from .register_ledger_nym_response import RegisterLedgerNymResponse
 from .remove_wallet_request import RemoveWalletRequest
 from .resolution_result import ResolutionResult
 from .resolution_result_did_doc import ResolutionResultDidDoc
@@ -294,9 +296,14 @@ from .rev_reg_create_request import RevRegCreateRequest
 from .rev_reg_issued_result import RevRegIssuedResult
 from .rev_reg_result import RevRegResult
 from .rev_reg_update_tails_file_uri import RevRegUpdateTailsFileUri
+from .rev_reg_wallet_updated_result import RevRegWalletUpdatedResult
+from .rev_reg_wallet_updated_result_accum_calculated import RevRegWalletUpdatedResultAccumCalculated
+from .rev_reg_wallet_updated_result_accum_fixed import RevRegWalletUpdatedResultAccumFixed
+from .rev_reg_wallet_updated_result_rev_reg_delta import RevRegWalletUpdatedResultRevRegDelta
 from .rev_regs_created import RevRegsCreated
 from .revocation_module_response import RevocationModuleResponse
 from .revoke_request import RevokeRequest
+from .revoke_request_notify_version import RevokeRequestNotifyVersion
 from .route_record import RouteRecord
 from .schema import Schema
 from .schema_get_result import SchemaGetResult
@@ -333,6 +340,7 @@ from .transaction_record_signature_response_item import TransactionRecordSignatu
 from .transaction_record_timing import TransactionRecordTiming
 from .txn_or_credential_definition_send_result import TxnOrCredentialDefinitionSendResult
 from .txn_or_publish_revocations_result import TxnOrPublishRevocationsResult
+from .txn_or_register_ledger_nym_response import TxnOrRegisterLedgerNymResponse
 from .txn_or_rev_reg_result import TxnOrRevRegResult
 from .txn_or_schema_send_result import TxnOrSchemaSendResult
 from .update_wallet_request import UpdateWalletRequest
@@ -364,6 +372,7 @@ from .v10_presentation_exchange_verified import V10PresentationExchangeVerified
 from .v10_presentation_problem_report_request import V10PresentationProblemReportRequest
 from .v10_presentation_proposal_request import V10PresentationProposalRequest
 from .v10_presentation_send_request_request import V10PresentationSendRequestRequest
+from .v10_presentation_send_request_to_proposal import V10PresentationSendRequestToProposal
 from .v20_cred_attr_spec import V20CredAttrSpec
 from .v20_cred_bound_offer_request import V20CredBoundOfferRequest
 from .v20_cred_ex_free import V20CredExFree
@@ -424,6 +433,7 @@ from .v20_pres_request_by_format import V20PresRequestByFormat
 from .v20_pres_send_request_request import V20PresSendRequestRequest
 from .v20_pres_spec_by_format_request import V20PresSpecByFormatRequest
 from .v20_present_proof_module_response import V20PresentProofModuleResponse
+from .v20_presentation_send_request_to_proposal import V20PresentationSendRequestToProposal
 from .vc_record import VCRecord
 from .vc_record_cred_tags import VCRecordCredTags
 from .vc_record_cred_value import VCRecordCredValue

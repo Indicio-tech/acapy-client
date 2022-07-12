@@ -1,44 +1,31 @@
-from typing import Any, Dict, List, Type, TypeVar, Union
+from typing import Any, Dict, List, Type, TypeVar
 
 import attr
 
-from ..types import UNSET, Unset
-
-T = TypeVar("T", bound="RegisterLedgerNymResponse")
+T = TypeVar("T", bound="CredRevIndyRecordsResultRevRegDelta")
 
 
 @attr.s(auto_attribs=True)
-class RegisterLedgerNymResponse:
-    """
-    Attributes:
-        success (Union[Unset, bool]): Success of nym registration operation Example: True.
-    """
+class CredRevIndyRecordsResultRevRegDelta:
+    """Indy revocation registry delta"""
 
-    success: Union[Unset, bool] = UNSET
     additional_properties: Dict[str, Any] = attr.ib(init=False, factory=dict)
 
     def to_dict(self) -> Dict[str, Any]:
-        success = self.success
 
         field_dict: Dict[str, Any] = {}
         field_dict.update(self.additional_properties)
         field_dict.update({})
-        if success is not UNSET:
-            field_dict["success"] = success
 
         return field_dict
 
     @classmethod
     def from_dict(cls: Type[T], src_dict: Dict[str, Any]) -> T:
         d = src_dict.copy()
-        success = d.pop("success", UNSET)
+        cred_rev_indy_records_result_rev_reg_delta = cls()
 
-        register_ledger_nym_response = cls(
-            success=success,
-        )
-
-        register_ledger_nym_response.additional_properties = d
-        return register_ledger_nym_response
+        cred_rev_indy_records_result_rev_reg_delta.additional_properties = d
+        return cred_rev_indy_records_result_rev_reg_delta
 
     @property
     def additional_keys(self) -> List[str]:

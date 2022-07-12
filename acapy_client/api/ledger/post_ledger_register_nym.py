@@ -4,7 +4,7 @@ import httpx
 
 from ...client import Client
 from ...models.post_ledger_register_nym_role import PostLedgerRegisterNymRole
-from ...models.register_ledger_nym_response import RegisterLedgerNymResponse
+from ...models.txn_or_register_ledger_nym_response import TxnOrRegisterLedgerNymResponse
 from ...types import UNSET, Response, Unset
 
 
@@ -14,6 +14,8 @@ def _get_kwargs(
     did: str,
     verkey: str,
     alias: Union[Unset, None, str] = UNSET,
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
     role: Union[Unset, None, PostLedgerRegisterNymRole] = UNSET,
 ) -> Dict[str, Any]:
     url = "{}/ledger/register-nym".format(client.base_url)
@@ -27,6 +29,10 @@ def _get_kwargs(
     params["verkey"] = verkey
 
     params["alias"] = alias
+
+    params["conn_id"] = conn_id
+
+    params["create_transaction_for_endorser"] = create_transaction_for_endorser
 
     json_role: Union[Unset, None, str] = UNSET
     if not isinstance(role, Unset):
@@ -46,15 +52,15 @@ def _get_kwargs(
     }
 
 
-def _parse_response(*, response: httpx.Response) -> Optional[RegisterLedgerNymResponse]:
+def _parse_response(*, response: httpx.Response) -> Optional[TxnOrRegisterLedgerNymResponse]:
     if response.status_code == 200:
-        response_200 = RegisterLedgerNymResponse.from_dict(response.json())
+        response_200 = TxnOrRegisterLedgerNymResponse.from_dict(response.json())
 
         return response_200
     return None
 
 
-def _build_response(*, response: httpx.Response) -> Response[RegisterLedgerNymResponse]:
+def _build_response(*, response: httpx.Response) -> Response[TxnOrRegisterLedgerNymResponse]:
     return Response(
         status_code=response.status_code,
         content=response.content,
@@ -69,18 +75,22 @@ def sync_detailed(
     did: str,
     verkey: str,
     alias: Union[Unset, None, str] = UNSET,
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
     role: Union[Unset, None, PostLedgerRegisterNymRole] = UNSET,
-) -> Response[RegisterLedgerNymResponse]:
+) -> Response[TxnOrRegisterLedgerNymResponse]:
     """Send a NYM registration to the ledger.
 
     Args:
         did (str):
         verkey (str):
         alias (Union[Unset, None, str]):
+        conn_id (Union[Unset, None, str]):
+        create_transaction_for_endorser (Union[Unset, None, bool]):
         role (Union[Unset, None, PostLedgerRegisterNymRole]):
 
     Returns:
-        Response[RegisterLedgerNymResponse]
+        Response[TxnOrRegisterLedgerNymResponse]
     """
 
     kwargs = _get_kwargs(
@@ -88,6 +98,8 @@ def sync_detailed(
         did=did,
         verkey=verkey,
         alias=alias,
+        conn_id=conn_id,
+        create_transaction_for_endorser=create_transaction_for_endorser,
         role=role,
     )
 
@@ -105,18 +117,22 @@ def sync(
     did: str,
     verkey: str,
     alias: Union[Unset, None, str] = UNSET,
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
     role: Union[Unset, None, PostLedgerRegisterNymRole] = UNSET,
-) -> Optional[RegisterLedgerNymResponse]:
+) -> Optional[TxnOrRegisterLedgerNymResponse]:
     """Send a NYM registration to the ledger.
 
     Args:
         did (str):
         verkey (str):
         alias (Union[Unset, None, str]):
+        conn_id (Union[Unset, None, str]):
+        create_transaction_for_endorser (Union[Unset, None, bool]):
         role (Union[Unset, None, PostLedgerRegisterNymRole]):
 
     Returns:
-        Response[RegisterLedgerNymResponse]
+        Response[TxnOrRegisterLedgerNymResponse]
     """
 
     return sync_detailed(
@@ -124,6 +140,8 @@ def sync(
         did=did,
         verkey=verkey,
         alias=alias,
+        conn_id=conn_id,
+        create_transaction_for_endorser=create_transaction_for_endorser,
         role=role,
     ).parsed
 
@@ -134,18 +152,22 @@ async def asyncio_detailed(
     did: str,
     verkey: str,
     alias: Union[Unset, None, str] = UNSET,
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
     role: Union[Unset, None, PostLedgerRegisterNymRole] = UNSET,
-) -> Response[RegisterLedgerNymResponse]:
+) -> Response[TxnOrRegisterLedgerNymResponse]:
     """Send a NYM registration to the ledger.
 
     Args:
         did (str):
         verkey (str):
         alias (Union[Unset, None, str]):
+        conn_id (Union[Unset, None, str]):
+        create_transaction_for_endorser (Union[Unset, None, bool]):
         role (Union[Unset, None, PostLedgerRegisterNymRole]):
 
     Returns:
-        Response[RegisterLedgerNymResponse]
+        Response[TxnOrRegisterLedgerNymResponse]
     """
 
     kwargs = _get_kwargs(
@@ -153,6 +175,8 @@ async def asyncio_detailed(
         did=did,
         verkey=verkey,
         alias=alias,
+        conn_id=conn_id,
+        create_transaction_for_endorser=create_transaction_for_endorser,
         role=role,
     )
 
@@ -168,18 +192,22 @@ async def asyncio(
     did: str,
     verkey: str,
     alias: Union[Unset, None, str] = UNSET,
+    conn_id: Union[Unset, None, str] = UNSET,
+    create_transaction_for_endorser: Union[Unset, None, bool] = UNSET,
     role: Union[Unset, None, PostLedgerRegisterNymRole] = UNSET,
-) -> Optional[RegisterLedgerNymResponse]:
+) -> Optional[TxnOrRegisterLedgerNymResponse]:
     """Send a NYM registration to the ledger.
 
     Args:
         did (str):
         verkey (str):
         alias (Union[Unset, None, str]):
+        conn_id (Union[Unset, None, str]):
+        create_transaction_for_endorser (Union[Unset, None, bool]):
         role (Union[Unset, None, PostLedgerRegisterNymRole]):
 
     Returns:
-        Response[RegisterLedgerNymResponse]
+        Response[TxnOrRegisterLedgerNymResponse]
     """
 
     return (
@@ -188,6 +216,8 @@ async def asyncio(
             did=did,
             verkey=verkey,
             alias=alias,
+            conn_id=conn_id,
+            create_transaction_for_endorser=create_transaction_for_endorser,
             role=role,
         )
     ).parsed
